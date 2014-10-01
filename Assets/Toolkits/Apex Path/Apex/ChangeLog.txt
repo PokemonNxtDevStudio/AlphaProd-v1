@@ -1,0 +1,25 @@
+﻿v. 1.1 patch 1
+	New Features:
+	- Option to disallow diagonal movement added to the SteerForPath Component.
+	- IControlFacingOrientation now has an Unsubscribe method.
+	
+	Bug fixes:
+	- MenuExtensions had escaped the editor folder, they are now back in the fold.
+	- The basic avoidance steering will no longer affect units with no velocity.
+	   
+v. 1.1 Minor feature update
+	- Adds basic avoidance to steering. A new Quickstart will now add this to units.
+	- Minor improvement to the replacement of input receivers, input receivers are now resolved by means of an attribute.
+	- Improved configuration options when defining load balancers.
+	- Streamlined facing orientation control to behave the same as locomotion with regards to overriding default behavior. This is a *Breaking* change.
+	- Grid baked data can now be stored as an asset. This allows for prefab'ing grids.
+	- Grids now have an option to disable automatic initialization, and instead an Initialize method must be called manually. This Initialize method does its work smoothly over several frames.
+	- Grids can now be disabled to release all memory used, but calling Disable().
+	- The dynamic update time limit on grids has been removed and instead must be supplied in the call to perform a dynamic update.
+	- Baked grids can now be re-baked without first having to press 'Edit'.
+	- SteerableUnitComponent now has a setting to control the minimum speed at which units turn.
+
+	Bug fixes:
+	- Game services are now properly initialized before other components.
+
+v. 1.0 Initial Release
