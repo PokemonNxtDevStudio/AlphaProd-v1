@@ -1,0 +1,686 @@
+fileFormatVersion: 2
+guid: b1fb8a5ea404be1479a70681832591b8
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Bulbasaur_Mesh
+    100004: Face
+    100006: L_Elbow
+    100008: L_Foot
+    100010: L_Hand
+    100012: L_Hip
+    100014: L_Knee
+    100016: L_Shoulder
+    100018: LowerJaw
+    100020: R_Elbow
+    100022: R_Foot
+    100024: R_Hand
+    100026: R_Hip
+    100028: R_Knee
+    100030: R_Shoulder
+    100032: Root
+    100034: Spine1
+    100036: Spine2
+    400000: //RootNode
+    400002: Bulbasaur_Mesh
+    400004: Face
+    400006: L_Elbow
+    400008: L_Foot
+    400010: L_Hand
+    400012: L_Hip
+    400014: L_Knee
+    400016: L_Shoulder
+    400018: LowerJaw
+    400020: R_Elbow
+    400022: R_Foot
+    400024: R_Hand
+    400026: R_Hip
+    400028: R_Knee
+    400030: R_Shoulder
+    400032: Root
+    400034: Spine1
+    400036: Spine2
+    4300000: Bulbasaur_Mesh
+    7400000: Walk
+    7400002: Run
+    7400004: Tackle
+    7400006: StrafeLeft
+    7400008: StrafeRight
+    7400010: TakeDown
+    7400012: Idle
+    7400014: Growl
+    7400016: PreChargeTackle
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Bulbasaur_Mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 1
+    motionNodeName: 
+    animationCompression: 3
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bulbasaur_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Face
+        weight: 1
+      - path: Root/Face/LowerJaw
+        weight: 1
+      - path: Root/Spine1
+        weight: 1
+      - path: Root/Spine1/Spine2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip/L_Knee
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip/R_Knee
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/L_Shoulder
+        weight: 1
+      - path: Root/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/R_Shoulder
+        weight: 1
+      - path: Root/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Run
+      takeName: Take 001
+      firstFrame: 27
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bulbasaur_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Face
+        weight: 1
+      - path: Root/Face/LowerJaw
+        weight: 1
+      - path: Root/L_Shoulder
+        weight: 1
+      - path: Root/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/R_Shoulder
+        weight: 1
+      - path: Root/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/Spine1
+        weight: 1
+      - path: Root/Spine1/Spine2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip/L_Knee
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip/R_Knee
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip/R_Knee/R_Foot
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Tackle
+      takeName: Take 001
+      firstFrame: 72
+      lastFrame: 85
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bulbasaur_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Face
+        weight: 1
+      - path: Root/Face/LowerJaw
+        weight: 1
+      - path: Root/L_Shoulder
+        weight: 1
+      - path: Root/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/R_Shoulder
+        weight: 1
+      - path: Root/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/Spine1
+        weight: 1
+      - path: Root/Spine1/Spine2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip/L_Knee
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip/R_Knee
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip/R_Knee/R_Foot
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: StrafeLeft
+      takeName: Take 001
+      firstFrame: 230
+      lastFrame: 238
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bulbasaur_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Face
+        weight: 1
+      - path: Root/Face/LowerJaw
+        weight: 1
+      - path: Root/L_Shoulder
+        weight: 1
+      - path: Root/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/R_Shoulder
+        weight: 1
+      - path: Root/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/Spine1
+        weight: 1
+      - path: Root/Spine1/Spine2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip/L_Knee
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip/R_Knee
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip/R_Knee/R_Foot
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: StrafeRight
+      takeName: Take 001
+      firstFrame: 211
+      lastFrame: 219
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bulbasaur_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Face
+        weight: 1
+      - path: Root/Face/LowerJaw
+        weight: 1
+      - path: Root/Spine1
+        weight: 1
+      - path: Root/Spine1/Spine2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip/L_Knee
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip/R_Knee
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/L_Shoulder
+        weight: 1
+      - path: Root/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/R_Shoulder
+        weight: 1
+      - path: Root/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: TakeDown
+      takeName: Take 001
+      firstFrame: 182
+      lastFrame: 199
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bulbasaur_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Face
+        weight: 1
+      - path: Root/Face/LowerJaw
+        weight: 1
+      - path: Root/L_Shoulder
+        weight: 1
+      - path: Root/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/R_Shoulder
+        weight: 1
+      - path: Root/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/Spine1
+        weight: 1
+      - path: Root/Spine1/Spine2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip/L_Knee
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip/R_Knee
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip/R_Knee/R_Foot
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 62
+      lastFrame: 71
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bulbasaur_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Face
+        weight: 1
+      - path: Root/Face/LowerJaw
+        weight: 1
+      - path: Root/L_Shoulder
+        weight: 1
+      - path: Root/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/R_Shoulder
+        weight: 1
+      - path: Root/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/Spine1
+        weight: 1
+      - path: Root/Spine1/Spine2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip/L_Knee
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip/R_Knee
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip/R_Knee/R_Foot
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Growl
+      takeName: Take 001
+      firstFrame: 86
+      lastFrame: 109
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bulbasaur_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Face
+        weight: 1
+      - path: Root/Face/LowerJaw
+        weight: 1
+      - path: Root/L_Shoulder
+        weight: 1
+      - path: Root/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/R_Shoulder
+        weight: 1
+      - path: Root/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/Spine1
+        weight: 1
+      - path: Root/Spine1/Spine2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip/L_Knee
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip/R_Knee
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip/R_Knee/R_Foot
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: PreChargeTackle
+      takeName: Take 001
+      firstFrame: 27
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bulbasaur_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Face
+        weight: 1
+      - path: Root/Face/LowerJaw
+        weight: 1
+      - path: Root/Spine1
+        weight: 1
+      - path: Root/Spine1/Spine2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip/L_Knee
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip/R_Knee
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/L_Shoulder
+        weight: 1
+      - path: Root/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/R_Shoulder
+        weight: 1
+      - path: Root/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
