@@ -10,82 +10,78 @@ public class CharacterSelection : MonoBehaviour {
     public GameObject triggerPanel;
     public GameObject oppositePanel;
 
-    private bool actionAble = true;
-
     public void ClickUI()
     {
-        instructionText.active = false;
-        confirmationText.active = true;
+        instructionText.SetActive(false);
+        confirmationText.SetActive(true);
         if (boy)
         {
-            confirmationText.transform.FindChild("Label_Girl").active = false;
-            confirmationText.transform.FindChild("Label_Boy").active = true;
+            confirmationText.transform.FindChild("Label_Girl").gameObject.SetActive(false);
+            confirmationText.transform.FindChild("Label_Boy").gameObject.SetActive(true);
         }
         else if (!boy)
         {
-            confirmationText.transform.FindChild("Label_Boy").active = false;
-            confirmationText.transform.FindChild("Label_Girl").active = true;
+            confirmationText.transform.FindChild("Label_Boy").gameObject.SetActive(false);
+            confirmationText.transform.FindChild("Label_Girl").gameObject.SetActive(true);
         }   
     }
 
     public void DeclineGender()
     {
-        instructionText.active = true;
-        confirmationText.active = false;
+        instructionText.SetActive(true);
+        confirmationText.SetActive(false);
     }
 
     public void EnablePanels()
     {
-        UIPanels.transform.FindChild("PanelRight").active = true;
-        UIPanels.transform.FindChild("PanelLeft").active = true;
-        oppositePanel.active = true;
-        triggerPanel.active = true;
+        UIPanels.transform.FindChild("PanelRight").gameObject.SetActive(true);
+        UIPanels.transform.FindChild("PanelLeft").gameObject.SetActive(true);
+        oppositePanel.SetActive(true);
+        triggerPanel.SetActive(true);
     }
 
     public void DisablePanel()
     {
-        oppositePanel.active = false;
+        oppositePanel.SetActive(false);
     }
 
     public void EnablePanel()
     {
-        oppositePanel.active = false;
-        triggerPanel.active = true;
+        oppositePanel.SetActive(false);
+        triggerPanel.SetActive(true);
     }
 
     public void DisableButtons()
     {
-        confirmationText.transform.FindChild("Confirm Button").FindChild("Button").active = false;
-        confirmationText.transform.FindChild("Decline Button").FindChild("ButtonBoy").active = false;
-        confirmationText.transform.FindChild("Decline Button").FindChild("ButtonGirl").active = false;
+        confirmationText.transform.FindChild("Decline Button").FindChild("ButtonBoy").gameObject.SetActive(false);
+        confirmationText.transform.FindChild("Decline Button").FindChild("ButtonGirl").gameObject.SetActive(false);
     }
 
     public void EnableButtons()
     {
-        confirmationText.transform.FindChild("Confirm Button").FindChild("Button").active = true;
-        confirmationText.transform.FindChild("Decline Button").FindChild("ButtonBoy").active = true;
-        confirmationText.transform.FindChild("Decline Button").FindChild("ButtonGirl").active = true;
+        confirmationText.transform.FindChild("Decline Button").FindChild("ButtonBoy").gameObject.SetActive(true);
+        confirmationText.transform.FindChild("Decline Button").FindChild("ButtonGirl").gameObject.SetActive(true);
     }
 
     public void EnableTriggerPanel()
     {
-        triggerPanel.active = true;
+        triggerPanel.SetActive(true);
     }
 
     public void DisableTriggerPanel()
     {
-        triggerPanel.active = false;
+        triggerPanel.SetActive(false);
     }
 
     public void ChooseGirl()
     {
-        confirmationText.transform.FindChild("Decline Button").FindChild("ButtonBoy").active = false;
-        confirmationText.transform.FindChild("Decline Button").FindChild("ButtonGirl").active = true;
+        confirmationText.transform.FindChild("Decline Button").FindChild("ButtonBoy").gameObject.SetActive(false);
+        confirmationText.transform.FindChild("Decline Button").FindChild("ButtonGirl").gameObject.SetActive(true);
     }
 
     public void ChooseBoy()
     {
-        confirmationText.transform.FindChild("Decline Button").FindChild("ButtonGirl").active = false;
-        confirmationText.transform.FindChild("Decline Button").FindChild("ButtonBoy").active = true;
+        confirmationText.transform.FindChild("Decline Button").FindChild("ButtonGirl").gameObject.SetActive(false);
+        confirmationText.transform.FindChild("Decline Button").FindChild("ButtonBoy").gameObject.SetActive(true);
     }
 }
