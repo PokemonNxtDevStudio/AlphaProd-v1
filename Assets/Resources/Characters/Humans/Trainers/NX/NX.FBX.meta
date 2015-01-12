@@ -63,7 +63,18 @@ ModelImporter:
     3300000: NX_Hair
     4300000: NX_Hair
     4300002: NX_Mesh
-    7400000: Idle
+    7400000: Walk
+    7400002: Run
+    7400004: Idle
+    7400006: Pre_StrafeRight
+    7400008: StrafeRight
+    7400010: Pre_StrafeLeft
+    7400012: StrafeLeft
+    7400014: Jump_Up
+    7400016: Jump_Forward
+    7400018: WalkBack
+    7400020: Idle_2
+    7400022: ThrowPokeball
     9500000: //RootNode
     13700000: NX_Mesh
   materials:
@@ -83,10 +94,912 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: NX_Hair
+        weight: 1
+      - path: NX_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot/L_Toes
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot/R_Toes
+        weight: 1
+      - path: Root/Spine1
+        weight: 1
+      - path: Root/Spine1/Spine2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2/L_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Thumb
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck/Face
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand/R_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Thumb
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Run
+      takeName: Take 001
+      firstFrame: 28
+      lastFrame: 43
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: NX_Hair
+        weight: 1
+      - path: NX_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot/L_Toes
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot/R_Toes
+        weight: 1
+      - path: Root/Spine1
+        weight: 1
+      - path: Root/Spine1/Spine2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2/L_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Thumb
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck/Face
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand/R_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Thumb
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
       name: Idle
       takeName: Take 001
       firstFrame: 47
       lastFrame: 74
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: NX_Hair
+        weight: 1
+      - path: NX_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot/L_Toes
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot/R_Toes
+        weight: 1
+      - path: Root/Spine1
+        weight: 1
+      - path: Root/Spine1/Spine2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2/L_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Thumb
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck/Face
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand/R_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Thumb
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Pre_StrafeRight
+      takeName: Take 001
+      firstFrame: 154
+      lastFrame: 161
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: NX_Hair
+        weight: 1
+      - path: NX_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot/L_Toes
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot/R_Toes
+        weight: 1
+      - path: Root/Spine1
+        weight: 1
+      - path: Root/Spine1/Spine2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2/L_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Thumb
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck/Face
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand/R_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Thumb
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: StrafeRight
+      takeName: Take 001
+      firstFrame: 162
+      lastFrame: 177
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: NX_Hair
+        weight: 1
+      - path: NX_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot/L_Toes
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot/R_Toes
+        weight: 1
+      - path: Root/Spine1
+        weight: 1
+      - path: Root/Spine1/Spine2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2/L_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Thumb
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck/Face
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand/R_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Thumb
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Pre_StrafeLeft
+      takeName: Take 001
+      firstFrame: 180
+      lastFrame: 187
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: NX_Hair
+        weight: 1
+      - path: NX_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot/L_Toes
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot/R_Toes
+        weight: 1
+      - path: Root/Spine1
+        weight: 1
+      - path: Root/Spine1/Spine2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2/L_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Thumb
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck/Face
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand/R_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Thumb
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: StrafeLeft
+      takeName: Take 001
+      firstFrame: 188
+      lastFrame: 203
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: NX_Hair
+        weight: 1
+      - path: NX_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot/L_Toes
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot/R_Toes
+        weight: 1
+      - path: Root/Spine1
+        weight: 1
+      - path: Root/Spine1/Spine2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2/L_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Thumb
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck/Face
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand/R_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Thumb
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Jump_Up
+      takeName: Take 001
+      firstFrame: 77
+      lastFrame: 101
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: NX_Hair
+        weight: 1
+      - path: NX_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot/L_Toes
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot/R_Toes
+        weight: 1
+      - path: Root/Spine1
+        weight: 1
+      - path: Root/Spine1/Spine2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2/L_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Thumb
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck/Face
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand/R_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Thumb
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Jump_Forward
+      takeName: Take 001
+      firstFrame: 102
+      lastFrame: 129
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: NX_Hair
+        weight: 1
+      - path: NX_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot/L_Toes
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot/R_Toes
+        weight: 1
+      - path: Root/Spine1
+        weight: 1
+      - path: Root/Spine1/Spine2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2/L_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Thumb
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck/Face
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand/R_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Thumb
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: WalkBack
+      takeName: Take 001
+      firstFrame: 206
+      lastFrame: 233
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: NX_Hair
+        weight: 1
+      - path: NX_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot/L_Toes
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot/R_Toes
+        weight: 1
+      - path: Root/Spine1
+        weight: 1
+      - path: Root/Spine1/Spine2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2/L_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Thumb
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck/Face
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand/R_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Thumb
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle_2
+      takeName: Take 001
+      firstFrame: 236
+      lastFrame: 279
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: NX_Hair
+        weight: 1
+      - path: NX_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot/L_Toes
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot/R_Toes
+        weight: 1
+      - path: Root/Spine1
+        weight: 1
+      - path: Root/Spine1/Spine2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Hand 2/L_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/L_Shoulder/L_Elbow/L_Hand/L_Thumb
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck
+        weight: 1
+      - path: Root/Spine1/Spine2/Neck/Face
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Hand/R_Fingers
+        weight: 1
+      - path: Root/Spine1/Spine2/R_Shoulder/R_Elbow/L_Hand 1/R_Thumb
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: ThrowPokeball
+      takeName: Take 001
+      firstFrame: 132
+      lastFrame: 151
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

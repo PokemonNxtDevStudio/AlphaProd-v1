@@ -2,6 +2,7 @@
 
 public class SceneLoader : MonoBehaviour
 {
+
     public string levelName;
 
     public void OnClick()
@@ -11,8 +12,5 @@ public class SceneLoader : MonoBehaviour
             Application.LoadLevel(levelName);
         }
     }
-    void Update()
-    {
 
-    }
 }
