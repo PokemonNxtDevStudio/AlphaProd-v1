@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UIClick : MonoBehaviour {
+public class CharacterSelection : MonoBehaviour {
 
     public bool boy;
-    public Animator playerAnimator;
     public GameObject instructionText;
     public GameObject confirmationText;
     public GameObject UIPanels;
@@ -15,7 +14,6 @@ public class UIClick : MonoBehaviour {
 
     public void ClickUI()
     {
-        playerAnimator.SetFloat("Input_Y", 1.0f);
         instructionText.active = false;
         confirmationText.active = true;
         if (boy)
@@ -32,7 +30,6 @@ public class UIClick : MonoBehaviour {
 
     public void DeclineGender()
     {
-        playerAnimator.SetFloat("Input_Y", 0.0f);
         instructionText.active = true;
         confirmationText.active = false;
     }
@@ -41,11 +38,19 @@ public class UIClick : MonoBehaviour {
     {
         UIPanels.transform.FindChild("PanelRight").active = true;
         UIPanels.transform.FindChild("PanelLeft").active = true;
+        oppositePanel.active = true;
+        triggerPanel.active = true;
     }
 
     public void DisablePanel()
     {
         oppositePanel.active = false;
+    }
+
+    public void EnablePanel()
+    {
+        oppositePanel.active = false;
+        triggerPanel.active = true;
     }
 
     public void DisableButtons()
@@ -75,10 +80,12 @@ public class UIClick : MonoBehaviour {
     public void ChooseGirl()
     {
         confirmationText.transform.FindChild("Decline Button").FindChild("ButtonBoy").active = false;
+        confirmationText.transform.FindChild("Decline Button").FindChild("ButtonGirl").active = true;
     }
 
     public void ChooseBoy()
     {
         confirmationText.transform.FindChild("Decline Button").FindChild("ButtonGirl").active = false;
+        confirmationText.transform.FindChild("Decline Button").FindChild("ButtonBoy").active = true;
     }
 }
