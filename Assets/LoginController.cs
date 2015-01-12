@@ -7,10 +7,11 @@ public class LoginController : MonoBehaviour {
 
     public UILabel Username;
     public UILabel Password;
-    private ClientCore client = new ClientCore();
+    private ClientCore client;
 	// Use this for initialization
 	void Start () {
-  
+
+        client = MMOManager.Instance.clientCore;
         client.InitializeClient(NetworkConfig.HOST, NetworkConfig.PORT);
         client.onLoginResponse += OnLoginResponse;
         client.Connect();
@@ -32,13 +33,13 @@ public class LoginController : MonoBehaviour {
     {
         //MMOManager.Instance.player.ID = reader.ReadInt32();
         //MMOManager.Instance.player.Username = reader.ReadString();
-        Application.LoadLevel(1);
+        Application.LoadLevelAsync(1);
         
     }
     public void Login()
     {
-        PacketBuffer buffer = client.tcProtoClient.CreatePacket(PacketTypes.Special);  //Header
-        buffer.StartWriting(true).WriteHeader((byte)SpecialRequest.LoginRequest).WriteString(Username.text).WriteString("FuckYou232").WriteString("test@232email.ca");
-        client.tcProtoClient.SendPacket();
+        PacketBuffer buffer = client.clientSocket.CreatePacket(PacketTypes.Special);  //Header
+        buffer.StartWriting(true).WriteHeader((byte)SpecialRequest.LoginRequest).WriteString(Username.text).WriteString("FuckYou232").WriteString("");
+        client.clientSocket.SendPacket();
     }
 }
