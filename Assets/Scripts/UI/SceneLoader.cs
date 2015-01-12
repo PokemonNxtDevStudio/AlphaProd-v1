@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
-
+using Client;
 public class SceneLoader : MonoBehaviour
 {
-
     public string levelName;
 
     public void OnClick()
