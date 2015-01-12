@@ -31,8 +31,10 @@ public class LoginController : MonoBehaviour {
     }
     void OnLogin(BinaryReader reader)
     {
-        //MMOManager.Instance.player.ID = reader.ReadInt32();
-        //MMOManager.Instance.player.Username = reader.ReadString();
+        MMOManager.Instance.player = new Player();
+        reader.ReadString();
+        MMOManager.Instance.player.ID = reader.ReadInt32();
+        MMOManager.Instance.player.Username = reader.ReadString();
         Application.LoadLevelAsync(1);
         
     }
