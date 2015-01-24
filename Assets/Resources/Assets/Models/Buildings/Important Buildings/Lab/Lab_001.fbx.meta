@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b2e8d5e78fb17fa4e8628545f8d59f7f
+guid: 354b31b3ea297ab4c9cd7f80c4ad3cac
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -8,45 +8,38 @@ ModelImporter:
     100004: Door3
     100006: Door4
     100008: Door5
-    100010: Lab01
-    100012: //RootNode
+    100010: //RootNode
+    100012: Lab_01
     100014: WindowsGlass_Lab001
     400000: Door1
     400002: Door2
     400004: Door3
     400006: Door4
     400008: Door5
-    400010: Lab01
-    400012: //RootNode
+    400010: //RootNode
+    400012: Lab_01
     400014: WindowsGlass_Lab001
     2300000: Door1
     2300002: Door2
     2300004: Door3
     2300006: Door4
     2300008: Door5
-    2300010: Lab01
+    2300010: Lab_01
     2300012: WindowsGlass_Lab001
     3300000: Door1
     3300002: Door2
     3300004: Door3
     3300006: Door4
     3300008: Door5
-    3300010: Lab01
+    3300010: Lab_01
     3300012: WindowsGlass_Lab001
-    4300000: Door3
-    4300002: Door2
-    4300004: Door1
-    4300006: Door5
-    4300008: Door4
-    4300010: Lab01
+    4300000: Lab_01
+    4300002: Door3
+    4300004: Door2
+    4300006: Door1
+    4300008: Door5
+    4300010: Door4
     4300012: WindowsGlass_Lab001
-    6400000: Door1
-    6400002: Door2
-    6400004: Door3
-    6400006: Door4
-    6400008: Door5
-    6400010: Lab01
-    6400012: WindowsGlass_Lab001
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -67,7 +60,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .25
+    globalScale: .00999999978
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
