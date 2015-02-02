@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using Client;
 namespace PokemonNXT.Controllers {
 
     public class CharacterMotorCtrl: BaseMotorController {
@@ -10,6 +10,23 @@ namespace PokemonNXT.Controllers {
             get { return Mathf.Sqrt(2 * JumpHeight * Gravity); }
         }
 
+        void Start()
+        {
+            obj = GetComponent<MMObject>();
+            // transform = GetComponent<Transform>();
+            obj.SyncPositionRPC = Interpolate;
+        }
+        void Update()
+        {
+            obj.UpdatePosition(transform.position);
+            Move(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
+        }
+        public override void Interpolate(Vector3 newPos)
+        {
+
+            transform.position = Vector3.Lerp(transform.position, newPos, interpolationSmoothing * Time.deltaTime);
+        
+        }
         public override void Move(Vector3 InputDirection) {
             if(!InputDirection.Equals(Vector3.zero)) {
                 Vector3 targetVelocity = transform.TransformDirection(InputDirection);                
@@ -30,6 +47,7 @@ namespace PokemonNXT.Controllers {
                 //}
                 //Stay on the ground bitch
                 rigidbody.AddForce(new Vector3(0, -Gravity * rigidbody.mass, 0));
+            
             }
             //@You can uncomment the following two lines and comment the content of the UpdateAnimator method in Ctrl/Handlers/Net/CharacterNetCtrlHandler.cs
             //AnimatorCtrl.SetFloat("DIRY", InputDirection.z, 0.15f, Time.deltaTime);

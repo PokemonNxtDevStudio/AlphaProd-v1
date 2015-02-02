@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using Client;
 namespace PokemonNXT.Controllers {
     
     /// <summary>
@@ -22,6 +22,7 @@ namespace PokemonNXT.Controllers {
     //        // AI pathfinding movement
     //    };
     //    public Mode mode;
+        //public Transform transform;
         public BaseAnimatorController AnimatorCtrl;        
         public LayerMask GroundLayers;
         public float Gravity = 10.0f; 
@@ -29,10 +30,11 @@ namespace PokemonNXT.Controllers {
         public float JumpHeight = 2.0f;
         public float MaxVelocityChange = 10f;
         public float DefaultSpeed = 10;
+        public float interpolationSmoothing = 5;
         private float _currentSpeed;
         // Networking Attribute: To check if destination is Valid
         //private bool validDestination;
-
+        public MMObject obj;
         public float CurrentSpeed {
             get { return _currentSpeed; }
             protected set { _currentSpeed = value; }             
@@ -46,9 +48,15 @@ namespace PokemonNXT.Controllers {
 
         //public abstract void Move(System.Object movementData);
         //public abstract void Move(Vector3 deltaPosition, Quaternion deltaRotation);
-        public abstract void Move(Vector3 InputDirection);        
+        public abstract void Move(Vector3 InputDirection);
+        public abstract void Interpolate(Vector3 newPos);
 
+        protected virtual void Awake()
+        {
+           
+        }
         protected virtual void Start() {
+           
             CurrentSpeed = DefaultSpeed;
             //ValidDestination = false;
             AnimatorCtrl = GetComponent<BaseAnimatorController>();
