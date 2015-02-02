@@ -1,0 +1,126 @@
+fileFormatVersion: 2
+guid: d44ebfa708430434bb6895b263fef657
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Flower_01
+    100002: Flower_02
+    100004: Flower_03
+    100006: Flower_04
+    100008: Flower_05
+    100010: Flower_06
+    100012: Flower_07
+    100014: Flower_08
+    100016: Flowers_001
+    100018: //RootNode
+    100020: Rock_01
+    100022: Rock_02
+    100024: Rock_03
+    100026: Rock_04
+    100028: Rocks_001
+    400000: Flower_01
+    400002: Flower_02
+    400004: Flower_03
+    400006: Flower_04
+    400008: Flower_05
+    400010: Flower_06
+    400012: Flower_07
+    400014: Flower_08
+    400016: Flowers_001
+    400018: //RootNode
+    400020: Rock_01
+    400022: Rock_02
+    400024: Rock_03
+    400026: Rock_04
+    400028: Rocks_001
+    2300000: Flower_01
+    2300002: Flower_02
+    2300004: Flower_03
+    2300006: Flower_04
+    2300008: Flower_05
+    2300010: Flower_06
+    2300012: Flower_07
+    2300014: Flower_08
+    2300016: Rock_01
+    2300018: Rock_02
+    2300020: Rock_03
+    2300022: Rock_04
+    3300000: Flower_01
+    3300002: Flower_02
+    3300004: Flower_03
+    3300006: Flower_04
+    3300008: Flower_05
+    3300010: Flower_06
+    3300012: Flower_07
+    3300014: Flower_08
+    3300016: Rock_01
+    3300018: Rock_02
+    3300020: Rock_03
+    3300022: Rock_04
+    4300000: Rock_03
+    4300002: Rock_01
+    4300004: Rock_04
+    4300006: Rock_02
+    4300008: Flower_01
+    4300010: Flower_03
+    4300012: Flower_05
+    4300014: Flower_07
+    4300016: Flower_02
+    4300018: Flower_04
+    4300020: Flower_06
+    4300022: Flower_08
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .600000024
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
