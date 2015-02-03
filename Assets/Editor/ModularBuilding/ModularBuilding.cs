@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System.Collections;
+using System.Collections.Generic;
 
 
 public class ModularBuilding : EditorWindow
 {
+
+    #region Houses vars
     private int _CurvbaseDesign = 1;
     private int _vbaseDesignMin = 1;
     private int _vbaseDesignMax = 4;
@@ -110,7 +114,99 @@ public class ModularBuilding : EditorWindow
     private float _F2D1Height = 0.2f;
 
 
+    #endregion
+
+    #region Corner Buildings Region
+    //Show Corner Button Bool
+    private bool _cbuildingsButton = false;
+    //Corner paths
+    private string _curnerBuildingBasePath = "Prefabs/Environment/Buildings/ModularBuildings/Base/Base_";
+    private string _curnerBuildignMidPath = "Prefabs/Environment/Buildings/ModularBuildings/Mid/Mid_";
+    private string _curnerBuildignRoofPath = "Prefabs/Environment/Buildings/ModularBuildings/Roof/Roof_";
+    private string _curnerBuildignF1DetailsPath = "Prefabs/Environment/Buildings/ModularBuildings/F1Details/f1Deco_";
+    private string _curnerBuildignRoofDetailsPath = "Prefabs/Environment/Buildings/ModularBuildings/RoofDetails/RoofTop_";
+    //Corner Min value
+    private int _cBMin = 1;
+    //Bases info and control
+    private int _cBBaseDesignMax = 2;
+    private int _cBBase1Textures = 5;
+    //private int _cBBase2Textures = 1;
+    private int _cBCurBaseDesign = 1;
+    private int _cBCurBaseTexture = 1;
+    //MidPart info and control    
+    private int _cBMidDesingMax = 5;
+    private int _cBMidTextures = 6;
+    private int _cBCurMidAmount = 0;
+    private int _cBCurMidDesign = 1;
+    private int _cBCurMidTexture = 1;
     
+   //Roof info and control
+    private int _cBRoofDesignMax = 1;
+    private int _cBRoofD1Textures = 3;
+    private int _cBCurRoofDesign = 1;
+    private int _cBCurRoofTexture = 1;
+    //F1 Details info and control
+    private int _cBF1DetailsMax = 2;
+    private int _cBCurF1Details = 1;
+    //Roof Details info and control
+    private int _cBRoofDetailsMax = 2;
+    private int _cBCurRoofDetails = 0;
+
+    //Corner Building GameObjects
+    private GameObject _CornerBase;
+    private GameObject _CornerF1Detail;
+    private GameObject _CornerRoof;
+    private GameObject _CornerRoofDetail;
+    private List<GameObject> _CMidParts = new List<GameObject>();
+
+    //Corner Building Rects
+    private Rect _cornerBuildingButtonRect = new Rect(0, 100, 300, 30);
+   
+    //Name Rect
+    private Rect _CBNameLableRect = new Rect(0, 50, 300, 20);
+    private Rect _CBNameStringRect = new Rect(0, 70, 300, 20);
+    //Roof Rect
+    private Rect _CBRoofLableRect = new Rect(0, 90, 300, 20);
+    private Rect _CBPreviousRoofTextrureButtonRect = new Rect(150, 110, 80, 30);
+    private Rect _CBNextRoofTextrureButtonRect = new Rect(230, 110, 80, 30);
+    //Roof Details Rect
+    private Rect _CBRoofDetailsLableRect = new Rect(0, 140, 300, 20);
+    private Rect _CBPreviousRoofDetailButtonRect = new Rect(0, 160, 150, 30);
+    private Rect _CBNextRoofDetailButtonRect = new Rect(150, 160, 150, 30);
+
+    //Mids Rect
+    private Rect _CBMidLableRect = new Rect(0, 200, 200, 20);
+    private Rect _CBMidLessAmountRect = new Rect(200, 200, 50, 20);
+    private Rect _CBMidMoreAmountRect = new Rect(250, 200, 50, 20);
+    private Rect _CBPreviousMidDesignButtonRect = new Rect(0, 220, 75, 30);
+    private Rect _CBNextMidDesignButtonRect = new Rect(75, 220, 75, 30);
+    private Rect _CBPreviousMidTextureButtonRect = new Rect(160, 220, 75, 30);
+    private Rect _CBNextMidTextureButtonRect = new Rect(235, 220, 75, 30);
+
+    //f1 Details
+    private Rect _CBF1DetailLable = new Rect(0, 250, 300, 20);
+    private Rect _CBPreviousF1DetailRect = new Rect(0, 270, 150, 30);
+    private Rect _CBNextF1DetailRect = new Rect(150, 270, 150, 30);
+
+    //Base Rect
+    private Rect _CBBaseLableRect = new Rect(0, 300, 300, 20);
+    private Rect _CBPreviousBaseDesignRect = new Rect(0, 320, 80, 30);
+    private Rect _CBNextBaseDesignRect = new Rect(80, 320, 80, 30);
+
+    private Rect _CBPreviousBaseTextureRect = new Rect(170, 320, 80, 30);
+    private Rect _CBNextBaseTextureRect = new Rect(250, 320, 80, 30);
+    
+    //Corner Building Heights
+
+    private float cBRoofMin = -7.4f;
+    private float CBMidPartsHeight = 7.4f;
+
+    //Corner Building CurPosition 
+    private Vector3 CBPostion;
+    private Quaternion CBRotation = Quaternion.identity;
+
+    #endregion
+
 
     [MenuItem("NXT/Modular Building")]
     public static void ShowWindow()
@@ -120,29 +216,62 @@ public class ModularBuilding : EditorWindow
     void OnGUI()
     {
 
+        
+
         #region New House
-        if (GUI.Button(_NMBW," New House "))
+        if (GUI.Button(_NMBW," New Building "))
         {
             ClearAndMakeNew();
         }
         #endregion
 
         #region Confirm
-        if (GUI.Button(_OkB,"Confirm") && _VHouseBase != null && _VHouseRoof != null)
+        if (GUI.Button(_OkB,"Confirm")/* && _VHouseBase != null && _VHouseRoof != null*/)
         {          
             if(houseName != "")
             {
-                _VHouseBase.name = houseName;
-                _VHouseRoof.name = houseName + "(Roof)";
-                if (_VHouseF2 != null)
-                    _VHouseF2.name = houseName + "(F2)";
+                if(_VHouseBase != null)
+                {
+                    _VHouseBase.name = houseName;
+                    _VHouseRoof.name = houseName + "(Roof)";
+                    if (_VHouseF2 != null)
+                        _VHouseF2.name = houseName + "(F2)";
+                }
+                if(_CornerBase != null)
+                {
+                    _CornerBase.name = houseName;
+                   
+                    if(_CornerRoofDetail != null)                        
+                        _CornerF1Detail.name = houseName + "(F1Detail)";
+                    MakeCornerMid();
+                    _CornerRoof.name = houseName + "(Roof)";
+                    if (_CornerRoofDetail != null)
+                        _CornerRoofDetail.name = houseName + "(RoofDetail)";
+                    
+                }
+                
             }
             else
             {
-                _VHouseBase.name = "Modular House";
-                _VHouseRoof.name = "Modular House" + "(Roof)";
-                if (_VHouseF2 != null)
-                    _VHouseF2.name = "Modular House" + "(F2)";
+                if(_VHouseBase != null)
+                {
+                    _VHouseBase.name = "Modular House";
+                    _VHouseRoof.name = "Modular House" + "(Roof)";
+                    if (_VHouseF2 != null)
+                        _VHouseF2.name = "Modular House" + "(F2)";
+                }
+                if (_CornerBase != null)
+                {
+                    _CornerBase.name = "Corner Building";
+
+                    if (_CornerRoofDetail != null)
+                        _CornerF1Detail.name = "Corner Building" + "(F1Detail)";
+                    MakeCornerMid();
+                    _CornerRoof.name = "Corner Building" + "(Roof)";
+                    if (_CornerRoofDetail != null)
+                        _CornerRoofDetail.name = "Corner Building" + "(RoofDetail)";
+                }
+                
             }
 
             ClearData();           
@@ -151,22 +280,28 @@ public class ModularBuilding : EditorWindow
         #endregion
 
         #region Orientation buttons
-                    
-        if(_hbuttonBool == false && _vbuttonBool == false)
+
+        if (_hbuttonBool == false && _vbuttonBool == false && _cbuildingsButton == false)
         {
-            if (GUI.Button(_hButton, "Horizontal"))
+            if (GUI.Button(_hButton, "Horizontal House"))
             {
                 _hbuttonBool = true;
             }
-            if (GUI.Button(_vButton, "Vertical"))
+            if (GUI.Button(_vButton, "Vertical House"))
             {
                 _vbuttonBool = true;
                 CreateNewVerticalHouse();
+            }
+            if(GUI.Button(_cornerBuildingButtonRect,"Corner Building"))
+            {
+                _cbuildingsButton = true;
+                MakeBasicCornerBuilding();
             }
         }
    
         #endregion
 
+            #region Houses Region
         #region Vertical Buttons
         else if (_vbuttonBool == true)
         {
@@ -357,13 +492,213 @@ public class ModularBuilding : EditorWindow
             #endregion
 
 
+        
+
         }
         else if(_hbuttonBool == true)
         {
             GUI.Label(_baseLayble, "No Horizontal Houses ATM");
-        }   
+        }
+
+        #endregion
+        #region Corner Building Region
+        if(_cbuildingsButton == true)
+        {
+            GUI.Label(_CBNameLableRect, "Name of the Building:");
+            houseName =  GUI.TextField(_CBNameStringRect, houseName);
+           #region Roof UI
+           //Roof Lable
+            GUI.Label(_CBRoofLableRect,"Roof :" + _cBCurRoofDesign + " / " + _cBRoofDesignMax + "                      Texture:" + _cBCurRoofTexture + " / " + _cBRoofD1Textures );
+            
+            //switch Roof textures
+            if(GUI.Button(_CBPreviousRoofTextrureButtonRect,"<--"))
+            {
+                if (_cBCurRoofTexture == _cBMin)
+                    _cBCurRoofTexture = _cBRoofD1Textures;
+                else
+                    _cBCurRoofTexture--;
+                
+                MakeCornerRoof();
+            }
+            if(GUI.Button(_CBNextRoofTextrureButtonRect,"-->"))
+            {
+                if (_cBCurRoofTexture == _cBRoofD1Textures)
+                    _cBCurRoofTexture = _cBMin;
+                else
+                    _cBCurRoofTexture++;
+
+                MakeCornerRoof();
+
+            }
+            #endregion
+            #region RoofDetails UI
+
+            GUI.Label(_CBRoofDetailsLableRect, "Roof Detail : " + _cBCurRoofDetails + " / " + _cBRoofDetailsMax);
+            if(GUI.Button(_CBPreviousRoofDetailButtonRect,"<--"))
+            {
+                if (_cBCurRoofDetails == 0)
+                    _cBCurRoofDetails = _cBRoofDetailsMax;
+                else
+                    _cBCurRoofDetails--;
+
+                MakeCornerRoofDetail();
+            }
+            if(GUI.Button(_CBNextRoofDetailButtonRect,"-->"))
+            {
+                if (_cBCurRoofDetails == _cBRoofDetailsMax)
+                    _cBCurRoofDetails = 0;
+                else
+                    _cBCurRoofDetails++;
+
+                MakeCornerRoofDetail();
+            }
+
+            #endregion
+            #region Mid UI
+
+            if(_cBCurMidAmount == 0)
+                GUI.Label(_CBMidLableRect, "Current Mid Parts = " + _cBCurMidAmount);
+            else
+            {
+                GUI.Label(_CBMidLableRect, "Mid Design :" + _cBCurMidDesign + " / " + _cBMidDesingMax + "  Mid Parts : " + _cBCurMidAmount);
+                //Mid Designs
+                if(GUI.Button(_CBPreviousMidDesignButtonRect,"<--"))
+                {
+                    if (_cBCurMidDesign == _cBMin)
+                        _cBCurMidDesign = _cBMidDesingMax;
+                    else
+                        _cBCurMidDesign--;
+
+                    MakeCornerMid();
+                }
+                if(GUI.Button(_CBNextMidDesignButtonRect,"-->"))
+                {
+                    if (_cBCurMidDesign == _cBMidDesingMax)
+                        _cBCurMidDesign = _cBMin;
+                    else
+                        _cBCurMidDesign++;
+
+                    MakeCornerMid();
+                }
+                //Mid Textures
+                if(GUI.Button(_CBPreviousMidTextureButtonRect,"<--"))
+                {
+                    if (_cBCurMidTexture == _cBMin)
+                        _cBCurMidTexture = _cBMidTextures;
+                    else
+                        _cBCurMidTexture--;
+
+                    MakeCornerMid();
+                }
+                if(GUI.Button(_CBNextMidTextureButtonRect,"-->"))
+                {
+                    if (_cBCurMidTexture == _cBMidTextures)
+                        _cBCurMidTexture = _cBMin;
+                    else
+                        _cBCurMidTexture++;
+
+                    MakeCornerMid();
+                }
+            }
+                
+            //Mid Amount
+            if(GUI.Button(_CBMidLessAmountRect,"<--"))
+            {
+                if (_cBCurMidAmount == 0)
+                    return;
+                else
+                    _cBCurMidAmount--;
+
+                MakeCornerMid();
+            }
+            if(GUI.Button(_CBMidMoreAmountRect,"-->"))
+            {
+                if (_cBCurMidAmount > 15)
+                    return;
+                else
+                    _cBCurMidAmount++;
+                
+                MakeCornerMid();
+            }
+           
+
+            #endregion
+            #region F1Details UI
+            //F1 Details Label
+            GUI.Label(_CBF1DetailLable, "F1 Detail : " + _cBCurF1Details + " / " + _cBF1DetailsMax);
+            //F1 Details Buttons
+            if(GUI.Button(_CBPreviousF1DetailRect,"<--"))
+            {
+                if (_cBCurF1Details == 0)
+                    _cBCurF1Details = _cBF1DetailsMax;
+                else
+                    _cBCurF1Details--;
+
+                MakeCornerF1Detail();
+               
+            }
+            if(GUI.Button(_CBNextF1DetailRect,"-->"))
+            {
+                if (_cBCurF1Details == _cBF1DetailsMax)
+                    _cBCurF1Details = 0;
+                else
+                    _cBCurF1Details++;
+                MakeCornerF1Detail();
+            }
+            #endregion
+            #region Base UI
+            //Base Design Lable
+            if(_cBCurBaseDesign == 1)
+            {
+                GUI.Label(_CBBaseLableRect, "Base :" + _cBCurBaseDesign + " / " + _cBBaseDesignMax + "     Texture : " + _cBCurBaseTexture + " / " + _cBBase1Textures); 
+             
+                if(GUI.Button(_CBPreviousBaseTextureRect,"<--"))
+                {
+                    if (_cBCurBaseTexture == _cBMin)
+                        _cBCurBaseTexture = _cBBase1Textures;
+                    else
+                        _cBCurBaseTexture--;
+                    MakeCornerBase();
+                }
+                if(GUI.Button(_CBNextBaseTextureRect,"-->"))
+                {
+                    if (_cBCurBaseTexture == _cBBase1Textures)
+                        _cBCurBaseTexture = _cBMin;
+                    else
+                        _cBCurBaseTexture++;
+                    MakeCornerBase();
+                }
+            }
+                        
+            if(_cBCurBaseDesign == 2)
+            {
+                GUI.Label(_CBBaseLableRect, "Base :" + _cBCurBaseDesign + " / " + _cBBaseDesignMax + "     Texture : " + _cBMin + " / " + _cBMin);             
+            }
+            //Base Design Buttons
+            if (GUI.Button(_CBPreviousBaseDesignRect, "<--"))
+            {
+                if (_cBCurBaseDesign == _cBMin)
+                    _cBCurBaseDesign = _cBBaseDesignMax;
+                else
+                    _cBCurBaseDesign--;
+
+                MakeCornerBase();
+            }
+            if (GUI.Button(_CBNextBaseDesignRect, "-->"))
+            {
+                if (_cBCurBaseDesign == _cBBaseDesignMax)
+                    _cBCurBaseDesign = _cBMin;
+                else
+                    _cBCurBaseDesign++;
+
+                MakeCornerBase();
+            }
+            #endregion
+        }
+        #endregion
     }
 
+    #region Vertical Houses Creation Part
 
     /// <BaseCreation>
     /// Updated January/20/2015
@@ -492,66 +827,6 @@ public class ModularBuilding : EditorWindow
 
     }
 
-
-    private void ClearAndMakeNew()
-    {
-        //Destroy if not confirm
-        if (_VHouseBase != null)        
-            DestroyImmediate(_VHouseBase);
-        
-        if (_VHouseF2 != null)        
-            DestroyImmediate(_VHouseF2);
-        
-        if (_VHouseRoof != null)        
-            DestroyImmediate(_VHouseRoof);
-       /*-----------------------------------------------------------------*/
-        //Clean the data
-        ClearData();
-        
-       
-    }
-    private void ClearData()
-    {
-        //Display Options to create buttons
-        _hbuttonBool = false;
-        _vbuttonBool = false;
-        /*----------------------------------------------------------------*/
-
-        //Clear Vertical values
-        _VHouseBase = null;
-        _VHouseF2 = null;
-        _VHouseRoof = null;
-
-        _CurvbaseDesign = _vbaseDesignMin;
-        _Curvf2Design = _vf2DesignMin;
-        _CurvbaseTexture = _vbaseTextureMinVar;
-        _Curvf2Texture = _vf2TextureMinVar;
-        _CurvroofDesign = _vroofDesignMin;
-        _CurvroofTexture = _vroofTextureMinVar;
-        _CurvroofWallTexture = _vroofWallTextureMin;
-
-                
-        houseName = "";
-        LablesUpdate();
-        _addVF2 = false; 
-        /*--------------------------------------------------------------------*/
-    }
-
-    private void LablesUpdate()
-    {
-        curVBaseString = "Base Design: " + _CurvbaseDesign + " / " + _vbaseDesignMax + "   Texture " + _CurvbaseTexture + " / " + _vbaseTextureMaxVar;
-       
-        curVF2String = "F2 Design: "+ _vf2DesignMin + " / " + _vf2DesignMax + "   Texture: " + _Curvf2Texture + " / " + _vf2TextureMaxVar;
-
-        if(_CurvroofDesign == 1)
-        curVRoofString = "Roof Design:" + _CurvroofDesign + " / " + _vroofDesignMax + " Roof: " + _CurvroofTexture + " / " + _vroofTextureMaxVar;
-        else
-            curVRoofString = "Roof Design:" + _CurvroofDesign + " / " + _vroofDesignMax + " Walls: "  + _CurvroofWallTexture + " / " + _vroofWallTextureMax + " Roof: " + _CurvroofTexture + " / " + _vroofTextureMaxVar;
-
-
-    }
-
-
     private void MakeNewVF2()
     {
         
@@ -605,4 +880,266 @@ public class ModularBuilding : EditorWindow
         _VHouseRoof = houseRoof;
     }
    
+
+
+    #endregion
+
+    #region Corner Building Creation Part
+
+    private void MakeBasicCornerBuilding()
+    {
+        MakeCornerBase();
+        MakeCornerRoof();
+        MakeCornerF1Detail();
+        Camera sceneCamera = SceneView.currentDrawingSceneView.camera;
+        CBPostion = sceneCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 30f));
+        _CornerBase.transform.position = CBPostion;
+    }
+    private void MakeCornerBase()
+    {
+        if(_CornerRoof != null)
+        {
+            _CornerRoof.transform.parent = null;
+
+        }
+        if(_CornerF1Detail != null)
+        {
+            _CornerF1Detail.transform.parent = null;
+        }
+       
+        if(_CornerBase != null)
+        {
+            CBPostion = _CornerBase.transform.position;
+            CBRotation = _CornerBase.transform.rotation;
+            DestroyImmediate(_CornerBase);
+        }
+        
+       
+        if(_cBCurBaseDesign == 2)
+        {
+
+            GameObject CBase = (GameObject)Instantiate(Resources.Load(_curnerBuildingBasePath + _cBCurBaseDesign + "_" + _cBMin));
+            CBase.transform.position = CBPostion;
+            CBase.transform.rotation = CBRotation;
+
+            _CornerBase = CBase;
+
+            if(_CornerRoof != null)
+            {
+                _CornerRoof.transform.parent = _CornerBase.transform;
+            }
+            if (_CornerF1Detail != null)
+            {
+                _CornerF1Detail.transform.parent = _CornerBase.transform;
+            }
+            
+           
+        }
+        else if(_cBCurBaseDesign == 1)
+        {
+            GameObject CBase = (GameObject)Instantiate(Resources.Load(_curnerBuildingBasePath + _cBCurBaseDesign + "_" + _cBCurBaseTexture));
+            CBase.transform.position = CBPostion;
+            CBase.transform.rotation = CBRotation;
+
+            _CornerBase = CBase;
+
+            if (_CornerRoof != null)
+            {
+                _CornerRoof.transform.parent = _CornerBase.transform;
+            }
+            if (_CornerF1Detail != null)
+            {
+                _CornerF1Detail.transform.parent = _CornerBase.transform;
+            }
+            
+           
+        }
+
+        MakeCornerMid();
+        
+    }
+    private void MakeCornerRoof()
+    {
+        if (_CornerRoofDetail != null)
+            _CornerRoofDetail.transform.parent = null;
+        if (_CornerRoof != null)
+            DestroyImmediate(_CornerRoof);
+    
+        GameObject CRoof = (GameObject)Instantiate(Resources.Load(_curnerBuildignRoofPath + _cBCurRoofDesign + "_" + _cBCurRoofTexture));
+
+        CRoof.transform.parent = _CornerBase.transform;
+        CRoof.transform.rotation = _CornerBase.transform.rotation;
+
+
+        if (_cBCurMidAmount == 0)
+        {
+            CRoof.transform.position = new Vector3(_CornerBase.transform.position.x, _CornerBase.transform.position.y + cBRoofMin, _CornerBase.transform.position.z);
+        }
+        else
+        {
+            float heigt = 0;
+            for (int asd = 0; asd < _cBCurMidAmount; asd++)
+            {
+                heigt += CBMidPartsHeight;
+            }
+            CRoof.transform.position = new Vector3(_CornerBase.transform.position.x, _CornerBase.transform.position.y + heigt - CBMidPartsHeight, _CornerBase.transform.position.z);
+        }
+        _CornerRoof = CRoof;
+        if (_CornerRoofDetail != null)
+        {
+            MakeCornerRoofDetail();
+        }
+            
+
+    }
+    private void MakeCornerMid()
+    {
+        //Destroy all current MidParts in case the design was change
+        
+        for (int asd = 0; asd < _CMidParts.Count; asd++)
+        {
+            DestroyImmediate(_CMidParts[asd]);
+        }
+        
+        for(int asd = 0;asd < _cBCurMidAmount ;asd++)
+        {
+            GameObject MidP = (GameObject)Instantiate(Resources.Load(_curnerBuildignMidPath + _cBCurMidDesign + "_" + _cBCurMidTexture ));
+            if(houseName == "")
+            {
+                MidP.name = " Corner Building Mid Part " + (asd +1);
+            }
+            else
+            {
+                MidP.name = houseName + "(Mid Part " + (asd + 1) + ")";
+            }
+            
+            MidP.transform.parent = _CornerBase.transform;
+
+            //Place it were its need to be 
+
+            MidP.transform.position = new Vector3(_CornerBase.transform.position.x, _CornerBase.transform.position.y + CBMidPartsHeight * asd, _CornerBase.transform.position.z);
+            MidP.transform.rotation = _CornerBase.transform.rotation;
+            _CMidParts.Add(MidP);
+        }
+        MakeCornerRoof();
+
+    }
+    private void MakeCornerF1Detail()
+    {
+        if (_CornerF1Detail != null)
+            DestroyImmediate(_CornerF1Detail);
+        if (_cBCurF1Details == 0)
+            return;
+        GameObject f1D = (GameObject)Instantiate(Resources.Load(_curnerBuildignF1DetailsPath + _cBCurF1Details));
+        _CornerF1Detail = f1D;
+        f1D.transform.position = new Vector3(_CornerBase.transform.position.x, _CornerBase.transform.position.y, _CornerBase.transform.position.z);
+        f1D.transform.rotation = _CornerBase.transform.rotation;
+        f1D.transform.parent = _CornerBase.transform;
+
+    }
+    private void MakeCornerRoofDetail()
+    {
+        if(_CornerRoofDetail != null)
+        {
+            DestroyImmediate(_CornerRoofDetail);
+        }
+        if (_cBCurRoofDetails == 0)
+            return;
+        GameObject RoofD = (GameObject)Instantiate(Resources.Load(_curnerBuildignRoofDetailsPath + _cBCurRoofDetails));
+        RoofD.transform.parent = _CornerRoof.transform;
+
+        RoofD.transform.position = new Vector3(_CornerRoof.transform.position.x, _CornerRoof.transform.position.y + 18.22f, _CornerRoof.transform.position.z - 22f);
+       // RoofD.transform.rotation = _CornerRoof.transform.rotation;
+
+        _CornerRoofDetail = RoofD;
+    }
+
+    #endregion
+    private void ClearAndMakeNew()
+    {
+        //Destroy if not confirm
+        if (_VHouseBase != null)        
+            DestroyImmediate(_VHouseBase);
+        
+        if (_VHouseF2 != null)        
+            DestroyImmediate(_VHouseF2);
+        
+        if (_VHouseRoof != null)        
+            DestroyImmediate(_VHouseRoof);
+
+        //Destroy Corner Building Base 
+        if (_CornerBase != null)
+            DestroyImmediate(_CornerBase);
+        
+       /*-----------------------------------------------------------------*/
+        //Clean the data
+        ClearData();
+        
+       
+    }
+    private void ClearData()
+    {
+        //Display Options to create buttons
+        _hbuttonBool = false;
+        _vbuttonBool = false;
+        _cbuildingsButton = false;
+        /*----------------------------------------------------------------*/
+
+        //Clear Vertical values
+        _VHouseBase = null;
+        _VHouseF2 = null;
+        _VHouseRoof = null;
+
+        _CurvbaseDesign = _vbaseDesignMin;
+        _Curvf2Design = _vf2DesignMin;
+        _CurvbaseTexture = _vbaseTextureMinVar;
+        _Curvf2Texture = _vf2TextureMinVar;
+        _CurvroofDesign = _vroofDesignMin;
+        _CurvroofTexture = _vroofTextureMinVar;
+        _CurvroofWallTexture = _vroofWallTextureMin;
+
+        #region Corner Building Region
+
+        _CornerBase = null; 
+
+        _cBCurBaseDesign = _cBMin;
+        _cBCurBaseTexture = _cBMin;
+        _cBCurMidDesign = _cBMin;
+        _CMidParts.Clear();
+        _cBCurMidTexture = _cBMin;
+        _cBCurRoofDesign = _cBMin;
+        _cBCurRoofDetails = _cBMin;
+        _cBCurRoofTexture = _cBMin;
+        _cBCurF1Details = _cBMin;
+        _cBCurMidAmount = 0;
+        
+
+        #endregion
+
+        houseName = "";
+        LablesUpdate();
+        _addVF2 = false; 
+        /*--------------------------------------------------------------------*/
+    }
+
+    private void LablesUpdate()
+    {
+        #region Vertical Houses Part
+        curVBaseString = "Base Design: " + _CurvbaseDesign + " / " + _vbaseDesignMax + "   Texture " + _CurvbaseTexture + " / " + _vbaseTextureMaxVar;
+       
+        curVF2String = "F2 Design: "+ _vf2DesignMin + " / " + _vf2DesignMax + "   Texture: " + _Curvf2Texture + " / " + _vf2TextureMaxVar;
+
+        if(_CurvroofDesign == 1)
+        curVRoofString = "Roof Design:" + _CurvroofDesign + " / " + _vroofDesignMax + " Roof: " + _CurvroofTexture + " / " + _vroofTextureMaxVar;
+        else
+            curVRoofString = "Roof Design:" + _CurvroofDesign + " / " + _vroofDesignMax + " Walls: "  + _CurvroofWallTexture + " / " + _vroofWallTextureMax + " Roof: " + _CurvroofTexture + " / " + _vroofTextureMaxVar;
+        #endregion
+
+        #region Corner Building Part
+
+        #endregion
+
+    }
+
+
 }
