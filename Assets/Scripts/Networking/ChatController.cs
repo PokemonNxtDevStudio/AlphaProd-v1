@@ -15,6 +15,8 @@ public class ChatController : MonoBehaviour {
 	void Start () {
         
         player = MMOManager.Instance.player;
+
+        client = MMOManager.Instance.clientCore;
         client.onChatResponse += OnChatResponse;
 	}
 	
@@ -22,8 +24,14 @@ public class ChatController : MonoBehaviour {
 	void Update () {
 	
 	}
-    void OnChatResponse(BinaryReader reader)
+
+    /// <summary>
+    /// At this pointer buffer contains the Player ID + Player Name
+    /// </summary>
+    /// <param name="buffer"></param>
+    void OnChatResponse(PacketBuffer buffer)
     {
+        BinaryReader reader = buffer.StartReading();
         if (textList != null)
         {   
                 textList.Add("Player " +reader.ReadInt32() +": "+reader.ReadString());

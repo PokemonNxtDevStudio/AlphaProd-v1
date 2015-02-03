@@ -8,8 +8,9 @@ public class LoginController : MonoBehaviour {
 
     public UILabel Username;
     public UILabel Password;
+    public UILabel Email;
     private ClientCore client;
-    public bool testMode = true;  //Logs in with test data
+    public bool testMode = false;  //Logs in with test data
 	// Use this for initialization
 	void Start () {
 
@@ -28,28 +29,29 @@ public class LoginController : MonoBehaviour {
 	
 	}
 
-    void OnConnectionResponse(BinaryReader reader)
+    void OnConnectionResponse(PacketBuffer buffer)
     {
         if (testMode)
             Login();
     }
-    public void OnLoginResponse(BinaryReader reader)
+    public void OnLoginResponse(PacketBuffer buffer)
     {
-        switch ((LoginResponseEC)reader.ReadByte())
+        switch ((LoginResponseEC)buffer.StartReading().ReadByte())
         {
-            case LoginResponseEC.LoginSuccess: OnLogin(reader); break;
+            case LoginResponseEC.LoginSuccess: OnLogin(buffer); break;
 
         }
     }
-    void OnLogin(BinaryReader reader)
+    void OnLogin(PacketBuffer buffer)
     {
+        BinaryReader reader = buffer.StartReading();
         MMOManager.Instance.player = new Player();
         reader.ReadString();
         MMOManager.Instance.player.ID = reader.ReadInt32();
         MMOManager.Instance.player.Username = reader.ReadString();
         MMOManager.Instance.player.TrainerAssetID = reader.ReadInt32();
         if(!testMode)
-        Application.LoadLevelAsync(4);
+        Application.LoadLevelAsync("ChatWindow");
         
     }
     public void Login()
@@ -62,8 +64,8 @@ public class LoginController : MonoBehaviour {
             client.clientSocket.SendPacket();
             return;
         }
-       
-        buffer.StartWriting(true).WriteHeader((byte)SpecialRequest.LoginRequest).WriteString(Username.text).WriteString("FuckYou232").WriteString("");
+
+        buffer.StartWriting(true).WriteHeader((byte)SpecialRequest.LoginRequest).WriteString(Username.text).WriteString(Password.text).WriteString(Email.text);
         client.clientSocket.SendPacket();
     }
 
