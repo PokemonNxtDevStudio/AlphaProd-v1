@@ -32,9 +32,10 @@ public class ChatController : MonoBehaviour {
     void OnChatResponse(PacketBuffer buffer)
     {
         BinaryReader reader = buffer.StartReading();
+        int playerId = reader.ReadInt32();
         if (textList != null)
         {   
-                textList.Add("Player " +reader.ReadInt32() +": "+reader.ReadString());
+                textList.Add(reader.ReadString());
                 ChatMessage.value = "";
                 ChatMessage.isSelected = false;
         }
@@ -42,7 +43,7 @@ public class ChatController : MonoBehaviour {
     public void SendChat()
     {
         PacketBuffer buffer = client.clientSocket.CreatePacket(PacketTypes.Special);  //Header
-        buffer.StartWriting(true).WriteHeader((byte)SpecialRequest.SendChat).WriteString(NGUIText.StripSymbols(ChatMessage.value));
+        buffer.StartWriting(true).WriteHeader((byte)SpecialRequest.SendChat).WriteString(MMOManager.Instance.player.Username + " :" + NGUIText.StripSymbols(ChatMessage.value));
         client.clientSocket.SendPacket();
     }
 }
