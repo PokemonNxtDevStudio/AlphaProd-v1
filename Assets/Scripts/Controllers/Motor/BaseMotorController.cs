@@ -29,7 +29,7 @@ namespace PokemonNXT.Controllers {
         public bool CanJump = false;
         public float JumpHeight = 2.0f;
         public float MaxVelocityChange = 10f;
-        public float DefaultSpeed = 10;
+        public float baseSpeed = 10;
         public float interpolationSmoothing = 5;
         private float _currentSpeed;
         // Networking Attribute: To check if destination is Valid
@@ -57,7 +57,7 @@ namespace PokemonNXT.Controllers {
         }
         protected virtual void Start() {
            
-            CurrentSpeed = DefaultSpeed;
+            CurrentSpeed = baseSpeed;
             //ValidDestination = false;
             AnimatorCtrl = GetComponent<BaseAnimatorController>();
         }

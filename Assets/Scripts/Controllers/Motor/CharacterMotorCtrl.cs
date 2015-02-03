@@ -12,12 +12,13 @@ namespace PokemonNXT.Controllers {
 
         void Start()
         {
-            obj = GetComponent<MMObject>();
-            // transform = GetComponent<Transform>();
+            base.Start();
+            if((obj = GetComponent<MMObject>())!=null)
+
             obj.SyncPositionRPC = Interpolate;
         }
         void Update()
-        {
+        {  if(obj!=null)
             obj.UpdatePosition(transform.position);
             Move(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
         }
@@ -29,17 +30,17 @@ namespace PokemonNXT.Controllers {
         }
         public override void Move(Vector3 InputDirection) {
             if(!InputDirection.Equals(Vector3.zero)) {
-                Vector3 targetVelocity = transform.TransformDirection(InputDirection);                
-                targetVelocity *= CurrentSpeed;
+                Vector3 targetVelocity = transform.TransformDirection(InputDirection);
+                targetVelocity *= baseSpeed;
 
                 Vector3 velocity = rigidbody.velocity;
                 Vector3 velocityChange = (targetVelocity - velocity);
                 velocityChange.x = Mathf.Clamp(velocityChange.x, -MaxVelocityChange, MaxVelocityChange);
                 velocityChange.z = Mathf.Clamp(velocityChange.z, -MaxVelocityChange, MaxVelocityChange);
                 velocityChange.y = 0;
-
+                
                 //We do not apply force when not required
-                if(velocityChange.magnitude > 0.1f)
+               // if(velocityChange.magnitude > 0.1f)
                     rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
 
                 //if(CanJump && !Grounded && Input.GetKey(KeyCode.Space)) {
