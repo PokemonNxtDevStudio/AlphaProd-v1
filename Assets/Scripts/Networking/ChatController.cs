@@ -36,8 +36,11 @@ public class ChatController : MonoBehaviour {
         if (textList != null)
         {   
                 textList.Add(reader.ReadString());
-                ChatMessage.value = "";
-                ChatMessage.isSelected = false;
+                if (playerId == MMOManager.Instance.player.ID)
+                {
+                    ChatMessage.value = "";
+                    ChatMessage.isSelected = false;
+                }
         }
     }
     public void SendChat()
