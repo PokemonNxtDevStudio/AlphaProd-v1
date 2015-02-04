@@ -1,0 +1,142 @@
+fileFormatVersion: 2
+guid: bbbe28680346d79448c4b04a390b0783
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Fence_01_1
+    100002: Fence_01_10
+    100004: Fence_01_11
+    100006: Fence_01_12
+    100008: Fence_01_13
+    100010: Fence_01_14
+    100012: Fence_01_15
+    100014: Fence_01_2
+    100016: Fence_01_3
+    100018: Fence_01_4
+    100020: Fence_01_5
+    100022: Fence_01_6
+    100024: Fence_01_7
+    100026: Fence_01_8
+    100028: Fence_01_9
+    100030: Fence_01_Edge
+    100032: //RootNode
+    400000: Fence_01_1
+    400002: Fence_01_10
+    400004: Fence_01_11
+    400006: Fence_01_12
+    400008: Fence_01_13
+    400010: Fence_01_14
+    400012: Fence_01_15
+    400014: Fence_01_2
+    400016: Fence_01_3
+    400018: Fence_01_4
+    400020: Fence_01_5
+    400022: Fence_01_6
+    400024: Fence_01_7
+    400026: Fence_01_8
+    400028: Fence_01_9
+    400030: Fence_01_Edge
+    400032: //RootNode
+    2300000: Fence_01_1
+    2300002: Fence_01_10
+    2300004: Fence_01_11
+    2300006: Fence_01_12
+    2300008: Fence_01_13
+    2300010: Fence_01_14
+    2300012: Fence_01_15
+    2300014: Fence_01_2
+    2300016: Fence_01_3
+    2300018: Fence_01_4
+    2300020: Fence_01_5
+    2300022: Fence_01_6
+    2300024: Fence_01_7
+    2300026: Fence_01_8
+    2300028: Fence_01_9
+    2300030: Fence_01_Edge
+    3300000: Fence_01_1
+    3300002: Fence_01_10
+    3300004: Fence_01_11
+    3300006: Fence_01_12
+    3300008: Fence_01_13
+    3300010: Fence_01_14
+    3300012: Fence_01_15
+    3300014: Fence_01_2
+    3300016: Fence_01_3
+    3300018: Fence_01_4
+    3300020: Fence_01_5
+    3300022: Fence_01_6
+    3300024: Fence_01_7
+    3300026: Fence_01_8
+    3300028: Fence_01_9
+    3300030: Fence_01_Edge
+    4300000: Fence_01_Edge
+    4300002: Fence_01_2
+    4300004: Fence_01_3
+    4300006: Fence_01_4
+    4300008: Fence_01_5
+    4300010: Fence_01_1
+    4300012: Fence_01_6
+    4300014: Fence_01_7
+    4300016: Fence_01_8
+    4300018: Fence_01_9
+    4300020: Fence_01_10
+    4300022: Fence_01_11
+    4300024: Fence_01_12
+    4300026: Fence_01_13
+    4300028: Fence_01_14
+    4300030: Fence_01_15
+    9500000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .330000013
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 

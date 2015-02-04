@@ -105,11 +105,11 @@ public class ModularBuilding : EditorWindow
 
     private float _2thRoofD1Heigh = 7.7f;
     private float _2thRoofD2Heigh = 0F;
-    private float _2thRoofD3Heigh = 7.8F;
+    private float _2thRoofD3Heigh = 1.6F;
 
     private float _3thRoofD1Heigh = 13.3f;
     private float _3thRoofD2Heigh = 5.56F;
-    private float _3thRoofD3Heigh = 13.43F;
+    private float _3thRoofD3Heigh = 7.16F;
 
     private float _F2D1Height = 0.2f;
 
@@ -301,6 +301,7 @@ public class ModularBuilding : EditorWindow
    
         #endregion
 
+                   
             #region Houses Region
         #region Vertical Buttons
         else if (_vbuttonBool == true)
@@ -501,6 +502,7 @@ public class ModularBuilding : EditorWindow
         }
 
         #endregion
+             
         #region Corner Building Region
         if(_cbuildingsButton == true)
         {
@@ -695,6 +697,10 @@ public class ModularBuilding : EditorWindow
             }
             #endregion
         }
+        #endregion
+
+        #region Fences
+
         #endregion
     }
 
@@ -1055,6 +1061,8 @@ public class ModularBuilding : EditorWindow
     }
 
     #endregion
+
+    #region UICleaning
     private void ClearAndMakeNew()
     {
         //Destroy if not confirm
@@ -1141,5 +1149,6 @@ public class ModularBuilding : EditorWindow
 
     }
 
+    #endregion
 
 }
