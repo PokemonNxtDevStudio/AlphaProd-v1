@@ -21,8 +21,8 @@ namespace PokemonNXT.Controllers {
         {  if(obj!=null)
             obj.UpdatePosition(transform.position);
             Move(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
-            AnimatorCtrl.SetFloat("DirX", Input.GetAxis("Horizontal"));
-            AnimatorCtrl.SetFloat("DirY", Input.GetAxis("Vertical"));
+           // AnimatorCtrl.SetFloat("DirX", Input.GetAxis("Horizontal"));
+          //  AnimatorCtrl.SetFloat("DirY", Input.GetAxis("Vertical"));
         }
         public override void Interpolate(Vector3 newPos)
         {

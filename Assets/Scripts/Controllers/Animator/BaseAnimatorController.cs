@@ -11,7 +11,10 @@ namespace PokemonNXT.Controllers {
 
         public Animator Animator;
 
-
+        public float moveSpeed;
+        public Vector3 moveDir;
+        public Transform target;
+        public  Vector3 lastPosition = Vector3.zero;
         public void SetBool(string key, bool b) {
             Animator.SetBool(key, b);            
         }
@@ -52,6 +55,7 @@ namespace PokemonNXT.Controllers {
 
         protected override void Awake() {
             Animator = GetComponent<Animator>();
+            target = this.transform;
             base.Awake();
         }
     }
