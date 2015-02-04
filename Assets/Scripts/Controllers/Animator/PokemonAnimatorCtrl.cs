@@ -1,4 +1,4 @@
 ﻿namespace PokemonNXT.Controllers {
-    class PokemonAnimatorCtrl: CharacterAnimatorCtrl {
+    class PokemonAnimatorCtrl: CharactorAnimatorCtrl {
     }
 }
