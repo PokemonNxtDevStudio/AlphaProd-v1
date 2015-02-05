@@ -27,6 +27,9 @@ namespace PokemonNXT.Controllers {
         public bool stayBehindTarget = false;
 
         public Vector2 targetOffset = new Vector2();
+        //Y Offset by the distance
+        private float _targetOffsetYOnMinDis = 2f;
+       // private float _targetOffsetYOnMaxDis = 10f;
 
         public bool rotateObjects = true;
         public List<Transform> objectsToRotate;
@@ -307,7 +310,7 @@ namespace PokemonNXT.Controllers {
         }
         private void ThirdPersonCamera() {
             minDistance = -5f;
-            targetOffset.y = 0.9f;
+            targetOffset.y = _targetOffsetYOnMinDis;
         }
         private void FirstPersonCamera() {
             //isFirstPerson = true;
