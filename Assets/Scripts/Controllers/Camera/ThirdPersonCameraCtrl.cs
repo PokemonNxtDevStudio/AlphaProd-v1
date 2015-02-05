@@ -81,9 +81,10 @@ namespace PokemonNXT.Controllers {
         //******** Camera State************
         public enum CameraState {
             ThirdPerson = 1,
-            FirstPerson = 2
+            FirstPerson = 2,
+            FreeZoom = 3
         }
-        public static CameraState currentCameraState = CameraState.ThirdPerson;
+        public CameraState currentCameraState = CameraState.ThirdPerson;
         //**************************
         public static bool Controllable {            // incase we would be need to modifier our setters later.
             get { return isPlayerControl; }
@@ -182,7 +183,7 @@ namespace PokemonNXT.Controllers {
         void LateUpdate() {
             Screen.lockCursor = true;
 
-            if(currentCameraState == CameraState.FirstPerson || currentCameraState == CameraState.ThirdPerson)
+            if(currentCameraState == CameraState.FirstPerson || currentCameraState == CameraState.ThirdPerson|| currentCameraState == CameraState.FreeZoom)
                 SmoothFollow(target);
         }
 
