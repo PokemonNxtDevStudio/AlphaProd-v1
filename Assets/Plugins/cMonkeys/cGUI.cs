@@ -59,6 +59,8 @@ public class cGUI : MonoBehaviour {
 	private static bool _showInputGUI = false;
 	private static bool _showVideoGUI = false;
 
+	private static bool _cSkinWarned = false;
+
 	private static Color _bgColor = GUI.color;
 	private static Vector2 _windowSize = new Vector2(1024, 600);
 
@@ -80,10 +82,6 @@ public class cGUI : MonoBehaviour {
 			_ShowGUI();
 			if (OnGUIToggled != null) { OnGUIToggled(); }
 		}
-	}
-
-	void Start() {
-		if (!cSkin) { Debug.Log("No cGUI skin loaded. Please use cGUI.cSkin to load a skin."); }
 	}
 
 	/// <summary>Displays the cAudio GUI if cAudio is in the project.</summary>
@@ -192,6 +190,11 @@ public class cGUI : MonoBehaviour {
 
 	/// <summary>Attempts to display the GUI for cInput, cAudio, or cVideo, if they exist.</summary>
 	private static void _ShowGUI() {
+		if (!cSkin && !_cSkinWarned) {
+			Debug.Log("No cGUI skin loaded. Please use cGUI.cSkin to load a skin.");
+			_cSkinWarned = true; // don't warn about this again
+		}
+
 		if (cInputExists) {
 			ShowInputGUI();
 		} else if (cAudioExists) {
