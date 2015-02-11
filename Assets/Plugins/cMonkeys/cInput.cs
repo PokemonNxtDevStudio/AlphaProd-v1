@@ -1,4 +1,4 @@
-﻿#define Use_cInputGUI // Comment out this line to use your own GUI instead of cInput's built-in GUI.
+﻿//#define Use_cInputGUI // Comment out this line to use your own GUI instead of cInput's built-in GUI.
 
 #region Namespaces
 
@@ -6,55 +6,28 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 
 #endregion
 
-/***********************************************************************
- *  cInput 2.7.8 by cMonkeys (Ward Dewaele and Deozaan)
- *  This script is NOT free, unlike Custom Inputmanager 1.x.
- *  Therefore the use of this script is strictly personal and 
- *  may not be spread without permission.
- *  
- *  Any technical or license questions can be mailed
- *  to ward.dewaele@pandora.be, but read the 
- *  included help documents first please.
- ***********************************************************************/
+
 
 public class cInput : MonoBehaviour {
 
 	#region cInput Variables and Properties
 
-#if Use_cInputGUI
-
-	[Obsolete("Please use cGUI.cSkin.")]
-	public static GUISkin cSkin {
-		get {
-			Debug.LogWarning("cInput.cSkin has been deprecated. Please use cGUI.cSkin.");
-			return cGUI.cSkin;
-		}
-		set {
-			Debug.LogWarning("cInput.cSkin has been deprecated. Please use cGUI.cSkin.");
-			cGUI.cSkin = value;
-		}
-	} // cSkin is DEPRECATED!
-
-#endif
+// cSkin is DEPRECATED!
 
 	public static float gravity = 3;
 	public static float sensitivity = 3;
 	public static float deadzone = 0.001f;
 
-	/// <summary>Whether or not cInput is waiting for an input to be pressed. Read-only.</summary>
 	public static bool scanning { get { return _scanning; } } // scanning is read-only
-	/// <summary>How many inputs have been defined in cInput. Read-only.</summary>
 	public static int length {
 		get {
 			_cInputInit(); // if cInput doesn't exist, create it
 			return _inputLength + 1;
 		}
 	} // length is read-only
-	/// <summary>Should we allow the same input to be used for multiple cInput actions?</summary>
 	public static bool allowDuplicates {
 		get {
 			_cInputInit(); // if cInput doesn't exist, create it
@@ -70,7 +43,6 @@ public class cInput : MonoBehaviour {
 	// Private variables
 	private static bool _allowDuplicates = false;
 	private static string[,] _defaultStrings = new string[99, 5];
-	private static Dictionary<int, int> _inputNameHash = new Dictionary<int, int>(); // a hash reference to the array index
 	private static string[] _inputName = new string[99]; // name of the input action (e.g., "Jump")
 	private static KeyCode[] _inputPrimary = new KeyCode[99]; // primary input assigned to action (e.g., "Space")
 	private static KeyCode[] _modifierUsedPrimary = new KeyCode[99]; // modfier used on primary input
@@ -78,7 +50,6 @@ public class cInput : MonoBehaviour {
 	private static KeyCode[] _modifierUsedSecondary = new KeyCode[99]; // modfier used on secondary input
 	private static List<KeyCode> _modifiers = new List<KeyCode>(); // list that holds the allowed modifiers
 	private static List<int> _markedAsAxis = new List<int>(); // list that keeps track of which actions are used to make axis
-	private static Dictionary<int, int> _axisNameHash = new Dictionary<int, int>(); // a hash reference to the array index
 	private static string[] _axisName = new string[99];
 	private static string[] _axisPrimary = new string[99];
 	private static string[] _axisSecondary = new string[99];
@@ -86,7 +57,7 @@ public class cInput : MonoBehaviour {
 	private static float[] _individualAxisGrav = new float[99]; // individual axis gravity settings
 	private static float[] _individualAxisDead = new float[99]; // individual axis gravity settings
 	private static bool[] _invertAxis = new bool[99];
-	private static int[,] _makeAxis = new int[99, 2]; // stores the index of Keys used in the axis
+	private static int[,] _makeAxis = new int[99, 2];
 	private static int _inputLength = -1;
 	private static int _axisLength = -1;
 	private static List<KeyCode> _forbiddenKeys = new List<KeyCode>();
@@ -94,8 +65,7 @@ public class cInput : MonoBehaviour {
 	private static bool[] _getKeyArray = new bool[99]; // values stored for GetKey function
 	private static bool[] _getKeyDownArray = new bool[99]; // values stored for GetKeyDown
 	private static bool[] _getKeyUpArray = new bool[99]; // values stored for GetKeyUp
-	private static bool[] _axisTriggerArrayPrimary = new bool[99]; // values that help to check if an axis is up or down
-	private static bool[] _axisTriggerArraySecondary = new bool[99]; // values that help to check if secondary input for an axis is up or down
+	private static bool[] _axisTriggerArray = new bool[99]; // values that help to check if an axis is up or down
 	private static float[] _getAxis = new float[99];
 	private static float[] _getAxisRaw = new float[99];
 	private static float[] _getAxisArray = new float[99];
@@ -110,6 +80,7 @@ public class cInput : MonoBehaviour {
 
 	private static int _numGamepads = 4; // number of gamepads supported by built-in Input Manager settings
 
+	private Vector2 _scrollPosition;
 	// these strings are set by ShowMenu() to customize the look of cInput's menu
 	private static string _menuHeaderString = "label";
 	private static string _menuActionsString = "box";
@@ -122,12 +93,8 @@ public class cInput : MonoBehaviour {
 	private static int _cScanIndex;
 	/// <summary>Which input are we scanning for (primary (1) or secondary (2))?</summary>
 	private static int _cScanInput;
-	/// <summary>A reference to the cInput instance.</summary>
+	/// <summary>A reference to the cInput object itself</summary>
 	private static cInput _cObject;
-#if Use_cInputGUI
-	/// <summary>A reference to the cInputGUI instance.</summary>
-	private static cInputGUI _cInputGUIObject;
-#endif
 	private static bool _cKeysLoaded;
 	/// <summary>This is used to store all axis raw values so we can see if they changed since scanning began</summary>
 	private static Dictionary<string, float> _axisRawValues = new Dictionary<string, float>();
@@ -151,10 +118,6 @@ public class cInput : MonoBehaviour {
 	private static string[,] _joyStrings = new string[_numGamepads + 1, 11];
 	private static string[,] _joyStringsPos = new string[_numGamepads + 1, 11];
 	private static string[,] _joyStringsNeg = new string[_numGamepads + 1, 11];
-	// these three below dictionaries are used to get quick references to the indices to the above arrays
-	private static Dictionary<string, int[]> _joyStringsIndices = new Dictionary<string, int[]>();
-	private static Dictionary<string, int[]> _joyStringsPosIndices = new Dictionary<string, int[]>();
-	private static Dictionary<string, int[]> _joyStringsNegIndices = new Dictionary<string, int[]>();
 
 	#endregion // cInput Variables and Properties
 
@@ -229,35 +192,13 @@ public class cInput : MonoBehaviour {
 			}
 
 			// Create joystrings dictionaries
-			for (int gamepad = 1; gamepad <= _numGamepads; gamepad++) {
-				for (int axis = 1; axis <= 10; axis++) {
-					StringBuilder joyString = new StringBuilder("Joy" + gamepad + " Axis " + axis);
-					_joyStrings[gamepad, axis] = joyString.ToString();
-					_joyStringsIndices.Add(joyString.ToString(), new[] { gamepad, axis });
-					joyString.Append("+");
-					_joyStringsPos[gamepad, axis] = joyString.ToString();
-					_joyStringsPosIndices.Add(joyString.ToString(), new[] { gamepad, axis });
-					joyString.Replace('+', '-');
-					_joyStringsNeg[gamepad, axis] = joyString.ToString();
-					_joyStringsNegIndices.Add(joyString.ToString(), new[] { gamepad, axis });
+			for (int i = 1; i <= _numGamepads; i++) {
+				for (int j = 1; j <= 10; j++) {
+					_joyStrings[i, j] = "Joy" + i + " Axis " + j;
+					_joyStringsPos[i, j] = "Joy" + i + " Axis " + j + "+";
+					_joyStringsNeg[i, j] = "Joy" + i + " Axis " + j + "-";
 				}
 			}
-		}
-	}
-
-	private static KeyCode _ConvertString2Key(string str) {
-		if (String.IsNullOrEmpty(str)) { return KeyCode.None; }
-		if (_string2Key.Count == 0) { _CreateDictionary(); }
-
-		if (_string2Key.ContainsKey(str)) {
-			KeyCode _key = _string2Key[str];
-			return _key;
-		} else {
-			if (!_IsAxisValid(str)) {
-				Debug.Log("cInput error: " + str + " is not a valid input.");
-			}
-
-			return KeyCode.None;
 		}
 	}
 
@@ -306,58 +247,60 @@ public class cInput : MonoBehaviour {
 
 	#endregion
 
+	private static KeyCode _ConvertString2Key(string str) {
+		if (String.IsNullOrEmpty(str)) { return KeyCode.None; }
+		if (_string2Key.Count == 0) { _CreateDictionary(); }
+
+		if (_string2Key.ContainsKey(str)) {
+			KeyCode _key = _string2Key[str];
+			return _key;
+		} else {
+			if (!_IsAxisValid(str)) {
+				Debug.Log("cInput error: " + str + " is not a valid input.");
+			}
+
+			return KeyCode.None;
+		}
+	}
+
 	#region SetKey functions
 
 	#region SetKey Overloaded Functions
 	// this is for compatibility with UnityScript which doesn't accept default parameters
-	public static int SetKey(string action, string primary) {
-		// note that Keys.None is used here for secondary and secondaryModifier because there is no secondary input
-		return SetKey(action, primary, Keys.None, primary, Keys.None);
+	public static void SetKey(string action, string primary) {
+		SetKey(action, primary, Keys.None, primary, Keys.None);
 	}
 
-	public static int SetKey(string action, string primary, string secondary) {
-		return SetKey(action, primary, secondary, primary, secondary);
+	public static void SetKey(string action, string primary, string secondary) {
+		SetKey(action, primary, secondary, primary, secondary);
 	}
 
 	// Defines a Key with a modifier on the primary input
-	public static int SetKey(string action, string primary, string secondary, string primaryModifier) {
-		return SetKey(action, primary, secondary, primaryModifier, secondary);
+	public static void SetKey(string action, string primary, string secondary, string primaryModifier) {
+		SetKey(action, primary, secondary, primaryModifier, secondary);
 	}
 
 	#endregion //SetKey Overloaded Functions
 
 	// Defines a Key with modifiers
-	public static int SetKey(string action, string primary, string secondary, string primaryModifier, string secondaryModifier) {
+	public static void SetKey(string action, string primary, string secondary, string primaryModifier, string secondaryModifier) {
 		_cInputInit(); // if cInput doesn't exist, create it
 
-		// make sure we pass valid values for the modifiers
-		if (String.IsNullOrEmpty(primaryModifier) || primaryModifier == Keys.None) { primaryModifier = primary; }
-		if (String.IsNullOrEmpty(secondaryModifier) || secondaryModifier == Keys.None) { secondaryModifier = secondary; }
-
-		int index = _FindKeyByDescription(action);
-
 		// make sure this key hasn't already been set
-		if (index == -1) {
+		if (_FindKeyByDescription(action) == -1) {
 			int _num = _inputLength + 1;
+			// make sure we pass valid values for the modifiers
+			primaryModifier = (primaryModifier == Keys.None) ? primary : primaryModifier;
+			secondaryModifier = (secondaryModifier == Keys.None) ? secondary : secondaryModifier;
 			// actually set the key
 			_SetDefaultKey(_num, action, primary, secondary, primaryModifier, secondaryModifier);
 		} else {
-#if UNITY_EDITOR
-			// skip this warning if an input with the same settings already exists
-			int pStringHash = (primaryModifier != primary) ? (primaryModifier + " + " + primary).GetHashCode() : primary.GetHashCode();
-			int sStringHash = (secondaryModifier != secondary) ? (secondaryModifier + " + " + secondary).GetHashCode() : secondary.GetHashCode();
-			if (!(pStringHash == GetText(index, 1).GetHashCode() && sStringHash == GetText(index, 2).GetHashCode())) {
-				// also skip this warning if we loaded from an external source or we already created the cInput object
-				if (_externalSaving == false || _cObject == null) {
-					// Whoops! Key with this name already exists!
-					Debug.LogWarning("A key with the name of " + action + " already exists. You should use ChangeKey() if you want to change an existing key!\n" +
-						"This message will only be shown in the editor and is safe to ignore if you're reloading a scene/script that initializes the " + action + " input.");
-				}
+			// skip this warning if we loaded from an external source or we already created the cInput object
+			if (_externalSaving == false || GameObject.Find("cInput").GetComponent<cInput>() == null) {
+				// Whoops! Key with this name already exists!
+				//Debug.LogWarning("A key with the name of " + action + " already exists. You should use ChangeKey() if you want to change an existing key!");
 			}
-#endif
 		}
-
-		return action.GetHashCode();
 	}
 
 	private static void _SetDefaultKey(int _num, string _name, string _input1, string _input2, string pMod, string sMod) {
@@ -366,12 +309,6 @@ public class cInput : MonoBehaviour {
 		_defaultStrings[_num, 2] = (string.IsNullOrEmpty(_input2)) ? KeyCode.None.ToString() : _input2;
 		_defaultStrings[_num, 3] = string.IsNullOrEmpty(pMod) ? _input1 : pMod;
 		_defaultStrings[_num, 4] = string.IsNullOrEmpty(sMod) ? _input2 : sMod;
-
-		// store a hash of the key name
-		int hashCode = _name.GetHashCode();
-		if (!_inputNameHash.ContainsKey(hashCode)) {
-			_inputNameHash.Add(hashCode, _num);
-		}
 
 		if (_num > _inputLength) { _inputLength = _num; }
 
@@ -382,9 +319,8 @@ public class cInput : MonoBehaviour {
 	}
 
 	private static void _SetKey(int _num, string _name, string _input1, string _input2) {
-		// input description
+		// input description 
 		_inputName[_num] = _name;
-
 		_axisPrimary[_num] = "";
 
 		if (_string2Key.Count == 0) { return; }
@@ -416,51 +352,51 @@ public class cInput : MonoBehaviour {
 		}
 	}
 
-	#endregion //SetKey functions
+	#endregion
 
-	#region SetAxis and SetAxisDeadzone/Gravity/Sensitivity functions
+	#region SetAxis and SetAxisSensitivity & related functions
 
 	#region Overloaded SetAxis Functions
 
 	// overload method to allow you to set an axis with two inputs
-	public static int SetAxis(string description, string negativeInput, string positiveInput) {
-		return SetAxis(description, negativeInput, positiveInput, sensitivity, gravity, deadzone);
+	public static void SetAxis(string description, string negativeInput, string positiveInput) {
+		SetAxis(description, negativeInput, positiveInput, sensitivity, gravity, deadzone);
 	}
 
 	// overload method to allow you to set the sensitivity of the axis
-	public static int SetAxis(string description, string negativeInput, string positiveInput, float axisSensitivity) {
-		return SetAxis(description, negativeInput, positiveInput, axisSensitivity, gravity, deadzone);
+	public static void SetAxis(string description, string negativeInput, string positiveInput, float axisSensitivity) {
+		SetAxis(description, negativeInput, positiveInput, axisSensitivity, gravity, deadzone);
 	}
 
 	// overload method to allow you to set the sensitivity and the gravity an the axis
-	public static int SetAxis(string description, string negativeInput, string positiveInput, float axisSensitivity, float axisGravity) {
-		return SetAxis(description, negativeInput, positiveInput, axisSensitivity, axisGravity, deadzone);
+	public static void SetAxis(string description, string negativeInput, string positiveInput, float axisSensitivity, float axisGravity) {
+		SetAxis(description, negativeInput, positiveInput, axisSensitivity, axisGravity, deadzone);
 	}
 
 	// overload method to allow you to set an axis with only one input
-	public static int SetAxis(string description, string input) {
-		return SetAxis(description, input, "-1", sensitivity, gravity, deadzone);
+	public static void SetAxis(string description, string input) {
+		SetAxis(description, input, "-1", sensitivity, gravity, deadzone);
 	}
 
 	// overload method to allow you to set an axis with only one input, and set sensitivity
-	public static int SetAxis(string description, string input, float axisSensitivity) {
-		return SetAxis(description, input, "-1", axisSensitivity, gravity, deadzone);
+	public static void SetAxis(string description, string input, float axisSensitivity) {
+		SetAxis(description, input, "-1", axisSensitivity, gravity, deadzone);
 	}
 
 	// overload method to allow you to set an axis with only one input, and set sensitivity and gravity
-	public static int SetAxis(string description, string input, float axisSensitivity, float axisGravity) {
-		return SetAxis(description, input, "-1", axisSensitivity, axisGravity, deadzone);
+	public static void SetAxis(string description, string input, float axisSensitivity, float axisGravity) {
+		SetAxis(description, input, "-1", axisSensitivity, axisGravity, deadzone);
 	}
 
 	// overload method to allow you to set an axis with only one input, and set sensitivity, gravity and deadzone
-	public static int SetAxis(string description, string input, float axisSensitivity, float axisGravity, float axisDeadzone) {
-		return SetAxis(description, input, "-1", axisSensitivity, axisGravity, axisDeadzone);
+	public static void SetAxis(string description, string input, float axisSensitivity, float axisGravity, float axisDeadzone) {
+		SetAxis(description, input, "-1", axisSensitivity, axisGravity, axisDeadzone);
 	}
 
 	#endregion
 
 	// This is the function that all other SetAxis overload methods call to actually set the axis
-	public static int SetAxis(string description, string negativeInput, string positiveInput, float axisSensitivity, float axisGravity, float axisDeadzone) {
+	public static void SetAxis(string description, string negativeInput, string positiveInput, float axisSensitivity, float axisGravity, float axisDeadzone) {
 		_cInputInit(); // if cInput doesn't exist, create it
 		if (IsKeyDefined(negativeInput)) {
 			int _num = _FindAxisByDescription(description); // overwrite existing axis of same name
@@ -479,7 +415,7 @@ public class cInput : MonoBehaviour {
 			} else if (positiveInput != "-1") {
 				// the key isn't defined and we're not passing in -1 as a value, so there's a problem
 				Debug.LogError("Can't define Axis named: " + description + ". Please define '" + positiveInput + "' with SetKey() first.");
-				return description.GetHashCode(); // break out of this function without trying to assign the axis
+				return; // break out of this function without trying to assign the axis
 			}
 
 			_SetAxis(_num, description, negInput, posInput);
@@ -494,8 +430,6 @@ public class cInput : MonoBehaviour {
 		} else {
 			Debug.LogError("Can't define Axis named: " + description + ". Please define '" + negativeInput + "' with SetKey() first.");
 		}
-
-		return description.GetHashCode();
 	}
 
 	private static void _SetAxis(int _num, string _description, int _negative, int _positive) {
@@ -503,75 +437,21 @@ public class cInput : MonoBehaviour {
 			_axisLength = _num;
 		}
 
-		// store a hash of the key name
-		int hashCode = _description.GetHashCode();
-		if (!_axisNameHash.ContainsKey(hashCode)) {
-			_axisNameHash.Add(hashCode, _num);
-		}
-
+		_invertAxis[_num] = false;
 		_axisName[_num] = _description;
 		_makeAxis[_num, 0] = _negative;
 		_makeAxis[_num, 1] = _positive;
 		_SaveAxis();
+		_SaveAxInverted();
 	}
 
-	#region Deadzone, Gravity, and Sensitivity functions
-
-	#region Public functions which just call the private functions
-
-	/// <summary>Sets the sensitivity of an axis directly (after the axis has been defined).</summary>
-	/// <param name="axisName">The name of the axis.</param>
-	/// <param name="sensitivity">The value to set the sensitivity to.</param>
+	// this allows you to set the axis sensitivity directly (after the axis has been defined)
 	public static void SetAxisSensitivity(string axisName, float sensitivity) {
-		_SetAxisSensitivity(axisName.GetHashCode(), sensitivity, axisName);
-	}
-
-	/// <summary>Sets the sensitivity of an axis directly (after the axis has been defined).</summary>
-	/// <param name="axisHash">The hashcode of the name of the axis.</param>
-	/// <param name="sensitivity">The value to set the sensitivity to.</param>
-	public static void SetAxisSensitivity(int axisHash, float sensitivity) {
-		_SetAxisSensitivity(axisHash, sensitivity);
-	}
-
-	/// <summary>Sets the gravity of an axis directly (after the axis has been defined).</summary>
-	/// <param name="axisHash">The name of the axis.</param>
-	/// <param name="gravity">The value to set the gravity to.</param>
-	public static void SetAxisGravity(string axisName, float gravity) {
-		_SetAxisGravity(axisName.GetHashCode(), gravity, axisName);
-	}
-
-	/// <summary>Sets the gravity of an axis directly (after the axis has been defined).</summary>
-	/// <param name="axisHash">The hashcode of the name of the axis.</param>
-	/// <param name="gravity">The value to set the gravity to.</param>
-	public static void SetAxisGravity(int axisHash, float gravity) {
-		_SetAxisGravity(axisHash, gravity);
-	}
-
-	/// <summary>Sets the deadzone of an axis directly (after the axis has been defined).</summary>
-	/// <param name="axisName">The name of the axis.</param>
-	/// <param name="deadzone">The value to set deadzone to.</param>
-	public static void SetAxisDeadzone(string axisName, float deadzone) {
-		_SetAxisDeadzone(axisName.GetHashCode(), deadzone, axisName);
-	}
-
-	/// <summary>Sets the deadzone of an axis directly (after the axis has been defined).</summary>
-	/// <param name="axisHash">The hashcode of the name of the axis.</param>
-	/// <param name="deadzone">The value to set deadzone to.</param>
-	public static void SetAxisDeadzone(int axisHash, float deadzone) {
-		_SetAxisDeadzone(axisHash, deadzone);
-	}
-
-	#endregion //Public functions which just call the private functions
-
-	#region Private functions which actually do the work
-
-	private static void _SetAxisSensitivity(int hash, float sensitivity, string description = "") {
 		_cInputInit(); // if cInput doesn't exist, create it
-		int axis = _FindAxisByHash(hash);
+		int axis = _FindAxisByDescription(axisName);
 		if (axis == -1) {
 			// axis not defined!
-			string errorText = (!string.IsNullOrEmpty(description)) ? description : "axis matching hashcode of " + hash;
-			Debug.LogError("Cannot set sensitivity of " + errorText + ". Have you defined this axis with SetAxis() yet?");
+			Debug.LogError("Cannot set sensitivity of " + axisName + ". Have you defined this axis with SetAxis() yet?");
 		} else {
 			// axis has been defined
 			_individualAxisSens[_makeAxis[axis, 0]] = sensitivity;
@@ -579,13 +459,13 @@ public class cInput : MonoBehaviour {
 		}
 	}
 
-	private static void _SetAxisGravity(int hash, float gravity, string description = "") {
+	// this allows you to set the axis gravity directly (after the axis has been defined)
+	public static void SetAxisGravity(string axisName, float gravity) {
 		_cInputInit(); // if cInput doesn't exist, create it
-		int axis = _FindAxisByHash(hash);
+		int axis = _FindAxisByDescription(axisName);
 		if (axis == -1) {
 			// axis not defined!
-			string errorText = (!string.IsNullOrEmpty(description)) ? description : "axis matching hashcode of " + hash;
-			Debug.LogError("Cannot set gravity of " + errorText + ". Have you defined this axis with SetAxis() yet?");
+			Debug.LogError("Cannot set gravity of " + axisName + ". Have you defined this axis with SetAxis() yet?");
 		} else {
 			// axis has been defined
 			_individualAxisGrav[_makeAxis[axis, 0]] = gravity;
@@ -593,13 +473,13 @@ public class cInput : MonoBehaviour {
 		}
 	}
 
-	private static void _SetAxisDeadzone(int hash, float deadzone, string description = "") {
+	// this allows you to set the axis deadzone directly (after the axis has been defined)
+	public static void SetAxisDeadzone(string axisName, float deadzone) {
 		_cInputInit(); // if cInput doesn't exist, create it
-		int axis = _FindAxisByHash(hash);
+		int axis = _FindAxisByDescription(axisName);
 		if (axis == -1) {
 			// axis not defined!
-			string errorText = (!string.IsNullOrEmpty(description)) ? description : "axis matching hashcode of " + hash;
-			Debug.LogError("Cannot set deadzone of " + errorText + ". Have you defined this axis with SetAxis() yet?");
+			Debug.LogError("Cannot set deadzone of " + axisName + ". Have you defined this axis with SetAxis() yet?");
 		} else {
 			// axis has been defined
 			_individualAxisDead[_makeAxis[axis, 0]] = deadzone;
@@ -607,11 +487,7 @@ public class cInput : MonoBehaviour {
 		}
 	}
 
-	#endregion //Private functions which actually do the work
-
-	#endregion //Deadzone, Gravity, and Sensitivity functions
-
-	#endregion //SetAxis and SetAxisSensitivity & related functions
+	#endregion
 
 	#region Calibration functions
 
@@ -620,10 +496,10 @@ public class cInput : MonoBehaviour {
 		string _saveCals = "";
 		_axisCalibrationOffset = _GetAxisRawValues();
 		PlayerPrefs.SetString("cInput_calsVals", _CalibrationValuesToString());
-		for (int gamepad = 1; gamepad <= _numGamepads; gamepad++) {
-			for (int axis = 1; axis <= 10; axis++) {
-				int index = 10 * (gamepad - 1) + (axis - 1);
-				string _joystring = _joyStrings[gamepad, axis];
+		for (int joyNum = 1; joyNum <= _numGamepads; joyNum++) {
+			for (int axisNum = 1; axisNum <= 10; axisNum++) {
+				int index = 10 * (joyNum - 1) + (axisNum - 1);
+				string _joystring = _joyStrings[joyNum, axisNum];
 				float axisRaw = Input.GetAxisRaw(_joystring);
 				_axisType[index] = (axisRaw < -deadzone) ? 1 : // axis is negative by default
 					(axisRaw > deadzone) ? -1 : // axis is positive by default
@@ -665,30 +541,26 @@ public class cInput : MonoBehaviour {
 			case "Mouse Wheel Down": { return rawValue; }
 		}
 
-		int[] indices = new int[] { };
+		for (int joyNum = 1; joyNum <= _numGamepads; joyNum++) {
+			for (int axisNum = 1; axisNum <= 10; axisNum++) {
+				string joyNeg = _joyStringsNeg[joyNum, axisNum];
+				string joyPos = _joyStringsPos[joyNum, axisNum];
 
-		if (_joyStringsPosIndices.ContainsKey(description)) {
-			indices = _joyStringsPosIndices[description];
-		} else if (_joyStringsNegIndices.ContainsKey(description)) {
-			indices = _joyStringsNegIndices[description];
-		}
-
-		if (indices.Length > 0) {
-			int index = 10 * (indices[0] - 1) + (indices[1] - 1);
-			switch (_axisType[index]) {
-				default:
-				case 0: {
-						// axis returns 0 by default
-						return rawValue;
+				if (description == joyNeg || description == joyPos) {
+					int index = 10 * (joyNum - 1) + (axisNum - 1);
+					switch (_axisType[index]) {
+						default:
+						case 0: {
+								return rawValue;
+							}
+						case 1: {
+								return (rawValue + 1) / 2;
+							}
+						case -1: {
+								return (rawValue - 1) / 2;
+							}
 					}
-				case 1: {
-						// axis returns -1 by default
-						return (rawValue + 1) / 2;
-					}
-				case -1: {
-						//axis returns 1 by default
-						return (rawValue - 1) / 2;
-					}
+				}
 			}
 		}
 
@@ -713,8 +585,8 @@ public class cInput : MonoBehaviour {
 	/// <param name="allowKeyboard">Allow keyboard keys to be bound? Default is true.</param>
 	public static void ChangeKey(string action, int input, bool allowMouseAxis, bool allowMouseButtons, bool allowGamepadAxis, bool allowGamepadButtons, bool allowKeyboard) {
 		_cInputInit(); // if cInput doesn't exist, create it
-		int _index = _FindKeyByDescription(action);
-		ChangeKey(_index, input, allowMouseAxis, allowMouseButtons, allowGamepadAxis, allowGamepadButtons, allowKeyboard);
+		int _num = _FindKeyByDescription(action);
+		_ScanForNewKey(_num, input, allowMouseAxis, allowMouseButtons, allowGamepadAxis, allowGamepadButtons, allowKeyboard);
 	}
 
 	#region overloaded ChangeKey(string) functions for UnityScript compatibility
@@ -780,13 +652,8 @@ public class cInput : MonoBehaviour {
 	/// <param name="allowGamepadAxis">Allow a gamepad axis to be bound? Default is true.</param>
 	/// <param name="allowGamepadButtons">Allow a gamepad button to be bound? Default is true.</param>
 	/// <param name="allowKeyboard">Allow keyboard keys to be bound? Default is true.</param>
-	public static void ChangeKey(int index, int input, bool allowMouseAxis, bool allowMouseButtons, bool allowGamepadAxis, bool allowGamepadButtons, bool allowKeyboard) {
+	public static void   ChangeKey(int index, int input, bool allowMouseAxis, bool allowMouseButtons, bool allowGamepadAxis, bool allowGamepadButtons, bool allowKeyboard) {
 		_cInputInit(); // if cInput doesn't exist, create it
-		if (input != 1 && input != 2) {
-			Debug.LogWarning("ChangeKey can only change primary (1) or secondary (2) inputs. You're trying to change: " + input);
-			return; // no need to do more since it won't work
-		}
-
 		_ScanForNewKey(index, input, allowMouseAxis, allowMouseButtons, allowGamepadAxis, allowGamepadButtons, allowKeyboard);
 	}
 
@@ -889,14 +756,14 @@ public class cInput : MonoBehaviour {
 	#endregion //ChangeKey set via script (don't wait for input)
 
 	/// <summary>This starts the process of scanning for a new key (using the GUI to assign an input).</summary>
-	/// <param name="index">The index of the input array</param>
+	/// <param name="num">The index of the input array</param>
 	/// <param name="input">Primary or secondary input</param>
 	/// <param name="mouseAx">Allow mouse axis (mouse ball) to be bound?</param>
 	/// <param name="mouseBut">Allow mouse buttons to be bound?</param>
 	/// <param name="joyAx">Allow joystick axes to be bound?</param>
 	/// <param name="joyBut">Allow joystick buttons to be bound?</param>
 	/// <param name="keyb">Allow keys from the keyboard to be bound?</param>
-	private static void _ScanForNewKey(int index, int input, bool mouseAx, bool mouseBut, bool joyAx, bool joyBut, bool keyb) {
+	private static void _ScanForNewKey(int num, int input, bool mouseAx, bool mouseBut, bool joyAx, bool joyBut, bool keyb) {
 		_allowMouseAxis = mouseAx;
 		_allowMouseButtons = mouseBut;
 		_allowJoystickButtons = joyBut;
@@ -904,7 +771,7 @@ public class cInput : MonoBehaviour {
 		_allowKeyboard = keyb;
 
 		_cScanInput = input;
-		_cScanIndex = index;
+		_cScanIndex = num;
 		_scanning = true;
 
 		_axisRawValues = _GetAxisRawValues(); // get current axis values to make sure they change while scanning
@@ -955,33 +822,17 @@ public class cInput : MonoBehaviour {
 		return (_defaultStrings.Length > 0) ? true : false;
 	}
 
-	private static bool _IsKeyDefined(int hash) {
-		_cInputInit(); // if cInput doesn't exist, create it
-		return _inputNameHash.ContainsKey(hash);
-	}
-
 	public static bool IsKeyDefined(string keyName) {
-		return _IsKeyDefined(keyName.GetHashCode());
-	}
-
-	public static bool IsKeyDefined(int keyHash) {
-		return _IsKeyDefined(keyHash);
-	}
-
-	private static bool _IsAxisDefined(int hash) {
 		_cInputInit(); // if cInput doesn't exist, create it
-		return _axisNameHash.ContainsKey(hash);
+		return (_FindKeyByDescription(keyName) >= 0) ? true : false;
 	}
 
 	public static bool IsAxisDefined(string axisName) {
-		return _IsAxisDefined(axisName.GetHashCode());
+		_cInputInit(); // if cInput doesn't exist, create it
+		return (_FindAxisByDescription(axisName) >= 0) ? true : false;
 	}
 
-	public static bool IsAxisDefined(int axisHash) {
-		return _IsAxisDefined(axisHash);
-	}
-
-	#endregion //_DefaultsExist, IsKeyDefined, and IsAxisDefined functions
+	#endregion
 
 	#region CheckInputs function
 
@@ -989,8 +840,8 @@ public class cInput : MonoBehaviour {
 	private void _CheckInputs() {
 		bool inputPrimary = false; // a digital button/key; true if it's currently being pushed down
 		bool inputSecondary = false; // a digital button/key; true if it's currently being pushed down
-		bool axisPrimaryDefined = false; // whether or not an axis has a primary input defined for this input
-		bool axisSecondaryDefined = false; // whether or not an axis has a secondary input defined for this input
+		bool axisPrimaryDefined = false; // whether or not an axis has a primary input defined for this element
+		bool axisSecondaryDefined = false; // whether or not an axis has a secondary input defined for this element
 		float axisPrimaryValue = 0f; // the value of the primary input for this element
 		float axisSecondaryValue = 0f; // the value of the secondary input for this element
 
@@ -1015,7 +866,7 @@ public class cInput : MonoBehaviour {
 				}
 			}
 
-			/* These next two lines are really ugly, so here's an explanation of the parts:
+			/* These next two lines are realy ugly, so here's an explanation of the parts:
 			 * (_modifierUsedPrimary[n] == _inputPrimary[n]) <-- means there is NO modifier for this input
 			 * (!_modifierPressed) <-- means there was NO modifier key pushed
 			 * (_modifierUsedPrimary[n] != _inputPrimary[n]) <-- means there IS a modifier for this input
@@ -1059,37 +910,24 @@ public class cInput : MonoBehaviour {
 			#region GetKeyDown
 			if ((_primaryModifierPassed && Input.GetKeyDown(_inputPrimary[n])) || (_secondaryModifierPassed && Input.GetKeyDown(_inputSecondary[n]))) {
 				_getKeyDownArray[n] = true;
+			} else if ((axisPrimaryDefined && axisPrimaryValue > deadzone && !_axisTriggerArray[n]) ||
+						(axisSecondaryDefined && axisSecondaryValue > deadzone && !_axisTriggerArray[n])) {
+				_axisTriggerArray[n] = true;
+				_getKeyDownArray[n] = true;
 			} else {
-				bool doOnce = false;
-				if (axisPrimaryDefined && axisPrimaryValue > deadzone && !_axisTriggerArrayPrimary[n]) {
-					_axisTriggerArrayPrimary[n] = true;
-					doOnce = true;
-				}
-				if (axisSecondaryDefined && axisSecondaryValue > deadzone && !_axisTriggerArraySecondary[n]) {
-					_axisTriggerArraySecondary[n] = true;
-					doOnce = true;
-				}
-
-				_getKeyDownArray[n] = ((_axisTriggerArrayPrimary[n] || _axisTriggerArraySecondary[n]) && doOnce);
+				_getKeyDownArray[n] = false;
 			}
 			#endregion //GetKeyDown
 
 			#region GetKeyUp
 			if ((Input.GetKeyUp(_inputPrimary[n]) && _primaryModifierPassed) || (Input.GetKeyUp(_inputSecondary[n]) && _secondaryModifierPassed)) {
 				_getKeyUpArray[n] = true;
+			} else if ((axisPrimaryDefined && axisPrimaryValue <= deadzone && _axisTriggerArray[n]) ||
+						(axisSecondaryDefined && axisSecondaryValue <= deadzone && _axisTriggerArray[n])) {
+				_axisTriggerArray[n] = false;
+				_getKeyUpArray[n] = true;
 			} else {
-				bool doOnce = false;
-				if (axisPrimaryDefined && axisPrimaryValue <= deadzone && _axisTriggerArrayPrimary[n]) {
-					_axisTriggerArrayPrimary[n] = false;
-					doOnce = true;
-				}
-
-				if (axisSecondaryDefined && axisSecondaryValue <= deadzone && _axisTriggerArraySecondary[n]) {
-					_axisTriggerArraySecondary[n] = false;
-					doOnce = true;
-				}
-
-				_getKeyUpArray[n] = ((!_axisTriggerArrayPrimary[n] || !_axisTriggerArraySecondary[n]) && doOnce);
+				_getKeyUpArray[n] = false;
 			}
 			#endregion //GetKeyUp
 
@@ -1107,24 +945,19 @@ public class cInput : MonoBehaviour {
 			gravity = (_individualAxisGrav[n] != -99) ? _individualAxisGrav[n] : defaultGrav;
 			deadzone = (_individualAxisDead[n] != -99) ? _individualAxisDead[n] : defaultDead;
 
-			// this keeps input working even if Time.deltaTime is 0
-			float fauxDeltaTime = (Time.deltaTime == 0) ? 0.012f : Time.deltaTime;
-
 			// gets the axis value(s) and apply smoothing (sensitivity/gravity) for non-raw value
 			if (axisPrimaryValue > deadzone || axisSecondaryValue > deadzone) {
 				// for the raw value, just take the highest value from the primary or secondary input
 				_getAxisRaw[n] = Mathf.Max(axisPrimaryValue, axisSecondaryValue);
 
 				// use sensitivity settings to gradually bring the non-raw value up to 1 if not already there
-				if (_getAxis[n] < _getAxisRaw[n]) { _getAxis[n] = Mathf.Min(_getAxis[n] + sensitivity * fauxDeltaTime, _getAxisRaw[n]); }
-				// use gravity settings to gradually bring the non-raw value back down to zero if analog input decreases
-				if (_getAxis[n] > _getAxisRaw[n]) { _getAxis[n] = Mathf.Max(_getAxisRaw[n], _getAxis[n] - gravity * fauxDeltaTime); }
+				if (_getAxis[n] < _getAxisRaw[n]) { _getAxis[n] = Mathf.Min(_getAxis[n] + sensitivity * Time.deltaTime, _getAxisRaw[n]); }
 			} else {
 				// both inputs are less than or equal to deadzone cutoff
 				_getAxisRaw[n] = 0; //pretend you're not getting any value at all on the raw axis
 
 				// use gravity settings to gradually bring the non-raw value back down to zero if not already there
-				if (_getAxis[n] > 0) { _getAxis[n] = Mathf.Max(0, _getAxis[n] - gravity * fauxDeltaTime); }
+				if (_getAxis[n] > 0) { _getAxis[n] = Mathf.Max(0, _getAxis[n] - gravity * Time.deltaTime); }
 			}
 
 			// Restore global sensitivity, gravity and deadzone.
@@ -1163,18 +996,22 @@ public class cInput : MonoBehaviour {
 
 	#region GetKey, GetAxis, GetText, and related functions
 
-	#region GetKey & related functions
+	#region GetKey functions
 
-	// returns -1 if there was an error, otherwise returns the array index of the key
-	private static int _FindKeyByHash(int hash) {
-		return (_inputNameHash.ContainsKey(hash)) ? _inputNameHash[hash] : -1;
-	}
-
+	// returns -1 only if there was an error
 	private static int _FindKeyByDescription(string description) {
-		return _FindKeyByHash(description.GetHashCode());
+		for (int i = 0; i < _inputName.Length; i++) {
+			if (_inputName[i] == description) {
+				return i;
+			}
+		}
+
+		// uh oh, the string didn't match!
+		return -1;
 	}
 
-	private static bool _GetKey(int hash, string description = "") {
+	/// <summary>Returns true every frame the input is being pressed</summary>
+	public static bool GetKey(string description) {
 		_cInputInit(); // if cInput doesn't exist, create it
 		if (!_DefaultsExist()) {
 			Debug.LogError("No default inputs found. Please setup your default inputs with SetKey first.");
@@ -1182,67 +1019,19 @@ public class cInput : MonoBehaviour {
 		}
 
 		if (!_cKeysLoaded) { return false; } // make sure we've saved/loaded keys before trying to access them.
-		int _index = _FindKeyByHash(hash);
+		int _index = _FindKeyByDescription(description);
 
 		if (_index > -1) {
 			return _getKeyArray[_index];
 		} else {
 			// if we got this far then the string didn't match and there's a problem
-			string errorText = (!string.IsNullOrEmpty(description)) ? description : "hash " + hash;
-			Debug.LogError("Couldn't find a key match for " + errorText + ". Is it possible you typed it wrong or forgot to setup your defaults after making changes?");
+			Debug.LogError("Couldn't find a key match for " + description + ". Is it possible you typed it wrong or forgot to setup your defaults after making changes?");
 			return false;
 		}
 	}
 
-	/// <summary>Returns true every frame the key is being pressed.</summary>
-	/// <param name="description">The name of the key.</param>
-	/// <returns>A boolean. True every frame the key is still pressed.</returns>
-	public static bool GetKey(string description) {
-		return _GetKey(description.GetHashCode(), description);
-	}
-
-	/// <summary>Returns true every frame the key is being pressed.</summary>
-	/// <param name="descriptionHash">The hashcode of the name of the key.</param>
-	/// <returns>A boolean. True every frame the key is still pressed.</returns>
-	public static bool GetKey(int descriptionHash) {
-		return _GetKey(descriptionHash);
-	}
-
-	private static bool _GetKeyDown(int hash, string description = "") {
-		_cInputInit(); // if cInput doesn't exist, create it
-		if (!_DefaultsExist()) {
-			Debug.LogError("No default inputs found. Please setup your default inputs with SetKey first.");
-			return false;
-		}
-
-		if (!_cKeysLoaded) { return false; } // make sure we've saved/loaded keys before trying to access them.
-		int _index = _FindKeyByHash(hash);
-
-		if (_index > -1) {
-			return _getKeyDownArray[_index];
-		} else {
-			// if we got this far then the string didn't match and there's a problem
-			string errorText = (!string.IsNullOrEmpty(description)) ? description : "hash " + hash;
-			Debug.LogError("Couldn't find a key match for " + errorText + ". Is it possible you typed it wrong or forgot to setup your defaults after making changes?");
-			return false;
-		}
-	}
-
-	/// <summary>Returns true only on the one frame the key is pressed down.</summary>
-	/// <param name="description">The name of the key.</param>
-	/// <returns>A boolean. True on the frame the key is pressed down.</returns>
+	/// <summary>Returns true just once when the input is first pressed down</summary>
 	public static bool GetKeyDown(string description) {
-		return _GetKeyDown(description.GetHashCode(), description);
-	}
-
-	/// <summary>Returns true only on the one frame the key is pressed down.</summary>
-	/// <param name="descriptionHash">A hashcode of the name of the key.</param>
-	/// <returns>A boolean. True on the frame the key is pressed down.</returns>
-	public static bool GetKeyDown(int descriptionHash) {
-		return _GetKeyDown(descriptionHash);
-	}
-
-	private static bool _GetKeyUp(int hash, string description = "") {
 		_cInputInit(); // if cInput doesn't exist, create it
 		if (!_DefaultsExist()) {
 			Debug.LogError("No default inputs found. Please setup your default inputs with SetKey first.");
@@ -1250,30 +1039,35 @@ public class cInput : MonoBehaviour {
 		}
 
 		if (!_cKeysLoaded) { return false; } // make sure we've saved/loaded keys before trying to access them.
-		int _index = _FindKeyByHash(hash);
+		int _index = _FindKeyByDescription(description);
 
 		if (_index > -1) {
-			return _getKeyUpArray[_index];
+			return _getKeyDownArray[_FindKeyByDescription(description)];
 		} else {
 			// if we got this far then the string didn't match and there's a problem
-			string errorText = (!string.IsNullOrEmpty(description)) ? description : "hash " + hash;
-			Debug.LogError("Couldn't find a key match for " + errorText + ". Is it possible you typed it wrong or forgot to setup your defaults after making changes?");
+			Debug.LogError("Couldn't find a key match for " + description + ". Is it possible you typed it wrong or forgot to setup your defaults after making changes?");
 			return false;
 		}
 	}
 
-	/// <summary>Returns true only on the one frame the key is released.</summary>
-	/// <param name="description">The name of the key.</param>
-	/// <returns>A boolean. True only for one frame when the key is first released.</returns>
+	/// <summary>Returns true just once when the input is released</summary>
 	public static bool GetKeyUp(string description) {
-		return _GetKeyUp(description.GetHashCode(), description);
-	}
+		_cInputInit(); // if cInput doesn't exist, create it
+		if (!_DefaultsExist()) {
+			Debug.LogError("No default inputs found. Please setup your default inputs with SetKey first.");
+			return false;
+		}
 
-	/// <summary>Returns true only on the one frame the key is released.</summary>
-	/// <param name="descriptionHash">The hashcode of the name of the key.</param>
-	/// <returns>A boolean. True only for one frame when the key is first released.</returns>
-	public static bool GetKeyUp(int descriptionHash) {
-		return _GetKeyUp(descriptionHash);
+		if (!_cKeysLoaded) { return false; } // make sure we've saved/loaded keys before trying to access them.
+		int _index = _FindKeyByDescription(description);
+
+		if (_index > -1) {
+			return _getKeyUpArray[_FindKeyByDescription(description)];
+		} else {
+			// if we got this far then the string didn't match and there's a problem
+			Debug.LogError("Couldn't find a key match for " + description + ". Is it possible you typed it wrong or forgot to setup your defaults after making changes?");
+			return false;
+		}
 	}
 
 	#region GetButton functions -- they just call GetKey functions
@@ -1283,29 +1077,14 @@ public class cInput : MonoBehaviour {
 		return GetKey(description);
 	}
 
-	/// <summary>Returns true every frame the input is being pressed</summary>
-	public static bool GetButton(int descriptionHash) {
-		return GetKey(descriptionHash);
-	}
-
 	/// <summary>Returns true just once when the input is first pressed down</summary>
 	public static bool GetButtonDown(string description) {
 		return GetKeyDown(description);
 	}
 
-	/// <summary>Returns true just once when the input is first pressed down</summary>
-	public static bool GetButtonDown(int descriptionHash) {
-		return GetKeyDown(descriptionHash);
-	}
-
 	/// <summary>Returns true just once when the input is released</summary>
 	public static bool GetButtonUp(string description) {
 		return GetKeyUp(description);
-	}
-
-	/// <summary>Returns true just once when the input is released</summary>
-	public static bool GetButtonUp(int descriptionHash) {
-		return GetKeyUp(descriptionHash);
 	}
 
 	#endregion //GetButton functions -- they just call GetKey functions
@@ -1314,22 +1093,24 @@ public class cInput : MonoBehaviour {
 
 	#region GetAxis and related functions
 
-	private static int _FindAxisByHash(int hash) {
-		return (_axisNameHash.ContainsKey(hash)) ? _axisNameHash[hash] : -1;
+	private static int _FindAxisByDescription(string axisName) {
+		for (int i = 0; i < _axisName.Length; i++) {
+			if (_axisName[i] == axisName) {
+				return i;
+			}
+		}
+
+		return -1; // uh oh, the string didn't match!
 	}
 
-	private static int _FindAxisByDescription(string description) {
-		return _FindAxisByHash(description.GetHashCode());
-	}
-
-	private static float _GetAxis(int hash, string description = "") {
+	public static float GetAxis(string axisName) {
 		_cInputInit(); // if cInput doesn't exist, create it
 		if (!_DefaultsExist()) {
 			Debug.LogError("No default inputs found. Please setup your default inputs with SetKey first.");
 			return 0;
 		}
 
-		int index = _FindAxisByHash(hash);
+		int index = _FindAxisByDescription(axisName);
 		if (index > -1) {
 			if (_invertAxis[index]) {
 				// this axis should be inverted, so invert the value!
@@ -1341,27 +1122,18 @@ public class cInput : MonoBehaviour {
 		}
 
 		// if we got this far then the string didn't match and there's a problem
-		string errorText = (!string.IsNullOrEmpty(description)) ? description : "axis with hashcode of " + hash;
-		Debug.LogError("Couldn't find an axis match for " + errorText + ". Is it possible you typed it wrong?");
+		Debug.LogError("Couldn't find an axis match for " + axisName + ". Is it possible you typed it wrong?");
 		return 0;
 	}
 
-	public static float GetAxis(string description) {
-		return _GetAxis(description.GetHashCode(), description);
-	}
-
-	public static float GetAxis(int descriptionHash) {
-		return _GetAxis(descriptionHash);
-	}
-
-	private static float _GetAxisRaw(int hash, string description = "") {
+	public static float GetAxisRaw(string axisName) {
 		_cInputInit(); // if cInput doesn't exist, create it
 		if (!_DefaultsExist()) {
 			Debug.LogError("No default inputs found. Please setup your default inputs with SetKey first.");
 			return 0;
 		}
 
-		int index = _FindAxisByHash(hash);
+		int index = _FindAxisByDescription(axisName);
 		if (index > -1) {
 			if (_invertAxis[index]) {
 				// this axis should be inverted, so invert the value!
@@ -1373,100 +1145,9 @@ public class cInput : MonoBehaviour {
 		}
 
 		// if we got this far then the string didn't match and there's a problem
-		string errorText = (!string.IsNullOrEmpty(description)) ? description : "axis with hashcode of " + hash;
-		Debug.LogError("Couldn't find an axis match for " + errorText + ". Is it possible you typed it wrong?");
+		Debug.LogError("Couldn't find an axis match for " + axisName + ". Is it possible you typed it wrong?");
 		return 0;
 	}
-
-	public static float GetAxisRaw(string description) {
-		return _GetAxisRaw(description.GetHashCode(), description);
-	}
-
-	public static float GetAxisRaw(int descriptionHash) {
-		return _GetAxisRaw(descriptionHash);
-	}
-
-	#region GetAxisSensitivity/Gravity/Deadzone functions
-
-	// The public GetAxisSensitivity functions just call this one.
-	private static float _GetAxisSensitivity(int hash, string description = "") {
-		_cInputInit(); // if cInput doesn't exist, create it
-		int axis = _FindAxisByHash(hash);
-		if (axis == -1) {
-			// axis not defined!
-			string errorText = (!string.IsNullOrEmpty(description)) ? description : "axis with hashcode of " + hash;
-			Debug.LogError("Cannot get sensitivity of " + errorText + ". Have you defined this axis with SetAxis() yet?");
-			return -1;
-		} else {
-			// axis has been defined
-			return _individualAxisSens[_makeAxis[axis, 0]];
-		}
-	}
-
-	/// <summary>Retrieve the sensitivity value of the axis.</summary>
-	/// <param name="description">The axis you want the sensitivity value for.</param>
-	public static float GetAxisSensitivity(string description) {
-		return _GetAxisSensitivity(description.GetHashCode(), description);
-	}
-
-	/// <summary>Retrieve the sensitivity value of the axis.</summary>
-	/// <param name="descriptionHash">The hashcode of the axis you want the sensitivity value for.</param>
-	public static float GetAxisSensitivity(int descriptionHash) {
-		return _GetAxisSensitivity(descriptionHash);
-	}
-
-	// The public GetAxisGravity functions just call this one.
-	private static float _GetAxisGravity(int hash, string description = "") {
-		_cInputInit(); // if cInput doesn't exist, create it
-		int axis = _FindAxisByHash(hash);
-		if (axis == -1) {
-			// axis not defined!
-			string errorText = (!string.IsNullOrEmpty(description)) ? description : "axis with hashcode of " + hash;
-			Debug.LogError("Cannot get gravity of " + errorText + ". Have you defined this axis with SetAxis() yet?");
-			return -1;
-		} else {
-			// axis has been defined
-			return _individualAxisGrav[_makeAxis[axis, 0]];
-		}
-	}
-
-	/// <summary>Retrieve the gravity value of the axis.</summary>
-	/// <param name="description">The axis you want the gravity value for.</param>
-	public static float GetAxisGravity(string description) {
-		return _GetAxisGravity(description.GetHashCode(), description);
-	}
-
-	/// <summary>Retrieve the gravity value of the axis.</summary>
-	/// <param name="descriptionHash">The hashcode of the axis you want the gravity value for.</param>
-	public static float GetAxisGravity(int descriptionHash) {
-		return _GetAxisGravity(descriptionHash);
-	}
-
-	/// <summary>Retrieve the deadzone value of the axis.</summary>
-	/// <param name="description">The axis you want the deadzone value for.</param>
-	private static float _GetAxisDeadzone(int hash, string description = "") {
-		_cInputInit(); // if cInput doesn't exist, create it
-		int axis = _FindAxisByHash(hash);
-		if (axis == -1) {
-			// axis not defined!
-			string errorText = (!string.IsNullOrEmpty(description)) ? description : "axis with hashcode of " + hash;
-			Debug.LogError("Cannot get deadzone of " + errorText + ". Have you defined this axis with SetAxis() yet?");
-			return -1;
-		} else {
-			// axis has been defined
-			return _individualAxisDead[_makeAxis[axis, 0]];
-		}
-	}
-
-	public static float GetAxisDeadzone(string description) {
-		return _GetAxisDeadzone(description.GetHashCode(), description);
-	}
-
-	public static float GetAxisDeadzone(int descriptionHash) {
-		return _GetAxisDeadzone(descriptionHash);
-	}
-
-	#endregion //GetAxisSensitivity/Gravity/Deadzone functions
 
 	#endregion //GetAxis and related functions
 
@@ -1488,21 +1169,6 @@ public class cInput : MonoBehaviour {
 		int index = _FindKeyByDescription(action);
 		return GetText(index, input);
 	}
-
-	#region Overloads for the return string to turn blank instead of "None"
-	public static string GetText(string action, int input, bool returnBlank) {
-		int index = _FindKeyByDescription(action);
-		string returnString = GetText(index, input);
-		if (returnBlank && returnString == "None") { returnString = ""; }
-		return returnString;
-	}
-
-	public static string GetText(int index, int input, bool returnBlank) {
-		string returnString = GetText(index, input);
-		if (returnBlank && returnString == "None") { returnString = ""; }
-		return returnString;
-	}
-	#endregion //Overloads for the return string to turn blank instead of "None"
 
 	/// <summary>Get the name of an input using an int. Useful in for loops for GUIs.</summary>
 	/// <param name="index">The index of the input.</param>
@@ -1564,22 +1230,22 @@ public class cInput : MonoBehaviour {
 		}
 
 		string joystring = _FindJoystringByDescription(description);
-		if (!String.IsNullOrEmpty(joystring)) {
+		if (joystring != null) {
 			return joystring;
 		}
 
 		return description;
 	}
 
-	private static string _FindJoystringByDescription(string description) {
-		int[] index;
-
-		if (_joyStringsPosIndices.ContainsKey(description)) {
-			index = _joyStringsPosIndices[description];
-			return _joyStrings[index[0], index[1]];
-		} else if (_joyStringsNegIndices.ContainsKey(description)) {
-			index = _joyStringsNegIndices[description];
-			return _joyStrings[index[0], index[1]];
+	private static string _FindJoystringByDescription(string desc) {
+		for (int i = 1; i <= _numGamepads; i++) {
+			for (int j = 1; j <= 10; j++) {
+				string joyPos = _joyStringsPos[i, j];
+				string joyNeg = _joyStringsNeg[i, j];
+				if (desc == joyPos || desc == joyNeg) {
+					return _joyStrings[i, j];
+				}
+			}
 		}
 
 		return null;
@@ -1587,15 +1253,26 @@ public class cInput : MonoBehaviour {
 
 	private static bool _IsAxisValid(string axis) {
 		switch (axis) {
-			case "Mouse Left":
-			case "Mouse Right":
-			case "Mouse Up":
-			case "Mouse Down":
-			case "Mouse Wheel Up":
+			case "Mouse Left": { return true; }
+			case "Mouse Right": { return true; }
+			case "Mouse Up": { return true; }
+			case "Mouse Down": { return true; }
+			case "Mouse Wheel Up": { return true; }
 			case "Mouse Wheel Down": { return true; }
 		}
 
-		return (_joyStringsPosIndices.ContainsKey(axis) || _joyStringsNegIndices.ContainsKey(axis));
+		bool _state = false;
+		for (int i = 1; i <= _numGamepads; i++) {
+			for (int j = 1; j <= 10; j++) {
+				string joyPos = _joyStringsPos[i, j];
+				string joyNeg = _joyStringsNeg[i, j];
+				if (axis == joyPos || axis == joyNeg) {
+					_state = true;
+				}
+			}
+		}
+
+		return _state;
 	}
 
 	// This function returns -1 for negative axes
@@ -1604,18 +1281,23 @@ public class cInput : MonoBehaviour {
 
 		switch (description) {
 			case "Mouse Left": { return -1; }
-			//case "Mouse Right": { return 1; }
-			//case "Mouse Up": { return 1; }
+			case "Mouse Right": { return 1; }
+			case "Mouse Up": { return 1; }
 			case "Mouse Down": { return -1; }
-			//case "Mouse Wheel Up": { return 1; }
+			case "Mouse Wheel Up": { return 1; }
 			case "Mouse Wheel Down": { return -1; }
 		}
 
-		//if (_joyStringsPosIndices.ContainsKey(description)) {
-		//	return 1;
-		//} else 
-		if (_joyStringsNegIndices.ContainsKey(description)) {
-			return -1;
+		for (int i = 1; i <= _numGamepads; i++) {
+			for (int j = 1; j < 10; j++) {
+				string joyPos = _joyStringsPos[i, j];
+				string joyNeg = _joyStringsNeg[i, j];
+				if (description == joyPos) {
+					return 1;
+				} else if (description == joyNeg) {
+					return -1;
+				}
+			}
 		}
 
 		return posneg;
@@ -1626,8 +1308,6 @@ public class cInput : MonoBehaviour {
 	#endregion //GetKey, GetAxis, GetText, and related functions
 
 	#region Save, Load, Reset & Clear functions
-
-	#region Saving
 
 	private static void _SaveAxis() {
 		int _num = _axisLength + 1;
@@ -1689,7 +1369,7 @@ public class cInput : MonoBehaviour {
 		_exDefaults = _num + "¿" + _Default;
 	}
 
-	private static void _SaveInputs() {
+	public static void _SaveInputs() {
 		int _num = _inputLength + 1;
 		// *** save input configuration ***
 		string _descr = "";
@@ -1729,10 +1409,6 @@ public class cInput : MonoBehaviour {
 		}
 	}
 
-	#endregion
-
-	#region Loading
-
 	public static void LoadExternal(string externString) {
 		_cInputInit(); // if cInput doesn't exist, create it
 		string[] tmpExternalStrings = externString.Split('æ');
@@ -1747,12 +1423,7 @@ public class cInput : MonoBehaviour {
 	}
 
 	private static void _LoadInputs() {
-		if (!PlayerPrefs.HasKey("cInput_count")) {
-			// there is nothing to load
-			_cKeysLoaded = true;
-			return;
-		}
-
+		if (!PlayerPrefs.HasKey("cInput_count")) { return; }
 		if (PlayerPrefs.HasKey("cInput_dubl")) {
 			if (PlayerPrefs.GetString("cInput_dubl") == "True") {
 				allowDuplicates = true;
@@ -1822,6 +1493,9 @@ public class cInput : MonoBehaviour {
 		}
 
 		if (PlayerPrefs.HasKey("cInput_axis")) {
+
+			string _invAx = PlayerPrefs.GetString("cInput_axInv");
+			string[] _axInv = _invAx.Split('*');
 			string _ax = PlayerPrefs.GetString("cInput_axis");
 
 			string[] _axis = _ax.Split('#');
@@ -1834,14 +1508,6 @@ public class cInput : MonoBehaviour {
 				int _neg = int.Parse(_axNeg[n]);
 				int _pos = int.Parse(_axPos[n]);
 				_SetAxis(n, _axName[n], _neg, _pos);
-			}
-		}
-
-		if (PlayerPrefs.HasKey("cInput_axInv")) {
-			string _invAx = PlayerPrefs.GetString("cInput_axInv");
-			string[] _axInv = _invAx.Split('*');
-
-			for (int n = 0; n < _axInv.Length; n++) {
 				if (_axInv[n] == "True") {
 					_invertAxis[n] = true;
 				} else {
@@ -1961,8 +1627,9 @@ public class cInput : MonoBehaviour {
 		}
 
 		if (!string.IsNullOrEmpty(externalStringAxes[0])) {
+
 			string _invAx = _exAxisInverted;
-			string[] _axInv = (!string.IsNullOrEmpty(_invAx)) ? _invAx.Split('*') : null;
+			string[] _axInv = _invAx.Split('*');
 			string _ax = externalStringAxes[0];
 
 			string[] _axis = _ax.Split('#');
@@ -1975,44 +1642,35 @@ public class cInput : MonoBehaviour {
 				int _neg = int.Parse(_axNeg[n]);
 				int _pos = int.Parse(_axPos[n]);
 				_SetAxis(n, _axName[n], _neg, _pos);
-
-				if (!string.IsNullOrEmpty(_invAx)) {
-					if (_axInv[n] == "True") {
-						_invertAxis[n] = true;
-					} else {
-						_invertAxis[n] = false;
-					}
+				if (_axInv[n] == "true") {
+					_invertAxis[n] = true;
+				} else {
+					_invertAxis[n] = false;
 				}
 			}
 		}
 
-		if (externalStringAxes.Length > 1) {
-			if (!string.IsNullOrEmpty(externalStringAxes[1])) {
-				string _tmpAxisSens = externalStringAxes[1];
-				string[] _arrAxisSens = _tmpAxisSens.Split('*');
-				for (int n = 0; n < _arrAxisSens.Length - 1; n++) {
-					_individualAxisSens[n] = float.Parse(_arrAxisSens[n]);
-				}
+		if (!string.IsNullOrEmpty(externalStringAxes[1])) {
+			string _tmpAxisSens = externalStringAxes[1];
+			string[] _arrAxisSens = _tmpAxisSens.Split('*');
+			for (int n = 0; n < _arrAxisSens.Length - 1; n++) {
+				_individualAxisSens[n] = float.Parse(_arrAxisSens[n]);
 			}
 		}
 
-		if (externalStringAxes.Length > 2) {
-			if (!string.IsNullOrEmpty(externalStringAxes[2])) {
-				string _tmpAxisGrav = externalStringAxes[2];
-				string[] _arrAxisGrav = _tmpAxisGrav.Split('*');
-				for (int n = 0; n < _arrAxisGrav.Length - 1; n++) {
-					_individualAxisGrav[n] = float.Parse(_arrAxisGrav[n]);
-				}
+		if (!string.IsNullOrEmpty(externalStringAxes[2])) {
+			string _tmpAxisGrav = externalStringAxes[2];
+			string[] _arrAxisGrav = _tmpAxisGrav.Split('*');
+			for (int n = 0; n < _arrAxisGrav.Length - 1; n++) {
+				_individualAxisGrav[n] = float.Parse(_arrAxisGrav[n]);
 			}
 		}
 
-		if (externalStringAxes.Length > 3) {
-			if (!string.IsNullOrEmpty(externalStringAxes[3])) {
-				string _tmpAxisDead = externalStringAxes[3];
-				string[] _arrAxisDead = _tmpAxisDead.Split('*');
-				for (int n = 0; n < _arrAxisDead.Length - 1; n++) {
-					_individualAxisDead[n] = float.Parse(_arrAxisDead[n]);
-				}
+		if (!string.IsNullOrEmpty(externalStringAxes[3])) {
+			string _tmpAxisDead = externalStringAxes[3];
+			string[] _arrAxisDead = _tmpAxisDead.Split('*');
+			for (int n = 0; n < _arrAxisDead.Length - 1; n++) {
+				_individualAxisDead[n] = float.Parse(_arrAxisDead[n]);
 			}
 		}
 
@@ -2031,8 +1689,6 @@ public class cInput : MonoBehaviour {
 
 		_cKeysLoaded = true;
 	}
-
-	#endregion
 
 	public static void ResetInputs() {
 		_cInputInit(); // if cInput doesn't exist, create it
@@ -2077,12 +1733,12 @@ public class cInput : MonoBehaviour {
 
 	#endregion //Save, Load, Reset & Clear functions
 
-	#region AxisInverted functions
+	#region InvertAxis and IsAxisInverted functions
 
 	// this sets the inversion of axisName to invertedStatus
-	private static bool _AxisInverted(int hash, bool invertedStatus, string description = "") {
+	public static bool AxisInverted(string axisName, bool invertedStatus) {
 		_cInputInit(); // if cInput doesn't exist, create it
-		int index = _FindAxisByHash(hash);
+		int index = _FindAxisByDescription(axisName);
 		if (index > -1) {
 			_invertAxis[index] = invertedStatus;
 			_SaveAxInverted();
@@ -2090,39 +1746,21 @@ public class cInput : MonoBehaviour {
 		}
 
 		// if we got this far then the string didn't match and there's a problem.
-		string errorText = (!string.IsNullOrEmpty(description)) ? description : "axis with hashcode of " + hash;
-		Debug.LogWarning("Couldn't find an axis match for " + errorText + " while trying to set inversion status. Is it possible you typed it wrong?");
+		Debug.LogWarning("Couldn't find an axis match for " + axisName + " while trying to set inversion status. Is it possible you typed it wrong?");
 		return false;
 	}
 
-	public static bool AxisInverted(string description, bool invertedStatus) {
-		return _AxisInverted(description.GetHashCode(), invertedStatus, description);
-	}
-
-	public static bool AxisInverted(int descriptionHash, bool invertedStatus) {
-		return _AxisInverted(descriptionHash, invertedStatus);
-	}
-
 	// this just returns inversion status of axisName
-	private static bool _AxisInverted(int hash, string description = "") {
+	public static bool AxisInverted(string axisName) {
 		_cInputInit(); // if cInput doesn't exist, create it
-		int index = _FindAxisByHash(hash);
+		int index = _FindAxisByDescription(axisName);
 		if (index > -1) {
 			return _invertAxis[index];
 		}
 
 		// if we got this far then the string didn't match and there's a problem.
-		string errorText = (!string.IsNullOrEmpty(description)) ? description : "axis with hashcode of " + hash;
-		Debug.LogWarning("Couldn't find an axis match for " + errorText + " while trying to get inversion status. Is it possible you typed it wrong?");
+		Debug.LogWarning("Couldn't find an axis match for " + axisName + " while trying to get inversion status. Is it possible you typed it wrong?");
 		return false;
-	}
-
-	public static bool AxisInverted(string description) {
-		return _AxisInverted(description.GetHashCode(), description);
-	}
-
-	public static bool AxisInverted(int descriptionHash) {
-		return _AxisInverted(descriptionHash);
 	}
 
 	#endregion
@@ -2165,8 +1803,11 @@ public class cInput : MonoBehaviour {
 
 	private static void _cInputInit() {
 		if (_cObject == null) {
-			GameObject cObject = GameObject.Find("cObject");
-			if (!cObject) {
+			GameObject cObject;
+			if (GameObject.Find("cObject")) {
+				// GameObject named cObject already exists
+				cObject = GameObject.Find("cObject");
+			} else {
 				// We need to create a GameObject named cObject
 				cObject = new GameObject();
 				cObject.name = "cObject";
@@ -2176,22 +1817,15 @@ public class cInput : MonoBehaviour {
 			if (cObject.GetComponent<cInput>() == null) {
 				_cObject = cObject.AddComponent<cInput>();
 			}
-		}
 
 #if Use_cInputGUI
 
-		// make sure the GameObject also has the cInputGUI component attached
-		if (!_cInputGUIObject) {
-			// get a reference to the component if it already exists
-			_cInputGUIObject = _cObject.GetComponent<cInputGUI>();
-			if (!_cInputGUIObject) {
-				// if there's still no reference, the component needs to be added
-				_cObject.gameObject.AddComponent<cInputGUI>();
-			}
-		}
+			// make sure the GameObject also has the cInputGUI component attached
+		
 
 #endif
 
+		}
 	}
 
 	private void _CheckingDuplicates(int _num, int _count) {
@@ -2440,77 +2074,28 @@ public class cInput : MonoBehaviour {
 
 		if (_allowJoystickAxis) {
 			float scanningDeadzone = 0.25f;
-			for (int gamepad = 1; gamepad <= _numGamepads; gamepad++) {
-				for (int axis = 1; axis <= 10; axis++) {
-					string _joystring = _joyStrings[gamepad, axis];
-					string _joystringPos = _joyStringsPos[gamepad, axis];
-					string _joystringNeg = _joyStringsNeg[gamepad, axis];
+			for (int i = 1; i <= _numGamepads; i++) {
+				for (int j = 1; j <= 10; j++) {
+					string _joystring = _joyStrings[i, j];
+					string _joystringPos = _joyStringsPos[i, j];
+					string _joystringNeg = _joyStringsNeg[i, j];
 
 					float axisRaw = Input.GetAxisRaw(_joystring);
-					bool axisChanged = false; // whether or not the axis' value has changed during scanning
 
-					// we do it this way to avoid exception if key is not found in dictionary
-					if (_axisRawValues.ContainsKey(_joystring)) {
-						if (!Mathf.Approximately(_axisRawValues[_joystring], axisRaw)) { axisChanged = true; }
-					}
-
-					/*if (!axisChanged) {
-						if (_axisRawValues.ContainsKey(_joystringPos)) {
-							if (!Mathf.Approximately(_axisRawValues[_joystringPos], axisRaw)) {
-								axisChanged = true;
-							}
-						}
-					}
-
-					if (!axisChanged) {
-						if (_axisRawValues.ContainsKey(_joystringNeg)) {
-							if (!Mathf.Approximately(_axisRawValues[_joystringNeg], axisRaw)) {
-								axisChanged = true;
-							}
-						}
-					}*/
-
-					if (axisChanged) {
+					if (!Mathf.Approximately(_axisRawValues[_joystring], axisRaw)) {
 
 						#region Special Xbox gamepad trigger handling
-
-						// Why does this check for OSX have to be so ugly?
-						if (Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.OSXPlayer || Application.platform == RuntimePlatform.OSXWebPlayer) {
-							// On OSX, Xbox triggers are bound to axes 5 (-/+) and 6 (-/+).
-							// The problem with this is that they return a value between -1 and 1,
-							// defaulting to -1 when they aren't pressed, 0 when they're pressed half way,
-							// and 1 when fully pressed.
-							// This code changes the value to be 0 by default and 1 when fully pressed.
-
-							if (axis == 5 || axis == 6) {
-								string gamepadName = Input.GetJoystickNames()[gamepad - 1];
-								// possible Mac gamepad names for Xbox gamepad from the very useful InControl
-								string[] JoystickNames = new[] {
-									"", // Yes, really.
-									"Microsoft Wireless 360 Controller",
-									"Mad Catz, Inc. Mad Catz FPS Pro GamePad",
-									"\u00A9Microsoft Corporation Controller"
-								};
-
-								for (int z = 0; z < JoystickNames.Length; z++) {
-									if (gamepadName == JoystickNames[z]) {
-										axisRaw = (axisRaw + 1) / 2;
-										break; // finished iterating OSX gamepad names
-									}
-								}
-							}
-						} else if (axis == 3) {
-							// On Windows, Xbox triggers are bound both to axis 3 (+/-) and axes 9 (+) and 10 (+).
-							// The problem with letting them bind to axis 3 is if both are pressed,
-							// it returns -1 + 1 which is 0, which is the same as neither of them being pressed.
-							// This prevents them from being bound to the same axis, so they can both be
-							// pressed without interfering with each other.
-
+						// Xbox triggers are bound both to axis 3 (+/-) and axes 9 (+) and 10 (+)
+						// the problem with letting them bind to axis 3 is if both are pressed,
+						// it returns -1 + 1 which is 0, which is the same as neither of them being pressed
+						// this prevents them from being bound to the same axis, so they can both be
+						// pressed without interfering with each other.
+						if (j == 3) {
 							// if this is the gamepad's 3rd axis we want to check if either
 							// axis 9 or 10 is also returning a value
 
-							string lTrigger = _joyStringsPos[gamepad, 9];
-							string rTrigger = _joyStringsPos[gamepad, 10];
+							string lTrigger = _joyStringsPos[i, 9];
+							string rTrigger = _joyStringsPos[i, 10];
 
 							// if axis 9 or 10 has a positive value above scanningDeadzone, use that axis instead of axis 3
 							if (_GetCalibratedAxisInput(lTrigger) > scanningDeadzone) {
@@ -2521,35 +2106,34 @@ public class cInput : MonoBehaviour {
 								_joystringNeg = rTrigger;
 							}
 						}
-
 						#endregion //Special Xbox gamepad trigger handling
 
-						float axisVal = (axisRaw < 0) ? // if the raw value is negative
+						float axis = (axisRaw < 0) ? // if the raw value is negative
 							_GetCalibratedAxisInput(_joystringNeg) : // axis is the calibrated input of the negative axis
 							_GetCalibratedAxisInput(_joystringPos); // else it's the calibrated input of the positive axis
 
-						if (_scanning && Mathf.Abs(axisVal) > scanningDeadzone && !Input.GetKey(KeyCode.Escape)) {
+						if (_scanning && Mathf.Abs(axis) > scanningDeadzone && !Input.GetKey(KeyCode.Escape)) {
 							//Debug.Log("Calibrated value: " + axis + ". Raw value: " + Input.GetAxisRaw(_joystring));
 							if (_cScanInput == 1) {
-								if (axisVal > scanningDeadzone) {
+								if (axis > scanningDeadzone) {
 									_axisPrimary[_cScanIndex] = _joystringPos;
-								} else if (axisVal < -scanningDeadzone) {
+								} else if (axis < -scanningDeadzone) {
 									_axisPrimary[_cScanIndex] = _joystringNeg;
 								}
 
 								_CheckingDuplicateStrings(_cScanIndex, _cScanInput);
 								_cScanInput = 0;
-								return; // found our input, so don't iterate anymore
+								break;
 							} else if (_cScanInput == 2) {
-								if (axisVal > scanningDeadzone) {
+								if (axis > scanningDeadzone) {
 									_axisSecondary[_cScanIndex] = _joystringPos;
-								} else if (axisVal < -scanningDeadzone) {
+								} else if (axis < -scanningDeadzone) {
 									_axisSecondary[_cScanIndex] = _joystringNeg;
 								}
 
 								_CheckingDuplicateStrings(_cScanIndex, _cScanInput);
 								_cScanInput = 0;
-								return; // found our input, so don't iterate anymore
+								break;
 							}
 						}
 					}

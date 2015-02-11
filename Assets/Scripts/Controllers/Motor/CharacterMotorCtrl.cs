@@ -20,9 +20,9 @@ namespace PokemonNXT.Controllers {
         void Update()
         {  if(obj!=null)
             obj.UpdatePosition(transform.position);
-            Move(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
-            AnimatorCtrl.SetFloat("DirX", Input.GetAxis("Horizontal"));
-            AnimatorCtrl.SetFloat("DirY", Input.GetAxis("Vertical"));
+            Move(new Vector3(cInput.GetAxis("Horizontal"), 0, cInput.GetAxis("Vertical")));
+            AnimatorCtrl.SetFloat("DirX", cInput.GetAxis("Horizontal"));
+            AnimatorCtrl.SetFloat("DirY", cInput.GetAxis("Vertical"));
         }
         public override void Interpolate(Vector3 newPos)
         {
@@ -58,6 +58,5 @@ namespace PokemonNXT.Controllers {
         }
 
         //public virtual void Jump
-
     }
 }
