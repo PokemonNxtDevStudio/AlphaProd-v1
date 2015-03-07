@@ -25,7 +25,7 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAudioSource
                 return TaskStatus.Failure;
             }
 
-            audioSource.panLevel = panLevel.Value;
+            audioSource.spatialBlend = panLevel.Value;
 
             return TaskStatus.Success;
         }

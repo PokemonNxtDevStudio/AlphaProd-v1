@@ -35,7 +35,7 @@ namespace PokemonNXT.Controllers {
                 Vector3 targetVelocity = transform.TransformDirection(InputDirection);
                 targetVelocity *= baseSpeed;
 
-                Vector3 velocity = rigidbody.velocity;
+                Vector3 velocity = GetComponent<Rigidbody>().velocity;
                 Vector3 velocityChange = (targetVelocity - velocity);
                 velocityChange.x = Mathf.Clamp(velocityChange.x, -MaxVelocityChange, MaxVelocityChange);
                 velocityChange.z = Mathf.Clamp(velocityChange.z, -MaxVelocityChange, MaxVelocityChange);
@@ -43,13 +43,13 @@ namespace PokemonNXT.Controllers {
                 
                 //We do not apply force when not required
                // if(velocityChange.magnitude > 0.1f)
-                    rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
+                    GetComponent<Rigidbody>().AddForce(velocityChange, ForceMode.VelocityChange);
 
                 //if(CanJump && !Grounded && Input.GetKey(KeyCode.Space)) {
                 //    rigidbody.velocity = new Vector3(velocity.x, JumpSpeed, velocity.z);
                 //}
                 //Stay on the ground bitch
-                rigidbody.AddForce(new Vector3(0, -Gravity * rigidbody.mass, 0));
+                GetComponent<Rigidbody>().AddForce(new Vector3(0, -Gravity * GetComponent<Rigidbody>().mass, 0));
             
             }
             //@You can uncomment the following two lines and comment the content of the UpdateAnimator method in Ctrl/Handlers/Net/CharacterNetCtrlHandler.cs

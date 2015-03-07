@@ -18,7 +18,7 @@ public class Underwater : MonoBehaviour
 	
 	void Start () 
 	{
-		camera.backgroundColor = fogColor;
+		GetComponent<Camera>().backgroundColor = fogColor;
 		
 		savedfogEnableFlag = RenderSettings.fog;
 		savedFogColor = RenderSettings.fogColor;

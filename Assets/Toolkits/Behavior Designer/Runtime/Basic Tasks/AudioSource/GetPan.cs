@@ -25,7 +25,7 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAudioSource
                 return TaskStatus.Failure;
             }
 
-            storeValue.Value = audioSource.pan;
+            storeValue.Value = audioSource.panStereo;
 
             return TaskStatus.Success;
         }
