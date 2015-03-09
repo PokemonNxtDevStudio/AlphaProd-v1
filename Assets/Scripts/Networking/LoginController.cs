@@ -44,14 +44,18 @@ public class LoginController : MonoBehaviour {
     }
     void OnLogin(PacketBuffer buffer)
     {
+    
+        //TRAINER_DATA		TrainerID (Integer)				Prefab Index(short)	AssetID (Integer)				Username (String) ...				LOCATION    
         BinaryReader reader = buffer.StartReading();
         MMOManager.Instance.player = new Player();
         reader.ReadString();
         MMOManager.Instance.player.ID = reader.ReadInt32();
-        MMOManager.Instance.player.Username = reader.ReadString();
+        reader.ReadInt16();
         MMOManager.Instance.player.TrainerAssetID = reader.ReadInt32();
+        //MMOManager.Instance.player.Username = reader.ReadString();
+       
         if(!testMode)
-        Application.LoadLevelAsync("ChatWindow");
+        Application.LoadLevelAsync("MovementV1");
         
     }
     public void Login()

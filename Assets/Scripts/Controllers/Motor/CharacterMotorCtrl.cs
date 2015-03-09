@@ -18,7 +18,7 @@ namespace PokemonNXT.Controllers {
             obj.SyncPositionRPC = Interpolate;
         }
         void Update()
-        {  if(obj!=null)
+        {  if(obj!=null && obj.IsMine)
             obj.UpdatePosition(transform.position);
             Move(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
             AnimatorCtrl.SetFloat("DirX", Input.GetAxis("Horizontal"));

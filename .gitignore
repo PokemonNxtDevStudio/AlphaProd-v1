@@ -81,3 +81,6 @@ UnityGenerated/
 # Standard Assets helpers
 /Assets/Toolkits/Standard Assets
 /Assets/Toolkits/Standard Assets.meta
+Assets/Plugins/UnityEngine.dll
+Assets/Scenes/Development/Network/WorldSceneCache.unity
+Assets/Scenes/Development/Network/WorldSceneCache.unity.meta
