@@ -223,7 +223,7 @@ static public class NGUIMenu
 
 	[MenuItem("NGUI/Create/2D UI", true)]
 	[MenuItem("Assets/NGUI/Create 2D UI", true, 1)]
-	static bool Create2Da () { return UIRoot.list.Count == 0 || UICamera.list.size == 0 || !UICamera.list[0].camera.isOrthoGraphic; }
+	static bool Create2Da () { return UIRoot.list.Count == 0 || UICamera.list.size == 0 || !UICamera.list[0].GetComponent<Camera>().orthographic; }
 
 	[MenuItem("NGUI/Create/3D UI", false, 6)]
 	[MenuItem("Assets/NGUI/Create 3D UI", false, 1)]
@@ -231,7 +231,7 @@ static public class NGUIMenu
 
 	[MenuItem("NGUI/Create/3D UI", true)]
 	[MenuItem("Assets/NGUI/Create 3D UI", true, 1)]
-	static bool Create3Da () { return UIRoot.list.Count == 0 || UICamera.list.size == 0 || UICamera.list[0].camera.isOrthoGraphic; }
+	static bool Create3Da () { return UIRoot.list.Count == 0 || UICamera.list.size == 0 || UICamera.list[0].GetComponent<Camera>().orthographic; }
 
 #endregion
 #region Attach
@@ -533,7 +533,7 @@ static public class NGUIMenu
 
 			BoxCollider2D bc = go.AddComponent<BoxCollider2D>();
 			bc.size = size;
-			bc.center = center;
+			bc.offset = center;
 			bc.isTrigger = true;
 			NGUITools.SetDirty(go);
 		}
@@ -556,7 +556,7 @@ static public class NGUIMenu
 
 			cam.eventType = UICamera.EventType.UI_3D;
 
-			Vector3 center = c.center;
+			Vector3 center = c.offset;
 			Vector3 size = c.size;
 			NGUITools.DestroyImmediate(c);
 

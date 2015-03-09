@@ -1,4 +1,4 @@
-﻿#define Use_cInputGUI // Comment out this line to use your own GUI instead of cInput's built-in GUI.
+﻿//#define Use_cInputGUI // Comment out this line to use your own GUI instead of cInput's built-in GUI.
 
 #region Namespaces
 
@@ -9,31 +9,13 @@ using System.Collections.Generic;
 
 #endregion
 
-/***********************************************************************
- *  cInput 2.7.1 by cMonkeys (Ward Dewaele and Deozaan)
- *  This script is NOT free, unlike Custom Inputmanager 1.x.
- *  Therefore the use of this script is strictly personal and 
- *  may not be spread without permission.
- *  
- *  Any technical or license questions can be mailed
- *  to ward.dewaele@pandora.be, but read the 
- *  included help documents first please.
- ***********************************************************************/
+
 
 public class cInput : MonoBehaviour {
 
 	#region cInput Variables and Properties
 
-	public static GUISkin cSkin {
-		get {
-			Debug.LogWarning("cInput.cSkin has been deprecated. Please use cGUI.cSkin.");
-			return cGUI.cSkin;
-		}
-		set {
-			Debug.LogWarning("cInput.cSkin has been deprecated. Please use cGUI.cSkin.");
-			cGUI.cSkin = value;
-		}
-	} // cSkin is DEPRECATED!
+// cSkin is DEPRECATED!
 
 	public static float gravity = 3;
 	public static float sensitivity = 3;
@@ -670,7 +652,7 @@ public class cInput : MonoBehaviour {
 	/// <param name="allowGamepadAxis">Allow a gamepad axis to be bound? Default is true.</param>
 	/// <param name="allowGamepadButtons">Allow a gamepad button to be bound? Default is true.</param>
 	/// <param name="allowKeyboard">Allow keyboard keys to be bound? Default is true.</param>
-	public static void ChangeKey(int index, int input, bool allowMouseAxis, bool allowMouseButtons, bool allowGamepadAxis, bool allowGamepadButtons, bool allowKeyboard) {
+	public static void   ChangeKey(int index, int input, bool allowMouseAxis, bool allowMouseButtons, bool allowGamepadAxis, bool allowGamepadButtons, bool allowKeyboard) {
 		_cInputInit(); // if cInput doesn't exist, create it
 		_ScanForNewKey(index, input, allowMouseAxis, allowMouseButtons, allowGamepadAxis, allowGamepadButtons, allowKeyboard);
 	}
@@ -1387,7 +1369,7 @@ public class cInput : MonoBehaviour {
 		_exDefaults = _num + "¿" + _Default;
 	}
 
-	private static void _SaveInputs() {
+	public static void _SaveInputs() {
 		int _num = _inputLength + 1;
 		// *** save input configuration ***
 		string _descr = "";
@@ -1839,9 +1821,7 @@ public class cInput : MonoBehaviour {
 #if Use_cInputGUI
 
 			// make sure the GameObject also has the cInputGUI component attached
-			//if (cObject.GetComponent<cInputGUI>() == null) {
-				//cObject.AddComponent<cInputGUI>();
-			//}
+		
 
 #endif
 

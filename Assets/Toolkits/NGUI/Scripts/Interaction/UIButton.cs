@@ -68,7 +68,7 @@ public class UIButton : UIButtonColor
 		get
 		{
 			if (!enabled) return false;
-			Collider col = collider;
+			Collider col = GetComponent<Collider>();
 			if (col && col.enabled) return true;
 #if !UNITY_3_5 && !UNITY_4_0 && !UNITY_4_1 && !UNITY_4_2
 			Collider2D c2d = GetComponent<Collider2D>();
@@ -81,7 +81,7 @@ public class UIButton : UIButtonColor
 		{
 			if (isEnabled != value)
 			{
-				Collider col = collider;
+				Collider col = GetComponent<Collider>();
 
 				if (col != null)
 				{
