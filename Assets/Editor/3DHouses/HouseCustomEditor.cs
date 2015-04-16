@@ -6,7 +6,7 @@ using UnityEditor;
 [CustomEditor(typeof(HouseCustom))]
 public class HouseCustomEditor : Editor
 {
-    
+
     private string _helpInfo = "help Box";
 
     public override void OnInspectorGUI()
@@ -14,55 +14,62 @@ public class HouseCustomEditor : Editor
         DrawDefaultInspector();
 
         HouseCustom house = (HouseCustom)target;
- 
-        
-        if(GUILayout.Button("New House"))
+
+
+        if (GUILayout.Button("New House"))
         {
             house._NewHouse = true;
-            house.MakeAhouse007 = false;
-            house.DeleteHouse007();
+            if(house.TheTypeOfHouse == HouseCustom.TypeOfHouse.House007)
+            {
+                house.DeleteHouse007();
+            }
+            if(house.TheTypeOfHouse == HouseCustom.TypeOfHouse.House009)
+            {
+                house.DeleteCustomHouse009();
+            }
             _helpInfo = "Select House To Create";
+            house.TheTypeOfHouse = HouseCustom.TypeOfHouse.None;
 
         }
 
         #region new houses
-        if (house._NewHouse == true)
+        if (house.TheTypeOfHouse == HouseCustom.TypeOfHouse.None) 
         {
             if (GUILayout.Button("New House 001"))
             {
                 house._NewHouse = false;
-                
+
 
             }
             if (GUILayout.Button("New House 002"))
             {
                 house._NewHouse = false;
-               
+
             }
             if (GUILayout.Button("New House 003"))
             {
                 house._NewHouse = false;
-                
+
             }
             if (GUILayout.Button("New House 004"))
             {
                 house._NewHouse = false;
-               
+
             }
             if (GUILayout.Button("New House 005"))
             {
                 house._NewHouse = false;
-                
+
             }
             if (GUILayout.Button("New House 006"))
             {
                 house._NewHouse = false;
-              
+
             }
             if (GUILayout.Button("New House 007"))
             {
                 house._NewHouse = false;
-                house.MakeAhouse007 = true;
+                house.minCurSeting();
                 house.MakeNewCustomHouse007();
             }
             if (GUILayout.Button("New House 008"))
@@ -73,14 +80,15 @@ public class HouseCustomEditor : Editor
             if (GUILayout.Button("New House 009"))
             {
                 house._NewHouse = false;
+                house.MakeNewCustomHouse009();
 
             }
             EditorGUILayout.HelpBox(_helpInfo, MessageType.Info);
 
         }
         #endregion
-
-        if(house.MakeAhouse007 == true)
+        #region House007 custom UI
+        if (house.TheTypeOfHouse == HouseCustom.TypeOfHouse.House007)
         {
             //EditorGUILayout.HelpBox("Roof " + house.CurRoof + " / " + house.MaxRoof,MessageType.Info);
             GUILayout.Space(5);
@@ -97,7 +105,7 @@ public class HouseCustomEditor : Editor
                 }
                 house.MakeNewCustomHouse007();
             }
-            if(GUILayout.Button("Next Roof"))
+            if (GUILayout.Button("Next Roof"))
             {
                 if (house.CurRoof == house.MaxRoof)
                 {
@@ -371,10 +379,127 @@ public class HouseCustomEditor : Editor
             }
         }
 
-        
-        
+
+        #endregion
+
+        if (house.TheTypeOfHouse == HouseCustom.TypeOfHouse.House009)
+        {
+
+            GUILayout.Label("House 009 Roof: " + house.H9CurRoofs + " / " + house.H9MaxRoofs);
+            if(GUILayout.Button("Next Roof"))
+            {
+                house.H9NextRoof();
+            }
+            if (GUILayout.Button("Previous Roof"))
+            {
+                house.H9PreviousRoof();
+            }
+
+            GUILayout.Label("House 009 Outside Walls: " + house.H9CurOutSideWalls + " / " + house.MaxOutSideWalls);
+
+            if (GUILayout.Button("Next Outside Walls"))
+            {
+                house.H9NextOutSideWall();
+            }
+            if (GUILayout.Button("Previous Outside Walls"))
+            {
+                house.H9PreviousOutSideWall();
+            }
+
+            GUILayout.Label("House 009 Pilars: " + house.H9CurPillars + " / " + house.H9MaxPillars);
+
+            if (GUILayout.Button("Next Pilars"))
+            {
+                house.H9NextPillar();
+            }
+            if (GUILayout.Button("Previous Pilars"))
+            {
+                house.H9PreviousPillar();
+            }
+            
+            GUILayout.Label("House 009 InsideWalls: " + house.H9CurInsideWalls + " / " + house.H9MaxInsideWalls);
+
+            if (GUILayout.Button("Next InsideWalls"))
+            {
+                house.H9NextInSideWall();
+            }
+            if (GUILayout.Button("Previous InsideWalls"))
+            {
+                house.H9PreviousInSideWall();
+            }
+
+            GUILayout.Label("House 009 F1Floor: " + house.H9CurFloor1 + " / " + house.H9MaxFloor1);
+
+            if (GUILayout.Button("Next F1Floor"))
+            {
+                house.H9NextF1Floor();
+            }
+            if (GUILayout.Button("Previous F1Floor"))
+            {
+                house.H9PreviousF1Floor();
+            }
+
+            GUILayout.Label("House 009 F2Floor: " + house.H9CurFloor2 + " / " + house.H9MaxFloor2);
+
+            if (GUILayout.Button("Next F2Floor"))
+            {
+                house.H9NextF2Floor();
+            }
+            if (GUILayout.Button("Previous F2Floor"))
+            {
+                house.H9PreviousF2Floor();
+            }
+
+            GUILayout.Label("House 009 Door1: " + house.H9CurDoor1 + " / " + house.H9MaxDoor1);
+
+            if (GUILayout.Button("Next Door1"))
+            {
+                house.H9NextDoor1();
+            }
+            if (GUILayout.Button("Previous Door1"))
+            {
+                house.H9PreviousDoor1();
+            }
+
+            GUILayout.Label("House 009 Door2: " + house.H9CurDoor2 + " / " + house.H9MaxDoor2);
+
+            if (GUILayout.Button("Next Door2"))
+            {
+                house.H9NextDoor2();
+            }
+            if (GUILayout.Button("Previous Door2"))
+            {
+                house.H9PreviousDoor2();
+            }
+
+            GUILayout.Label("House 009 Door3: " + house.H9CurDoor3 + " / " + house.H9MaxDoor3);
+
+            if (GUILayout.Button("Next Door3"))
+            {
+                house.H9NextDoor3();
+            }
+            if (GUILayout.Button("Previous Door3"))
+            {
+                house.H9PreviousDoor3();
+            }
+
+            GUILayout.Label("House 009 Door4: " + house.H9CurDoor4 + " / " + house.H9MaxDoor4);
+
+            if (GUILayout.Button("Next Door4"))
+            {
+                house.H9NextDoor4();
+            }
+            if (GUILayout.Button("Previous Door4"))
+            {
+                house.H9PreviousDoor4();
+            }
+
+        }
+
+
+
+
+
+
     }
-
-
-
 }
