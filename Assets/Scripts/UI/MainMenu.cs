@@ -5,6 +5,9 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     #region Variables
+    public GameObject gameManager;
+    private GraphicalOptions graphics;
+
     // Information log objects
     public GameObject registerMenuLog;
     public GameObject loginMenuLog;
@@ -36,7 +39,29 @@ public class MainMenu : MonoBehaviour
     public string username;
     [HideInInspector]
     public string password;
+
+    // Variables for changing the audio
+    public GameObject masterVolumeSlider;
+    public GameObject musicVolumeSlider;
+    public GameObject sfxVolumeSlider;
+    private string masterVolumePercent;
+    private string musicVolumePercent;
+    private string sfxVolumePercent;
+
     #endregion
+
+    void Start()
+    {
+        graphics = gameManager.GetComponent<GraphicalOptions>();
+        /* TODO:
+         * Set the settings to the user's saved volume options
+         * e.g.
+         * masterVolumePercent = (saved setting)
+         * musicVolumePercent = (saved setting)
+         * sfxVolumePercent = (saved setting)
+         */
+
+    }
 
     #region MainMenuScreen
     // Main Menu Screen
@@ -50,13 +75,6 @@ public class MainMenu : MonoBehaviour
         mainMenuLog.GetComponent<Text>().text = message;
     }
 
-    /// <summary>
-    /// Change the volume of the menu screens
-    /// </summary>
-    public void SetMusicVolume(float volume)
-    {
-        // TODO: Change volume based on this value
-    }
     #endregion
 
     #region RegisterScreen
@@ -81,7 +99,7 @@ public class MainMenu : MonoBehaviour
             {
                 if (registerPassword == registerPasswordConfirm)
                 {
-                    if (registerPassword.Length > 3)
+                    if (registerPassword.Length > 2)
                     {
                         // TODO: Create account and check for validation
                         RegisterScreenWarning(""); // Clear any screen warnings         
@@ -189,9 +207,34 @@ public class MainMenu : MonoBehaviour
 
     #region SettingScreen
 
-    public void SetAudioVolume()
+    /// <summary>
+    /// Sets both music and SFX volumes
+    /// </summary>
+    public void SetMasterAudioVolume()
     {
+        float value = masterVolumeSlider.GetComponent<Slider>().value;
+        masterVolumeSlider.transform.FindChild("Percentage Text").GetComponent<Text>().text = ((Mathf.Round(value * 100.0f)).ToString() + "%");
+        // TODO: Change masteraudio volume
+    }
 
+    /// <summary>
+    /// Sets just music volume
+    /// </summary>
+    public void SetMusicAudioVolume()
+    {
+        float value = musicVolumeSlider.GetComponent<Slider>().value;
+        musicVolumeSlider.transform.FindChild("Percentage Text").GetComponent<Text>().text = ((Mathf.Round(value * 100.0f)).ToString() + "%");
+        // TODO: Change masteraudio volume
+    }
+
+    /// <summary>
+    /// Sets just SFX volume
+    /// </summary>
+    public void SetSFXAudioVolume()
+    {
+        float value = sfxVolumeSlider.GetComponent<Slider>().value;
+        sfxVolumeSlider.transform.FindChild("Percentage Text").GetComponent<Text>().text = ((Mathf.Round(value * 100.0f)).ToString() + "%");
+        // TODO: Change masteraudio volume
     }
 
     #endregion
@@ -200,6 +243,9 @@ public class MainMenu : MonoBehaviour
 
     #endregion
 
+    /// <summary>
+    /// Triggered when the player presses exit
+    /// </summary>
     public void Exit() // Put stuff in here for when player quits 
     {
         Debug.Log("Quitting Game");
