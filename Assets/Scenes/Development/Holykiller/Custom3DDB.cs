@@ -28,6 +28,7 @@ public class Custom3DDB
     public GameObject Basement;
     public GameObject FirePlace;
     public GameObject Frames;
+    public GameObject WindowFrames;
     public GameObject Addon1;
     public GameObject Addon2;
     public GameObject Addon3;
@@ -35,6 +36,10 @@ public class Custom3DDB
     public GameObject Addon5;
     public GameObject Addon6;
     public GameObject Addon7;
+    public GameObject Base;
+    public GameObject F2;
+    public GameObject RoofPart;
+    public GameObject TheRoof;
 
     public int CurRoof = 1;
     public int CurExtraRoof = 1;
@@ -56,6 +61,7 @@ public class Custom3DDB
     public int CurFirePlace = 1;
     public int CurFrontStairs = 1;
     public int CurFrames = 1;
+    public int CurWindowFrames = 1;
     public int CurAddon1 = 1;
     public int CurAddon2 = 1;
     public int CurAddon3 = 1;
@@ -63,6 +69,12 @@ public class Custom3DDB
     public int CurAddon5 = 1;
     public int CurAddon6 = 1;
     public int CurAddon7 = 1;
+    public int CurBaseVersion = 1;
+    public int CurBase = 1;
+    public int CurF2Version = 1;
+    public int CurF2 = 1;
+    public int CurRoofPartVersion = 1;
+    public int CurRoofDesign = 1;
 
     public int MaxRoofAtm = 1;
     public int MaxExtraRoofAtm = 1;
@@ -84,6 +96,11 @@ public class Custom3DDB
     public int MaxBasementAtm = 1;
     public int MaxFrontStairsAtm = 1;
     public int MaxFramesAtm = 1;
+    public int MaxWindowFramesAtm = 1;
+    public int MaxBaseAtm = 1;
+    public int MaxF2Atm = 1;
+    public int MaxRoofPartAtm = 1;
+    public int MaxTheRoofAtm = 1;
 
     public int MaxAddon1Atm = 1;
     public int MaxAddon2Atm = 1;
@@ -173,8 +190,35 @@ public class Custom3DDB
     public int MaxPillars9 = 3;
     public int MaxInsideRoofs9 = 1;
 
+    //LongHouse Parts
+
+    public int MaxBaseVL = 15;
+    public int MaxBaseDesignsL = 4;
+    public int MaxFramesL = 8;
+    public int MaxDoorsL = 7;
+    public int MaxF2sVersionsL = 15;
+    public int MaxF2DesignsL = 1;
+    public int MaxRoofsVersionsL = 25;
+    public int MaxRoofDesignsL = 3;
+    public int MaxRoofPartsVersion = 15;
+
+    //WideHouse_1
+    public int MaxAddon1W1 = 5;
+    public int MaxDoor1W1 = 7;
+    public int MaxDoorFrameW1 = 7;
+    public int MaxOutsideWallsW1 = 15;
+    public int MaxRoofsW1 = 25;
+    public int MaxWindowsFrameW1 = 6;
+
+    //WideHouse_2
+    public int MaxOutsideWallsW2 = 14;
+    public int MaxRoofsW2 = 25;
+    public int MaxWindowFramesW2 = 7;
+   
+
 
     public HouseNumber HouseNumber;
+    public HouseFiller HouseFiller;
 
     public static GameObject NewCustomPart(GameObject goparent,string path,string nameforthego)
     {
@@ -211,13 +255,18 @@ public enum PartOfHouse
     Pillar,
     Basement,
     Frames,
+    WindowFrames,
     Addon1,
     Addon2,
     Addon3,
     Addon4,
     Addon5,
     Addon6,
-    Addon7
+    Addon7,
+    Base,
+    F2,
+    RoofPart,
+    TheRoofs
 }
 public enum HouseNumber
 {
@@ -228,5 +277,25 @@ public enum HouseNumber
     House006 = 6,
     House007 = 7,
     House008 = 8,
-    House009 = 9
+    House009 = 9,
+    House101 = 101,
+    House102 = 102
+}
+public enum HouseFiller 
+{
+    None,
+    LongHouse,
+}
+public enum HousePart
+{
+    TheBaseWalls,
+    TheBaseFrames,
+    TheBaseDoor,
+    TheF2Versions,
+    TheF2Designs,
+    TheRoof,
+    BaseDesign,
+    TheRoofVersion,
+    TheRoofParts,
+
 }

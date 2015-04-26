@@ -19,7 +19,12 @@ public class Custom3DHousesEditor : Editor
             house.DeleteCurrentHouse();            
         }
         GUILayout.Space(20);
-        if(house.House.HouseNumber == HouseNumber.None)
+        if (GUILayout.Button("Set To Ground Level"))
+        {
+            house.SetToGoundLevel();
+        }
+        GUILayout.Space(20);
+        if(house.House.HouseNumber == HouseNumber.None && house.House.HouseFiller == HouseFiller.None)
         {
             if (GUILayout.Button("New House003"))
             {
@@ -49,14 +54,23 @@ public class Custom3DHousesEditor : Editor
             {
                 house.HouseBuilder(9);
             }
-        }
-        if(house.House.HouseNumber != HouseNumber.None)
-        {
-            if (GUILayout.Button("Set To Ground Level"))
-            {
-                house.SetToGoundLevel();
-            }
             GUILayout.Space(20);
+            if (GUILayout.Button("New LongHouse"))
+            {
+                house.LongHouseBuilder(1,1,1);
+            }
+            if(GUILayout.Button("New Wide House 01"))
+            {
+                house.HouseBuilder(101);
+            }
+            if (GUILayout.Button("New Wide House 02"))
+            {
+                house.HouseBuilder(102);
+            }
+        }
+        #region 3dUI
+        if (house.House.HouseNumber != HouseNumber.None)
+        {
             //Roof
             GUILayout.Label("Roof v " + house.House.CurRoof + " / " + house.House.MaxRoofAtm);
             if (GUILayout.Button("Next Roof"))
@@ -105,16 +119,33 @@ public class Custom3DHousesEditor : Editor
                     house.HouseChanger((int)house.House.HouseNumber, PartOfHouse.Frames, false);
                 }
             }
+            //Window Frames
+            if (house.House.WindowFrames != null && house.House.MaxFramesAtm > 1)
+            {
+                GUILayout.Label("Window Frames v " + house.House.CurWindowFrames + " / " + house.House.MaxFramesAtm);
+                if (GUILayout.Button("Next Window Frames"))
+                {
+                    house.HouseChanger((int)house.House.HouseNumber, PartOfHouse.WindowFrames, true);
+                }
+                if (GUILayout.Button("Previous Window Frames"))
+                {
+                    house.HouseChanger((int)house.House.HouseNumber, PartOfHouse.WindowFrames, false);
+                }
+            }
             //InsideWalls
-            GUILayout.Label("InsideWalls v " + house.House.CurInsideWall + " / " + house.House.MaxInsideWallsAtm);
-            if (GUILayout.Button("Next InsideWalls"))
+            if(house.House.InsideWall != null)
             {
-                house.HouseChanger((int)house.House.HouseNumber, PartOfHouse.InsideWall, true);
+                GUILayout.Label("InsideWalls v " + house.House.CurInsideWall + " / " + house.House.MaxInsideWallsAtm);
+                if (GUILayout.Button("Next InsideWalls"))
+                {
+                    house.HouseChanger((int)house.House.HouseNumber, PartOfHouse.InsideWall, true);
+                }
+                if (GUILayout.Button("Previous InsideWalls"))
+                {
+                    house.HouseChanger((int)house.House.HouseNumber, PartOfHouse.InsideWall, false);
+                }
             }
-            if (GUILayout.Button("Previous InsideWalls"))
-            {
-                house.HouseChanger((int)house.House.HouseNumber, PartOfHouse.InsideWall, false);
-            }
+            
 
             //InsideRoof
             if (house.House.InsideRoof != null && house.House.MaxInsideRoofAtm > 1)
@@ -147,15 +178,18 @@ public class Custom3DHousesEditor : Editor
             }
 
             //F1Floor
-            GUILayout.Label("F1Floor v " + house.House.CurF1Floor + " / " + house.House.MaxF1FloorAtm);
-            if (GUILayout.Button("Next F1Floor"))
+            if(house.House.F1Floor != null)
             {
-                house.HouseChanger((int)house.House.HouseNumber, PartOfHouse.F1Floor, true);
-            }
-            if (GUILayout.Button("Previous F1Floor"))
-            {
-                house.HouseChanger((int)house.House.HouseNumber, PartOfHouse.F1Floor, false);
-            }
+                GUILayout.Label("F1Floor v " + house.House.CurF1Floor + " / " + house.House.MaxF1FloorAtm);
+                if (GUILayout.Button("Next F1Floor"))
+                {
+                    house.HouseChanger((int)house.House.HouseNumber, PartOfHouse.F1Floor, true);
+                }
+                if (GUILayout.Button("Previous F1Floor"))
+                {
+                    house.HouseChanger((int)house.House.HouseNumber, PartOfHouse.F1Floor, false);
+                }
+            }            
 
             //F2Floor
             if (house.House.F2Floor != null && house.House.MaxF2FloorAtm > 1)
@@ -304,6 +338,7 @@ public class Custom3DHousesEditor : Editor
                 }
             }
             //Basement
+           
             if (house.House.Basement != null && house.House.MaxBasementAtm > 1)
             {
                 GUILayout.Label("Basement v " + house.House.CurBasement + " / " + house.House.MaxBasementAtm);
@@ -316,7 +351,22 @@ public class Custom3DHousesEditor : Editor
                     house.HouseChanger((int)house.House.HouseNumber, PartOfHouse.Basement, false);
                 }
             }
+            //Addon1
 
+            if (house.House.Addon1 != null && house.House.MaxAddon1Atm > 1)
+            {
+                GUILayout.Label("Addon1 v " + house.House.CurAddon1 + " / " + house.House.MaxAddon1Atm);
+                if (GUILayout.Button("Next Addon1"))
+                {
+                    house.HouseChanger((int)house.House.HouseNumber, PartOfHouse.Addon1, true);
+                }
+                if (GUILayout.Button("Previous Addon1"))
+                {
+                    house.HouseChanger((int)house.House.HouseNumber, PartOfHouse.Addon1, false);
+                }
+            }
+        #endregion           
+          
             #region old code
 
             /*
@@ -727,6 +777,109 @@ public class Custom3DHousesEditor : Editor
             #endregion
             */
             #endregion
+
+        }
+        if (house.House.HouseFiller != HouseFiller.None)
+        {
+            //RoofDesign
+            GUILayout.Label(" RoofDesign : " + house.House.CurRoofDesign + " / " + house.House.MaxRoofDesignsL);
+            if (GUILayout.Button("Next RoofDesign"))
+            {
+                house.ChangeFillHouses(HousePart.TheRoof, true);
+            }
+            if (GUILayout.Button("Previous RoofDesign"))
+            {
+                house.ChangeFillHouses(HousePart.TheRoof, false);
+            }
+            //RoofVersion
+            GUILayout.Label("Roof Version : " + house.House.CurRoof + " / " + house.House.MaxRoofsVersionsL);
+            if (GUILayout.Button("Next RoofVersion"))
+            {
+                house.ChangeFillHouses(HousePart.TheRoofVersion, true);
+            }
+            if (GUILayout.Button("Previous RoofVersion"))
+            {
+                house.ChangeFillHouses(HousePart.TheRoofVersion, false);
+            }
+            //RoofParts
+            if(house.House.RoofPart != null)
+            {                
+                GUILayout.Label("Roof Walls : " + house.House.CurRoofPartVersion + " / " + house.House.MaxRoofPartsVersion);
+                if (GUILayout.Button("Next Roof Walls"))
+                {
+                    house.ChangeFillHouses(HousePart.TheRoofParts, true);
+                }
+                if (GUILayout.Button("Previous Roof Walls"))
+                {
+                    house.ChangeFillHouses(HousePart.TheRoofParts, false);
+                }
+            }
+
+            //F2 Design or null
+            GUILayout.Label("F2  : " + house.House.CurF2 + " / " + house.House.MaxF2DesignsL +  "   *** 0 = no F2***");
+            if (GUILayout.Button("Next F2"))
+            {
+                house.ChangeFillHouses(HousePart.TheF2Designs, true);
+            }
+            if (GUILayout.Button("Previous F2"))
+            {
+                house.ChangeFillHouses(HousePart.TheF2Designs, false);
+            }
+            //F2 Version
+            if (house.House.F2 != null)
+            {
+                GUILayout.Label("F2 Walls : " + house.House.CurF2Version + " / " + house.House.MaxF2sVersionsL);
+                if (GUILayout.Button("Next F2 Walls"))
+                {
+                    house.ChangeFillHouses(HousePart.TheF2Versions, true);
+                }
+                if (GUILayout.Button("Previous F2 Walls"))
+                {
+                    house.ChangeFillHouses(HousePart.TheF2Versions, false);
+                }
+            }
+
+
+            //BaseDesign
+            GUILayout.Label("Base Design : " + house.House.CurBase + " / " + house.House.MaxBaseDesignsL);
+            if (GUILayout.Button("Next BaseDesign"))
+            {
+                house.ChangeFillHouses(HousePart.BaseDesign, true);
+            }
+            if (GUILayout.Button("Previous BaseDesign"))
+            {
+                house.ChangeFillHouses(HousePart.BaseDesign, false);
+            }
+            //BaseVersion
+            GUILayout.Label("Base Version : " + house.House.CurBaseVersion + " / " + house.House.MaxBaseVL);
+            if (GUILayout.Button("Next Base Version"))
+            {
+                house.ChangeFillHouses(HousePart.TheBaseWalls, true);
+            }
+            if (GUILayout.Button("Previous Base Version"))
+            {
+                house.ChangeFillHouses(HousePart.TheBaseWalls, false);
+            }
+            //Door
+            GUILayout.Label("Base Door : " + house.House.CurDoor1 + " / " + house.House.MaxDoorsL);
+            if (GUILayout.Button("Next Base Door"))
+            {
+                house.ChangeFillHouses(HousePart.TheBaseDoor, true);
+            }
+            if (GUILayout.Button("Previous Base Door"))
+            {
+                house.ChangeFillHouses(HousePart.TheBaseDoor, false);
+            }
+            //Frame
+            GUILayout.Label("Base Frame : " + house.House.CurFrames + " / " + house.House.MaxFramesL);
+            if (GUILayout.Button("Next Base Frame"))
+            {
+                house.ChangeFillHouses(HousePart.TheBaseFrames, true);
+            }
+            if (GUILayout.Button("Previous Base Frame"))
+            {
+                house.ChangeFillHouses(HousePart.TheBaseFrames, false);
+            }
 
         }
 

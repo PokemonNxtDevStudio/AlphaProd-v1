@@ -113,6 +113,53 @@ public class Custom3DHouses : MonoBehaviour
     private string _h9Door3Path = "Assets/Resources/House_009/Door3/Door_03_v";
     private string _h9Door4Path = "Assets/Resources/House_009/Door4/Door_04_v";
     #endregion
+
+    #region LongHouse Paths 
+    private string _LBaseL1Path = "Assets/Resources/LongHouse/Base/Left/1/Base_L_1_";
+    private string _LBaseL1FramePath = "Assets/Resources/LongHouse/Base/Left/1F/Frame_L_1_";
+
+    private string _LBaseM1Path = "Assets/Resources/LongHouse/Base/Middle/1/Base_M_1_";
+    private string _LBaseM1FramePath = "Assets/Resources/LongHouse/Base/Middle/1F/Frame_M_1_";
+    private string _LBaseM2Path = "Assets/Resources/LongHouse/Base/Middle/2/Base_M_2_";
+    private string _LBaseM2FramePath = "Assets/Resources/LongHouse/Base/Middle/2F/Frame_M_2_";
+
+    private string _LBaseR1Path = "Assets/Resources/LongHouse/Base/Right/1/Base_R_1_";
+    private string _LBaseR1FramePath = "Assets/Resources/LongHouse/Base/Right/1F/Frame_R_";
+
+    private string _LDoorRPath = "Assets/Resources/LongHouse/Door/Base_R_Door_";
+    private string _LDoorMPath = "Assets/Resources/LongHouse/Door/Base_M_Door_";
+    private string _LDoorM2Path = "Assets/Resources/LongHouse/Door/Base_M2_Door_";
+    private string _LDoorLPath = "Assets/Resources/LongHouse/Door/Base_L_Door_";
+
+    private string _LF21Path = "Assets/Resources/LongHouse/F2/1/F2_1_";
+
+    private string _LRoof1Path = "Assets/Resources/LongHouse/Roof/1/Roof_1_";
+    private string _LRoof1PartPath = "Assets/Resources/LongHouse/Roof/1P/Roof_P_1_";
+    private string _LRoof2Path = "Assets/Resources/LongHouse/Roof/2/Roof_2_";
+    private string _LRoof3Path = "Assets/Resources/LongHouse/Roof/3/Roof_3_";
+    private string _LRoof3PartPath = "Assets/Resources/LongHouse/Roof/3P/Roof_P_3_";
+
+
+    #endregion
+
+    #region WideHouse1 Paths
+    private string _W1Addon1Path = "Assets/Resources/WideHouse/Addon_1/Addon_1_";
+    private string _W1Door1Path = "Assets/Resources/WideHouse/Door/Door_1_";
+    private string _W1DoorFramePath = "Assets/Resources/WideHouse/DoorFrame/FrameDoor_1_";
+    private string _W1OutsideWallsPath = "Assets/Resources/WideHouse/OutsideWalls/OutsideWalls_1_";
+    private string _W1RoofPath = "Assets/Resources/WideHouse/Roof/Roof_1_";
+    private string _W1WindowFrame = "Assets/Resources/WideHouse/WindowFrame/FramesWindows_1_";
+
+    #endregion
+
+    #region WideHouse2 Paths
+    private string _W2Door1Path = "Assets/Resources/WideHouse/Door/Door_1_";
+    private string _W2DoorFramePath = "Assets/Resources/WideHouse/DoorFrame/FrameDoor_1_";
+    private string _W2OutsideWallsPath = "Assets/Resources/WideHouse2/OutsideWalls/OutsideWalls_2_";
+    private string _W2RoofPath = "Assets/Resources/WideHouse2/Roof/Roof_2_";
+    private string _W2WindowFrame = "Assets/Resources/WideHouse2/WindowsFrame/WindowFrames_2_";
+
+    #endregion
     #endregion
 
     [SerializeField]
@@ -121,6 +168,7 @@ public class Custom3DHouses : MonoBehaviour
     public void DeleteCurrentHouse()
     {
         house.HouseNumber = HouseNumber.None;
+        house.HouseFiller = HouseFiller.None;
 
         if (house.Roof != null)
             DestroyImmediate(house.Roof);
@@ -168,6 +216,8 @@ public class Custom3DHouses : MonoBehaviour
             DestroyImmediate(house.Frames);
         if (house.InsideExtraWalls != null)
             DestroyImmediate(house.InsideExtraWalls);
+        if (house.WindowFrames != null)
+            DestroyImmediate(house.WindowFrames);
 
         if (house.Addon1 != null)
             DestroyImmediate(house.Addon1);
@@ -177,6 +227,13 @@ public class Custom3DHouses : MonoBehaviour
             DestroyImmediate(house.Addon3);
         if (house.Addon4 != null)
             DestroyImmediate(house.Addon4);
+        if (house.Base != null)
+            DestroyImmediate(house.Base);
+        if (house.F2 != null)
+            DestroyImmediate(house.F2);
+        if (house.RoofPart != null)
+            DestroyImmediate(house.RoofPart);
+
 
     }  
     public void HouseBuilder(int num)
@@ -205,6 +262,7 @@ public class Custom3DHouses : MonoBehaviour
         string garagedoor = "";
         string garage = "";
         string frames = "";
+        string windowframes = "";
         string addon1 = "";
         string addon2 = "";
         string addon3 = "";
@@ -212,6 +270,7 @@ public class Custom3DHouses : MonoBehaviour
         string addon5 = "";
         string addon6 = "";
         string addon7 = "";
+       
         string nameforthehouse ="";
         #endregion
         #region AddHouse and set values for Atms
@@ -400,7 +459,40 @@ public class Custom3DHouses : MonoBehaviour
                 house.MaxDoor2Atm = house.MaxDoor29;
                 house.MaxDoor3Atm = house.MaxDoor39;
                 house.MaxDoor4Atm = house.MaxDoor49;
-                house.MaxPillarsAtm = house.MaxPillars9;
+                house.MaxPillarsAtm = house.MaxPillars9;                           
+                break;
+
+            case 101:
+                roof = _W1RoofPath;
+                outsidewall = _W1OutsideWallsPath;
+                door1 = _W1Door1Path;
+                frames = _W1DoorFramePath;
+                windowframes = _W1WindowFrame;
+                addon1 = _W1Addon1Path;
+                nameforthehouse = "Wide House Custom";
+                house.HouseNumber = HouseNumber.House101;
+                //Set Atm values
+                house.MaxRoofAtm = house.MaxRoofsW1;
+                house.MaxOutSideWallsAtm = house.MaxOutsideWallsW1;
+                house.MaxDoor1Atm = house.MaxDoor1W1;
+                house.MaxFramesAtm = house.MaxDoorFrameW1;
+                house.MaxWindowFramesAtm = house.MaxWindowsFrameW1;
+                house.MaxAddon1Atm = house.MaxAddon1W1;
+                break;
+            case 102:
+                roof = _W2RoofPath;
+                outsidewall = _W2OutsideWallsPath;
+                door1 = _W2Door1Path;
+                frames = _W2DoorFramePath;
+                windowframes = _W2WindowFrame;
+                nameforthehouse = "Wide House Custom 2";
+                house.HouseNumber = HouseNumber.House102;
+                //Set Atm values
+                house.MaxRoofAtm = house.MaxRoofsW2;
+                house.MaxOutSideWallsAtm = house.MaxOutsideWallsW2;
+                house.MaxDoor1Atm = house.MaxDoor1W1;
+                house.MaxFramesAtm = house.MaxDoorFrameW1;
+                house.MaxWindowFramesAtm = house.MaxWindowFramesW2;
                 break;
 
         }
@@ -437,6 +529,15 @@ public class Custom3DHouses : MonoBehaviour
             if (house.CurFrames > house.MaxFramesAtm)
                 house.CurFrames = house.MaxFramesAtm;
             house.Frames = Custom3DDB.NewCustomPart(gameObject, frames + house.CurFrames, nameforthehouse + " Frames v" + house.CurFrames);
+        }
+        if(windowframes != null)
+        {
+            if (house.WindowFrames != null)
+                DestroyImmediate(house.WindowFrames);
+            if (house.CurWindowFrames > house.MaxWindowFramesAtm)
+                house.CurWindowFrames = house.MaxWindowFramesAtm;
+            house.WindowFrames = Custom3DDB.NewCustomPart(gameObject, windowframes + house.CurWindowFrames, nameforthehouse + "Window Frames v" + house.CurWindowFrames);
+       
         }
         if (insidewall != "")
         {
@@ -645,9 +746,10 @@ public class Custom3DHouses : MonoBehaviour
         {
             gameObject.name = nameforthehouse;
         }
+        gameObject.isStatic = true;
         #endregion
     }
-    public  void HouseChanger(int num,PartOfHouse part,bool more)
+    public void HouseChanger(int num, PartOfHouse part, bool more)
     {
         #region Vars
         int maxroof = house.MaxRoofAtm;
@@ -670,8 +772,10 @@ public class Custom3DHouses : MonoBehaviour
         int maxgaragedoor = house.MaxGarageDoorAtm;
         int maxgarage = house.MaxGarageAtm;
         int maxframes = house.MaxFramesAtm;
+        int maxwindowsframes = house.MaxWindowFramesAtm;
+        
+        int maxaddon1 = house.MaxAddon1Atm;
         /*
-        int maxaddon1 = 1;
         int maxaddon2 = 1;
         int maxaddon3 = 1;
         int maxaddon4 = 1;
@@ -746,6 +850,22 @@ public class Custom3DHouses : MonoBehaviour
                 house.CurFrames = maxframes;
             else
                 house.CurFrames--;
+        }
+        //WindowFrames
+        if (part == PartOfHouse.WindowFrames && more == true)
+        {
+
+            if (house.CurWindowFrames >= maxwindowsframes)
+                house.CurWindowFrames = 1;
+            else
+                house.CurWindowFrames++;
+        }
+        else if (part == PartOfHouse.WindowFrames && more == false)
+        {
+            if (house.CurWindowFrames == 1)
+                house.CurWindowFrames = maxwindowsframes;
+            else
+                house.CurWindowFrames--;
         }
         //insidewalls
         if (part == PartOfHouse.InsideWall && more == true)
@@ -1003,6 +1123,22 @@ public class Custom3DHouses : MonoBehaviour
             else
                 house.CurBasement--;
         }
+        //Addon1
+        if (part == PartOfHouse.Addon1 && more == true)
+        {
+
+            if (house.CurAddon1 >= maxaddon1)
+                house.CurAddon1 = 1;
+            else
+                house.CurAddon1++;
+        }
+        else if (part == PartOfHouse.Addon1 && more == false)
+        {
+            if (house.CurAddon1 == 1)
+                house.CurAddon1 = maxaddon1;
+            else
+                house.CurAddon1--;
+        }
 
 
 
@@ -1011,6 +1147,265 @@ public class Custom3DHouses : MonoBehaviour
         HouseBuilder(num);
 
     }
+
+    public void LongHouseBuilder(int Base,int F2,int Roof)
+    {
+        house.HouseFiller = HouseFiller.LongHouse;
+        string thebase = "";
+        string theframe = "";
+        string theRoof = "";
+        string theRoofPart = "";
+        string thedoor = "";
+        string thef2 = "";
+        #region SetPaths
+        switch (Base)
+        {
+            case 1:
+                thebase = _LBaseL1Path;
+                theframe = _LBaseL1FramePath;
+                thedoor = _LDoorLPath;
+                break;
+            case 2:
+                thebase = _LBaseM1Path;
+                theframe = _LBaseM1FramePath;
+                thedoor = _LDoorMPath;
+                break;
+            case 3:
+                thebase = _LBaseM2Path;
+                theframe = _LBaseM2FramePath;
+                thedoor = _LDoorM2Path;
+                break;
+            case 4:
+                thebase = _LBaseR1Path;
+                theframe = _LBaseR1FramePath;
+                thedoor = _LDoorRPath;
+                break;              
+        }
+        switch (F2)
+        {
+            case 0:
+               // Debug.Log("There is no F2");
+                break;
+            case 1:
+                thef2 = _LF21Path;
+                break;
+        }
+        switch (Roof)
+        {
+            case 1:
+                theRoof = _LRoof1Path;
+                theRoofPart = _LRoof1PartPath;
+                break;
+            case 2 :
+                theRoof = _LRoof2Path;
+                break;
+            case 3:
+                theRoof = _LRoof3Path;
+                theRoofPart = _LRoof3PartPath;
+                break;
+        }
+#endregion
+
+        #region CreateParts
+
+        if(thebase != "")
+        {
+            if (house.Base != null)
+                DestroyImmediate(house.Base);
+            house.Base = Custom3DDB.NewCustomPart(gameObject, thebase + house.CurBaseVersion, "base " + house.CurBase + " version " + house.CurBaseVersion);
+        }
+        if (theframe != "")
+        {
+            if (house.Frames != null)
+                DestroyImmediate(house.Frames);
+            if (house.CurFrames > house.MaxFramesL)
+                house.CurFrames = house.MaxFramesL;
+            house.Frames = Custom3DDB.NewCustomPart(gameObject, theframe + house.CurFrames, "frames v" + house.CurFrames);
+        }
+        if(thedoor != "")
+        {
+            if (house.Door1 != null)
+                DestroyImmediate(house.Door1);
+            if (house.CurDoor1 > house.MaxDoorsL)
+                house.CurDoor1 = house.MaxDoorsL;
+            house.Door1 = Custom3DDB.NewCustomPart(gameObject, thedoor + house.CurDoor1, "door v" + house.CurDoor1);
+        }
+        if(thef2 != "")
+        {
+            if (house.F2 != null)
+                DestroyImmediate(house.F2);
+            house.F2 = Custom3DDB.NewCustomPart(gameObject, thef2 + house.CurF2Version, "F2 " + house.CurF2Version + " version " + house.CurF2Version);
+        }
+        else
+        {
+            if (house.F2 != null)
+                DestroyImmediate(house.F2);
+        }
+        if(theRoof != "")
+        {
+            if (house.Roof != null)
+                DestroyImmediate(house.Roof);
+            if (house.CurRoof > house.MaxRoofsVersionsL)
+                house.CurRoof = house.MaxRoofsVersionsL;
+            house.Roof = Custom3DDB.NewCustomPart(gameObject, theRoof + house.CurRoof, "Roof " + house.CurRoofDesign + " version " + house.CurRoof);
+            if (house.F2 != null)
+            {
+                house.Roof.transform.position = new Vector3( gameObject.transform.position.x,gameObject.transform.position.y + 4.27f,gameObject.transform.position.z); 
+            }
+        }
+        if(theRoofPart != "")
+        {
+            if (house.RoofPart != null)
+                DestroyImmediate(house.RoofPart);
+            house.RoofPart = Custom3DDB.NewCustomPart(house.Roof.transform.gameObject, theRoofPart + house.CurRoofPartVersion, "Roof Part" + house.CurRoofPartVersion);
+        }
+        #endregion
+                    
+        gameObject.name = "LongHouse Custom";        
+        gameObject.isStatic = true;
+       
+    }
+
+    public void ChangeFillHouses(HousePart part , bool next)
+    {
+        //Roof
+        if(part == HousePart.TheRoofVersion && next == true)
+        {            
+            if (house.CurRoof >= house.MaxRoofsVersionsL)
+                house.CurRoof = 1;
+            else
+            house.CurRoof++;
+        }
+        else if (part == HousePart.TheRoofVersion && next == false)
+        {           
+            if (house.CurRoof == 1)
+                house.CurRoof = house.MaxRoofsVersionsL;
+            else
+                house.CurRoof--;
+        }
+        //RoofParts
+        if(part == HousePart.TheRoofParts && next == true)
+        {           
+            if (house.CurRoofPartVersion >= house.MaxRoofPartsVersion)
+                house.CurRoofPartVersion = 1;
+            else
+                house.CurRoofPartVersion++;
+        }
+        else if (part == HousePart.TheRoofParts && next == false)
+        {
+            if (house.CurRoofPartVersion == 1)
+                house.CurRoofPartVersion = house.MaxRoofPartsVersion;
+            else
+                house.CurRoofPartVersion--;
+        }
+        //RoofDesign
+        if (part == HousePart.TheRoof && next == true)
+        {           
+            if (house.CurRoofDesign >= house.MaxRoofDesignsL)
+                house.CurRoofDesign = 1;
+            else
+                house.CurRoofDesign++;
+        }
+        else if (part == HousePart.TheRoof && next == false)
+        {            
+            if (house.CurRoofDesign == 1)
+                house.CurRoofDesign = house.MaxRoofDesignsL;
+            else
+                house.CurRoofDesign--;
+        }
+        //F2 Version
+        if (part == HousePart.TheF2Versions && next == true)
+        {            
+            if (house.CurF2Version >= house.MaxF2sVersionsL)
+                house.CurF2Version = 1;
+            else
+                house.CurF2Version++;
+        }
+        else if (part == HousePart.TheF2Versions && next == false)
+        {
+            if (house.CurF2Version == 1)
+                house.CurF2Version = house.MaxF2sVersionsL;
+            else
+                house.CurF2Version--;
+        }
+        //F2 Design
+        if (part == HousePart.TheF2Designs && next == true)
+        {            
+            if (house.CurF2 >= house.MaxF2DesignsL)
+                house.CurF2 = 0;
+            else
+                house.CurF2++;
+        }
+        else if (part == HousePart.TheF2Designs && next == false)
+        {
+            if (house.CurF2 == 0)
+                house.CurF2 = house.MaxF2DesignsL;
+            else
+                house.CurF2--;
+        }
+        //BaseDesign
+        if (part == HousePart.BaseDesign && next == true)
+        {            
+            if (house.CurBase >= house.MaxBaseDesignsL)
+                house.CurBase = 1;
+            else
+                house.CurBase++;
+        }
+        else if (part == HousePart.BaseDesign && next == false)
+        {
+            if (house.CurBase == 1)
+                house.CurBase = house.MaxBaseDesignsL;
+            else
+                house.CurBase--;
+        }
+        //Base Versions
+        if (part == HousePart.TheBaseWalls && next == true)
+        {            
+            if (house.CurBaseVersion >= house.MaxBaseVL)
+                house.CurBaseVersion = 1;
+            else
+                house.CurBaseVersion++;
+        }
+        else if (part == HousePart.TheBaseWalls && next == false)
+        {
+            if (house.CurBaseVersion == 1)
+                house.CurBaseVersion = house.MaxBaseVL;
+            else
+                house.CurBaseVersion--;
+        }
+        //Base Frames
+        if (part == HousePart.TheBaseFrames && next == true)
+        {
+            if (house.CurFrames >= house.MaxFramesL)
+                house.CurFrames = 1;
+            else
+                house.CurFrames++;
+        }
+        else if (part == HousePart.TheBaseFrames && next == false)
+        {
+            if (house.CurFrames == 1)
+                house.CurFrames = house.MaxFramesL;
+            else
+                house.CurFrames--;
+        }
+        //Base Door
+        if (part == HousePart.TheBaseDoor && next == true)
+        {
+            if (house.CurDoor1 >= house.MaxDoorsL)
+                house.CurDoor1 = 1;
+            else
+                house.CurDoor1++;
+        }
+        else if (part == HousePart.TheBaseDoor && next == false)
+        {
+            if (house.CurDoor1 == 1)
+                house.CurDoor1 = house.MaxDoorsL;
+            else
+                house.CurDoor1--;
+        }
+        LongHouseBuilder(house.CurBase, house.CurF2, house.CurRoofDesign);
+    }
+
 
     public void SetToGoundLevel()
     {
