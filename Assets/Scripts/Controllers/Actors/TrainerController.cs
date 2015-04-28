@@ -11,8 +11,16 @@ public class TrainerController : MonoBehaviour
 
 
     //TODO:
-    //void ReleasePokemon
 
-        
+    /*
+    void ReleasePokemon(int pokeSlot)
+    {
+     * 
+     * if(CanRelease(pokeSlot)
+     *    ThrowPokeball
+     }
+
+
+        */
  }
 
