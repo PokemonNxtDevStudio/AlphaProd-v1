@@ -49,7 +49,7 @@ namespace PokemonNXT.Controllers {
         //public abstract void Move(System.Object movementData);
         //public abstract void Move(Vector3 deltaPosition, Quaternion deltaRotation);
         public abstract void Move(Vector3 InputDirection);
-        public abstract void Interpolate(Vector3 newPos);
+        public abstract void Interpolate(Vector3 newPos,Vector3 rot);
 
         protected virtual void Awake()
         {

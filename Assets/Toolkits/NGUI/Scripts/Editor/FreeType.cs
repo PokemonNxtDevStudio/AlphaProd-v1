@@ -351,7 +351,7 @@ static public class FreeType
 	/// </summary>
 
 	[DllImport(libName, CallingConvention = CallingConvention.Cdecl)]
-	static extern uint FT_Get_Char_Index (IntPtr face, uint charcode);
+	static extern uint FT_Char_Index (IntPtr face, uint charcode);
 
 	/// <summary>
 	/// This function calls FT_Open_Face to open a font by its pathname.
@@ -386,7 +386,7 @@ static public class FreeType
 	/// </summary>
 
 	[DllImport(libName, CallingConvention = CallingConvention.Cdecl)]
-	static extern int FT_Get_Kerning (IntPtr face, uint left, uint right, uint kern_mode, out FT_Vector kerning);
+	static extern int FT_Kerning (IntPtr face, uint left, uint right, uint kern_mode, out FT_Vector kerning);
 
 	/// <summary>
 	/// This function calls FT_Request_Size to request the nominal size (in pixels).
@@ -507,7 +507,7 @@ static public class FreeType
 			//Debug.Log(ascender + " " + descender + " " + baseline);
 
 			// Space character is not renderable
-			FT_Load_Glyph(face, FT_Get_Char_Index(face, 32), FT_LOAD_DEFAULT);
+			FT_Load_Glyph(face, FT_Char_Index(face, 32), FT_LOAD_DEFAULT);
 			FT_GlyphSlotRec space = (FT_GlyphSlotRec)Marshal.PtrToStructure(faceRec.glyph, typeof(FT_GlyphSlotRec));
 
 			// Space is not visible and doesn't have a texture
@@ -528,7 +528,7 @@ static public class FreeType
 				if (ch2 == 32) continue;
 
 				FT_Vector vec;
-				if (FT_Get_Kerning(face, ch2, 32, 0, out vec) != 0) continue;
+				if (FT_Kerning(face, ch2, 32, 0, out vec) != 0) continue;
 
 				int offset = (vec.x >> 6);
 				if (offset != 0) spaceGlyph.SetKerning((int)ch2, offset);
@@ -537,7 +537,7 @@ static public class FreeType
 			// Run through all requested characters
 			foreach (char ch in characters)
 			{
-				uint charIndex = FT_Get_Char_Index(face, (uint)ch);
+				uint charIndex = FT_Char_Index(face, (uint)ch);
 				FT_Load_Glyph(face, charIndex, FT_LOAD_DEFAULT);
 				FT_GlyphSlotRec glyph = (FT_GlyphSlotRec)Marshal.PtrToStructure(faceRec.glyph, typeof(FT_GlyphSlotRec));
 				FT_Render_Glyph(ref glyph, FT_Render_Mode.FT_RENDER_MODE_NORMAL);
@@ -579,7 +579,7 @@ static public class FreeType
 						if (ch2 == ch) continue;
 
 						FT_Vector vec;
-						if (FT_Get_Kerning(face, ch2, ch, 0, out vec) != 0) continue;
+						if (FT_Kerning(face, ch2, ch, 0, out vec) != 0) continue;
 
 						int offset = (vec.x / 64);
 						if (offset != 0) bmg.SetKerning((int)ch2, offset);

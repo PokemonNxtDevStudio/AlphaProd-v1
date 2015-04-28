@@ -11,8 +11,8 @@ public class GameController : MonoBehaviour {
     public ThirdPersonCameraCtrl Camera;
 	void Start () {
         player = MMOManager.Instance.player;
-        GameObject go = (GameObject)MMOManager.Instance.InstantiateObject(player.TrainerAssetID, player.ID, spawnPoint.position);
-        Camera.target = go.transform;
+        //GameObject go = (GameObject)MMOManager.Instance.InstantiateObject(player.TrainerAssetID, player.ID, spawnPoint.position);
+        //sCamera.target = go.transform;
 	}
 	
 	// Update is called once per frame

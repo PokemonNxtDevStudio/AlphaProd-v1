@@ -14,7 +14,7 @@ public class TestScript1 : MonoBehaviour {
 	void Start()
     {
         MMOManager.Instance.Connect();
-        MMOManager.Instance.InstantiateNetworkObject(MMOManager.Instance.player.ID, 0, MMOManager.Instance.player.TrainerAssetID, reader);
+       // MMOManager.Instance.InstantiateNetworkObject(MMOManager.Instance.player.ID, 0, MMOManager.Instance.player.TrainerAssetID, reader);
     }
 	// Update is called once per frame
 	void Update () {

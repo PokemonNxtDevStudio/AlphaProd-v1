@@ -24,7 +24,7 @@ namespace PokemonNXT.Controllers {
             AnimatorCtrl.SetFloat("DirX", cInput.GetAxis("Horizontal"));
             AnimatorCtrl.SetFloat("DirY", cInput.GetAxis("Vertical"));
         }
-        public override void Interpolate(Vector3 newPos)
+        public override void Interpolate(Vector3 newPos,Vector3 rot)
         {
 
             transform.position = Vector3.Lerp(transform.position, newPos, interpolationSmoothing * Time.deltaTime);
