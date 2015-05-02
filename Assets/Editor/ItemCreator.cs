@@ -41,7 +41,7 @@ public class ItemCreator : EditorWindow
 
     private Rect CreateButtonRect = new Rect(10, 300, 150, 50);
 
-    [MenuItem("NXT/ItemCreation #I")]
+    [MenuItem("NXT/ItemCreation #&i")]
     public static void ShowWindow()
     {
         EditorWindow.GetWindow(typeof(ItemCreator));
