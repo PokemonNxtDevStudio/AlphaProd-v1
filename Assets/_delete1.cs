@@ -10,6 +10,7 @@ public class _delete1 : MonoBehaviour {
     public List<ItemBehavior> items;
 
     private TrainerController t;
+    public Pokemon p;
 	void Start ()
 	{
 	    t = GetComponent<TrainerController>();
@@ -30,6 +31,10 @@ public class _delete1 : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.R))
         {
             items[2].DoMethod(t);
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            items[2].DoMethod(p);
         }
 	
 	}

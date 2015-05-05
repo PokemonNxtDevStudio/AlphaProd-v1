@@ -42,6 +42,8 @@ public class AssetDatabaseEditor
         string assetName = "Poke Asset Database.asset";
         PokeAssetDatabase asset = ScriptableObject.CreateInstance("PokeAssetDatabase") as PokeAssetDatabase;  //scriptable object
 
+        GetFromMockDB(asset);
+        //GetFromMockDB(asset);
         asset.items = new Pokemon[150];
         asset.items[0] = new Pokemon();
         asset.items[0].name = "Pikachu";
@@ -49,7 +51,34 @@ public class AssetDatabaseEditor
         AssetDatabase.Refresh();
     }
 
+    [MenuItem("NXT/Asset Database/Poke Database()/Get From SQL")]
+    public static void CreatePokeDatabaseSQL()
+    {
+        // Get the currently selected asset directory
+        string currentPath = GetSelectionFolder();
+        // New asset name
+        string assetName = "Poke Asset Database.asset";
+        PokeAssetDatabase asset = ScriptableObject.CreateInstance("PokeAssetDatabase") as PokeAssetDatabase;  //scriptable object
+        GetFromSQL(asset);
+        asset.items = new Pokemon[150];
+        asset.items[0] = new Pokemon();
+        asset.items[0].name = "Pikachu";
+        AssetDatabase.CreateAsset(asset, AssetDatabase.GenerateUniqueAssetPath(currentPath + assetName));
+        AssetDatabase.Refresh();
+    }
+    //TODO DO same for itemsList
 
+
+
+    static void GetFromMockDB(PokeAssetDatabase asset)
+    {
+        
+    }
+
+    static void GetFromSQL(PokeAssetDatabase asset)
+    {
+
+    }
 
     //TODO GET ARRAY OF POKELIST FROM SQL
     //INSERT ONE BY ONE INTO POKEASSETDATABASE
