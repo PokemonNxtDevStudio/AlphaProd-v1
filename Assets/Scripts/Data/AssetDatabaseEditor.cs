@@ -44,7 +44,7 @@ public class AssetDatabaseEditor
 
         asset.items = new Pokemon[150];
         asset.items[0] = new Pokemon();
-        asset.items[0].name = "FirstPokemon";
+        asset.items[0].name = "Pikachu";
         AssetDatabase.CreateAsset(asset, AssetDatabase.GenerateUniqueAssetPath(currentPath + assetName));
         AssetDatabase.Refresh();
     }
