@@ -13,8 +13,7 @@ public class ItemAssetDatabase : ScriptableObject
 	public InventoryItem Get(int index)
 	{
 		return (items[index]);
-	}
-	
+	}	
 	/// <summary>
 	/// Gets the specified SpellInfo by ID.
 	/// </summary>
@@ -26,8 +25,7 @@ public class ItemAssetDatabase : ScriptableObject
 		{
 			if (items[i].ID == ID)
 				return items[i];
-		}
-		
+		}		
 		return null;
 	}
 }
