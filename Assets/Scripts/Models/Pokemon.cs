@@ -4,7 +4,9 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-public class Pokemon :Asset
+
+[System.Serializable]
+public class Pokemon : AssetItem
 {
     public bool thrown = false;
     //public PokeBattler obj = null;

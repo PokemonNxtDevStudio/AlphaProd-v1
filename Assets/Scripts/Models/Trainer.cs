@@ -5,8 +5,10 @@ using System.Text;
 
 
 
-    public class Trainer :Asset
+    public class Trainer : AssetItem
     {
+
+
 
     }
 

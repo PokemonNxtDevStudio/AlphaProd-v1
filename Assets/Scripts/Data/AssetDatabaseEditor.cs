@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections;
+using System.Security.Policy;
 
 #if UNITY_EDITOR
 public class AssetDatabaseEditor
@@ -20,7 +21,7 @@ public class AssetDatabaseEditor
         }
         return "Assets/Scripts/Data";
     }
-    [MenuItem("NXT/Asset Database/Item Database")]
+    [MenuItem("NXT/Asset Database/Create Item Database")]
     public static void CreateDatabase()
     {
         // Get the currently selected asset directory
@@ -31,6 +32,27 @@ public class AssetDatabaseEditor
         AssetDatabase.CreateAsset(asset, AssetDatabase.GenerateUniqueAssetPath(currentPath + assetName));
         AssetDatabase.Refresh();
     }
+
+    [MenuItem("NXT/Asset Database/Create Poke Database()")]
+    public static void CreatePokeDatabase()
+    {
+        // Get the currently selected asset directory
+        string currentPath = GetSelectionFolder();
+        // New asset name
+        string assetName = "Poke Asset Database.asset";
+        PokeAssetDatabase asset = ScriptableObject.CreateInstance("PokeAssetDatabase") as PokeAssetDatabase;  //scriptable object
+
+        asset.items = new Pokemon[150];
+        asset.items[0] = new Pokemon();
+        asset.items[0].name = "FirstPokemon";
+        AssetDatabase.CreateAsset(asset, AssetDatabase.GenerateUniqueAssetPath(currentPath + assetName));
+        AssetDatabase.Refresh();
+    }
+
+
+
+    //TODO GET ARRAY OF POKELIST FROM SQL
+    //INSERT ONE BY ONE INTO POKEASSETDATABASE
 
 }
 #endif
