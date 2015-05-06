@@ -171,8 +171,8 @@ namespace NXT.Inventory
         private int m_LastEquipedItem = -1;
         private int m_EquipIndex = -1;
         private int m_UnequpIndex = -1;
-        private SharedMethod<bool> m_CanInteractItem;
-        private GameObject m_GameObject;
+        private SharedMethod<bool> m_CanInteractItem = null;
+        private GameObject m_GameObject = null;
         public Inventory.ItemAmount[] DefaultLoadout
         {
             get

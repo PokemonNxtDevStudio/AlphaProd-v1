@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
 {
     #region Variables
     public GameObject gameManager;
-    private GraphicalOptions graphics;
+    //private GraphicalOptions graphics;
 
     // Information log objects
     public GameObject registerMenuLog;
@@ -52,7 +52,7 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        graphics = gameManager.GetComponent<GraphicalOptions>();
+        //graphics = gameManager.GetComponent<GraphicalOptions>();
         /* TODO:
          * Set the settings to the user's saved volume options
          * e.g.

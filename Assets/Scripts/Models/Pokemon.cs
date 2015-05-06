@@ -1,17 +1,16 @@
-﻿
-
-using UnityEngine;
-using System.Collections;
+﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
-using System.Linq;
 
 [System.Serializable]
 public class Pokemon : AssetItem
 {
-    public bool thrown = false;
+   
     //public PokeBattler obj = null;
-    public int number = 0;
-    public string name = "Pikachu";
+    public int PokedexNumber = 0;
+    //public string name = "";
+    public Sprite Icon;
+    public string iconName;
     public int level = 5;
     public float xp = 0;
     public float hp = 1;
@@ -20,8 +19,7 @@ public class Pokemon : AssetItem
     {
         get { return pp; }
         set { pp = value; currentPP = value; }
-    }
-    public string iconName;
+    }    
     //public List<Move> moves = new List<Move> ();
     public List<MoveData> moves = new List<MoveData>();
     public bool isPlayer = false;
@@ -34,5 +32,7 @@ public class Pokemon : AssetItem
     public float damage = 0;
     public float speed = 10;
     public string moveCast;
+
+    public bool thrown = false;
 
 }

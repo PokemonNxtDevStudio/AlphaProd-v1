@@ -25,7 +25,7 @@ namespace NXT
         private List<Ability> m_AbilityInputComponents;
         private List<string> m_AbilityInputNames;
         private bool m_AllowGameplayInput = true;
-        private SharedMethod<bool> m_IsAI;
+        private SharedMethod<bool> m_IsAI = null;
         private GameObject m_GameObject;
         private Transform m_Transform;
         private RigidbodyCharacterController m_Controller;

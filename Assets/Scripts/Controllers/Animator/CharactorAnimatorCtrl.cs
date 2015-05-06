@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
-
 using UnityEngine;
 using Client;
 namespace PokemonNXT.Controllers
 {
     class CharactorAnimatorCtrl : BaseAnimatorController
     {
-
         //_velocity = new Vector3 (_input_x * input_modifier, -antiBunny, _input_y * input_modifier);
         //_velocity = _t.TransformDirection (_velocity) * _speed;
 
@@ -14,7 +12,7 @@ namespace PokemonNXT.Controllers
 
         //TODO if grounded
         MMObject obj;
-        void Awake()
+        new void Awake()
         {
             obj = GetComponent<MMObject>();
             base.Awake();

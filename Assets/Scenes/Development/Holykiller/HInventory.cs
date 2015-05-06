@@ -7,7 +7,7 @@ public class HInventory : MonoBehaviour
 {
     #region GameObjets to show and hide
     [SerializeField]
-    private GameObject Boton;
+    private GameObject Botton;
     [Header("Top Tabs(Items,Pokemons,Player")]
     [SerializeField]
     private GameObject ItemsTab;
@@ -209,11 +209,11 @@ public class HInventory : MonoBehaviour
             {    
                 items[asd].StacksAtm++;
                 //this update the UI text for the amount of items that are in the inventory
-                for (int i = 0; i < BotonsManager.instance._botons.Count; i++)
+                for (int i = 0; i < BottonsManager.instance._bottons.Count; i++)
                 {
-                    if (BotonsManager.instance._botons[i].TheName() == item.Name && BotonsManager.instance._botons[i].StacksAtm < BotonsManager.instance._botons[i].MaxStacks)
+                    if (BottonsManager.instance._bottons[i].TheName() == item.Name && BottonsManager.instance._bottons[i].StacksAtm < BottonsManager.instance._bottons[i].MaxStacks)
                     {
-                        BotonsManager.instance._botons[i].Amount(items[asd].StacksAtm, items[asd].StacksUpTo);
+                        BottonsManager.instance._bottons[i].Amount(items[asd].StacksAtm, items[asd].StacksUpTo);
                         return;
                     }
                 }                
@@ -238,7 +238,7 @@ public class HInventory : MonoBehaviour
     private void AddANewItem(InventoryItem item)
     {
        // Debug.Log("making new boton");
-        GameObject itemToMake = (GameObject)Instantiate(Boton);
+        GameObject itemToMake = (GameObject)Instantiate(Botton);
         GameObject parent = null;
         switch(item.ItemType)
         {
@@ -263,7 +263,7 @@ public class HInventory : MonoBehaviour
         }
         if(parent != null)
         {
-            Botons b = itemToMake.GetComponent<Botons>();
+            Bottons b = itemToMake.GetComponent<Bottons>();
             b.BotonInfo(item.icon, item.Name, item.StacksAtm, item.StacksUpTo, item.Description);
             itemToMake.transform.SetParent(parent.transform);
             CapasitySize();

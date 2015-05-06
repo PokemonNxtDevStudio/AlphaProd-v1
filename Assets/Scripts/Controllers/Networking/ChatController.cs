@@ -7,14 +7,14 @@ public class ChatController : MonoBehaviour {
 
 	// Use this for initialization
 
-    Player player;
+//    Player player;
     private ClientCore client;
     public UILabel PlayerName;
    public UIInput ChatMessage;
     public UITextList textList;
 	void Start () {
         
-        player = MMOManager.Instance.player;
+        //player = MMOManager.Instance.player;
 
         client = MMOManager.Instance.clientCore;
         client.onChatResponse += OnChatResponse;

@@ -156,7 +156,7 @@ namespace NXT.Controllers
             this.m_AnchorStartOffset = this.m_Anchor.position - this.m_CharacterTransform.position;
             this.m_StartPitch = (this.m_Pitch = this.m_Transform.eulerAngles.x);
             this.m_Yaw = this.m_CharacterTransform.eulerAngles.y;
-            Transform arg_16E_0 = this.m_Transform;//**************************************************************************
+//            Transform arg_16E_0 = this.m_Transform;//**************************************************************************
             Quaternion rotation = Quaternion.Euler(this.m_Pitch, this.m_Yaw, 0f);
             this.m_Transform.rotation = rotation ;
             //arg_16E_0.rotation =(rotation);//**************************************************************************

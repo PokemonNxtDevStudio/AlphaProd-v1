@@ -3,8 +3,8 @@ using System.Collections;
 
 public class EnemyBattlePanel : MonoBehaviour {
 
-    public GameObject name;
-    public GameObject icon;
+    public UILabel Name;
+    public UISprite icon;
     public GameObject hpLabel;
     public GameObject hpDisplay;
 
@@ -24,11 +24,11 @@ public class EnemyBattlePanel : MonoBehaviour {
 
     void SetName(string pokeName)
     {
-        name.GetComponent<UILabel>().text = pokeName;
+        Name.text = pokeName;
     }
 
     void SetIcon(string iconName)
     {
-        icon.GetComponent<UISprite>().spriteName = iconName;
+        icon.spriteName = iconName;
     }
 }

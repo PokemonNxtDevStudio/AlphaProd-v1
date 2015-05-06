@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class PokeParty
 {
     public const int PARTY_MAX = 6;
 
-    Trainer trainer; //Enables it to be usable by any trainer in multiplayer (independant)
+    Trainer Trainer = new Trainer(); //Enables it to be usable by any trainer in multiplayer (independant)
+    
     List<PokeSlot> slots;
     private int selectedIndex;
 
@@ -22,8 +25,8 @@ public class PokeParty
     }
     public PokeParty(Trainer trainer)
     {
-
-        this.trainer = trainer;
+        this.Trainer.ID = trainer.ID;
+        this.Trainer = trainer;
         slots = new List<PokeSlot>();
         GetPokeSlot(-1); //Assume the trainer has no pokemon
     }
@@ -78,7 +81,7 @@ public class PokeParty
         if (!CanAddPokemon())
             return false;
 
-        var slot = new PokeSlot(this, pokemon);
+        PokeSlot slot = new PokeSlot(this, pokemon);
         GetSlots().Add(slot);
 
         if (selectedIndex == -1)
@@ -89,7 +92,7 @@ public class PokeParty
 
     public void RemovePokemon(int index)
     {
-        var slot = GetSlot(index);
+       // PokeSlot slot = GetSlot(index);
         slots.RemoveAt(index);
 
         if (selectedIndex == index) //If the current Pokemon was removed, select the previous. (If there are none left, it will set it correctly to -1)
@@ -117,7 +120,7 @@ public class PokeParty
             return null;
         }
 
-        var slot = GetSlots()[index];
+        PokeSlot slot = GetSlots()[index];
         selectedIndex = index;
 
         return slot;
@@ -130,7 +133,7 @@ public class PokeParty
             return null;
         }
 
-        var slot = GetSlots()[index];
+        PokeSlot slot = GetSlots()[index];
 
         return slot.pokemon;
     }
@@ -166,7 +169,7 @@ public class PokeParty
     {
         foreach (var slot in slots)
         {
-            if (slot.pokemon.number == id)
+            if (slot.pokemon.PokedexNumber == id)
                 return slot.pokemon;
         }
 
@@ -194,16 +197,20 @@ public class PokeParty
 
     public string GetPokeSlotName(int index)
     {
-        return GetPokeSlot(index).pokemon.name;
+        return GetPokeSlot(index).pokemon.Name;
     }
 
     public string GetPokeSlotIcon(int index)
     {
         return GetPokeSlot(index).pokemon.iconName;
     }
-
+  
     public int GetPokeSlotLevel(int index)
     {
         return GetPokeSlot(index).pokemon.level;
+    }
+    public Sprite GetPokemonSlotIconSprite(int index)
+    {
+        return GetPokeSlot(index).pokemon.Icon;
     }
 }

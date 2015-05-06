@@ -10,7 +10,7 @@ namespace PokemonNXT.Controllers {
             get { return Mathf.Sqrt(2 * JumpHeight * Gravity); }
         }
 
-        void Start()
+        new void Start()
         {
             base.Start();
             if((obj = GetComponent<MMObject>())!=null)

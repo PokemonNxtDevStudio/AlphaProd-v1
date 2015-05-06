@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Botons : MonoBehaviour
+public class Bottons : MonoBehaviour
 {
     [SerializeField]
     private Image IconOf;
@@ -20,11 +20,11 @@ public class Botons : MonoBehaviour
 
     void OnEnable()
     {
-        BotonsManager.instance.AddBoton(this);
+        BottonsManager.instance.AddBoton(this);        
     }
     void OnDisable()
     {
-        BotonsManager.instance.RemoveBoton(this);
+        BottonsManager.instance.RemoveBoton(this);
     }
 
     public void IconIs(Sprite s)

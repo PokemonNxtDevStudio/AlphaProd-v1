@@ -65,7 +65,7 @@ namespace NXT.Controllers
         private Vector3 m_PrevAirVelocity;
         private float m_PrevGroundHeight;
         private ScheduledEvent m_ForcedItemUseEvent;
-        private WaitForEndOfFrame m_EndOfFrame = new WaitForEndOfFrame();
+//        private WaitForEndOfFrame m_EndOfFrame = new WaitForEndOfFrame();
         private RaycastHit m_RaycastHit;
         private Transform m_Platform;
         private Vector3 m_PlatformPosition;
@@ -77,6 +77,11 @@ namespace NXT.Controllers
         private CapsuleCollider m_CapsuleCollider;
         private Animator m_Animator;
         private AnimatorMonitor m_AnimatorMonitor;
+
+        private float num;
+
+        private float num2;
+
         public RigidbodyCharacterController.MovementType Movement
         {
             get
@@ -219,6 +224,12 @@ namespace NXT.Controllers
         }
         private void Awake()
         {
+            if (m_PrevYRotation > 0)
+            m_PrevYRotation = 0;
+            if (num > 0)
+                num = 0;
+            if (num2 > 0)
+                num2 = 0;
             this.m_GameObject = base.gameObject;
             this.m_Transform = base.transform;
             this.m_Rigidbody = base.GetComponent<Rigidbody>();
@@ -489,8 +500,10 @@ namespace NXT.Controllers
                     return;
                 }
             }
-            float num = 0f;
-            float num2;
+            
+
+            num = 0;
+            num2 = 0;
             if (this.m_MovementType == RigidbodyCharacterController.MovementType.Combat)
             {
                 num2 = this.m_InputVector.z;

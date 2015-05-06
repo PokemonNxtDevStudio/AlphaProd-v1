@@ -51,10 +51,10 @@ namespace PokemonNXT.Controllers {
         public abstract void Move(Vector3 InputDirection);
         public abstract void Interpolate(Vector3 newPos,Vector3 rot);
 
-        protected virtual void Awake()
-        {
+        //protected virtual void Awake()
+        //{
            
-        }
+        //}
         protected virtual void Start() {
            
             CurrentSpeed = baseSpeed;

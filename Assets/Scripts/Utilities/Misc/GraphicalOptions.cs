@@ -3,32 +3,32 @@ using System.Collections;
 
 public class GraphicalOptions : MonoBehaviour {
     
-    private int anisotropicFiltering;
-    private int antiAliasing;
-    private int blendWeights;
-    private float lodBias;
-    private int textureQuality;
-    private int maxLod;
-    private int shadowCascades;
-    private float shadowDistance;
-    private bool softVegetation;
-    private int vSync;    
+//    private int anisotropicFiltering;
+//    private int antiAliasing;
+//    private int blendWeights;
+//    private float lodBias;
+//    private int textureQuality;
+//    private int maxLod;
+//    private int shadowCascades;
+//    private float shadowDistance;
+//    private bool softVegetation;
+//    private int vSync;    
     private int resolutionX;
     private int resolutionY;
     private bool fullscreenEnabled;
 
     void Start()
     {
-        anisotropicFiltering = PlayerPrefs.GetInt("Anisotropic Filtering");
-        antiAliasing = PlayerPrefs.GetInt("Anti Aliasing");
-        blendWeights = PlayerPrefs.GetInt("Blend Weights");
-        lodBias = PlayerPrefs.GetFloat("Level of Detail Bias");
-        textureQuality = PlayerPrefs.GetInt("Texture Resolution");
-        maxLod = PlayerPrefs.GetInt("Max Level of Detail");
-        shadowCascades = PlayerPrefs.GetInt("Shadow Cascades");
-        shadowDistance = PlayerPrefs.GetFloat("Shadow Distance");
-        softVegetation = (PlayerPrefs.GetInt("Soft Vegetation") != 0);
-        vSync = PlayerPrefs.GetInt("vSync");
+        //anisotropicFiltering = PlayerPrefs.GetInt("Anisotropic Filtering");
+        //antiAliasing = PlayerPrefs.GetInt("Anti Aliasing");
+        //blendWeights = PlayerPrefs.GetInt("Blend Weights");
+        //lodBias = PlayerPrefs.GetFloat("Level of Detail Bias");
+        //textureQuality = PlayerPrefs.GetInt("Texture Resolution");
+        //maxLod = PlayerPrefs.GetInt("Max Level of Detail");
+        //shadowCascades = PlayerPrefs.GetInt("Shadow Cascades");
+        //shadowDistance = PlayerPrefs.GetFloat("Shadow Distance");
+        //softVegetation = (PlayerPrefs.GetInt("Soft Vegetation") != 0);
+        //vSync = PlayerPrefs.GetInt("vSync");
         resolutionX = PlayerPrefs.GetInt("Resolution X");
         resolutionY = PlayerPrefs.GetInt("Resolution Y");
         fullscreenEnabled = (PlayerPrefs.GetInt("Fullscreen") != 0);

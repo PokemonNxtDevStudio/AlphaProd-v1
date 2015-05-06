@@ -22,7 +22,7 @@ public class AssetDatabaseEditor
         return "Assets/Scripts/Data";
     }
     [MenuItem("NXT/Asset Database/Create Item Database")]
-    public static void CreateDatabase()
+    public static void CreateItemsDatabase()
     {
         // Get the currently selected asset directory
         string currentPath = GetSelectionFolder();
@@ -33,47 +33,46 @@ public class AssetDatabaseEditor
         AssetDatabase.Refresh();
     }
 
-    [MenuItem("NXT/Asset Database/Create Poke Database()")]
-    public static void CreatePokeDatabase()
+    [MenuItem("NXT/Asset Database/Create Pokemon Database")]
+    public static void CreatePokemonsDatabase()
     {
         // Get the currently selected asset directory
         string currentPath = GetSelectionFolder();
         // New asset name
-        string assetName = "Poke Asset Database.asset";
+        string assetName = "PokemonAssetDatabase.asset";
         PokeAssetDatabase asset = ScriptableObject.CreateInstance("PokeAssetDatabase") as PokeAssetDatabase;  //scriptable object
 
-        GetFromMockDB(asset);
         //GetFromMockDB(asset);
-        asset.items = new Pokemon[150];
+        //GetFromMockDB(asset);
+        /*asset.items = new Pokemon[150];
         asset.items[0] = new Pokemon();
-        asset.items[0].name = "Pikachu";
+        asset.items[0].Name = "Pikachu";*/
         AssetDatabase.CreateAsset(asset, AssetDatabase.GenerateUniqueAssetPath(currentPath + assetName));
         AssetDatabase.Refresh();
     }
 
-    [MenuItem("NXT/Asset Database/Poke Database()/Get From SQL")]
+    [MenuItem("NXT/Asset Database/Pokemon Database/Get From SQL")]
     public static void CreatePokeDatabaseSQL()
     {
         // Get the currently selected asset directory
         string currentPath = GetSelectionFolder();
         // New asset name
-        string assetName = "Poke Asset Database.asset";
+        string assetName = "PokemonAssetDatabaseFromSQL.asset";
         PokeAssetDatabase asset = ScriptableObject.CreateInstance("PokeAssetDatabase") as PokeAssetDatabase;  //scriptable object
         GetFromSQL(asset);
+        /*
         asset.items = new Pokemon[150];
         asset.items[0] = new Pokemon();
-        asset.items[0].name = "Pikachu";
+        asset.items[0].Name = "Pikachu";*/
         AssetDatabase.CreateAsset(asset, AssetDatabase.GenerateUniqueAssetPath(currentPath + assetName));
         AssetDatabase.Refresh();
     }
     //TODO DO same for itemsList
 
-
-
-    static void GetFromMockDB(PokeAssetDatabase asset)
-    {
+    //static void GetFromMockDB(PokeAssetDatabase asset)
+   // {
         
-    }
+   // }
 
     static void GetFromSQL(PokeAssetDatabase asset)
     {

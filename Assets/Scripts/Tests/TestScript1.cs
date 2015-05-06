@@ -6,7 +6,7 @@ using System.IO;
 public class TestScript1 : MonoBehaviour {
 
 	// Use this for initialization
-    BinaryReader reader = null;
+//    BinaryReader reader = null;
 	void Awake () {
 
         
