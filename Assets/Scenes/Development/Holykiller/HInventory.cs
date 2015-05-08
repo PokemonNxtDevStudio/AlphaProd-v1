@@ -393,4 +393,16 @@ public class HInventory : MonoBehaviour
         PokemonSkills.SetActive(true);
     }
     #endregion
+<<<<<<< HEAD:Assets/Scenes/Development/Holykiller/HInventory.cs
+=======
+
+    #region References
+
+    public void CleanSelectedValues()
+    {
+        
+    }
+
+    #endregion
+>>>>>>> 3030ad2c3f654391e94dd701d725f21056143795:Assets/Scenes/Development/Holykiller/Scripts/HInventory.cs
 }

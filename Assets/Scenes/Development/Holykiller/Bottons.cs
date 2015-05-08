@@ -57,5 +57,40 @@ public class Bottons : MonoBehaviour
         NameOf.text = nam;
         AmountOf.text = satm + " / " + maxst;
         Description.text = des;
+<<<<<<< HEAD:Assets/Scenes/Development/Holykiller/Bottons.cs
+=======
+        m_itemId = Id;
+    }
+    public void NpcBottonInfo(Sprite ItemIcon, string ItemName, string ItemDescrip, float BuyPrice,int Id)
+    {
+        if (IconOf.gameObject.activeSelf == false)
+            NPCBootonEnable();
+        IconOf.sprite = ItemIcon;
+        NameOf.text = ItemName;
+        Description.text = ItemDescrip;
+        m_buyPrice = BuyPrice;
+        AmountOf.text = "Price : $" + m_buyPrice;
+        m_itemId = Id;
+>>>>>>> 3030ad2c3f654391e94dd701d725f21056143795:Assets/Scenes/Development/Holykiller/Scripts/Bottons.cs
+    }
+    public void NPCBootonDisable()
+    {
+        IconOf.gameObject.SetActive(false);
+        NameOf.gameObject.SetActive(false);
+        Description.gameObject.SetActive(false);
+        //m_buyPrice = 0;
+        AmountOf.gameObject.SetActive(false);
+        SellPriceText.gameObject.SetActive(false);
+        m_itemId = 0;
+    }
+    public void NPCBootonEnable()
+    {
+        IconOf.gameObject.SetActive(true);
+        NameOf.gameObject.SetActive(true);
+        Description.gameObject.SetActive(true);
+        //m_buyPrice = 0;
+        AmountOf.gameObject.SetActive(true);
+        SellPriceText.gameObject.SetActive(true);
+        m_itemId = 0;
     }
 }
