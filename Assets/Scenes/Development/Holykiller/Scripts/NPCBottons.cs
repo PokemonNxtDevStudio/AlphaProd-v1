@@ -11,7 +11,7 @@ public class NPCBottons : Bottons
 
     void Start()
     {
-        //NPCBottons = transform.parent.parent.parent.GetComponent<HInventory>();
+        MainInventory = transform.parent.parent.transform.GetChild(1).GetComponent<NPCBottons>();
       /*  if(m_SelectedItem == null)
         {
             gameObject.transform.parent.GetChild(1).GetComponent<NPCBottons>();
@@ -20,7 +20,9 @@ public class NPCBottons : Bottons
 
     public void SetValuesForSelectedItem()
     {
-        //MainInventory.SelectedItem.NpcBottonInfo(this.IconOf.sprite, this.NameOf.text, this.Description.text, this.BuyingPrice, this.ItemID);
+        //if (IconOf.gameObject.activeSelf == false)
+            //NPCBootonEnable();
+        MainInventory.NpcBottonInfo(this.IconOf.sprite, this.NameOf.text, this.Description.text, this.BuyingPrice, this.ItemID);
     }
 
 

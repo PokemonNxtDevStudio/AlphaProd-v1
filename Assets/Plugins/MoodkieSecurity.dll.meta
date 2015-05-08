@@ -9,10 +9,13 @@ PluginImporter:
     Any:
       enabled: 1
       settings: {}
+<<<<<<< HEAD
     Editor:
       enabled: 0
       settings:
         DefaultValueInitialized: true
+=======
+>>>>>>> 48e64e32c22a5d89e7d5336b06efdf94e76d3a5d
   userData: 
   assetBundleName: 
   assetBundleVariant: 
