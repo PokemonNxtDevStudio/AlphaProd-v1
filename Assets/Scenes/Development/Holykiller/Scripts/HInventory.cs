@@ -10,11 +10,11 @@ public class HInventory : MonoBehaviour
     private GameObject Botton;
     [Header("Top Tabs(Items,Pokemons,Player")]
     [SerializeField]
-    private GameObject ItemsTab;
+    private GameObject ItemsUI;
     [SerializeField]
-    private GameObject PokemonsTab;
+    private GameObject PokemonsUI;
     [SerializeField]
-    private GameObject PlayerTab;
+    private GameObject PlayerUI;
 
     //[SerializeField]
     //private Sprite[] PokemonIcons;
@@ -58,9 +58,9 @@ public class HInventory : MonoBehaviour
 
     [Header("Pokemons Tabs")]
     [SerializeField]
-    private GameObject PokemonStatus;
+    private GameObject PokemonStatusUI;
     [SerializeField]
-    private GameObject PokemonSkills;
+    private GameObject PokemonSkillsUI;
     [SerializeField]
     private ItemAssetDatabase db;
     [Header("References")]
@@ -398,32 +398,32 @@ public class HInventory : MonoBehaviour
     }
     public void ShowItemsTab()
     {
-        ItemsTab.SetActive(true);
-        PokemonsTab.SetActive(false);
-        PlayerTab.SetActive(false);
+        ItemsUI.SetActive(true);
+        PokemonsUI.SetActive(false);
+        PlayerUI.SetActive(false);
         CapasitySize();
     }
     public void ShowPokemonsTab()
     {
-        ItemsTab.SetActive(false);
-        PokemonsTab.SetActive(true);
-        PlayerTab.SetActive(false);
+        ItemsUI.SetActive(false);
+        PokemonsUI.SetActive(true);
+        PlayerUI.SetActive(false);
     }
     public void ShowPlayerTab()
     {
-        ItemsTab.SetActive(false);
-        PokemonsTab.SetActive(false);
-        PlayerTab.SetActive(true);
+        ItemsUI.SetActive(false);
+        PokemonsUI.SetActive(false);
+        PlayerUI.SetActive(true);
     }
     public void ShowPokemonStatus()
     {
-        PokemonStatus.SetActive(true);
-        PokemonSkills.SetActive(false);
+        PokemonStatusUI.SetActive(true);
+        PokemonSkillsUI.SetActive(false);
     }
     public void ShowPokemonSkills()
     {
-        PokemonStatus.SetActive(false);
-        PokemonSkills.SetActive(true);
+        PokemonStatusUI.SetActive(false);
+        PokemonSkillsUI.SetActive(true);
     }
     #endregion
 
