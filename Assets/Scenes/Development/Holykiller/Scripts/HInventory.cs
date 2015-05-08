@@ -429,7 +429,7 @@ public class HInventory : MonoBehaviour
 
     #region References
 
-    public void SetValue()
+    public void CleanSelectedValues()
     {
         
     }
