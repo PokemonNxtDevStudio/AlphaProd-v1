@@ -6,6 +6,7 @@ public  class BottonsManager : MonoBehaviour
 {
     public static BottonsManager instance;
     public List<Bottons> _bottons = new List<Bottons>();
+    public List<NPCStore> m_npcStores = new List<NPCStore>();
 
     public void OnEnable()
     {
@@ -22,5 +23,18 @@ public  class BottonsManager : MonoBehaviour
     public void RemoveBoton(Bottons b)
     {
         _bottons.Remove(b);
+    }
+    public void AddNPCStore(NPCStore n)
+    {
+        if(!m_npcStores.Contains(n))
+        {
+            m_npcStores.Add(n);
+            n.Inventory = gameObject.GetComponent<HInventory>().InventoryUI;
+        }
+        
+    }
+    public void RemoveNPCStore(NPCStore n)
+    {
+        m_npcStores.Remove(n);
     }
 }
