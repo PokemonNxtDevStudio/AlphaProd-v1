@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -28,9 +29,13 @@ public class NPCStore : MonoBehaviour
 
 
     private bool m_canBeDisplay = false;
+
+    public GameObject player; 
   
 	void Start () 
     {
+
+        NXT.EventHandler.RegisterEvent(player, "OnShopRequest", new Action(OnShopRequest));
         if(m_StoreItemsBotton == null)
         {
             Debug.Log("Add Store Item Botton to " + gameObject.name);
@@ -49,10 +54,22 @@ public class NPCStore : MonoBehaviour
 
         
 	}
+
+    void OnShopRequest()
+    {
+       
+       if( m_canBeDisplay == true)
+        {
+            AddItemsToTheStore();
+            Inventory.SetActive(true);
+            StoreUI.SetActive(true);
+
+        }
+    }
 	
 
 	void Update () 
-    {
+    {/*
         if(Input.GetKeyDown(KeyCode.E) && m_canBeDisplay == true)
         {
             AddItemsToTheStore();
@@ -60,7 +77,7 @@ public class NPCStore : MonoBehaviour
             StoreUI.SetActive(true);
 
         }
-	
+	*/
 	}
     
     private void AddItemsToTheStore()
