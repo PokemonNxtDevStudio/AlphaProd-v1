@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public  class BottonsManager : MonoBehaviour 
+public class BottonsManager : MonoBehaviour
 {
     public static BottonsManager instance;
     public List<Bottons> _bottons = new List<Bottons>();
@@ -15,10 +15,10 @@ public  class BottonsManager : MonoBehaviour
     }
     public void AddBoton(Bottons b)
     {
-       if(!_bottons.Contains(b))
-       {
-           _bottons.Add(b);
-       }
+        if (!_bottons.Contains(b))
+        {
+            _bottons.Add(b);
+        }
     }
     public void RemoveBoton(Bottons b)
     {
@@ -26,12 +26,12 @@ public  class BottonsManager : MonoBehaviour
     }
     public void AddNPCStore(NPCStore n)
     {
-        if(!m_npcStores.Contains(n))
+        if (!m_npcStores.Contains(n))
         {
             m_npcStores.Add(n);
             n.Inventory = gameObject.GetComponent<HInventory>().InventoryUI;
         }
-        
+
     }
     public void RemoveNPCStore(NPCStore n)
     {
