@@ -21,7 +21,7 @@ public class HInventory : MonoBehaviour
 
     [Header("Inventory")]
     [SerializeField]
-    public GameObject InventoryUI;
+    private GameObject InventoryUI;
     [SerializeField]
     private Text InventoryCapasity;   
     [Header("Inventory Tabs")]
@@ -48,12 +48,7 @@ public class HInventory : MonoBehaviour
     [SerializeField]
     private GameObject _keyItemsPanel;        
     [SerializeField]
-    private GameObject _keyItemsButtonsPanel;
-
-    [SerializeField]
-    private Text m_moneytext;
-    [SerializeField]
-    private Text m_playerMoneyText;
+    private GameObject _keyItemsButtonsPanel;   
 
 
     [Header("Pokemons Tabs")]
@@ -63,10 +58,6 @@ public class HInventory : MonoBehaviour
     private GameObject PokemonSkills;
     [SerializeField]
     private ItemAssetDatabase db;
-    [Header("References")]
-    [SerializeField]
-    private NPCBottons m_SelectedItem;
-    public NPCBottons SelectedItem { get { return m_SelectedItem; } set { m_SelectedItem = value; } }
 
     #endregion
     #region Inventory Items 
@@ -95,21 +86,12 @@ public class HInventory : MonoBehaviour
     public int BerrysInvSize { get { return _berrysInventorySize; } set { _berrysInventorySize = value; } }
     private int _keyItemsInventorySize = 10;
     public int KeyItemsInvSize { get { return _keyItemsInventorySize; } set { _keyItemsInventorySize = value; } }
-
-
-    private float m_Money = 1000;
-    public float Money { get { return m_Money; } set { m_Money = value; } }
     #endregion
 
-    public static HInventory instance;
 
-    void Awake () 
-    {
-        if(instance = null)
-        {
-            instance = this;
-        }
-        ShowMoney();
+    void Start () 
+    {       
+
 	}
 	
 	void Update () 
@@ -256,11 +238,6 @@ public class HInventory : MonoBehaviour
     private void AddANewItem(InventoryItem item)
     {
        // Debug.Log("making new boton");
-        if(Botton == null)
-        {
-            Debug.Log("Add Botton Prefab its at Resources/UI/ItemBotton");
-            return;
-        }
         GameObject itemToMake = (GameObject)Instantiate(Botton);
         GameObject parent = null;
         switch(item.ItemType)
@@ -287,7 +264,7 @@ public class HInventory : MonoBehaviour
         if(parent != null)
         {
             Bottons b = itemToMake.GetComponent<Bottons>();
-            b.BotonInfo(item.icon, item.Name, item.StacksAtm, item.StacksUpTo, item.Description,item.ID);
+            b.BotonInfo(item.icon, item.Name, item.StacksAtm, item.StacksUpTo, item.Description);
             itemToMake.transform.SetParent(parent.transform);
             CapasitySize();
            // Debug.Log("Created new item");
@@ -322,16 +299,6 @@ public class HInventory : MonoBehaviour
            InventoryCapasity.text = _invKeyItems.Count + " / " + _keyItemsInventorySize;
        }
 
-    }
-    private void ShowMoney()
-    {
-        if(m_moneytext == null || m_playerMoneyText == null)
-        {
-            Debug.Log("Add Money Text and Player Money Text");
-            return;
-        }
-        m_moneytext.text = "$" + m_Money;
-        m_playerMoneyText.text = "$" + m_Money;
     }
    //This takes care of showing what to show by enableling and disableling all but what we realy want to see
     #region InventorySwitchs
@@ -425,14 +392,5 @@ public class HInventory : MonoBehaviour
         PokemonStatus.SetActive(false);
         PokemonSkills.SetActive(true);
     }
-    #endregion
-
-    #region References
-
-    public void SetValue()
-    {
-        
-    }
-
     #endregion
 }
