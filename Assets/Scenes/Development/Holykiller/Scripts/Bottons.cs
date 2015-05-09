@@ -18,38 +18,21 @@ public class Bottons : MonoBehaviour
     private int _maxStacks;
     private float m_buyPrice;
     private float m_sellPrice;
-    private int m_itemId;
+    private int m_itemId = 0;
     public int StacksAtm { get { return _stacksAtm; } set { _stacksAtm = value; } }
     public int MaxStacks { get { return _maxStacks; } set { _maxStacks = value; } }
     public float BuyingPrice { get { return m_buyPrice; } set { m_buyPrice = value; } }
     public float SellingPrice { get { return m_sellPrice; } set { m_sellPrice = value; } }
 
     public int ItemID { get { return m_itemId; } set { m_itemId = value; } }
-    [SerializeField]
-    protected Bottons SelectedItemBotton;
-
+    
     public static Bottons instance;
-    void Start()
+    void Awake()
     {
         if (instance == null)
         {
             instance = this;
         }
-        for (int i = 0; i < BottonsManager.instance._bottons.Count; i++)
-        {
-            if (BottonsManager.instance._bottons[i].gameObject.name == "NPCItemSelected")
-            {
-                SelectedItemBotton = BottonsManager.instance._bottons[i];
-                SelectedItemBotton.BDisable();
-                return;
-            }
-        }
-
-        //NPCBottons = transform.parent.parent.parent.GetComponent<HInventory>();
-        /*  if(m_SelectedItem == null)
-          {
-              gameObject.transform.parent.GetChild(1).GetComponent<NPCBottons>();
-          }*/
     }
 
     void OnEnable()
@@ -85,50 +68,52 @@ public class Bottons : MonoBehaviour
     }
     public void BotonInfo(Sprite sp, string nam, int satm, int maxst, string des, int Id)
     {
-        _stacksAtm = satm;
-        _maxStacks = maxst;
-        IconOf.sprite = sp;
-        NameOf.text = nam;
-        AmountOf.text = satm + " / " + maxst;
-        Description.text = des;
-        m_itemId = Id;
+        this._stacksAtm = satm;
+        this._maxStacks = maxst;
+        this.IconOf.sprite = sp;
+        this.NameOf.text = nam;
+        this.AmountOf.text = satm + " / " + maxst;
+        this.Description.text = des;
+        this.m_itemId = Id;
     }
     public void NpcBottonInfo(Sprite ItemIcon, string ItemName, string ItemDescrip, float BuyPrice, float SellPrice, int Id)
     {
         if (IconOf.transform.gameObject.activeSelf == false)
             BEnable();
-        IconOf.sprite = ItemIcon;
-        NameOf.text = ItemName;
-        Description.text = ItemDescrip;
-        m_buyPrice = BuyPrice;
-        AmountOf.text = "Price : $" + m_buyPrice;
-        m_itemId = Id;
-        m_sellPrice = SellPrice;
-        SellPriceText.text = "Sell : $" + m_sellPrice;
+        this.IconOf.sprite = ItemIcon;
+        this.NameOf.text = ItemName;
+        this.Description.text = ItemDescrip;
+        this.m_buyPrice = BuyPrice;
+        this.AmountOf.text = "Price : $" + m_buyPrice;
+        this.m_itemId = Id;
+        this.m_sellPrice = SellPrice;
+        this.SellPriceText.text = "Sell : $" + m_sellPrice;
     }
     public void BDisable()
     {
-        IconOf.gameObject.SetActive(false);
-        NameOf.gameObject.SetActive(false);
-        Description.gameObject.SetActive(false);
-        AmountOf.gameObject.SetActive(false);
-        SellPriceText.gameObject.SetActive(false);
-        m_itemId = 0;
+        this.IconOf.gameObject.SetActive(false);
+        this.NameOf.gameObject.SetActive(false);
+        this.Description.gameObject.SetActive(false);
+        this.AmountOf.gameObject.SetActive(false);
+        this.SellPriceText.gameObject.SetActive(false);
+        
     }
     private void BEnable()
     {
-        IconOf.gameObject.SetActive(true);
-        NameOf.gameObject.SetActive(true);
-        Description.gameObject.SetActive(true);
-        AmountOf.gameObject.SetActive(true);
-        SellPriceText.gameObject.SetActive(true);
+        this.IconOf.gameObject.SetActive(true);
+        this.NameOf.gameObject.SetActive(true);
+        this.Description.gameObject.SetActive(true);
+        this.AmountOf.gameObject.SetActive(true);
+        this.SellPriceText.gameObject.SetActive(true);
     }
-    public void SelectedItemHideInfo()
+    public void ResetItemID()
     {
-        SelectedItemBotton.BDisable();
+        HInventory.instance.SelectedItem.ItemID = 0;
     }
+    
     public void SetValuesForSelectedItem()
     {
-        SelectedItemBotton.NpcBottonInfo(this.IconOf.sprite, this.NameOf.text, this.Description.text, this.BuyingPrice, this.SellingPrice, this.ItemID);
+        HInventory.instance.SelectedItem.NpcBottonInfo(this.IconOf.sprite, this.NameOf.text, this.Description.text, this.BuyingPrice, this.SellingPrice, this.ItemID);
     }
+   
 }

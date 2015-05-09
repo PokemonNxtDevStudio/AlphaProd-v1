@@ -54,6 +54,10 @@ public class HInventory : MonoBehaviour
     private Text m_moneytext;
     [SerializeField]
     private Text m_playerMoneyText;
+    [Header("Store")]
+    [SerializeField]
+    private Bottons m_SelectedItem;
+    public Bottons SelectedItem { get { return m_SelectedItem; } set { m_SelectedItem = value; } }
 
 
     [Header("Pokemons Tabs")]
@@ -105,7 +109,7 @@ public class HInventory : MonoBehaviour
 
     void Awake()
     {
-        if (instance = null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -125,27 +129,27 @@ public class HInventory : MonoBehaviour
         //Testing Adding Items
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
-            addtest(10);
+            AddItemWithID(10);
         }
         if (Input.GetKeyDown(KeyCode.Keypad2))
         {
-            addtest(101);
+            AddItemWithID(101);
         }
         if (Input.GetKeyDown(KeyCode.Keypad3))
         {
-            addtest(5);
+            AddItemWithID(5);
         }
         if (Input.GetKeyDown(KeyCode.Keypad4))
         {
-            addtest(400);
+            AddItemWithID(400);
         }
         if (Input.GetKeyDown(KeyCode.Keypad5))
         {
-            addtest(500);
+            AddItemWithID(500);
         }
         if (Input.GetKeyDown(KeyCode.Keypad6))
         {
-            addtest(600);
+            AddItemWithID(600);
         }
 
 
@@ -153,7 +157,38 @@ public class HInventory : MonoBehaviour
 
     // [ContextMenu("test adding item")]
     // Using this to test adding items
-    public void addtest(int x)
+
+    public void BuySelectedItem()
+    {
+        if (m_SelectedItem.ItemID != 0)
+        {
+           if(db.GetByID(m_SelectedItem.ItemID).BuyingPrice <= m_Money && (m_Money - db.GetByID(m_SelectedItem.ItemID).BuyingPrice) > -1)
+           {
+               ShotTypeOfItemInventory(db.GetByID(m_SelectedItem.ItemID).ItemType);
+               m_Money -= db.GetByID(m_SelectedItem.ItemID).BuyingPrice;
+               AddItemWithID(m_SelectedItem.ItemID);
+               ShowMoney();
+           }
+           else
+           {
+
+               ShowNotEnoughMoney();
+           }
+        }       
+        else
+        {
+            Debug.Log("ID of the item Is 0");
+        }
+    }
+    private void ShowNotEnoughMoney()
+    {
+        Debug.Log("Not Enought Money To Buy Item");
+    }
+    public void HideSelectedItemInfo()
+    {
+        m_SelectedItem.BDisable();
+    }
+    private void AddItemWithID(int x)
     {
         //each time we make a new item we create a new item instance... but im not sure if this will create garbage...
         InventoryItem item = new InventoryItem(db.GetByID(x));
@@ -335,6 +370,30 @@ public class HInventory : MonoBehaviour
     }
     //This takes care of showing what to show by enableling and disableling all but what we realy want to see
     #region InventorySwitchs
+    private void ShotTypeOfItemInventory(ItemType type)
+    {
+        switch(type)
+        {
+            case ItemType.GeneralItem:
+                ShowItems();
+                break;
+            case ItemType.Pokeball:
+                ShowPokeballs();
+                break;
+            case ItemType.Potion:
+                ShowPotions();
+                break;
+            case ItemType.MtTm:
+                ShowMtsTms();
+                break;
+            case ItemType.Berry:
+                ShowBerrys();
+                break;
+            case ItemType.KeyItem:
+                ShowKeyItems();
+                break;
+        }
+    }
     public void ShowItems()
     {
         _itemsPanel.SetActive(true);

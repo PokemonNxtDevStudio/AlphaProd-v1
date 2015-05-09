@@ -6,15 +6,16 @@ using System;
 
 public class NPCStore : MonoBehaviour
 {
-    [HideInInspector]
-    public GameObject Inventory;
+    //[HideInInspector]
+    //public GameObject Inventory;
     [SerializeField]
     private GameObject m_StoreItemsBotton;
     [SerializeField]
     private GameObject StoreUI;
     [SerializeField]
     private GameObject StoreItemsPanel;
-
+    [SerializeField]
+    private GameObject InteractUI;
     [SerializeField]
     private ItemAssetDatabase db;
 
@@ -53,6 +54,15 @@ public class NPCStore : MonoBehaviour
             Debug.Log("Add Store Items GameObject to " + gameObject.name);
             return;
         }
+        if(InteractUI == null)
+        {
+            Debug.Log("Add InteractUI GameObject to " + gameObject.name);
+            return;
+        }
+        if(InteractUI.activeSelf == true)
+        {
+            InteractUI.SetActive(false);
+        }
         for (int i = 0; i < StoreItemsPanel.transform.childCount; i++)
         {
             ItemsInStore.Add(StoreItemsPanel.transform.GetChild(i).GetComponent<Bottons>());
@@ -63,9 +73,17 @@ public class NPCStore : MonoBehaviour
     {
         if (m_canBeDisplay == true)
         {
-            AddItemsToTheStore();
-            Inventory.SetActive(true);
+            HInventory.instance.InventoryUI.SetActive(true);
+            //Inventory.SetActive(true);            
             StoreUI.SetActive(!StoreUI.gameObject.activeSelf);
+            if (StoreUI.activeSelf == true)
+            {
+                InteractUI.SetActive(false);
+                AddItemsToTheStore();
+                HInventory.instance.HideSelectedItemInfo();
+            }
+            else
+                InteractUI.SetActive(true);
         }
     }
 
@@ -125,6 +143,7 @@ public class NPCStore : MonoBehaviour
         {
             //Debug.Log("Player Enters");
             m_canBeDisplay = true;
+            InteractUI.SetActive(true);
 
         }
     }
@@ -136,8 +155,9 @@ public class NPCStore : MonoBehaviour
 
             m_canBeDisplay = false;
             //Inventory.SetActive(false);
-            StoreUI.SetActive(false);
-            Bottons.instance.SelectedItemHideInfo();
+            StoreUI.SetActive(false);            
+            Bottons.instance.ResetItemID();
+            InteractUI.SetActive(false);
         }
     }
     void OnEnable()

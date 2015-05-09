@@ -29,7 +29,7 @@ public class BottonsManager : MonoBehaviour
         if (!m_npcStores.Contains(n))
         {
             m_npcStores.Add(n);
-            n.Inventory = gameObject.GetComponent<HInventory>().InventoryUI;
+            //n.Inventory = gameObject.GetComponent<HInventory>().InventoryUI;
         }
 
     }
