@@ -112,8 +112,8 @@ namespace NXT
         public virtual void StartAbility()
         {
             this.m_Active = true;
-            this.m_Animator.SetInteger(AnimatorMonitor.StateHash, 0);
-            this.m_AnimatorMonitor.DetermineStates();
+            //this.m_Animator.SetInteger(AnimatorMonitor.StateHash, 0);
+           // this.m_AnimatorMonitor.DetermineStates();
         }
         public virtual string GetDestinationState(int layer)
         {
@@ -126,7 +126,7 @@ namespace NXT
                 return;
             }
             this.m_Active = false;
-            this.m_AnimatorMonitor.DetermineStates();
+            //this.m_AnimatorMonitor.DetermineStates();
         }
         public virtual bool Move(ref float horizontalMovement, ref float forwardMovement, Quaternion lookRotation)
         {

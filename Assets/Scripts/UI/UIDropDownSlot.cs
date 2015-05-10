@@ -11,7 +11,7 @@ public class UIDropDownSlot : MonoBehaviour
 
     int width;
     int height;
-    public UILabel text;
+//    public UILabel text;
     UIDropDownList ddlParent;
 
     void Start()

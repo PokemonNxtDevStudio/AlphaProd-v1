@@ -11,6 +11,9 @@ public class PlayerActions : MonoBehaviour
         {
             NXT.EventHandler.ExecuteEvent(this.gameObject, "OnShopRequest");
         }
-
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            NXT.EventHandler.ExecuteEvent(this.gameObject, "ShowInventory");
+        }
     }
 }

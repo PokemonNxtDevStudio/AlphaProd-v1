@@ -9,9 +9,9 @@ public class ChatController : MonoBehaviour {
 
 //    Player player;
     private ClientCore client;
-    public UILabel PlayerName;
-   public UIInput ChatMessage;
-    public UITextList textList;
+//    public UILabel PlayerName;
+  // public UIInput ChatMessage;
+    //public UITextList textList;
 	void Start () {
         
         //player = MMOManager.Instance.player;
@@ -31,9 +31,9 @@ public class ChatController : MonoBehaviour {
     /// <param name="buffer"></param>
     void OnChatResponse(PacketBuffer buffer)
     {
-        BinaryReader reader = buffer.StartReading();
-        int playerId = reader.ReadInt32();
-        if (textList != null)
+//        BinaryReader reader = buffer.StartReading();
+//        int playerId = reader.ReadInt32();
+       /* if (textList != null)
         {   
                 textList.Add(reader.ReadString());
                 if (playerId == MMOManager.Instance.player.ID)
@@ -41,12 +41,12 @@ public class ChatController : MonoBehaviour {
                     ChatMessage.value = "";
                     ChatMessage.isSelected = false;
                 }
-        }
+        }*/
     }
     public void SendChat()
     {
-        PacketBuffer buffer = client.clientSocket.CreatePacket(PacketTypes.Special);  //Header
-        buffer.StartWriting(true).WriteHeader((byte)SpecialRequest.SendChat).WriteString(MMOManager.Instance.player.Username + " :" + NGUIText.StripSymbols(ChatMessage.value));
+//        PacketBuffer buffer = client.clientSocket.CreatePacket(PacketTypes.Special);  //Header
+//        buffer.StartWriting(true).WriteHeader((byte)SpecialRequest.SendChat).WriteString(MMOManager.Instance.player.Username + " :" + NGUIText.StripSymbols(ChatMessage.value));
         client.clientSocket.SendPacket();
     }
 }

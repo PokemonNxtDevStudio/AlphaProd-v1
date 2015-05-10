@@ -3,15 +3,15 @@ using System.Collections;
 
 public class PlayerBattlePanel : MonoBehaviour {
 
-    public UISprite[] icon; // Make this 0-4, 0 is the auto attack icon and the other 4 are the spell icons
-    public UILabel Name;
+//    public UISprite[] icon; // Make this 0-4, 0 is the auto attack icon and the other 4 are the spell icons
+    //public UILabel Name;
 
-    public UILabel hpLabel;
+    //public UILabel hpLabel;
     public GameObject[] hpDisplay; // Make this 0-2, 0 = Green, 1 = Yellow, 2 = Red
-    public UILabel ppLabel;
-    public UISprite ppDisplay;
-    public UILabel expLabel;
-    public UISprite expDisplay;
+   // public UILabel ppLabel;
+   // public UISprite ppDisplay;
+   // public UILabel expLabel;
+    //public UISprite expDisplay;
 
     private int hpColorSelection = 0;
 
@@ -25,7 +25,7 @@ public class PlayerBattlePanel : MonoBehaviour {
     void RefreshHP(float hp, float maxHP)
     {        
         float hpDecimal = hp / maxHP;
-        hpLabel.text = (hp.ToString() + "/" + maxHP.ToString());
+        //hpLabel.text = (hp.ToString() + "/" + maxHP.ToString());
         
         foreach(GameObject colorDisplay in hpDisplay)          // Disable each display
         {
@@ -35,22 +35,22 @@ public class PlayerBattlePanel : MonoBehaviour {
         else if (hpDecimal > 0.2 && hpDecimal <= 0.5) { hpColorSelection = 1; }  // the player has
         else if (hpDecimal > 0.5) { hpColorSelection = 0; }
 
-        hpDisplay[hpColorSelection].GetComponent<UISprite>().fillAmount = hpDecimal;
+        //hpDisplay[hpColorSelection].GetComponent<UISprite>().fillAmount = hpDecimal;
         hpDisplay[hpColorSelection].SetActive(true);       
     }
 
     void RefreshPP(float pp, float maxPP)
     {
-        float ppDecimal = pp / maxPP;
-        ppLabel.text = (pp.ToString() + "/" + maxPP.ToString());
-        ppDisplay.fillAmount = ppDecimal;
+//        float ppDecimal = pp / maxPP;
+       // ppLabel.text = (pp.ToString() + "/" + maxPP.ToString());
+        //ppDisplay.fillAmount = ppDecimal;
     }
 
     void RefreshEXP(float exp, float maxEXP)
     {
-        float expDecimal = exp / maxEXP;
-        expLabel.text = (exp.ToString() + "/" + maxEXP.ToString());
-        expDisplay.fillAmount = expDecimal;
+        //float expDecimal = exp / maxEXP;
+       // expLabel.text = (exp.ToString() + "/" + maxEXP.ToString());
+        //expDisplay.fillAmount = expDecimal;
     }
 
     void UpdateStats(float hp, float maxHP, float exp, float maxEXP, float pp, float maxPP)
@@ -62,12 +62,12 @@ public class PlayerBattlePanel : MonoBehaviour {
 
     void SetName(string pokeName)
     {
-        Name.text = pokeName;
+        //Name.text = pokeName;
     }
 
     void SetIcon(int slot, string iconName)
     {
-        icon[slot].spriteName = iconName;
+       // icon[slot].spriteName = iconName;
     }
 
 }

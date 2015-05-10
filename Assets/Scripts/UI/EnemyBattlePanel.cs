@@ -3,8 +3,8 @@ using System.Collections;
 
 public class EnemyBattlePanel : MonoBehaviour {
 
-    public UILabel Name;
-    public UISprite icon;
+//    public UILabel Name;
+    //public UISprite icon;
     public GameObject hpLabel;
     public GameObject hpDisplay;
 
@@ -17,18 +17,18 @@ public class EnemyBattlePanel : MonoBehaviour {
 
     void RefreshHP(float hp, float maxHP)
     {
-        float hpDecimal = hp / maxHP;
-        hpLabel.GetComponent<UILabel>().text = (hp.ToString() + "/" + maxHP.ToString());
-        hpDisplay.GetComponent<UISprite>().fillAmount = hpDecimal;
+//        float hpDecimal = hp / maxHP;
+        //hpLabel.GetComponent<UILabel>().text = (hp.ToString() + "/" + maxHP.ToString());
+       // hpDisplay.GetComponent<UISprite>().fillAmount = hpDecimal;
     }
 
     void SetName(string pokeName)
     {
-        Name.text = pokeName;
+      //  Name.text = pokeName;
     }
 
     void SetIcon(string iconName)
     {
-        icon.spriteName = iconName;
+       // icon.spriteName = iconName;
     }
 }

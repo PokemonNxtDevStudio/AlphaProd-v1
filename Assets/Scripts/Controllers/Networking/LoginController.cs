@@ -6,9 +6,9 @@ using System.IO;
 public class LoginController : MonoBehaviour {
 
 
-    public UILabel Username;
-    public UILabel Password;
-    public UILabel Email;
+//    public UILabel Username;
+    //public UILabel Password;
+    //public UILabel Email;
     private ClientCore client;
     public bool testMode = false;  //Logs in with test data
 	// Use this for initialization
@@ -69,7 +69,7 @@ public class LoginController : MonoBehaviour {
             return;
         }
 
-        buffer.StartWriting(true).WriteHeader((byte)SpecialRequest.LoginRequest).WriteString(Username.text).WriteString(Password.text).WriteString(Email.text);
+        //buffer.StartWriting(true).WriteHeader((byte)SpecialRequest.LoginRequest).WriteString(Username.text).WriteString(Password.text).WriteString(Email.text);
         client.clientSocket.SendPacket();
     }
 

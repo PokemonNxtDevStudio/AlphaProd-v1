@@ -22,15 +22,15 @@ public class UIDropDownList : MonoBehaviour{
     /// </summary>
     public int height;
     public  List<UIDropDownSlot> dropDownList = new List< UIDropDownSlot>();
-    public UIGrid grid;
+//    public UIGrid grid;
     public GameObject itemPrefab;
-    private UIScrollView scrollView;
+   // private UIScrollView scrollView;
 
     void Awake()
     {
-        grid.cellWidth = width;
-        grid.cellHeight = height;
-        scrollView = GetComponent<UIScrollView>();
+        //grid.cellWidth = width;
+       // grid.cellHeight = height;
+        //scrollView = GetComponent<UIScrollView>();
     }
 	void Start () {
         
@@ -43,18 +43,18 @@ public class UIDropDownList : MonoBehaviour{
 
     public void AddItemOnClick()
     {
-        GameObject go = (GameObject)Instantiate(itemPrefab);
-        dropDownList.Add(go.GetComponent<UIDropDownSlot>());
-        go.transform.parent = grid.gameObject.transform;
-        go.transform.localPosition = new Vector3(0, -height * (dropDownList.Count - 1), 0);
-        go.transform.localScale =new Vector3(1, 1, 1);
-        scrollView.UpdateScrollbars(true);
+        //GameObject go = (GameObject)Instantiate(itemPrefab);
+        //dropDownList.Add(go.GetComponent<UIDropDownSlot>());
+       // go.transform.parent = grid.gameObject.transform;
+        //go.transform.localPosition = new Vector3(0, -height * (dropDownList.Count - 1), 0);
+        //go.transform.localScale =new Vector3(1, 1, 1);
+       // scrollView.UpdateScrollbars(true);
         
     }
     public void AddItem( Object Data)
     {
-        GameObject go = (GameObject)Instantiate(itemPrefab);
-        go.transform.parent = grid.gameObject.transform;
+//        GameObject go = (GameObject)Instantiate(itemPrefab);
+       // go.transform.parent = grid.gameObject.transform;
         //go.transform.position = 
        // go.GetComponent<UISprite>().
         //ddl.Add(ddl.Count, item);

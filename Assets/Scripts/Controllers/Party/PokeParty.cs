@@ -169,7 +169,7 @@ public class PokeParty
     {
         foreach (var slot in slots)
         {
-            if (slot.pokemon.PokedexNumber == id)
+           // if (slot.pokemon.PokedexNumber == id)
                 return slot.pokemon;
         }
 
@@ -200,17 +200,17 @@ public class PokeParty
         return GetPokeSlot(index).pokemon.Name;
     }
 
-    public string GetPokeSlotIcon(int index)
-    {
-        return GetPokeSlot(index).pokemon.iconName;
-    }
+    //public string GetPokeSlotIcon(int index)
+    //{
+       // return GetPokeSlot(index).pokemon.iconName;
+    //}
   
-    public int GetPokeSlotLevel(int index)
-    {
-        return GetPokeSlot(index).pokemon.level;
-    }
-    public Sprite GetPokemonSlotIconSprite(int index)
-    {
-        return GetPokeSlot(index).pokemon.Icon;
-    }
+   // public int GetPokeSlotLevel(int index)
+    //{
+       // return GetPokeSlot(index).pokemon.level;
+    //}
+    //public Sprite GetPokemonSlotIconSprite(int index)
+    //{
+        //return GetPokeSlot(index).pokemon.Icon;
+    //}
 }

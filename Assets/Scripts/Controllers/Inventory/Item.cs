@@ -8,7 +8,7 @@ namespace NXT.Inventory
     {
         [SerializeField]
         protected ItemBaseType m_ItemType;
-        private SharedMethodArg<SphereCollider> m_SetItemCollider;
+//        private SharedMethodArg<SphereCollider> m_SetItemCollider;
         private SphereCollider m_SphereCollider;
         public ItemBaseType ItemType
         {
@@ -26,18 +26,19 @@ namespace NXT.Inventory
             this.m_SphereCollider = base.GetComponent<SphereCollider>();
             if (this.m_SphereCollider != null)
             {
-                EventHandler.RegisterEvent<bool>(base.transform.GetComponentInParent<RigidbodyCharacterController>().gameObject, "OnControllerEnableItemCollider", new Action<bool>(this.EnableItemCollider));
+//                EventHandler.RegisterEvent<bool>(base.transform.GetComponentInParent<RigidbodyCharacterController>().gameObject, "OnControllerEnableItemCollider", new Action<bool>(this.EnableItemCollider));
             }
         }
         protected virtual void Start()
         {
             SharedManager.InitializeSharedFields(base.transform.GetComponentInParent<RigidbodyCharacterController>().gameObject, this);
-            if (this.m_SphereCollider != null && this.m_SetItemCollider != null)
-            {
-                this.m_SetItemCollider.Invoke(this.m_SphereCollider);
-                this.m_SphereCollider.enabled =(false);
-            }
+            //if (this.m_SphereCollider != null && this.m_SetItemCollider != null)
+           // {
+            //    this.m_SetItemCollider.Invoke(this.m_SphereCollider);
+            //    this.m_SphereCollider.enabled =(false);
+           // }
         }
+        /*
         protected virtual void OnEnable()
         {
             if (this.m_SetItemCollider != null)
@@ -52,10 +53,11 @@ namespace NXT.Inventory
             {
                 this.m_SetItemCollider.Invoke(null);
             }
-        }
+        }*/
         public virtual void Init(Inventory inventory)
         {
         }
+        /*
         private void EnableItemCollider(bool enable)
         {
             if (this.m_SetItemCollider != null)
@@ -67,5 +69,6 @@ namespace NXT.Inventory
                 this.m_SphereCollider.enabled=(enable);
             }
         }
+         * */
     }
 }

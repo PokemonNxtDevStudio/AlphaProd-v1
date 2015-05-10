@@ -7,6 +7,7 @@ namespace NXT
 {
     public class AnimatorMonitor : MonoBehaviour
     {
+        /*
         [Serializable]
         private class AnimatorStateData
         {
@@ -61,8 +62,8 @@ namespace NXT
         public static int StateHash = Animator.StringToHash("State");
         public static int IntDataHash = Animator.StringToHash("Int Data");
         public static int FloatDataHash = Animator.StringToHash("Float Data");
-        private SharedProperty<string> m_ItemName;
-        private SharedProperty<string> m_ItemLowerAnimatorUseState;
+//        private SharedProperty<string> m_ItemName;
+ //       private SharedProperty<string> m_ItemLowerAnimatorUseState;
         private Ability[] m_Abilities;
         private Ability[] m_ActiveAbility = new Ability[2];
         private Dictionary<string, int> m_StateNamesHash = new Dictionary<string, int>();
@@ -73,14 +74,14 @@ namespace NXT
         {
             get
             {
-                return this.m_ItemName.Get();
+              //  return this.m_ItemName.Get();
             }
         }
         public string ItemLowerAnimatorUseState
         {
             get
             {
-                return this.m_ItemLowerAnimatorUseState.Get();
+               // return this.m_ItemLowerAnimatorUseState.Get();
             }
         }
         private void Awake()
@@ -115,12 +116,12 @@ namespace NXT
             if (this.m_Controller.Aim)
             {
                 this.m_Animator.Play(this.GetStateNameHash(this.m_LowerBodyMainSubstate + "." + this.m_MovingAimState.Name), 0);
-                this.m_Animator.Play(this.GetStateNameHash(this.m_ItemName.Get() + "." + this.m_AimState.Name), 1);
+                //this.m_Animator.Play(this.GetStateNameHash(this.m_ItemName.Get() + "." + this.m_AimState.Name), 1);
             }
             else
             {
                 this.m_Animator.Play(this.GetStateNameHash(this.m_LowerBodyMainSubstate + "." + this.m_IdleState.Name), 0);
-                this.m_Animator.Play(this.GetStateNameHash(this.m_ItemName.Get() + "." + this.m_IdleState.Name), 1);
+                //this.m_Animator.Play(this.GetStateNameHash(this.m_ItemName.Get() + "." + this.m_IdleState.Name), 1);
             }
         }
         public void DetermineStates()
@@ -159,6 +160,7 @@ namespace NXT
             }
             return this.ChangeAnimatorStates(null, 0, this.m_LowerBodyMainSubstate + "." + this.m_MovingState.Name, this.m_MovingState.TransitionDuration, 0f);
         }
+       
         public bool DetermineUpperBodyState(bool checkAbilities, bool lowerBodyStart)
         {
             if (checkAbilities)
@@ -173,7 +175,7 @@ namespace NXT
             }
             if (this.m_Controller.Aim)
             {
-                return this.ChangeAnimatorStates(null, 1, this.m_ItemName.Get() + "." + this.m_AimState.Name, this.m_AimState.TransitionDuration, 0f);
+               // return this.ChangeAnimatorStates(null, 1, this.m_ItemName.Get() + "." + this.m_AimState.Name, this.m_AimState.TransitionDuration, 0f);
             }
             float normalizedTime = ((!lowerBodyStart) ? this.m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime : 0f) % 1f;
             for (int j = 0; j < this.m_Abilities.Length; j++)
@@ -186,9 +188,9 @@ namespace NXT
             }
             if (this.m_Controller.Moving)
             {
-                return this.ChangeAnimatorStates(null, 1, this.m_ItemName.Get() + "." + this.m_MovingState.Name, this.m_MovingState.TransitionDuration, normalizedTime);
+               // return this.ChangeAnimatorStates(null, 1, this.m_ItemName.Get() + "." + this.m_MovingState.Name, this.m_MovingState.TransitionDuration, normalizedTime);
             }
-            return this.ChangeAnimatorStates(null, 1, this.m_ItemName.Get() + "." + this.m_IdleState.Name, this.m_IdleState.TransitionDuration, normalizedTime);
+           // return this.ChangeAnimatorStates(null, 1, this.m_ItemName.Get() + "." + this.m_IdleState.Name, this.m_IdleState.TransitionDuration, normalizedTime);
         }
         private bool ChangeAnimatorStates(Ability ability, int layer, string destinationState, float transitionDuration)
         {
@@ -271,11 +273,11 @@ namespace NXT
         {
             if (primaryItem)
             {
-                if (!string.IsNullOrEmpty(this.m_ItemLowerAnimatorUseState.Get()))
-                {
-                    this.ChangeAnimatorStates(null, 0, this.m_LowerBodyMainSubstate + "." + this.m_ItemLowerAnimatorUseState.Get(), 0.1f, 0f);
-                }
-                this.ChangeAnimatorStates(null, 1, this.m_ItemName.Get() + "." + this.m_ItemUseState.Name, this.m_ItemUseState.TransitionDuration, 0f);
+                //if (!string.IsNullOrEmpty(this.m_ItemLowerAnimatorUseState.Get()))
+               // {
+               //     this.ChangeAnimatorStates(null, 0, this.m_LowerBodyMainSubstate + "." + this.m_ItemLowerAnimatorUseState.Get(), 0.1f, 0f);
+               // }
+               // this.ChangeAnimatorStates(null, 1, this.m_ItemName.Get() + "." + this.m_ItemUseState.Name, this.m_ItemUseState.TransitionDuration, 0f);
             }
             else
             {
@@ -284,11 +286,12 @@ namespace NXT
         }
         private void OnReload()
         {
-            this.ChangeAnimatorStates(null, 1, this.m_ItemName.Get() + "." + this.m_ItemReloadState.Name, this.m_ItemReloadState.TransitionDuration, 0f);
+           // this.ChangeAnimatorStates(null, 1, this.m_ItemName.Get() + "." + this.m_ItemReloadState.Name, this.m_ItemReloadState.TransitionDuration, 0f);
         }
         private void OnRespawn()
         {
             this.PlayDefaultStates();
         }
+         * */
     }
 }

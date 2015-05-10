@@ -104,7 +104,7 @@ namespace NXT.Controllers
                 if (this.m_Moving != value)
                 {
                     this.m_Moving = value;
-                    this.m_AnimatorMonitor.DetermineStates();
+                    //this.m_AnimatorMonitor.DetermineStates();
                 }
             }
         }
@@ -133,7 +133,7 @@ namespace NXT.Controllers
                 this.m_AlwaysAim = value;
                 if (this.m_AnimatorMonitor != null)
                 {
-                    this.m_AnimatorMonitor.DetermineStates();
+//                    this.m_AnimatorMonitor.DetermineStates();
                 }
             }
         }
@@ -647,7 +647,7 @@ namespace NXT.Controllers
             this.m_ForceAim = false;
             this.m_IsForcedAiming = false;
             this.m_ForcedItemUseEvent = null;
-            this.m_AnimatorMonitor.DetermineStates();
+            //this.m_AnimatorMonitor.DetermineStates();
             EventHandler.ExecuteEvent<bool>(this.m_GameObject, "OnControllerAim", false);
         }
         private void OnFocus(bool focus)
@@ -660,7 +660,7 @@ namespace NXT.Controllers
             this.m_Aim = focus;
             if (flag)
             {
-                this.m_AnimatorMonitor.DetermineStates();
+              //  this.m_AnimatorMonitor.DetermineStates();
             }
             if (!focus && !this.m_AlwaysAim)
             {
@@ -673,13 +673,13 @@ namespace NXT.Controllers
             if (this.m_ForceAim && !this.m_IsForcedAiming)
             {
                 this.m_IsForcedAiming = true;
-                this.m_AnimatorMonitor.DetermineStates();
+                //this.m_AnimatorMonitor.DetermineStates();
                 EventHandler.ExecuteEvent<bool>(this.m_GameObject, "OnControllerAim", true);
             }
             if ((this.m_Aim || this.m_AlwaysAim) && !this.m_IsAiming)
             {
                 this.m_IsAiming = true;
-                this.m_AnimatorMonitor.DetermineStates();
+                //this.m_AnimatorMonitor.DetermineStates();
                 EventHandler.ExecuteEvent<bool>(this.m_GameObject, "OnControllerAim", true);
             }
         }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System;
 
 public class HInventory : MonoBehaviour
 {
@@ -107,6 +108,8 @@ public class HInventory : MonoBehaviour
 
     public static HInventory instance;
 
+    private GameObject player;
+
     void Awake()
     {
         if (instance == null)
@@ -115,7 +118,16 @@ public class HInventory : MonoBehaviour
         }
         ShowMoney();
     }
-
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        NXT.EventHandler.RegisterEvent(player, "ShowInventory", new Action(ShowInventory));
+    }
+    private void ShowInventory()
+    {
+        InventoryUI.SetActive(!InventoryUI.activeSelf);
+    }
+    /*
     void Update()
     {
         //Shows and hide the inventory window if press I
@@ -153,7 +165,7 @@ public class HInventory : MonoBehaviour
         }
 
 
-    }
+    }*/
 
     // [ContextMenu("test adding item")]
     // Using this to test adding items

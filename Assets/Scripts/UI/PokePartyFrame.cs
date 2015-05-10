@@ -92,7 +92,7 @@ public class PokePartyFrame : MonoBehaviour
         {
             if (frame > -1 && frame < 6)
             {
-                partyFrameIcon[frame].GetComponent<UISprite>().spriteName = spriteName; // Change the pokemon's icon           
+//                partyFrameIcon[frame].GetComponent<UISprite>().spriteName = spriteName; // Change the pokemon's icon           
             }
             else
             {
@@ -112,11 +112,11 @@ public class PokePartyFrame : MonoBehaviour
         {
             if (frame > -1 && frame < 6)
             {
-                partyNameLabel[frame].GetComponent<UILabel>().text = name; // Change the pokemon's name
+               // partyNameLabel[frame].GetComponent<UILabel>().text = name; // Change the pokemon's name
             }
             else
             {
-                Debug.LogError("You are trying to change the name on the panel number " + frame + ", this panel number needs to be an integer between 0 and 5");
+                //Debug.LogError("You are trying to change the name on the panel number " + frame + ", this panel number needs to be an integer between 0 and 5");
             }
         }
     }
@@ -132,11 +132,11 @@ public class PokePartyFrame : MonoBehaviour
         {
             if (frame > -1 && frame < 6)
             {
-                partyLevelLabel[frame].GetComponent<UILabel>().text = level.ToString();  // Change the pokemon's level
+              //  partyLevelLabel[frame].GetComponent<UILabel>().text = level.ToString();  // Change the pokemon's level
             }
             else
             {
-                Debug.LogError("You are trying to change the Pokemon level on the panel number " + frame + ", this panel number needs to be an integer between 0 and 5");
+               // Debug.LogError("You are trying to change the Pokemon level on the panel number " + frame + ", this panel number needs to be an integer between 0 and 5");
             }
         }
     }
@@ -196,11 +196,11 @@ public class PokePartyFrame : MonoBehaviour
 
     public void Enable(float time)
     {
-        TweenAlpha.Begin(gameObject, time, 1);  
+      //  TweenAlpha.Begin(gameObject, time, 1);  
     }
 
     public void Disable(float time) 
     {
-        TweenAlpha.Begin(gameObject, time, 0);
+       // TweenAlpha.Begin(gameObject, time, 0);
     }
 }

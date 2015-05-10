@@ -4,7 +4,7 @@ using System.Collections;
 public class SpriteTrigger : MonoBehaviour {
 
 
-    public UISprite target;
+//    public UISprite target;
 
 	public void DisableSprite()
     {

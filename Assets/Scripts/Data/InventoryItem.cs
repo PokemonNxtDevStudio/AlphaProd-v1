@@ -7,7 +7,6 @@ public class AssetItem
 {
     public int ID;
     public string Name;
-
 }
 
 [System.Serializable]
