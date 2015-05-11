@@ -19,12 +19,18 @@ public class Bottons : MonoBehaviour
     private float m_buyPrice;
     private float m_sellPrice;
     private int m_itemId = 0;
+    private bool m_mouseClicksStarted = false;
+    private int m_mouseClicks = 0;
+    private float m_mouseTimerLimit = .5f;
+    private bool m_itOwnbyPlayer = false;
     public int StacksAtm { get { return _stacksAtm; } set { _stacksAtm = value; } }
     public int MaxStacks { get { return _maxStacks; } set { _maxStacks = value; } }
     public float BuyingPrice { get { return m_buyPrice; } set { m_buyPrice = value; } }
     public float SellingPrice { get { return m_sellPrice; } set { m_sellPrice = value; } }
 
     public int ItemID { get { return m_itemId; } set { m_itemId = value; } }
+
+    public bool ItOWnByPlayer { get { return m_itOwnbyPlayer; } set { m_itOwnbyPlayer = value; } }
     
     public static Bottons instance;
     void Awake()
@@ -66,7 +72,7 @@ public class Bottons : MonoBehaviour
     {
         Description.text = s;
     }
-    public void BotonInfo(Sprite sp, string nam, int satm, int maxst, string des, int Id)
+    public void BotonInfo(Sprite sp, string nam, int satm, int maxst, string des, int Id,float SellPrice,bool ownbyplayer)
     {
         this._stacksAtm = satm;
         this._maxStacks = maxst;
@@ -75,6 +81,9 @@ public class Bottons : MonoBehaviour
         this.AmountOf.text = satm + " / " + maxst;
         this.Description.text = des;
         this.m_itemId = Id;
+        this.m_itOwnbyPlayer = ownbyplayer;
+        this.m_sellPrice = SellPrice;
+        this.SellPriceText.text = "Sell:$" + m_sellPrice;
     }
     public void NpcBottonInfo(Sprite ItemIcon, string ItemName, string ItemDescrip, float BuyPrice, float SellPrice, int Id)
     {
@@ -96,6 +105,7 @@ public class Bottons : MonoBehaviour
         this.Description.gameObject.SetActive(false);
         this.AmountOf.gameObject.SetActive(false);
         this.SellPriceText.gameObject.SetActive(false);
+       
         
     }
     private void BEnable()
@@ -106,14 +116,65 @@ public class Bottons : MonoBehaviour
         this.AmountOf.gameObject.SetActive(true);
         this.SellPriceText.gameObject.SetActive(true);
     }
-    public void ResetItemID()
-    {
-        HInventory.instance.SelectedItem.ItemID = 0;
-    }
+    
     
     public void SetValuesForSelectedItem()
     {
         HInventory.instance.SelectedItem.NpcBottonInfo(this.IconOf.sprite, this.NameOf.text, this.Description.text, this.BuyingPrice, this.SellingPrice, this.ItemID);
+    }
+    public void SellItem()
+    {
+        if(HInventory.instance.ShopIsOpen() == true)
+        {
+           // Debug.Log("Shop Window Is Open");
+            HInventory.instance.SellItem(m_itemId);
+        }
+        else
+        {
+           // Debug.Log("Shop Close");
+        }
+    }
+
+   
+
+    public void OnClick()
+    {
+        m_mouseClicks++;
+        if (m_mouseClicksStarted)
+        {
+            return;
+        }
+        m_mouseClicksStarted = true;
+        Invoke("checkMouseDoubleClick", m_mouseTimerLimit);
+    }
+
+
+    private void checkMouseDoubleClick()
+    {
+        if (m_mouseClicks > 1)
+        {
+            //Debug.Log("Double Click");
+            SellItem();
+
+        }
+        else
+        {
+            //Debug.Log("Single Click");            
+        }
+        m_mouseClicksStarted = false;
+        m_mouseClicks = 0;
+    }
+
+    public void ShowSellingText(bool show)
+    {
+        if(show == true)
+        {
+            SellPriceText.gameObject.SetActive(true);
+        }
+        else
+        {
+            SellPriceText.gameObject.SetActive(false);
+        }
     }
    
 }

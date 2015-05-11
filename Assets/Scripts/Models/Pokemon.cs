@@ -56,43 +56,64 @@ public class Pokemon : AssetItem
 
     public bool Released = false;
     * */
+   // private int m_pokedexnumber = 0;
+   // public int PokedexNumber { get { return m_pokedexnumber; } set { m_pokedexnumber = value; } }
+    private int m_level = 5;
+    public int level { get { return m_level; } set { m_level = value; } }
+    private float m_exp = 0;
+    public float exp { get { return m_exp; } set { m_exp = value; } }
+    private float m_pp = 30;
+    public float PP { get { return m_pp; } set { m_pp = value; } }
+    private float m_health = 10;
+    public float Health { get { return m_health; } set { m_health = value; } }
+    private float m_attack = 10;
+    public float Attack{get{return m_attack;}set{m_attack = value;}}
+    private float m_defence = 10;
+    public float defence { get { return m_defence; } set { m_defence = value; } }
+    private float m_demage = 0;
+    public float damage { get { return m_demage; } set { m_demage = value; } }
+    private float m_speed = 10;
+    public float speed { get { return m_speed; } set { m_speed = value; } }
 
-    public int PokedexNumber = 0;    
-    public int level = 5;
-    public float exp = 0;
-    private float PP = 30;
-    public float health = 10;
-    public float attack = 10;
-    public float defence = 10;
-    public float damage = 0;
-    public float speed = 10;
+    private float m_currenthealth = 10;
+    public float CurrentHealth { get { return m_currenthealth; } set { m_currenthealth = value; } }
+    private float m_currentexp = 0;
+    public float currentEXP { get { return m_currentexp; } set { m_currentexp = value; } }
+    private float m_currentpp = 30;
+    public float currentPP { get { return m_currentpp; } set { m_currentpp = value; } }
 
-    public float currentHealth = 10;
-    public float currentEXP = 0;
-    public float currentPP = 30;
+    private PokemonType m_type1;
+    public PokemonType Type1 { get { return m_type1; } set { m_type1 = value; } }
+    private PokemonType m_type2;
+    public PokemonType Type2 { get { return m_type2; } set { m_type2 = value; } }
+    private GameObject m_pokemonprefab;
+    public GameObject PokemonPrefab { get { return m_pokemonprefab; } set { m_pokemonprefab = value; } }
 
-    public Sprite Icon;   
+    private bool m_released = false;
+    public bool Released { get { return m_released; } set { m_released = value; } }
+    private bool m_isPlayer = false;
+    public bool isPlayer { get { return m_isPlayer; } set { m_isPlayer = value; } }
 
-    public PokemonType Type1;
-    public PokemonType Type2;
+    private List<MoveData> m_moves = new List<MoveData>();
+    public List<MoveData> Moves { get { return m_moves; } set { m_moves = value; } }
 
-    public GameObject PokemonPrefab;
+    private bool m_isCapture = false;
+    public bool IsCapture { get { return m_isCapture; } set { m_isCapture = value; } }
+    //pokeball that is trap on
+    private PokemonPokeball m_pokeball = PokemonPokeball.None;
+    public PokemonPokeball Pokeball { get { return m_pokeball; } set { m_pokeball = value; } }
 
-    public bool Released = false;
-    public bool isPlayer = false;     
-    
-    public List<MoveData> moves = new List<MoveData>();
-
-    public Pokemon(int pid,string pname,int pPokedexNum,float pPP,Sprite pIcon,PokemonType ptype1,PokemonType ptype2,GameObject pPPrefab)
+    public Pokemon(int id,string name/*,int PokedexNum*/,float PP,Sprite Icon,PokemonType type1,PokemonType type2,GameObject PokePrefab,List<MoveData> moves)
     {
-        this.ID = pid;
-        this.Name = pname;
-        this.PokedexNumber = pPokedexNum;
-        this.PP = pPP;
-        this.Icon = pIcon;
-        this.Type1 = ptype1;
-        this.Type2 = ptype2;
-        this.PokemonPrefab = pPPrefab;
+        m_id = id;
+        m_name = name;
+       // m_pokedexnumber = PokedexNum;
+        m_pp = PP;
+        m_icon = Icon;
+        m_type1 = type1;
+        m_type2 = type2;
+        m_pokemonprefab = PokePrefab;
+        m_moves = moves;
     }
     
     
@@ -106,5 +127,14 @@ public enum PokemonType
     Ground,
     Bug,
     Ghost,
-    Electricity
+    Electricity,
+    Grass,
+    Poison
+}
+public enum PokemonPokeball
+{
+    None,
+    Pokeball,
+    GreatBall,
+    UltraBall
 }

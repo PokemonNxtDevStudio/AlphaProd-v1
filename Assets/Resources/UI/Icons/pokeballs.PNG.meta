@@ -1,9 +1,12 @@
 fileFormatVersion: 2
-guid: f7f5cb70db2215945aba66cbc4bc9926
-timeCreated: 1430602615
+guid: c199a79a196759447b1ef12bb2041070
+timeCreated: 1431225650
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: pokeballs_0
+    21300002: pokeballs_1
+    21300004: pokeballs_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -37,7 +40,7 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -48,7 +51,37 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: pokeballs_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 411
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pokeballs_1
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 411
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pokeballs_2
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 411
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

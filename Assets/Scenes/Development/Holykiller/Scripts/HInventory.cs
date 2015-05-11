@@ -59,6 +59,8 @@ public class HInventory : MonoBehaviour
     [SerializeField]
     private Bottons m_SelectedItem;
     public Bottons SelectedItem { get { return m_SelectedItem; } set { m_SelectedItem = value; } }
+    [SerializeField]
+    private GameObject ShopUI;
 
 
     [Header("Pokemons Tabs")]
@@ -77,16 +79,24 @@ public class HInventory : MonoBehaviour
     #region Inventory Items
     // [SerializeField]
     public List<InventoryItem> _invItems = new List<InventoryItem>();
+
+
+    private int generalitems = 0;
+    private int pokeballs = 0;
+    private int potions = 0;
+    private int mttms = 0;
+    private int berrys = 0;
+    private int keyitems = 0;
     // [SerializeField]
-    public List<InventoryItem> _invPokeballs = new List<InventoryItem>();
+  //  public List<InventoryItem> _invPokeballs = new List<InventoryItem>();
     // [SerializeField]
-    public List<InventoryItem> _invPotions = new List<InventoryItem>();
+   // public List<InventoryItem> _invPotions = new List<InventoryItem>();
     // [SerializeField]
-    public List<InventoryItem> _invMtsTms = new List<InventoryItem>();
+   // public List<InventoryItem> _invMtsTms = new List<InventoryItem>();
     // [SerializeField]
-    public List<InventoryItem> _invBerrys = new List<InventoryItem>();
+    //public List<InventoryItem> _invBerrys = new List<InventoryItem>();
     // [SerializeField]
-    public List<InventoryItem> _invKeyItems = new List<InventoryItem>();
+   // public List<InventoryItem> _invKeyItems = new List<InventoryItem>();
 
     private int _itemsInventorySize = 10;
     public int ItemISize { get { return _itemsInventorySize; } set { _itemsInventorySize = value; } }
@@ -101,7 +111,8 @@ public class HInventory : MonoBehaviour
     private int _keyItemsInventorySize = 10;
     public int KeyItemsInvSize { get { return _keyItemsInventorySize; } set { _keyItemsInventorySize = value; } }
 
-
+    private bool m_spaceFree = true;
+    private bool m_ItemAdded = false;
     private float m_Money = 1000;
     public float Money { get { return m_Money; } set { m_Money = value; } }
     #endregion
@@ -116,56 +127,50 @@ public class HInventory : MonoBehaviour
         {
             instance = this;
         }
-        ShowMoney();
+        
     }
     void Start()
     {
+        ShowMoney();
         player = GameObject.FindGameObjectWithTag("Player");
         NXT.EventHandler.RegisterEvent(player, "ShowInventory", new Action(ShowInventory));
+
     }
     private void ShowInventory()
     {
         InventoryUI.SetActive(!InventoryUI.activeSelf);
     }
-    /*
+    
     void Update()
     {
-        //Shows and hide the inventory window if press I
-        if (Input.GetKeyUp(KeyCode.I))
-        {
-            if (InventoryUI != null)
-            {
-                InventoryUI.SetActive(!InventoryUI.activeSelf);
-            }
-        }
         //Testing Adding Items
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
-            AddItemWithID(10);
+            AddItemWithID(1);
         }
         if (Input.GetKeyDown(KeyCode.Keypad2))
         {
-            AddItemWithID(101);
+            AddItemWithID(2);
         }
         if (Input.GetKeyDown(KeyCode.Keypad3))
         {
-            AddItemWithID(5);
+            AddItemWithID(8);
         }
         if (Input.GetKeyDown(KeyCode.Keypad4))
         {
-            AddItemWithID(400);
+            AddItemWithID(9);
         }
         if (Input.GetKeyDown(KeyCode.Keypad5))
         {
-            AddItemWithID(500);
+            AddItemWithID(300);
         }
         if (Input.GetKeyDown(KeyCode.Keypad6))
         {
-            AddItemWithID(600);
+            AddItemWithID(301);
         }
 
 
-    }*/
+    }
 
     // [ContextMenu("test adding item")]
     // Using this to test adding items
@@ -176,9 +181,11 @@ public class HInventory : MonoBehaviour
         {
            if(db.GetByID(m_SelectedItem.ItemID).BuyingPrice <= m_Money && (m_Money - db.GetByID(m_SelectedItem.ItemID).BuyingPrice) > -1)
            {
-               ShotTypeOfItemInventory(db.GetByID(m_SelectedItem.ItemID).ItemType);
-               m_Money -= db.GetByID(m_SelectedItem.ItemID).BuyingPrice;
+               ShowTypeOfItemInventory(db.GetByID(m_SelectedItem.ItemID).ItemType);
+              
                AddItemWithID(m_SelectedItem.ItemID);
+              if(m_ItemAdded == true)
+               m_Money -= db.GetByID(m_SelectedItem.ItemID).BuyingPrice;
                ShowMoney();
            }
            else
@@ -196,108 +203,204 @@ public class HInventory : MonoBehaviour
     {
         Debug.Log("Not Enought Money To Buy Item");
     }
+    public bool ShopIsOpen()
+    {
+        bool itsOpen = false;
+        if(ShopUI.activeSelf == true)
+        {
+            itsOpen = true;
+        }
+        return itsOpen;
+    }
+
+    public void SellItem(int itemID)
+    {
+        bool have = false;
+        for(int i = 0; i < _invItems.Count;i++)
+        {
+            if(_invItems[i].ID == itemID)
+            {
+                have = true;
+            }
+            if(have)
+            {
+                m_Money += _invItems[i].SellingPrice;
+                ShowMoney();
+                if(_invItems[i].StacksAtm > 0)
+                {
+                    _invItems[i].StacksAtm--;
+                    for (int x = 0; x < BottonsManager.instance._bottons.Count; x++)
+                    {
+                        if (BottonsManager.instance._bottons[x].ItemID == itemID && BottonsManager.instance._bottons[x].StacksAtm > 0)
+                        {
+                            BottonsManager.instance._bottons[x].Amount(_invItems[i].StacksAtm, _invItems[i].StacksUpTo);
+                            m_ItemAdded = true;
+                            if(_invItems[i].StacksAtm == 0)
+                            {
+                                Debug.Log("RemoveItem");
+                                DestroyImmediate(BottonsManager.instance._bottons[x].gameObject);
+                            }
+                            
+                            return;
+                        }
+                    }
+                   /* if(_invItems[i].StacksAtm == 0)
+                    {
+                        Debug.Log("RemoveItem");
+                        _invItems.Remove(_invItems[i]);
+                        for (int x = 0; x < BottonsManager.instance._bottons.Count; x++)
+                        {
+                            if (BottonsManager.instance._bottons[x].ItemID == itemID && BottonsManager.instance._bottons[x].StacksAtm == 0)
+                            {
+                                DestroyImmediate(BottonsManager.instance._bottons[x].gameObject);
+                                return;
+                            }
+                        }
+                    }*/
+                }
+                else
+                {
+                    Debug.Log("Item NOT EXISTING");
+
+                }
+            }
+        }
+        
+        if(!have)
+        {
+            Debug.Log("Item Not Exist in Inventory");
+        }
+    }
+    public void ShowSellingPrice()
+    {        
+        if(ShopUI.activeSelf == true)
+        {
+            for (int x = 0; x < BottonsManager.instance._bottons.Count; x++)
+            {
+                if (BottonsManager.instance._bottons[x].ItOWnByPlayer == true)
+                {
+                    BottonsManager.instance._bottons[x].ShowSellingText(true);
+                }
+            } 
+        }
+        else
+        {
+            for (int x = 0; x < BottonsManager.instance._bottons.Count; x++)
+            {
+                if (BottonsManager.instance._bottons[x].ItOWnByPlayer == true)
+                {
+                    BottonsManager.instance._bottons[x].ShowSellingText(false);
+                }
+            } 
+        }
+              
+    }
     public void HideSelectedItemInfo()
     {
         m_SelectedItem.BDisable();
     }
     private void AddItemWithID(int x)
     {
-        //each time we make a new item we create a new item instance... but im not sure if this will create garbage...
+        //each time we make a new item we create a new item instance...
         InventoryItem item = new InventoryItem(db.GetByID(x));
         AddItemToInventory(item);
-        //Maybe its better if we do this so we dont make new items each time anyways the AddANewItem() makes a new item and boton after it check its ItemType
-        //AddItemToInventory(db.GetByID(x));
     }
     //We call this to add items to the inventory
     public void AddItemToInventory(InventoryItem item)
     {
-        switch (item.ItemType)
-        {
-            case ItemType.GeneralItem:
-                LootAtArrayOf(_invItems, _itemsInventorySize, item);
-                break;
-            case ItemType.Pokeball:
-                LootAtArrayOf(_invPokeballs, _pokeballsInventorySize, item);
-                break;
-            case ItemType.Potion:
-                LootAtArrayOf(_invPotions, _potionsInventorySize, item);
-                // Debug.Log("It Was a potion and the array have " + _invPotions.Count );
-                break;
-            case ItemType.MtTm:
-                LootAtArrayOf(_invMtsTms, _mtsMtsInventorySize, item);
-                break;
-            case ItemType.Berry:
-                LootAtArrayOf(_invBerrys, _berrysInventorySize, item);
-                break;
-            case ItemType.KeyItem:
-                LootAtArrayOf(_invKeyItems, _keyItemsInventorySize, item);
-                break;
-        }
+        LootAtArrayOf(item);
         CapasitySize();
 
     }
     //Here we check if there is space in the Inventory Slot that the item that we want to add
-    private void LootAtArrayOf(List<InventoryItem> items, int limit, InventoryItem item)
+    private void LootAtArrayOf(InventoryItem item)
     {
-        // Debug.Log("Looking at the list");
-        if (items.Count >= limit)
+        CheckInvStatus();
+        ShowTypeOfItemInventory(item.ItemType);
+        //Check if there a free space in the inventory even if it is in a stackable one 
+        m_spaceFree = true;
+        if (item.ItemType == ItemType.GeneralItem && generalitems >= _itemsInventorySize)
         {
-            int allitems = items.Count;
-            for (int asd = 0; asd < items.Count; asd++)
+            LookForSpace(item);            
+        }
+         if( item.ItemType == ItemType.Pokeball && pokeballs >= _pokeballsInventorySize)
+        {
+            LookForSpace(item);
+        }
+         if (item.ItemType == ItemType.Potion && potions >= _potionsInventorySize)
+        {
+            LookForSpace(item);
+        }
+         if(item.ItemType == ItemType.MtTm && mttms >= _mtsMtsInventorySize)
+        {
+            LookForSpace(item);
+        }
+         if(item.ItemType == ItemType.Berry && berrys >= _berrysInventorySize)
+        {
+            LookForSpace(item);
+        }
+        if(item.ItemType == ItemType.KeyItem && keyitems >= _keyItemsInventorySize)
+        {
+
+            LookForSpace(item);
+        }
+        if (m_spaceFree == false)
+        {
+            Debug.Log("No More Space for that item in the inventory");
+            m_ItemAdded = false;
+            return;
+        }
+        else
+        {
+            //Check if ther is a space in a stackable item
+            for (int i = 0; i < _invItems.Count; i++)
             {
-                if (items[asd].StacksAtm == items[asd].StacksUpTo)
+                if (_invItems[i].ID == item.ID && _invItems[i].StacksAtm < _invItems[i].StacksUpTo)
+                {
+                    _invItems[i].StacksAtm++;
+                    for (int x = 0; x < BottonsManager.instance._bottons.Count; x++)
+                    {
+                        if (BottonsManager.instance._bottons[x].ItemID == item.ID && BottonsManager.instance._bottons[x].StacksAtm < BottonsManager.instance._bottons[x].MaxStacks)
+                        {
+                            BottonsManager.instance._bottons[x].Amount(_invItems[i].StacksAtm, _invItems[i].StacksUpTo);
+                            m_ItemAdded = true;
+                            return;
+                        }
+                    }
+                    return;
+                }
+            }
+
+            _invItems.Add(item);
+            AddANewItem(item);
+            m_ItemAdded = true;
+        }
+    }
+
+    private void LookForSpace(InventoryItem item)
+    {
+
+        int allitems = 0;
+        for (int i = 0; i < _invItems.Count;i++ )
+        {
+            if(_invItems[i].ID == item.ID)
+            {
+                allitems++;
+            }
+        }
+            for (int asd = 0; asd < _invItems.Count; asd++)
+            {
+                if (_invItems[asd].StacksAtm >= _invItems[asd].StacksUpTo && _invItems[asd].ID == item.ID)
                 {
                     allitems--;
                 }
-
             }
-            if (allitems == 0)
-            {
-                Debug.Log("Inventory full");
-                return;
-            }
-
-        }
-        if (items.Count == 0)
+        if (allitems == 0)
         {
-            //   Debug.Log("The list was empty so make a new");
-
-            items.Add(item);
-            AddANewItem(item);
-            return;
+            m_spaceFree = false;
         }
-        //this look if there is another item like the one we want to add and if there is we just increase the stack count 
-        for (int asd = 0; asd < items.Count; asd++)
-        {
-
-            if (items[asd].ID == item.ID && items[asd].StacksAtm < items[asd].StacksUpTo)
-            {
-                items[asd].StacksAtm++;
-                //this update the UI text for the amount of items that are in the inventory
-                for (int i = 0; i < BottonsManager.instance._bottons.Count; i++)
-                {
-                    if (BottonsManager.instance._bottons[i].TheName() == item.Name && BottonsManager.instance._bottons[i].StacksAtm < BottonsManager.instance._bottons[i].MaxStacks)
-                    {
-                        BottonsManager.instance._bottons[i].Amount(items[asd].StacksAtm, items[asd].StacksUpTo);
-                        return;
-                    }
-                }
-                return;
-            }
-        }
-        //if there was another item like the one we want to add but its stack is the same as its max amount that it can stack,so we create a new item 
-        //and added to the corresponding array and make a new boton and add it to its tab depending of the itemtype of the new item
-        if (items.Count < limit)
-        {
-            items.Add(item);
-            AddANewItem(item);
-        }
-        else
-            Debug.Log("cant add more items");
-
-
+        
     }
-
 
     //Here we create the new buttons and set its values and added it to the correct Inventory Slots(items,pokeballs,potions....)
     private void AddANewItem(InventoryItem item)
@@ -334,40 +437,69 @@ public class HInventory : MonoBehaviour
         if (parent != null)
         {
             Bottons b = itemToMake.GetComponent<Bottons>();
-            b.BotonInfo(item.icon, item.Name, item.StacksAtm, item.StacksUpTo, item.Description, item.ID);
+            b.BotonInfo(item.Icon, item.Name, item.StacksAtm, item.StacksUpTo, item.Description, item.ID,item.SellingPrice,true);
             itemToMake.transform.SetParent(parent.transform);
             CapasitySize();
             // Debug.Log("Created new item");
         }
     }
     //Shows the current size of the inventory tab selected(items,pokeballs.potions...)
+    
+    private void CheckInvStatus()
+    {
+        generalitems = 0;
+        pokeballs = 0;
+        potions = 0;
+        mttms = 0;
+        berrys = 0;
+        keyitems = 0;
+
+        for (int i = 0; i < _invItems.Count; i++)
+        {
+            if (_invItems[i].ItemType == ItemType.GeneralItem)
+                generalitems++;
+            if (_invItems[i].ItemType == ItemType.Pokeball)
+                pokeballs++;
+            if (_invItems[i].ItemType == ItemType.Potion)
+                potions++;
+            if (_invItems[i].ItemType == ItemType.MtTm)
+                mttms++;
+            if (_invItems[i].ItemType == ItemType.Berry)
+                berrys++;
+            if (_invItems[i].ItemType == ItemType.KeyItem)
+                keyitems++;
+        }
+    }
+    
     private void CapasitySize()
     {
-        if (_itemsPanel.activeSelf == true)
+        CheckInvStatus();            
+        if (_itemsPanel.activeSelf == true)            
         {
-            InventoryCapasity.text = _invItems.Count + " / " + _itemsInventorySize;
+            InventoryCapasity.text = generalitems + " / " + _itemsInventorySize;           
         }
         if (_pokeballsPanel.activeSelf == true)
         {
-            InventoryCapasity.text = _invPokeballs.Count + " / " + _pokeballsInventorySize;
+            InventoryCapasity.text = pokeballs + " / " + _pokeballsInventorySize;
         }
         if (_potionPanel.activeSelf == true)
         {
-            InventoryCapasity.text = _invPotions.Count + " / " + _potionsInventorySize;
+            InventoryCapasity.text = potions + " / " + _potionsInventorySize;
         }
         if (_mtsTmsPanel.activeSelf == true)
         {
-            InventoryCapasity.text = _invMtsTms.Count + " / " + _mtsMtsInventorySize;
+            InventoryCapasity.text = mttms + " / " + _mtsMtsInventorySize;
         }
         if (_berrysPanel.activeSelf == true)
         {
-            InventoryCapasity.text = _invBerrys.Count + " / " + _berrysInventorySize;
+            InventoryCapasity.text = berrys + " / " + _berrysInventorySize;
         }
 
         if (_keyItemsPanel.activeSelf == true)
         {
-            InventoryCapasity.text = _invKeyItems.Count + " / " + _keyItemsInventorySize;
+            InventoryCapasity.text = keyitems + " / " + _keyItemsInventorySize;
         }
+        ShowSellingPrice();
 
     }
     private void ShowMoney()
@@ -382,7 +514,7 @@ public class HInventory : MonoBehaviour
     }
     //This takes care of showing what to show by enableling and disableling all but what we realy want to see
     #region InventorySwitchs
-    private void ShotTypeOfItemInventory(ItemType type)
+    private void ShowTypeOfItemInventory(ItemType type)
     {
         switch(type)
         {
@@ -496,14 +628,5 @@ public class HInventory : MonoBehaviour
         PokemonStatusUI.SetActive(false);
         PokemonSkillsUI.SetActive(true);
     }
-    #endregion
-
-    #region References
-
-    public void SetValue()
-    {
-
-    }
-
     #endregion
 }

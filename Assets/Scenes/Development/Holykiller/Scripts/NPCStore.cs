@@ -81,9 +81,14 @@ public class NPCStore : MonoBehaviour
                 InteractUI.SetActive(false);
                 AddItemsToTheStore();
                 HInventory.instance.HideSelectedItemInfo();
+                HInventory.instance.ShowSellingPrice();
             }
             else
+            {
                 InteractUI.SetActive(true);
+                HInventory.instance.ShowSellingPrice();
+            }
+                
         }
     }
 
@@ -118,7 +123,7 @@ public class NPCStore : MonoBehaviour
             // NPCBottons b_info =  StoreItem.GetComponent<NPCBottons>();
             BIEnable(asd);
             InventoryItem i = db.GetByID(m_IDsOfItemsInStore[asd]);
-            ItemsInStore[asd].NpcBottonInfo(i.icon, i.Name, i.Description, i.BuyingPrice, i.SellingPrice, i.ID);
+            ItemsInStore[asd].NpcBottonInfo(i.Icon, i.Name, i.Description, i.BuyingPrice, i.SellingPrice, i.ID);
             // StoreItemsPanel.transform.GetChild(asd).GetComponent<NPCBottons>
             //b_info.NpcBottonInfo(i.icon, i.Name, i.Description, i.BuyingPrice,i.ID);
             //Bottons b = StoreItem.GetComponent<Bottons>();
@@ -155,9 +160,11 @@ public class NPCStore : MonoBehaviour
 
             m_canBeDisplay = false;
             //Inventory.SetActive(false);
-            StoreUI.SetActive(false);            
-            Bottons.instance.ResetItemID();
+            StoreUI.SetActive(false);
+            HInventory.instance.SelectedItem.ItemID = 0;
+            //Bottons.instance.ResetItemID();
             InteractUI.SetActive(false);
+            HInventory.instance.ShowSellingPrice();
         }
     }
     void OnEnable()

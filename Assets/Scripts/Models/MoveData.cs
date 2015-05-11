@@ -6,7 +6,7 @@ using System.Collections.Generic;
 ///  Each pokemon move is refereced by its moveData
 /// </summary>
 [System.Serializable]
-public class MoveData
+public class MoveData : AssetItem
 {
     /*
     /// <summary>
@@ -78,32 +78,33 @@ public class MoveData
     public Sprite MoveUIIcon { get; set; }
     public Sprite MoveSpriteIcon;
     */
-    public int MoveID;
-    public string MoveName;
-    public float MovePP;    
-    public float MovePower;
-    public string MoveDescription;
-    public bool IsOnCooldown = false;
-    public float MoveCooldown;    
-    public DeamageType MoveType;
-    public MoveEffect MoveEffect;
-    public Sprite MoveSpriteIcon;
-    public AudioClip MoveAudio;
-    public GameObject MoveVFXPrefab;
+    private float m_pp;
+    public float PP { get { return m_pp; } set { m_pp = value; } }
+    private float m_power;
+    public float Power { get { return m_power; } set { m_power = value; } }
+    private bool m_isoncooldown = false;
+    public bool IsOnCooldown { get { return m_isoncooldown; } set { m_isoncooldown = value; } }
+    private float m_movecooldown;
+    public float MoveCooldown { get { return m_movecooldown; } set { m_movecooldown = value; } }
+    private DeamageType m_movetype;
+    public DeamageType MoveType { get { return m_movetype; } set { m_movetype = value; } }
+    private MoveEffect m_moveeffect;
+    public MoveEffect MoveEffect { get { return m_moveeffect; } set { m_moveeffect = value; } }
+    private AudioClip m_moveaudio = null;
+    public AudioClip MoveAudio { get { return m_moveaudio; } set { m_moveaudio = value; } }
+    private GameObject m_movevfxprefab = null;
+    public GameObject MoveVFXPrefab { get { return m_movevfxprefab; } set { m_movevfxprefab = value; } }
 
-    public MoveData(int mId, string mName, float mPP, float mPower, float mCooldown, string mDescription, DeamageType mType, MoveEffect mEffect, Sprite mIcon, AudioClip mAudio, GameObject mVFXPrefab)
+    public MoveData(int mId, string mName, float mPP, float mPower, float mCooldown, string mDescription, DeamageType mType, MoveEffect mEffect)
     {
-        this.MoveID = mId;
-        this.MoveName = mName;
-        this.MovePP = mPP;
-        this.MovePower = mPower;
-        this.MoveCooldown = mCooldown;
-        this.MoveDescription = mDescription;
-        this.MoveType = mType;
-        this.MoveEffect = mEffect;
-        this.MoveSpriteIcon = mIcon;
-        this.MoveAudio = mAudio;
-        this.MoveVFXPrefab = mVFXPrefab;
+        m_id = mId;
+        m_name = mName;
+        m_pp = mPP;
+        m_power = mPower;
+        m_movecooldown = mCooldown;
+        m_description = mDescription;
+        m_movetype = mType;
+        m_moveeffect = mEffect;
     }
 
 }
@@ -118,7 +119,11 @@ public enum DeamageType
     Grass,
     Bug,
     Ghost,
-    Dark
+    Dark,
+    Ice,
+    Fighting,
+    Steel,
+    Poison
 }
 public enum MoveEffect 
 {
@@ -126,5 +131,12 @@ public enum MoveEffect
     Burn,
     Freeze,
     Drain,
-    Poison
+    Poisons,
+    LowerDef,
+    LowerAtk,
+    Slow,
+    Blind,
+    RaiseSpecialAttack,
+    RaiseAttack,
+    Sleep
 }

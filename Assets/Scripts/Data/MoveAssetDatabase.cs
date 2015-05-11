@@ -1,30 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PokeAssetDatabase : ScriptableObject
+public class MoveAssetDatabase : ScriptableObject 
 {
 
-    public Pokemon[] Pokemons;
+    public MoveData[] Moves;
 
     /// <summary>
     /// Get the specified SpellInfo by index.
     /// </summary>
     /// <param name="index">Index.</param>
-    public Pokemon Get(int index)
+    public MoveData Get(int index)
     {
-        return (Pokemons[index]);
+        return (Moves[index]);
     }
     /// <summary>
     /// Gets the specified SpellInfo by ID.
     /// </summary>
     /// <returns>The SpellInfo or NULL if not found.</returns>
     /// <param name="ID">The spell ID.</param>
-    public Pokemon GetByID(int ID)
+    public MoveData GetByID(int ID)
     {
-        for (int i = 0; i < Pokemons.Length; i++)
+        for (int i = 0; i < Moves.Length; i++)
         {
-            if (Pokemons[i].ID == ID)
-                return Pokemons[i];
+            if (Moves[i].ID == ID)
+                return Moves[i];
         }
         return null;
     }
