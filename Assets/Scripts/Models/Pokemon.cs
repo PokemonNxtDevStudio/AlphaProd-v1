@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEditor;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
@@ -97,13 +98,17 @@ public class Pokemon : AssetItem
     private List<MoveData> m_moves = new List<MoveData>();
     public List<MoveData> Moves { get { return m_moves; } set { m_moves = value; } }
 
+    private List<int> m_learnmovelevel;
+
+    public List<int> LearnMovesLevels { get { return m_learnmovelevel; } set { m_learnmovelevel = value; } }
+
     private bool m_isCapture = false;
     public bool IsCapture { get { return m_isCapture; } set { m_isCapture = value; } }
     //pokeball that is trap on
     private PokemonPokeball m_pokeball = PokemonPokeball.None;
     public PokemonPokeball Pokeball { get { return m_pokeball; } set { m_pokeball = value; } }
 
-    public Pokemon(int id,string name/*,int PokedexNum*/,float PP,Sprite Icon,PokemonType type1,PokemonType type2,GameObject PokePrefab,List<MoveData> moves)
+    public Pokemon(int id,string name/*,int PokedexNum*/,float PP,Sprite Icon,PokemonType type1,PokemonType type2,GameObject PokePrefab,List<MoveData> moves,List<int> learnMovesAtLevel)
     {
         m_id = id;
         m_name = name;
@@ -114,6 +119,21 @@ public class Pokemon : AssetItem
         m_type2 = type2;
         m_pokemonprefab = PokePrefab;
         m_moves = moves;
+        m_learnmovelevel = learnMovesAtLevel;
+    }
+    public Pokemon(int id)
+    {
+        PokeAssetDatabase pokeAssetDatabase = (PokeAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/PokemonAssetDatabase.asset", typeof(PokeAssetDatabase));
+        Pokemon poke = pokeAssetDatabase.GetByID(id);
+        m_id = poke.ID;
+        m_name = poke.Name;
+        m_pp = poke.PP;
+        m_icon = poke.Icon;
+        m_type1 = poke.Type1;
+        m_type2 = poke.Type2;
+        m_pokemonprefab = poke.PokemonPrefab;
+        m_moves = poke.Moves;
+        m_learnmovelevel = poke.LearnMovesLevels;
     }
     
     
@@ -129,7 +149,9 @@ public enum PokemonType
     Ghost,
     Electricity,
     Grass,
-    Poison
+    Poison,
+    Flying,
+    Steel
 }
 public enum PokemonPokeball
 {

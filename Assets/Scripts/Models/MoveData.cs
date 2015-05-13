@@ -106,6 +106,17 @@ public class MoveData : AssetItem
         m_movetype = mType;
         m_moveeffect = mEffect;
     }
+    public MoveData(MoveData move)
+    {
+        m_id = move.ID;
+        m_name = move.Name;
+        m_pp = move.PP;
+        m_power = move.Power;
+        m_movecooldown = move.MoveCooldown;
+        m_description = move.Description;
+        m_movetype = move.MoveType;
+        m_moveeffect = move.MoveEffect;
+    }
 
 }
 public enum DeamageType
@@ -123,7 +134,9 @@ public enum DeamageType
     Ice,
     Fighting,
     Steel,
-    Poison
+    Poison,
+    Flying,
+    Psychic
 }
 public enum MoveEffect 
 {
@@ -138,5 +151,17 @@ public enum MoveEffect
     Blind,
     RaiseSpecialAttack,
     RaiseAttack,
-    Sleep
+    RaiseDefence,
+    RaiseSpecialDefence,
+    RaiseSpeed,
+    Sleep,
+    CopyCat,
+    ReduceFoeHPToHalf,
+    Paralyse,
+    NeverMiss,
+    ProtectFromSpecialAttacks,
+    MakesACopyOfHisSelf,
+    AreaEffect,
+    ConstantDamage,
+    Confuse
 }

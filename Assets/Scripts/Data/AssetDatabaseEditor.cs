@@ -21,7 +21,7 @@ public class AssetDatabaseEditor
         }
         return "Assets/Scripts/Data";
     }
-    [MenuItem("NXT/Asset Database/Create Item Database")]
+    [MenuItem("NXT/Asset Database/Items Database/Create Item Database")]
     public static void CreateItemsDatabase()
     {
         // Get the currently selected asset directory
@@ -33,7 +33,7 @@ public class AssetDatabaseEditor
         AssetDatabase.Refresh();
     }
 
-    [MenuItem("NXT/Asset Database/Create/Update Pokemon Database")]
+    [MenuItem("NXT/Asset Database/Pokemon Database/Create and Update Pokemon Database")]
     public static void CreatePokemonsDatabase()
     {
         // Get the currently selected asset directory
@@ -44,8 +44,9 @@ public class AssetDatabaseEditor
          mockdata.PokemonmockData(asset);
         AssetDatabase.CreateAsset(asset, AssetDatabase.GenerateUniqueAssetPath("Assets/Database/"+ assetName));
         AssetDatabase.Refresh();
+        Debug.Log("Pokemon Database Created and Updated");
     }
-    [MenuItem("NXT/Asset Database/Create Moves Database")]
+    [MenuItem("NXT/Asset Database/Moves Database/Create Moves Database")]
     public static void CreateMovesDatabase()
     {
         // Get the currently selected asset directory
@@ -58,7 +59,7 @@ public class AssetDatabaseEditor
         AssetDatabase.Refresh();
     }
 
-    [MenuItem("NXT/Asset Database/Pokemon Database/Get From SQL")]
+    //[MenuItem("NXT/Asset Database/Pokemon Database/Get From SQL")]
     public static void CreatePokeDatabaseSQL()
     {
         // Get the currently selected asset directory
@@ -71,15 +72,17 @@ public class AssetDatabaseEditor
         AssetDatabase.Refresh();
     }
 
-    [MenuItem("NXT/Asset Database/Update Items DataBase")]
+    [MenuItem("NXT/Asset Database/Items Database/Update Items DataBase")]
     public static void UpdateItemsDataBase()
     {
         mockdata.ItemMockData();
+        Debug.Log("Items Database Updated");
     }
-    [MenuItem("NXT/Asset Database/Update Moves DataBase")]
+    [MenuItem("NXT/Asset Database/Moves Database/Update Moves DataBase")]
     public static void UpdateMoveDataBase()
     {
         mockdata.MoveMockData();
+        Debug.Log("Move Database Updated");
     }
     //TODO DO same for itemsList
 
