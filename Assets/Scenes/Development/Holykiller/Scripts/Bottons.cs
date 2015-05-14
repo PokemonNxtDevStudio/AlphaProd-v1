@@ -120,11 +120,13 @@ public class Bottons : MonoBehaviour
     
     public void SetValuesForSelectedItem()
     {
-        HInventory.instance.SelectedItem.NpcBottonInfo(this.IconOf.sprite, this.NameOf.text, this.Description.text, this.BuyingPrice, this.SellingPrice, this.ItemID);
+        NxtUiManager.instance.SelectedItem.NpcBottonInfo(this.IconOf.sprite, this.NameOf.text, this.Description.text, this.BuyingPrice, this.SellingPrice, this.ItemID);
+       // HInventory.instance.SelectedItem.NpcBottonInfo(this.IconOf.sprite, this.NameOf.text, this.Description.text, this.BuyingPrice, this.SellingPrice, this.ItemID);
     }
     public void SellItem()
     {
-        if(HInventory.instance.ShopIsOpen() == true)
+        if(NxtUiManager.instance.ShopIsOpen() == true)
+        //if(HInventory.instance.ShopIsOpen() == true)
         {
            // Debug.Log("Shop Window Is Open");
             HInventory.instance.SellItem(m_itemId);

@@ -681,64 +681,49 @@ public class MockData
         AddMove(16, "Gust", 1, 40, 4, "A gust of wind is whipped up by wings and launched at the foe to inflict damage", flying, none);
         AddMove(17, "Wing Attack", 1, 60, 4, "Demage the foe using the pokemos wings", flying, none);
         AddMove(18, "Whirlwind", 1, 40, 4, "Create a Whirlwind that demage the foe", normal, none);
-
         AddMove(21, "Slam", 1, 80, 4, "The foe is slammed with a long tail, vines, etc., to inflict damage", normal, none);
         AddMove(22, "Vine Whip", 1, 45, 4, "The foe is struck with slender, whiplike vines to inflict damage", grass, none);
         AddMove(28, "Sand Attack", 1, 0, 4, "Sand is hurled in the foe's face, reducing its accuracy", ground, slow);
         AddMove(33, "Tackle", 1, 50, 4, "Tackle deals damage and has no secondary effect", normal, none);
         AddMove(34, "Body Slam", 1, 85, 4, "30% chance of paralyzing Target", normal, paralyze);
-
         AddMove(36, "Take Down", 1, 90, 4, "Deals a high damage but also inflicts damage to the user after successful usage", normal, none);
         AddMove(38, "Double-Edge", 1, 120, 4, "A reckless, life-risking tackle. It also damages the user by a fairly large amount, however", normal, none);
         AddMove(39, "Tail Whip", 1, 0, 4, "Lowers foe Defense", normal, lowerdef);
-
         AddMove(43, "Leer", 1, 0, 4, "The foe is given an intimidating leer with sharp eyes. The target's Defense stat is reduced", normal, lowerdef);
-
         AddMove(45, "Growl", 1, 0, 4, "The user growls in an endearing way, making the foe less wary. The target's Attack stat is lowered.", normal, loweratk);
         AddMove(48, "Supersonic", 1, 0, 4, "The user generates odd sound waves from its body. It may confuse the target", normal, confuse);
         AddMove(49, "Sonic Boom", 1, 20, 4, "The foe is hit with a destructive shock wave that always inflicts 20 HP damage", normal, constantdamage);
         AddMove(52, "Ember", 1, 40, 4, "The foe is attacked with small flames. The target may also be left with a burn", fire, burn);
         AddMove(53, "Flamethrowe", 1, 90, 4, "The foe is scorched with an intense blast of fire. The target may also be left with a burn", fire, burn);
-
         AddMove(55, "Water Gun", 1, 40, 4, "Inflicts damage to the foe with a stream of water", water, none);
         AddMove(56, "Hydro Pump", 1, 110, 4, "The foe is blasted by a huge volume of water launched under great pressure", water, none);
-
         AddMove(73, "Leech Seed", 1, 0, 4, "A seed is planted on the foe. It steals some HP from the for to heal the user on every turn", grass, drain);
         AddMove(74, "Growth", 1, 0, 4, "The user's body is forced to grow all at once. It raises the Sp. Atk stat", normal, raiseSAtk);
         AddMove(75, "Razor Leaf", 1, 55, 4, "Sharp-edged leaves are launched to slash at the foe. It has a high critical-hit ratio", grass, none);
         AddMove(76, "Solar Beam", 1, 120, 4, "A two-turn attack. The user gathers light, then blasts a bundled beam on the second turn", grass, none);
-        AddMove(77, "Poison Powder", 1, 0, 4, "A cloud of poisonous dust is scattered on the foe. It may poison the target", poison, poisons);
-       
+        AddMove(77, "Poison Powder", 1, 0, 4, "A cloud of poisonous dust is scattered on the foe. It may poison the target", poison, poisons);       
         AddMove(79, "Sleep Powder", 1, 0, 4, "The user scatters a big cloud of sleep-inducing dust around the foe", grass, sleep);
-
         AddMove(81, "String Shot", 1, 0, 4, "The foe is bound with silk blown from the user’s mouth. It reduces the target’s Speed stat", bug, slow);
         AddMove(83, "Fire Spin", 1, 35, 4, "The foe becomes trapped within a fierce vortex of fire that rages for two to five turns", fire,slow);
         AddMove(84, "Thunder Shock", 1, 40, 4, "Inflicts damage to the foe with a small shock", electic, paralyze);
         AddMove(85, "Thunderbolt", 1, 90, 4, "A Thunderbolt that hits hard to the foe and can also inflict paralyz", electic, paralyze);
         AddMove(86, "Thunder Wave", 1, 0, 4, "Paralyze the foe", electic, paralyze);
         AddMove(87, "Thunder", 1, 110, 4, "One of the most strong attacks of electricity", electic, paralyze);
-
         AddMove(89, "Earthquake", 1, 100, 4, "The user sets off an earthquake that hits all the Pokémon in the battle", ground, areaeffect);
         AddMove(91, "Dig", 1, 80, 4, "The user burrows then attacks on the second turn. It can also be used to exit dungeons", ground, none);
         AddMove(95, "Hypnosis", 1, 0, 4, "The user employs hypnotic suggestion to make the target fall into a deep sleep", psychic, sleep);
         AddMove(97, "Agility", 1, 0, 4, "Raises the Pokemon's speed", psychic, raiseSpeed);
         AddMove(98, "Quick Attack", 1, 40, 4, "The user lunges at the foe at a speed that makes it almost invisible. It is sure to strike first", normal, none);
         AddMove(99, "Rage", 1, 40, 4, "While this move is in use, it gains attack power each time the user is hit in battle", normal, raiseAtk);
-
         AddMove(103, "Screech", 1, 0, 4, "An earsplitting screech is emitted to sharply reduce the foe’s Defense stat", normal, lowerdef);
         AddMove(104, "Double Team", 1, 0, 4, "By moving rapidly, the user makes illusory copies of itself to raise its evasiveness", normal, makeacopyofhisself);
         AddMove(106, "Harden", 1, 0, 4, "The user stiffens all the muscles in its body to raise its Defense stat", normal, raiseDef);
-
-        AddMove(113, "Light Screen", 1, 0, 4, "A wondrous wall of light is put up to suppress damage from special attacks for five turns", psychic, protectfromsp);
-        
+        AddMove(113, "Light Screen", 1, 0, 4, "A wondrous wall of light is put up to suppress damage from special attacks for five turns", psychic, protectfromsp);        
         AddMove(116, "Focus Energy", 1, 0, 4, "The user takes a deep breath and focuses to raise the critical-hit ratio of its attacks", normal, raiseAtk);
         AddMove(119, "Mirror Move", 1, 0, 4, "The user counters the foe by mimicking the move last used by the foe", flying, copycat);
-
         AddMove(129, "Swift", 1, 60, 4, "Star-shaped rays are shot at the foe. This attack never misses", normal, nevermiss);
-
         AddMove(133, "Amnesia", 1, 0, 4, "Raises the Pokémon's Special Defense by two points", psychic, raiseSPDef);
         AddMove(145, "Bubble", 1, 40, 4, "10% chance of lowering target's Speed. Weaker in Double Battles", water, slow);
-
         AddMove(150, "Splash", 1, 0, 4, "The user just flops and splashes around to no effect at all...", normal, none);
         AddMove(158, "Hyper Fang", 1, 80, 4, "The user bites hard on the foe with it sharp fornt fangs. It may also make the target flinch", normal, none);
         AddMove(162, "Super Fang", 1, 0, 4, "The user chomps hard on the foe with its sharp front fangs. It cuts the target’s HP to half", normal, reducehpbyhalf);

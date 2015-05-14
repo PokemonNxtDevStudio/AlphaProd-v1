@@ -7,70 +7,10 @@ using System;
 public class HInventory : MonoBehaviour
 {
     #region GameObjets to show and hide
-    [SerializeField]
-    private GameObject Botton;
-    [Header("Top Tabs(Items,Pokemons,Player")]
-    [SerializeField]
-    private GameObject ItemsUI;
-    [SerializeField]
-    private GameObject PokemonsUI;
-    [SerializeField]
-    private GameObject PlayerUI;
-
-    //[SerializeField]
-    //private Sprite[] PokemonIcons;
-
-    [Header("Inventory")]
-    [SerializeField]
-    public GameObject InventoryUI;
-    [SerializeField]
-    private Text InventoryCapasity;
-    [Header("Inventory Tabs")]
-    [SerializeField]
-    private GameObject _itemsPanel;
-    [SerializeField]
-    private GameObject _itemsButtonsPanel;
-    [SerializeField]
-    private GameObject _pokeballsPanel;
-    [SerializeField]
-    private GameObject _pokeballsButtonsPanel;
-    [SerializeField]
-    private GameObject _potionPanel;
-    [SerializeField]
-    private GameObject _potionButtonsPanel;
-    [SerializeField]
-    private GameObject _mtsTmsPanel;
-    [SerializeField]
-    private GameObject _mtsTmsButtonsPanel;
-    [SerializeField]
-    private GameObject _berrysPanel;
-    [SerializeField]
-    private GameObject _berrysButtonsPanel;
-    [SerializeField]
-    private GameObject _keyItemsPanel;
-    [SerializeField]
-    private GameObject _keyItemsButtonsPanel;
-
-    [SerializeField]
-    private Text m_moneytext;
-    [SerializeField]
-    private Text m_playerMoneyText;
-    [Header("Store")]
-    [SerializeField]
-    private Bottons m_SelectedItem;
-    public Bottons SelectedItem { get { return m_SelectedItem; } set { m_SelectedItem = value; } }
-    [SerializeField]
-    private GameObject ShopUI;
-
-
-    [Header("Pokemons Tabs")]
-    [SerializeField]
-    private GameObject PokemonStatusUI;
-    [SerializeField]
-    private GameObject PokemonSkillsUI;
-    [SerializeField]
-    private ItemAssetDatabase db;
-    [Header("References")]
+    
+    private GameObject m_buttonPrefab;   
+    
+    
     //[SerializeField]
     //private Bottons m_SelectedItem;
     //public Bottons SelectedItem { get { return m_SelectedItem; } set { m_SelectedItem = value; } }
@@ -78,7 +18,7 @@ public class HInventory : MonoBehaviour
     #endregion
     #region Inventory Items
     // [SerializeField]
-    public List<InventoryItem> _invItems = new List<InventoryItem>();
+    private List<InventoryItem> _invItems = new List<InventoryItem>();
 
 
     private int generalitems = 0;
@@ -87,16 +27,6 @@ public class HInventory : MonoBehaviour
     private int mttms = 0;
     private int berrys = 0;
     private int keyitems = 0;
-    // [SerializeField]
-  //  public List<InventoryItem> _invPokeballs = new List<InventoryItem>();
-    // [SerializeField]
-   // public List<InventoryItem> _invPotions = new List<InventoryItem>();
-    // [SerializeField]
-   // public List<InventoryItem> _invMtsTms = new List<InventoryItem>();
-    // [SerializeField]
-    //public List<InventoryItem> _invBerrys = new List<InventoryItem>();
-    // [SerializeField]
-   // public List<InventoryItem> _invKeyItems = new List<InventoryItem>();
 
     private int _itemsInventorySize = 10;
     public int ItemISize { get { return _itemsInventorySize; } set { _itemsInventorySize = value; } }
@@ -113,13 +43,14 @@ public class HInventory : MonoBehaviour
 
     private bool m_spaceFree = true;
     private bool m_ItemAdded = false;
-    private float m_Money = 1000;
+
+    private float m_Money = 100000;
     public float Money { get { return m_Money; } set { m_Money = value; } }
+   
     #endregion
 
     public static HInventory instance;
-
-    private GameObject player;
+   
 
     void Awake()
     {
@@ -131,16 +62,12 @@ public class HInventory : MonoBehaviour
     }
     void Start()
     {
-        ShowMoney();
-        player = GameObject.FindGameObjectWithTag("Player");
-        NXT.EventHandler.RegisterEvent(player, "ShowInventory", new Action(ShowInventory));
-
-    }
-    private void ShowInventory()
-    {
-        InventoryUI.SetActive(!InventoryUI.activeSelf);
+        m_buttonPrefab = (GameObject)Resources.Load("UI/ItemButton");
+        NxtUiManager.instance.ShowMoney(m_Money);
+      
     }
     
+    /*
     void Update()
     {
         //Testing Adding Items
@@ -170,27 +97,27 @@ public class HInventory : MonoBehaviour
         }
 
 
-    }
+    }*/
 
     // [ContextMenu("test adding item")]
     // Using this to test adding items
 
     public void BuySelectedItem()
     {
-        if (m_SelectedItem.ItemID != 0)
+        if ( NxtUiManager.instance.SelectedItem.ItemID != 0)
         {
-           if(db.GetByID(m_SelectedItem.ItemID).BuyingPrice <= m_Money && (m_Money - db.GetByID(m_SelectedItem.ItemID).BuyingPrice) > -1)
+            if (NxtUiManager.instance.DB.GetByID(NxtUiManager.instance.SelectedItem.ItemID).BuyingPrice <= m_Money && (m_Money - NxtUiManager.instance.DB.GetByID(NxtUiManager.instance.SelectedItem.ItemID).BuyingPrice) > -1)
            {
-               ShowTypeOfItemInventory(db.GetByID(m_SelectedItem.ItemID).ItemType);
-              
-               AddItemWithID(m_SelectedItem.ItemID);
+               NxtUiManager.instance.ShowTypeOfItemInventory(NxtUiManager.instance.DB.GetByID(NxtUiManager.instance.SelectedItem.ItemID).ItemType);
+
+               AddItemWithID(NxtUiManager.instance.SelectedItem.ItemID);
               if(m_ItemAdded == true)
-               m_Money -= db.GetByID(m_SelectedItem.ItemID).BuyingPrice;
-               ShowMoney();
+                  m_Money -= NxtUiManager.instance.DB.GetByID(NxtUiManager.instance.SelectedItem.ItemID).BuyingPrice;
+              NxtUiManager.instance.ShowMoney(m_Money);
+              ThisCapasitySize();
            }
            else
            {
-
                ShowNotEnoughMoney();
            }
         }       
@@ -203,15 +130,7 @@ public class HInventory : MonoBehaviour
     {
         Debug.Log("Not Enought Money To Buy Item");
     }
-    public bool ShopIsOpen()
-    {
-        bool itsOpen = false;
-        if(ShopUI.activeSelf == true)
-        {
-            itsOpen = true;
-        }
-        return itsOpen;
-    }
+    
 
     public void SellItem(int itemID)
     {
@@ -225,7 +144,8 @@ public class HInventory : MonoBehaviour
             if(have)
             {
                 m_Money += _invItems[i].SellingPrice;
-                ShowMoney();
+                NxtUiManager.instance.ShowMoney(m_Money);
+                //ThisCapasitySize();
                 if(_invItems[i].StacksAtm > 0)
                 {
                     _invItems[i].StacksAtm--;
@@ -235,10 +155,14 @@ public class HInventory : MonoBehaviour
                         {
                             BottonsManager.instance._bottons[x].Amount(_invItems[i].StacksAtm, _invItems[i].StacksUpTo);
                             m_ItemAdded = true;
+                            ThisCapasitySize();
                             if(_invItems[i].StacksAtm == 0)
                             {
+                                _invItems.Remove(_invItems[i]);                               
                                 Debug.Log("RemoveItem");
                                 DestroyImmediate(BottonsManager.instance._bottons[x].gameObject);
+                                
+                                ThisCapasitySize();
                             }
                             
                             return;
@@ -271,52 +195,26 @@ public class HInventory : MonoBehaviour
             Debug.Log("Item Not Exist in Inventory");
         }
     }
-    public void ShowSellingPrice()
-    {        
-        if(ShopUI.activeSelf == true)
-        {
-            for (int x = 0; x < BottonsManager.instance._bottons.Count; x++)
-            {
-                if (BottonsManager.instance._bottons[x].ItOWnByPlayer == true)
-                {
-                    BottonsManager.instance._bottons[x].ShowSellingText(true);
-                }
-            } 
-        }
-        else
-        {
-            for (int x = 0; x < BottonsManager.instance._bottons.Count; x++)
-            {
-                if (BottonsManager.instance._bottons[x].ItOWnByPlayer == true)
-                {
-                    BottonsManager.instance._bottons[x].ShowSellingText(false);
-                }
-            } 
-        }
-              
-    }
-    public void HideSelectedItemInfo()
-    {
-        m_SelectedItem.BDisable();
-    }
+    
+    
     private void AddItemWithID(int x)
     {
         //each time we make a new item we create a new item instance...
-        InventoryItem item = new InventoryItem(db.GetByID(x));
+        InventoryItem item = new InventoryItem(NxtUiManager.instance.DB.GetByID(x));
         AddItemToInventory(item);
     }
     //We call this to add items to the inventory
     public void AddItemToInventory(InventoryItem item)
     {
         LootAtArrayOf(item);
-        CapasitySize();
+        ThisCapasitySize();
 
     }
     //Here we check if there is space in the Inventory Slot that the item that we want to add
     private void LootAtArrayOf(InventoryItem item)
     {
         CheckInvStatus();
-        ShowTypeOfItemInventory(item.ItemType);
+        NxtUiManager.instance.ShowTypeOfItemInventory(item.ItemType);
         //Check if there a free space in the inventory even if it is in a stackable one 
         m_spaceFree = true;
         if (item.ItemType == ItemType.GeneralItem && generalitems >= _itemsInventorySize)
@@ -406,32 +304,32 @@ public class HInventory : MonoBehaviour
     private void AddANewItem(InventoryItem item)
     {
         // Debug.Log("making new boton");
-        if (Botton == null)
+        if (m_buttonPrefab == null)
         {
             Debug.Log("Add Botton Prefab its at Resources/UI/ItemBotton");
             return;
         }
-        GameObject itemToMake = (GameObject)Instantiate(Botton);
+        GameObject itemToMake = (GameObject)Instantiate(m_buttonPrefab);
         GameObject parent = null;
         switch (item.ItemType)
         {
             case ItemType.GeneralItem:
-                parent = _itemsButtonsPanel;
+                parent =  NxtUiManager.instance.ItemsButtonsPanel;//itemsButtonsPanel;
                 break;
             case ItemType.Pokeball:
-                parent = _pokeballsButtonsPanel;
+                parent = NxtUiManager.instance.PokeballsButtonsPanel;//  _pokeballsButtonsPanel;
                 break;
             case ItemType.Potion:
-                parent = _potionButtonsPanel;
+                parent = NxtUiManager.instance.PotionButtonsPanel;// _potionButtonsPanel;
                 break;
             case ItemType.MtTm:
-                parent = _mtsTmsButtonsPanel;
+                parent = NxtUiManager.instance.MtsTmsButtonsPanel;// _mtsTmsButtonsPanel;
                 break;
             case ItemType.Berry:
-                parent = _berrysButtonsPanel;
+                parent = NxtUiManager.instance.BerrysButtonsPanel;// _berrysButtonsPanel;
                 break;
             case ItemType.KeyItem:
-                parent = _keyItemsButtonsPanel;
+                parent = NxtUiManager.instance.KeyItemsButtonsPanel;// _keyItemsButtonsPanel;
                 break;
         }
         if (parent != null)
@@ -439,7 +337,7 @@ public class HInventory : MonoBehaviour
             Bottons b = itemToMake.GetComponent<Bottons>();
             b.BotonInfo(item.Icon, item.Name, item.StacksAtm, item.StacksUpTo, item.Description, item.ID,item.SellingPrice,true);
             itemToMake.transform.SetParent(parent.transform);
-            CapasitySize();
+            ThisCapasitySize();
             // Debug.Log("Created new item");
         }
     }
@@ -471,162 +369,37 @@ public class HInventory : MonoBehaviour
         }
     }
     
-    private void CapasitySize()
+    public void ThisCapasitySize()
     {
         CheckInvStatus();            
-        if (_itemsPanel.activeSelf == true)            
+        if (NxtUiManager.instance.ItemsPanel.activeSelf == true)            
         {
-            InventoryCapasity.text = generalitems + " / " + _itemsInventorySize;           
+            NxtUiManager.instance.CapasitySize(generalitems, _itemsInventorySize);           
         }
-        if (_pokeballsPanel.activeSelf == true)
+        if (NxtUiManager.instance.PokeballsPanel.activeSelf == true)
         {
-            InventoryCapasity.text = pokeballs + " / " + _pokeballsInventorySize;
+            NxtUiManager.instance.CapasitySize(pokeballs , _pokeballsInventorySize);
         }
-        if (_potionPanel.activeSelf == true)
+        if (NxtUiManager.instance.PotionPanel.activeSelf == true)
         {
-            InventoryCapasity.text = potions + " / " + _potionsInventorySize;
+            NxtUiManager.instance.CapasitySize(potions , _potionsInventorySize);
         }
-        if (_mtsTmsPanel.activeSelf == true)
+        if (NxtUiManager.instance.MtsTmsPanel.activeSelf == true)
         {
-            InventoryCapasity.text = mttms + " / " + _mtsMtsInventorySize;
+           NxtUiManager.instance.CapasitySize(mttms, _mtsMtsInventorySize);
         }
-        if (_berrysPanel.activeSelf == true)
+        if (NxtUiManager.instance.BerrysPanel.activeSelf == true)
         {
-            InventoryCapasity.text = berrys + " / " + _berrysInventorySize;
+            NxtUiManager.instance.CapasitySize(berrys, _berrysInventorySize);
         }
 
-        if (_keyItemsPanel.activeSelf == true)
+        if (NxtUiManager.instance.KeyItemsPanel.activeSelf == true)
         {
-            InventoryCapasity.text = keyitems + " / " + _keyItemsInventorySize;
+            NxtUiManager.instance.CapasitySize(keyitems , _keyItemsInventorySize);
         }
-        ShowSellingPrice();
-
+        NxtUiManager.instance.ShowSellingPrice();
+        CheckInvStatus();    
     }
-    private void ShowMoney()
-    {
-        if (m_moneytext == null || m_playerMoneyText == null)
-        {
-            Debug.Log("Add Money Text and Player Money Text");
-            return;
-        }
-        m_moneytext.text = "$" + m_Money;
-        m_playerMoneyText.text = "$" + m_Money;
-    }
-    //This takes care of showing what to show by enableling and disableling all but what we realy want to see
-    #region InventorySwitchs
-    private void ShowTypeOfItemInventory(ItemType type)
-    {
-        switch(type)
-        {
-            case ItemType.GeneralItem:
-                ShowItems();
-                break;
-            case ItemType.Pokeball:
-                ShowPokeballs();
-                break;
-            case ItemType.Potion:
-                ShowPotions();
-                break;
-            case ItemType.MtTm:
-                ShowMtsTms();
-                break;
-            case ItemType.Berry:
-                ShowBerrys();
-                break;
-            case ItemType.KeyItem:
-                ShowKeyItems();
-                break;
-        }
-    }
-    public void ShowItems()
-    {
-        _itemsPanel.SetActive(true);
-        _pokeballsPanel.SetActive(false);
-        _potionPanel.SetActive(false);
-        _mtsTmsPanel.SetActive(false);
-        _berrysPanel.SetActive(false);
-        _keyItemsPanel.SetActive(false);
-        CapasitySize();
-
-    }
-    public void ShowPokeballs()
-    {
-        _itemsPanel.SetActive(false);
-        _pokeballsPanel.SetActive(true);
-        _potionPanel.SetActive(false);
-        _mtsTmsPanel.SetActive(false);
-        _berrysPanel.SetActive(false);
-        _keyItemsPanel.SetActive(false);
-        CapasitySize();
-    }
-    public void ShowPotions()
-    {
-        _itemsPanel.SetActive(false);
-        _pokeballsPanel.SetActive(false);
-        _potionPanel.SetActive(true);
-        _mtsTmsPanel.SetActive(false);
-        _berrysPanel.SetActive(false);
-        _keyItemsPanel.SetActive(false);
-        CapasitySize();
-    }
-    public void ShowMtsTms()
-    {
-        _itemsPanel.SetActive(false);
-        _pokeballsPanel.SetActive(false);
-        _potionPanel.SetActive(false);
-        _mtsTmsPanel.SetActive(true);
-        _berrysPanel.SetActive(false);
-        _keyItemsPanel.SetActive(false);
-        CapasitySize();
-    }
-    public void ShowBerrys()
-    {
-        _itemsPanel.SetActive(false);
-        _pokeballsPanel.SetActive(false);
-        _potionPanel.SetActive(false);
-        _mtsTmsPanel.SetActive(false);
-        _berrysPanel.SetActive(true);
-        _keyItemsPanel.SetActive(false);
-        CapasitySize();
-    }
-    public void ShowKeyItems()
-    {
-        _itemsPanel.SetActive(false);
-        _pokeballsPanel.SetActive(false);
-        _potionPanel.SetActive(false);
-        _mtsTmsPanel.SetActive(false);
-        _berrysPanel.SetActive(false);
-        _keyItemsPanel.SetActive(true);
-        CapasitySize();
-    }
-    public void ShowItemsTab()
-    {
-        ItemsUI.SetActive(true);
-        PokemonsUI.SetActive(false);
-        PlayerUI.SetActive(false);
-        CapasitySize();
-    }
-    public void ShowPokemonsTab()
-    {
-        ItemsUI.SetActive(false);
-        PokemonsUI.SetActive(true);
-        PlayerUI.SetActive(false);
-    }
-    public void ShowPlayerTab()
-    {
-        ItemsUI.SetActive(false);
-        PokemonsUI.SetActive(false);
-        PlayerUI.SetActive(true);
-    }
-    public void ShowPokemonStatus()
-    {
-        PokemonStatusUI.SetActive(true);
-        PokemonSkillsUI.SetActive(false);
-    }
-    public void ShowPokemonSkills()
-    {
-        PokemonStatusUI.SetActive(false);
-        PokemonSkillsUI.SetActive(true);
-    }
-    #endregion
+    
+   
 }

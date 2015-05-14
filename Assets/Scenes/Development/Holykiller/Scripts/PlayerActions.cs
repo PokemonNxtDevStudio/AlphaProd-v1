@@ -3,7 +3,22 @@ using System.Collections;
 
 public class PlayerActions : MonoBehaviour
 {
+    //private HInventory inventory;
 
+    //public static HInventory instance;
+
+   // void Awake()
+   // {
+   //     if(instance == null)
+   //     {
+    //        instance = inventory;
+    //    }
+  //  }
+
+  //  void Start()
+  //  {
+     //   NxtUiManager.instance.ShowMoney(inventory.Money);       
+   // }
     void Update()
     {
 

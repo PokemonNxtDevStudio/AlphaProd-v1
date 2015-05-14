@@ -73,20 +73,24 @@ public class NPCStore : MonoBehaviour
     {
         if (m_canBeDisplay == true)
         {
-            HInventory.instance.InventoryUI.SetActive(true);
+            NxtUiManager.instance.InventoryUI.SetActive(true);
+            //HInventory.instance.InventoryUI.SetActive(true);
             //Inventory.SetActive(true);            
             StoreUI.SetActive(!StoreUI.gameObject.activeSelf);
             if (StoreUI.activeSelf == true)
             {
                 InteractUI.SetActive(false);
                 AddItemsToTheStore();
-                HInventory.instance.HideSelectedItemInfo();
-                HInventory.instance.ShowSellingPrice();
+                NxtUiManager.instance.HideSelectedItemInfo();
+                //HInventory.instance.HideSelectedItemInfo();
+                NxtUiManager.instance.ShowSellingPrice();
+               // HInventory.instance.ShowSellingPrice();
             }
             else
             {
                 InteractUI.SetActive(true);
-                HInventory.instance.ShowSellingPrice();
+                NxtUiManager.instance.ShowSellingPrice();
+              //  HInventory.instance.ShowSellingPrice();
             }
                 
         }
@@ -161,10 +165,12 @@ public class NPCStore : MonoBehaviour
             m_canBeDisplay = false;
             //Inventory.SetActive(false);
             StoreUI.SetActive(false);
-            HInventory.instance.SelectedItem.ItemID = 0;
+            //HInventory.instance.SelectedItem.ItemID = 0;
+            NxtUiManager.instance.SelectedItem.ItemID = 0;
             //Bottons.instance.ResetItemID();
             InteractUI.SetActive(false);
-            HInventory.instance.ShowSellingPrice();
+            NxtUiManager.instance.ShowSellingPrice();
+           // HInventory.instance.ShowSellingPrice();
         }
     }
     void OnEnable()

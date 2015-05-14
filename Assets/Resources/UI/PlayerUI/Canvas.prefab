@@ -2414,6 +2414,7 @@ GameObject:
   - 114: {fileID: 11406670}
   - 114: {fileID: 11427900}
   - 114: {fileID: 11481316}
+  - 114: {fileID: 11488558}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4571,7 +4572,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11427900}
+      - m_Target: {fileID: 11488558}
         m_MethodName: ShowItemsTab
         m_Mode: 1
         m_Arguments:
@@ -6022,32 +6023,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4630a46e86b68e4fbad15d562ca43c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Botton: {fileID: 171898, guid: dea06d35bf173fd41ad7d4440a8532a3, type: 2}
-  ItemsUI: {fileID: 157460}
-  PokemonsUI: {fileID: 134098}
-  PlayerUI: {fileID: 124830}
-  InventoryUI: {fileID: 150124}
-  InventoryCapasity: {fileID: 11453978}
-  _itemsPanel: {fileID: 113156}
-  _itemsButtonsPanel: {fileID: 109498}
-  _pokeballsPanel: {fileID: 112114}
-  _pokeballsButtonsPanel: {fileID: 157600}
-  _potionPanel: {fileID: 160278}
-  _potionButtonsPanel: {fileID: 115836}
-  _mtsTmsPanel: {fileID: 171456}
-  _mtsTmsButtonsPanel: {fileID: 135962}
-  _berrysPanel: {fileID: 144998}
-  _berrysButtonsPanel: {fileID: 177984}
-  _keyItemsPanel: {fileID: 181948}
-  _keyItemsButtonsPanel: {fileID: 183220}
-  m_moneytext: {fileID: 11448854}
-  m_playerMoneyText: {fileID: 11440386}
-  m_SelectedItem: {fileID: 11402756}
-  ShopUI: {fileID: 183428}
-  PokemonStatusUI: {fileID: 105728}
-  PokemonSkillsUI: {fileID: 145554}
-  db: {fileID: 11400000, guid: 17003dc0a279f804baf283b6fc14a17a, type: 2}
-  _invItems: []
 --- !u!114 &11428312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6437,7 +6412,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11427900}
+      - m_Target: {fileID: 11488558}
         m_MethodName: ShowKeyItems
         m_Mode: 1
         m_Arguments:
@@ -7945,7 +7920,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11427900}
+      - m_Target: {fileID: 11488558}
         m_MethodName: ShowMtsTms
         m_Mode: 1
         m_Arguments:
@@ -8068,7 +8043,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11427900}
+      - m_Target: {fileID: 11488558}
         m_MethodName: ShowItems
         m_Mode: 1
         m_Arguments:
@@ -8232,7 +8207,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11427900}
+      - m_Target: {fileID: 11488558}
         m_MethodName: ShowPlayerTab
         m_Mode: 1
         m_Arguments:
@@ -8281,7 +8256,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
@@ -8438,7 +8413,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11427900}
+      - m_Target: {fileID: 11488558}
         m_MethodName: ShowPokemonsTab
         m_Mode: 1
         m_Arguments:
@@ -8927,7 +8902,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11427900}
+      - m_Target: {fileID: 11488558}
         m_MethodName: ShowBerrys
         m_Mode: 1
         m_Arguments:
@@ -9233,7 +9208,7 @@ MonoBehaviour:
   m_Color: {r: .92549026, g: .670615315, b: .43921575, a: .850980401}
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -9467,7 +9442,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11427900}
+      - m_Target: {fileID: 11488558}
         m_MethodName: ShowPokeballs
         m_Mode: 1
         m_Arguments:
@@ -9572,7 +9547,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11427900}
+      - m_Target: {fileID: 11488558}
         m_MethodName: ShowPokemonSkills
         m_Mode: 1
         m_Arguments:
@@ -10829,6 +10804,41 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'SkillName:'
+--- !u!114 &11488558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38d1e5ce1d59d1489a24ff06bac8cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemsUI: {fileID: 157460}
+  PokemonsUI: {fileID: 134098}
+  PlayerUI: {fileID: 124830}
+  _inventoryUI: {fileID: 150124}
+  _inventoryCapasity: {fileID: 11453978}
+  _itemsPanel: {fileID: 113156}
+  _itemsButtonsPanel: {fileID: 109498}
+  _pokeballsPanel: {fileID: 112114}
+  _pokeballsButtonsPanel: {fileID: 157600}
+  _potionPanel: {fileID: 160278}
+  _potionButtonsPanel: {fileID: 115836}
+  _mtsTmsPanel: {fileID: 171456}
+  _mtsTmsButtonsPanel: {fileID: 135962}
+  _berrysPanel: {fileID: 144998}
+  _berrysButtonsPanel: {fileID: 177984}
+  _keyItemsPanel: {fileID: 181948}
+  _keyItemsButtonsPanel: {fileID: 183220}
+  m_moneytext: {fileID: 11448854}
+  m_playerMoneyText: {fileID: 11440386}
+  PokemonStatusUI: {fileID: 105728}
+  PokemonSkillsUI: {fileID: 145554}
+  m_SelectedItem: {fileID: 11402756}
+  ShopUI: {fileID: 183428}
+  db: {fileID: 11400000, guid: 17003dc0a279f804baf283b6fc14a17a, type: 2}
 --- !u!114 &11488708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11125,7 +11135,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11427900}
+      - m_Target: {fileID: 11488558}
         m_MethodName: ShowPotions
         m_Mode: 1
         m_Arguments:
@@ -11303,7 +11313,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11427900}
+      - m_Target: {fileID: 11488558}
         m_MethodName: ShowPokemonStatus
         m_Mode: 1
         m_Arguments:
