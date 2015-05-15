@@ -24,12 +24,16 @@ public class TrainerController : MonoBehaviour
         pokemon.Add("SDSDDSaichu");
     }
 
-    public void ReleasePokemon(int i)
+	void Update() {
+
+	}
+
+    public void ReleasePokemon(int __slot)
     {
-        Debug.Log("Releasing " + pokemon[i]);
+		Debug.Log("Releasing " + pokemon[__slot]);
     }
    
-        
+    
 
 
     //TODO:
