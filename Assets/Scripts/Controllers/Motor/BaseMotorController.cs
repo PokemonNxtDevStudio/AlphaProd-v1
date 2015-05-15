@@ -6,8 +6,7 @@ namespace PokemonNXT.Controllers {
     /// Any behavior that implements movement related functionality should inherit from this class.
     /// </summary>
     [RequireComponent(typeof(Rigidbody))]
-    [RequireComponent(typeof(BaseAnimatorController))]
-    public abstract class BaseMotorController: BaseController {
+    public  class BaseMotorController: BaseController {
     //    /// <summary>
     //    /// This will control the various modes. We should create an ENUM folder for this 
     //    /// </summary>
@@ -48,14 +47,14 @@ namespace PokemonNXT.Controllers {
 
         //public abstract void Move(System.Object movementData);
         //public abstract void Move(Vector3 deltaPosition, Quaternion deltaRotation);
-        public abstract void Move(Vector3 InputDirection);
-        public abstract void Interpolate(Vector3 newPos,Vector3 rot);
+        public virtual void Move(Vector3 InputDirection) { }
+        public virtual void Interpolate(Vector3 newPos, Vector3 rot) { }
 
         //protected virtual void Awake()
         //{
            
         //}
-        protected virtual void Start() {
+        public virtual void Start() {
            
             CurrentSpeed = baseSpeed;
             //ValidDestination = false;
