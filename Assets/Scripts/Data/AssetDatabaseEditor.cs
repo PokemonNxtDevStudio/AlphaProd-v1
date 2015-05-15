@@ -42,7 +42,7 @@ public class AssetDatabaseEditor
         string assetName = "PokemonAssetDatabase.asset";
         PokeAssetDatabase asset = ScriptableObject.CreateInstance("PokeAssetDatabase") as PokeAssetDatabase;  //scriptable object
        //  mockdata.PokemonmockData(asset);
-        AssetDatabase.CreateAsset(asset, AssetDatabase.GenerateUniqueAssetPath("Assets/Database/"+ assetName));
+        AssetDatabase.CreateAsset(asset, AssetDatabase.GenerateUniqueAssetPath("Assets/Resources/Database/" + assetName));
         AssetDatabase.Refresh();
         Debug.Log("Pokemon Database Created and Updated");
     }
@@ -90,7 +90,7 @@ public class AssetDatabaseEditor
         mockdata.PokemonmockData();
         Debug.Log("pokemon Database Updated");
     }
-    [MenuItem("NXT/Asset Database/Update DataBase")]
+    /*[MenuItem("NXT/Asset Database/Update DataBase")]
     public static void UpdateDataBase()
     {
         mockdata.MoveMockData();
@@ -98,6 +98,7 @@ public class AssetDatabaseEditor
         mockdata.PokemonmockData();
         Debug.Log("pokemon Database Updated");
     }
+     * */
     //TODO DO same for itemsList
 
     //static void GetFromMockDB(PokeAssetDatabase asset)

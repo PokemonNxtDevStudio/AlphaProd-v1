@@ -112,9 +112,12 @@ public class MockData
 
     public  void PokemonmockData(/*PokeAssetDatabase pokeAssetDatabase*/)
     {
-       // MoveMockData();
-        moveAssetDatabase = (MoveAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/MovesAssetDatabase.asset", typeof(MoveAssetDatabase));
-        PokeAssetDatabase pokeAssetDatabase = (PokeAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/PokemonAssetDatabase.asset", typeof(PokeAssetDatabase));
+        MoveMockData();
+        //moveAssetDatabase = (MoveAssetDatabase)Resources.Load("Database/MovesAssetDatabase", typeof(MoveAssetDatabase));
+       // moveAssetDatabase = (MoveAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/MovesAssetDatabase.asset", typeof(MoveAssetDatabase));
+        //PokeAssetDatabase pokeAssetDatabase = (PokeAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/PokemonAssetDatabase.asset", typeof(PokeAssetDatabase));
+       
+        PokeAssetDatabase pokeAssetDatabase = (PokeAssetDatabase)Resources.Load("Database/PokemonAssetDatabase", typeof(PokeAssetDatabase));
         pokeAssetDatabase.Pokemons = new Pokemon[151];
         
         pokeData = new List<Pokemon>();
@@ -618,6 +621,7 @@ public class MockData
             if (pokeAssetDatabase.Pokemons[pokeData[i].ID] == null)
                 pokeAssetDatabase.Pokemons[pokeData[i].ID] = pokeData[i];
         }
+        AssetDatabase.SaveAssets();
 
     }
 
@@ -629,8 +633,8 @@ public class MockData
     }    
     public void ItemMockData()
     {
-        itemAssetDatabase = (ItemAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/ItemAssetDatabase.asset", typeof(ItemAssetDatabase));
-
+       // itemAssetDatabase = (ItemAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/ItemAssetDatabase.asset", typeof(ItemAssetDatabase));
+        itemAssetDatabase = (ItemAssetDatabase)Resources.Load("Database/ItemAssetDatabase", typeof(ItemAssetDatabase)); 
         itemAssetDatabase.items = new InventoryItem[1500];
         items = new List<InventoryItem>();
         itemsIcon = Resources.LoadAll<Sprite>("UI/Icons/ItemsIcons");
@@ -664,6 +668,7 @@ public class MockData
             if (itemAssetDatabase.items[items[i].ID] == null)
                 itemAssetDatabase.items[items[i].ID] = items[i];
         }
+        AssetDatabase.SaveAssets();
  
     }
     private void AddItem(int id,string name,Sprite icon,ItemType type,float buy,float sell,int stacksupto,string description)
@@ -673,7 +678,8 @@ public class MockData
     }  
     public void MoveMockData()
     {
-        moveAssetDatabase = (MoveAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/MovesAssetDatabase.asset", typeof(MoveAssetDatabase));
+        moveAssetDatabase = (MoveAssetDatabase)Resources.Load("Database/MovesAssetDatabase", typeof(MoveAssetDatabase));
+        //moveAssetDatabase = (MoveAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/MovesAssetDatabase.asset", typeof(MoveAssetDatabase));
         moveAssetDatabase.Moves = new MoveData[621];
         moveData = new List<MoveData> ();
 
@@ -736,7 +742,10 @@ public class MockData
         {
             if (moveAssetDatabase.Moves[moveData[i].ID] == null)
                 moveAssetDatabase.Moves[moveData[i].ID] = moveData[i];
-        }        
+        }
+
+        Debug.Log("Move Moke Data created");
+        AssetDatabase.SaveAssets();
     }
     private void AddMove(int Id, string Name, float PP, float Power, float Cooldown, string Description, DeamageType Type, MoveEffect Effect)
     {

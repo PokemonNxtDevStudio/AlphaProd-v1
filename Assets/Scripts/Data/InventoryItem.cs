@@ -8,10 +8,10 @@ public class AssetItem
     protected int m_id;
     public int ID { get { return m_id; } set { m_id = value; } }
 
-    protected string m_name;
+    public string m_name;
     public string Name { get { return m_name; } set { m_name = value; } }
 
-    public Sprite m_icon;
+    protected Sprite m_icon;
     public Sprite Icon { get { return m_icon; } set { m_icon = value; } }
 
     protected string m_description;

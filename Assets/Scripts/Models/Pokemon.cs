@@ -123,7 +123,8 @@ public class Pokemon : AssetItem
     }
     public Pokemon(int id)
     {
-        PokeAssetDatabase pokeAssetDatabase = (PokeAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/PokemonAssetDatabase.asset", typeof(PokeAssetDatabase));
+        //PokeAssetDatabase pokeAssetDatabase = (PokeAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/PokemonAssetDatabase.asset", typeof(PokeAssetDatabase));
+        PokeAssetDatabase pokeAssetDatabase = (PokeAssetDatabase)Resources.Load("Database/PokemonAssetDatabase");
         Pokemon poke =  new Pokemon( pokeAssetDatabase.GetByID(id));
         m_id = poke.ID;
         m_name = poke.Name;

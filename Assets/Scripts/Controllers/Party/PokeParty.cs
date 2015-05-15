@@ -36,6 +36,25 @@ public class PokeParty
         GetPokeSlot(0); //Assume the trainer has no pokemon
     }
 
+    public void AddAPokemon(Pokemon pokemon)
+    {
+        if(slots.Count >= PARTY_MAX)
+        {
+            Debug.Log("Cant Add more pokemons");
+            Debug.Log("Send to the pokeStoringPc");
+        }
+        else 
+        {
+            PokeSlot slot = new PokeSlot(this, pokemon);
+            GetSlots().Add(slot);
+            NxtUiManager.instance.PokemonsInPtUI[slots.Count - 1].SetThisPokemonIconAndName(pokemon);
+           
+            // if (selectedIndex == -1)
+               // GetPokeSlot(slot.index); //Select by default if no pokemon is selectedIndex
+
+            //return true;
+        }
+    }
     public int SlotCount()
     {
         return slots.Count;
@@ -196,6 +215,10 @@ public class PokeParty
         {
             this.pokeParty = pokeParty;
             this.index = -1;
+            this.pokemon = pokemon;
+        }
+        public PokeSlot(Pokemon pokemon)
+        {          
             this.pokemon = pokemon;
         }
     }
