@@ -30,6 +30,11 @@ public class PokeParty
         slots = new List<PokeSlot>();
         GetPokeSlot(-1); //Assume the trainer has no pokemon
     }
+    public PokeParty()
+    {
+        slots = new List<PokeSlot>();
+        GetPokeSlot(0); //Assume the trainer has no pokemon
+    }
 
     public int SlotCount()
     {
@@ -73,7 +78,7 @@ public class PokeParty
 
     public bool CanAddPokemon()
     {
-        return SlotCount() + 1 < PARTY_MAX;
+        return SlotCount()/* + 1 */< PARTY_MAX;
     }
 
     public bool AddPokemon(Pokemon pokemon)
@@ -83,7 +88,7 @@ public class PokeParty
 
         PokeSlot slot = new PokeSlot(this, pokemon);
         GetSlots().Add(slot);
-
+        NxtUiManager.instance.PokemonsInPtUI[slots.Count - 1].SetThisPokemonIconAndName(pokemon);
         if (selectedIndex == -1)
             GetPokeSlot(slot.index); //Select by default if no pokemon is selectedIndex
 

@@ -11,4 +11,155 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2102cdb697f6aad4c9684dbde3105d2f, type: 3}
   m_Name: PokemonAssetDatabase
   m_EditorClassIdentifier: 
-  Pokemons: []
+  Pokemons:
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 21300002, guid: 4b5480ddc5372a447ae1893e934a98a0, type: 3}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 21300008, guid: 4b5480ddc5372a447ae1893e934a98a0, type: 3}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 21300020, guid: 4b5480ddc5372a447ae1893e934a98a0, type: 3}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 21300028, guid: 4b5480ddc5372a447ae1893e934a98a0, type: 3}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 21300032, guid: 4b5480ddc5372a447ae1893e934a98a0, type: 3}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 21300038, guid: 4b5480ddc5372a447ae1893e934a98a0, type: 3}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 21300050, guid: 4b5480ddc5372a447ae1893e934a98a0, type: 3}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 21300100, guid: 4b5480ddc5372a447ae1893e934a98a0, type: 3}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 21300120, guid: 4b5480ddc5372a447ae1893e934a98a0, type: 3}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 21300162, guid: 4b5480ddc5372a447ae1893e934a98a0, type: 3}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 21300258, guid: 4b5480ddc5372a447ae1893e934a98a0, type: 3}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}
+  - m_icon: {fileID: 0}

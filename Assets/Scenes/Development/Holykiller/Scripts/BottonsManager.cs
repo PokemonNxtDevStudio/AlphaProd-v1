@@ -7,6 +7,7 @@ public class BottonsManager : MonoBehaviour
     public static BottonsManager instance;
     public List<Bottons> _bottons = new List<Bottons>();
     public List<NPCStore> m_npcStores = new List<NPCStore>();
+   // public List<PokeUI> m_pokeUis = new List<PokeUI>();
 
     public void OnEnable()
     {
@@ -37,4 +38,15 @@ public class BottonsManager : MonoBehaviour
     {
         m_npcStores.Remove(n);
     }
+   /* public void AddPokeUI(PokeUI p)
+    {
+        if(!m_pokeUis.Contains(p))
+        {
+            m_pokeUis.Add(p);
+        }
+    }
+    public void RemovePokeUI(PokeUI p)
+    {
+        m_pokeUis.Remove(p);
+    }*/
 }

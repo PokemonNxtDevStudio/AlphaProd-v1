@@ -9,7 +9,7 @@ public class MockData
 
     //private string movesURL = "http://mjbcdn.com/nxt/login/getMoveInfo.php";
    // private string basicURL = "http://mjbcdn.com/nxt/login/getBasicInfo.php";
-
+    public static MockData mockdata;
     public static List<Pokemon> pokeData;
     public static List<MoveData> moveData;
    // public PokeAssetDatabase pokeAssetDatabase;
@@ -110,15 +110,17 @@ public class MockData
         //}        
     }
 
-    public void PokemonmockData(PokeAssetDatabase pokeAssetDatabase)
+    public  void PokemonmockData(/*PokeAssetDatabase pokeAssetDatabase*/)
     {
-       // pokeAssetDatabase = (PokeAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/PokemonAssetDatabase.asset", typeof(PokeAssetDatabase));
+       // MoveMockData();
+        moveAssetDatabase = (MoveAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/MovesAssetDatabase.asset", typeof(MoveAssetDatabase));
+        PokeAssetDatabase pokeAssetDatabase = (PokeAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/PokemonAssetDatabase.asset", typeof(PokeAssetDatabase));
         pokeAssetDatabase.Pokemons = new Pokemon[151];
         
         pokeData = new List<Pokemon>();
 
         pokemonIcons = Resources.LoadAll<Sprite>("UI/Icons/Pokemons");
-        moveAssetDatabase = (MoveAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/MovesAssetDatabase.asset", typeof(MoveAssetDatabase));
+        //moveAssetDatabase = (MoveAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/MovesAssetDatabase.asset", typeof(MoveAssetDatabase));
 
         if(moveAssetDatabase == null)
         {
@@ -211,7 +213,7 @@ public class MockData
         CaterpieMoves.Add(Tackle);
         CaterpieMoves.Add(StringShot);
         List<int> CaterpMovesLevels = new List<int> { 0, 0 };
-        AddPokemon(19, "Caterpie", 30, pokemonIcons[10], TypeBug, TypeNone, "010_Caterpie", CaterpieMoves, CaterpMovesLevels);
+        AddPokemon(10, "Caterpie", 30, pokemonIcons[10], TypeBug, TypeNone, "010_Caterpie", CaterpieMoves, CaterpMovesLevels);
         #endregion
         #region 14 Kakuna
         List<MoveData> KakunaMoves = new List<MoveData>();

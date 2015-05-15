@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 using System;
 
 public class NxtUiManager : MonoBehaviour 
@@ -81,12 +82,39 @@ public class NxtUiManager : MonoBehaviour
     public Bottons SelectedItem { get { return m_SelectedItem; } set { m_SelectedItem = value; } }
     [SerializeField]
     private GameObject ShopUI;
-
-
+    [Header("Pokemons Icons In Pt")]
+    [SerializeField]
+    private List<PokeUI> PokemonsInPtIcons = new List<PokeUI>();
+    public List<PokeUI> PokemonsInPtUI { get { return PokemonsInPtIcons; } set { PokemonsInPtIcons = value; } }
+    [Header("Pokemons Status")]    
+    [SerializeField]
+    private Text m_pokeName;
+    [SerializeField]
+    private Text m_pokeNick;
+    [SerializeField]
+    private Text m_pokelevel;
+    [SerializeField]
+    private Text m_pokeExpToLevel;
+    [SerializeField]
+    private Text m_pokeStatus;
+    [SerializeField]
+    private Text m_pokeType1;
+    [SerializeField]
+    private Text m_pokeType2;
+    [SerializeField]
+    private Text m_pokeHealth;
+    [SerializeField]
+    private Text m_pokeAttack;
+    [SerializeField]
+    private Text m_pokeDef;
+    [SerializeField]
+    private Text m_pokePP;
+    [SerializeField]
+    private Text m_pokeSpeed;
 
     [SerializeField]
     private ItemAssetDatabase db;
-    public ItemAssetDatabase DB { get { return db; } set { db = value; } }
+    public ItemAssetDatabase DB { get { return db; }/* set { db = value; }*/ }
 
     private GameObject player;    
        
@@ -104,6 +132,22 @@ public class NxtUiManager : MonoBehaviour
         
         player = GameObject.FindGameObjectWithTag("Player");
         NXT.EventHandler.RegisterEvent(player, "ShowInventory", new Action(ShowInventory));
+
+
+        /*
+        PokeUI poke1 = GameObject.Find("PokemonPt1").GetComponent<PokeUI>();
+        PokeUI poke2 = GameObject.Find("PokemonPt2").GetComponent<PokeUI>();
+        PokeUI poke3 = GameObject.Find("PokemonPt3").GetComponent<PokeUI>();
+        PokeUI poke4 = GameObject.Find("PokemonPt4").GetComponent<PokeUI>();
+        PokeUI poke5 = GameObject.Find("PokemonPt5").GetComponent<PokeUI>();
+        PokeUI poke6 = GameObject.Find("PokemonPt6").GetComponent<PokeUI>();
+        PokemonsInPtIcons.Add(poke1);
+        PokemonsInPtIcons.Add(poke2);
+        PokemonsInPtIcons.Add(poke3);
+        PokemonsInPtIcons.Add(poke4);
+        PokemonsInPtIcons.Add(poke5);
+        PokemonsInPtIcons.Add(poke6);
+         * */
 
 	}
     public void ShowMoney(float Money)
@@ -289,4 +333,18 @@ public class NxtUiManager : MonoBehaviour
 	
 	#endregion
 
+    public void ShowCurPokemonStatus(string name,int level,float curexp,float exptolevels,string status,string type1,string type2,float HP,float attack,float Def,float PP,float speed)
+    {
+        m_pokeName.text = "Name :" + name;
+        m_pokelevel.text = "Level : " + level.ToString();
+        m_pokeExpToLevel.text = "Exp : " + curexp.ToString() + " / " + exptolevels.ToString();
+        m_pokeStatus.text = "Status :" + status;
+        m_pokeType1.text = "Type1 : " + type1;
+        m_pokeType2.text = "Type2 : " + type2;
+        m_pokeHealth.text = "Health : " + HP.ToString();
+        m_pokeAttack.text = "Attack : " + attack.ToString();
+        m_pokeDef.text = "Defence : " + Def.ToString();
+        m_pokePP.text = "PP : " + PP.ToString();
+        m_pokeSpeed.text = "Speed : " + speed.ToString();
+    }
 }

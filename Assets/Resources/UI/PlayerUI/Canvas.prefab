@@ -49,23 +49,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &103772
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 22437194}
-  - 222: {fileID: 22214552}
-  - 114: {fileID: 11470552}
-  m_Layer: 5
-  m_Name: SAtk
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &103832
 GameObject:
   m_ObjectHideFlags: 1
@@ -496,7 +479,7 @@ GameObject:
   - 222: {fileID: 22217852}
   - 114: {fileID: 11415354}
   m_Layer: 5
-  m_Name: SDef
+  m_Name: PP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -887,8 +870,9 @@ GameObject:
   - 222: {fileID: 22207862}
   - 114: {fileID: 11463070}
   - 114: {fileID: 11433678}
+  - 114: {fileID: 11435442}
   m_Layer: 5
-  m_Name: Pokemon5
+  m_Name: PokemonPt5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -905,8 +889,9 @@ GameObject:
   - 222: {fileID: 22258492}
   - 114: {fileID: 11498050}
   - 114: {fileID: 11406446}
+  - 114: {fileID: 11430326}
   m_Layer: 5
-  m_Name: Pokemon1
+  m_Name: PokemonPt1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1116,7 +1101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &134136
 GameObject:
   m_ObjectHideFlags: 1
@@ -1300,8 +1285,9 @@ GameObject:
   - 222: {fileID: 22261410}
   - 114: {fileID: 11452854}
   - 114: {fileID: 11454170}
+  - 114: {fileID: 11475616}
   m_Layer: 5
-  m_Name: Pokemon3
+  m_Name: PokemonPt3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1369,8 +1355,9 @@ GameObject:
   - 222: {fileID: 22224406}
   - 114: {fileID: 11444124}
   - 114: {fileID: 11447496}
+  - 114: {fileID: 11457222}
   m_Layer: 5
-  m_Name: Pokemon4
+  m_Name: PokemonPt4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2209,7 +2196,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &157554
 GameObject:
   m_ObjectHideFlags: 0
@@ -2326,8 +2313,9 @@ GameObject:
   - 222: {fileID: 22261154}
   - 114: {fileID: 11449960}
   - 114: {fileID: 11479182}
+  - 114: {fileID: 11487780}
   m_Layer: 5
-  m_Name: Pokemon6
+  m_Name: PokemonPt6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3696,8 +3684,9 @@ GameObject:
   - 222: {fileID: 22239260}
   - 114: {fileID: 11427692}
   - 114: {fileID: 11431466}
+  - 114: {fileID: 11450950}
   m_Layer: 5
-  m_Name: Pokemon2
+  m_Name: PokemonPt2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4382,7 +4371,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11498050}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11430326}
+        m_MethodName: ShowThisPokemonInfo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11406670
@@ -5144,7 +5145,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Special Defence:'
+  m_Text: 'PP :'
 --- !u!114 &11415516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6220,6 +6221,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b702deb696bf4e4c936964743daaa5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11430326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285a64cba49509349a86d8a3f7f11978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11430414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6344,7 +6356,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11427692}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11450950}
+        m_MethodName: ShowThisPokemonInfo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11431566
@@ -6610,7 +6634,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11463070}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11435442}
+        m_MethodName: ShowThisPokemonInfo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11434690
@@ -6686,6 +6722,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Potion
+--- !u!114 &11435442
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285a64cba49509349a86d8a3f7f11978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11435848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7604,7 +7651,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11444124}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11457222}
+        m_MethodName: ShowThisPokemonInfo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11447690
@@ -7868,6 +7927,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.ScrollRect+ScrollRectEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &11450950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285a64cba49509349a86d8a3f7f11978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11451118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8147,7 +8217,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11452854}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11475616}
+        m_MethodName: ShowThisPokemonInfo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11454270
@@ -8537,6 +8619,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11457222
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285a64cba49509349a86d8a3f7f11978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11457278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9456,32 +9549,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &11470552
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Special Attack:'
 --- !u!114 &11470634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9963,6 +10030,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11475616
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285a64cba49509349a86d8a3f7f11978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11475686
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10304,7 +10382,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11449960}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11487780}
+        m_MethodName: ShowThisPokemonInfo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11479342
@@ -10778,6 +10868,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Skill Power:'
+--- !u!114 &11487780
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285a64cba49509349a86d8a3f7f11978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11488048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10838,6 +10939,25 @@ MonoBehaviour:
   PokemonSkillsUI: {fileID: 145554}
   m_SelectedItem: {fileID: 11402756}
   ShopUI: {fileID: 183428}
+  PokemonsInPtIcons:
+  - {fileID: 11430326}
+  - {fileID: 11450950}
+  - {fileID: 11475616}
+  - {fileID: 11457222}
+  - {fileID: 11435442}
+  - {fileID: 11487780}
+  m_pokeName: {fileID: 11472004}
+  m_pokeNick: {fileID: 11429478}
+  m_pokelevel: {fileID: 11408602}
+  m_pokeExpToLevel: {fileID: 11425806}
+  m_pokeStatus: {fileID: 11481076}
+  m_pokeType1: {fileID: 11400338}
+  m_pokeType2: {fileID: 11463522}
+  m_pokeHealth: {fileID: 11471622}
+  m_pokeAttack: {fileID: 11411884}
+  m_pokeDef: {fileID: 11442496}
+  m_pokePP: {fileID: 11415354}
+  m_pokeSpeed: {fileID: 11450006}
   db: {fileID: 11400000, guid: 17003dc0a279f804baf283b6fc14a17a, type: 2}
 --- !u!114 &11488708
 MonoBehaviour:
@@ -11906,12 +12026,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125538}
---- !u!222 &22214552
-CanvasRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103772}
 --- !u!222 &22214912
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -13760,7 +13874,6 @@ RectTransform:
   - {fileID: 22441160}
   - {fileID: 22449908}
   - {fileID: 22438664}
-  - {fileID: 22437194}
   - {fileID: 22432074}
   - {fileID: 22457538}
   m_Father: {fileID: 22456394}
@@ -14481,10 +14594,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22417130}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -320}
+  m_AnchoredPosition: {x: 10, y: -300}
   m_SizeDelta: {x: 200, y: 17}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &22432110
@@ -14710,23 +14823,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
---- !u!224 &22437194
-RectTransform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103772}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 22417130}
-  m_RootOrder: 10
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -300}
-  m_SizeDelta: {x: 200, y: 17}
-  m_Pivot: {x: 0, y: 1}
 --- !u!224 &22437240
 RectTransform:
   m_ObjectHideFlags: 1
@@ -15546,10 +15642,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22417130}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -340}
+  m_AnchoredPosition: {x: 10, y: -320}
   m_SizeDelta: {x: 200, y: 17}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &22457984

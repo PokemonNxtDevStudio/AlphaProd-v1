@@ -11,7 +11,7 @@ public class AssetItem
     protected string m_name;
     public string Name { get { return m_name; } set { m_name = value; } }
 
-    protected Sprite m_icon;
+    public Sprite m_icon;
     public Sprite Icon { get { return m_icon; } set { m_icon = value; } }
 
     protected string m_description;
