@@ -10,24 +10,23 @@ namespace PokemonNXT.Controllers {
             get { return Mathf.Sqrt(2 * JumpHeight * Gravity); }
         }
 
-        new void Start()
+        public override void Start()
         {
             base.Start();
-            if((obj = GetComponent<MMObject>())!=null)
 
-            obj.SyncPositionRPC = Interpolate;
         }
         void Update()
-        {  if(obj!=null && obj.IsMine)
-            obj.UpdatePosition(transform.position);
-            Move(new Vector3(cInput.GetAxis("Horizontal"), 0, cInput.GetAxis("Vertical")));
-            AnimatorCtrl.SetFloat("DirX", cInput.GetAxis("Horizontal"));
-            AnimatorCtrl.SetFloat("DirY", cInput.GetAxis("Vertical"));
+        {  //if(obj!=null && obj.IsMine)
+            //obj.UpdatePosition(transform.position);
+
+           Move(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
+           AnimatorCtrl.SetFloat("DirX", Input.GetAxis("Horizontal"));
+            AnimatorCtrl.SetFloat("DirY", Input.GetAxis("Vertical"));
         }
         public override void Interpolate(Vector3 newPos,Vector3 rot)
         {
 
-            transform.position = Vector3.Lerp(transform.position, newPos, interpolationSmoothing * Time.deltaTime);
+            //transform.position = Vector3.Lerp(transform.position, newPos, interpolationSmoothing * Time.deltaTime);
         
         }
         public override void Move(Vector3 InputDirection) {
