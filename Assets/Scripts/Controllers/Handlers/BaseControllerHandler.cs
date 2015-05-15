@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-namespace PokemonNXT.Controllers {
+namespace NXT.Controllers {
 
     /// <summary>
     /// Used to handle multiple controllers attached onto a purely local gameobject (not synced over the network)

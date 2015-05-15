@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace PokemonNXT.Controllers {
+namespace NXT.Controllers {
 
     /// <summary>
     /// All Controller classes must inherit from this class.

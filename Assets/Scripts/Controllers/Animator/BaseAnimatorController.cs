@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace PokemonNXT.Controllers {
+namespace NXT.Controllers {
     /// <summary>
     /// Wrapper of the Unity AnimatorController component for encapsulation purposes
     /// </summary>

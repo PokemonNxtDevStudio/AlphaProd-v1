@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace PokemonNXT {
+namespace NXT {
     using Templates;
 
     public class PokemonNXT {

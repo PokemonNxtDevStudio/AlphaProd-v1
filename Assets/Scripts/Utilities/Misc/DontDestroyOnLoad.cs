@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace PokemonNXT {
+namespace NXT {
 
     public class DontDestroyOnLoad: BaseBehavior {
 

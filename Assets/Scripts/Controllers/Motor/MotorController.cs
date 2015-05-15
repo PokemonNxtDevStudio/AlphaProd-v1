@@ -1,18 +1,25 @@
-﻿using UnityEngine;
-using Client;
-namespace NXT.Controllers {
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using NXT.Controllers;
 
-    public class CharacterMotorCtrl: BaseMotorController {
-
-        protected virtual float JumpSpeed {
+    public class MotorController :MonoBehaviour
+    {
+        public BaseAnimatorController AnimatorCtrl;
+        public float JumpHeight = 2.0f;
+        public float Gravity = 10.0f; 
+        public float baseSpeed = 10;
+        public float MaxVelocityChange = 10f;
+            protected virtual float JumpSpeed {
             // From the jump height and gravity we deduce the upwards speed 
             // for the character to reach at the apex.
             get { return Mathf.Sqrt(2 * JumpHeight * Gravity); }
         }
 
-        public override void Start()
+        public virtual void Start()
         {
-            base.Start();
+            
 
         }
         void Update()
@@ -23,13 +30,13 @@ namespace NXT.Controllers {
            AnimatorCtrl.SetFloat("DirX", Input.GetAxis("Horizontal"));
             AnimatorCtrl.SetFloat("DirY", Input.GetAxis("Vertical"));
         }
-        public override void Interpolate(Vector3 newPos,Vector3 rot)
+        public virtual void Interpolate(Vector3 newPos,Vector3 rot)
         {
 
             //transform.position = Vector3.Lerp(transform.position, newPos, interpolationSmoothing * Time.deltaTime);
         
         }
-        public override void Move(Vector3 InputDirection) {
+        public virtual void Move(Vector3 InputDirection) {
             if(!InputDirection.Equals(Vector3.zero)) {
                 Vector3 targetVelocity = transform.TransformDirection(InputDirection);
                 targetVelocity *= baseSpeed;
@@ -58,4 +65,5 @@ namespace NXT.Controllers {
 
         //public virtual void Jump
     }
-}
+    
+

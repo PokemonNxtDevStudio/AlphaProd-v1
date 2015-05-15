@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Client;
-using PokemonNXT.Controllers;
+using NXT.Controllers;
 public class GameController : MonoBehaviour {
 
 	// Use this for initialization

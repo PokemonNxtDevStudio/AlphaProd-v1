@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using Client;
-namespace PokemonNXT.Controllers {
+namespace NXT.Controllers {
     
     /// <summary>
     /// Any behavior that implements movement related functionality should inherit from this class.

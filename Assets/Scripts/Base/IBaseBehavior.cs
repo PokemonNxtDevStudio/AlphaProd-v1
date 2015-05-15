@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace PokemonNXT {
+namespace NXT {
 
     /// <summary>
     /// Dummy interface implemented by both BaseBehavior and BaseNetBehavior

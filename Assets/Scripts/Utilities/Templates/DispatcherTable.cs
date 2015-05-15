@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PokemonNXT.Templates {
+namespace NXT.Templates {
 
     public class DispatcherTable<T> {
 
