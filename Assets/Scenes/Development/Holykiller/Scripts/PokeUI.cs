@@ -128,6 +128,7 @@ public class PokeUI : MonoBehaviour
             }
 
             NxtUiManager.instance.ShowCurPokemonStatus(m_pokemon.Name, m_pokemon.level, m_pokemon.currentEXP, 100, "normal", ty1, ty2, m_pokemon.Health, m_pokemon.Attack, m_pokemon.defence, m_pokemon.PP, m_pokemon.speed);
+            
         }
         else
         {

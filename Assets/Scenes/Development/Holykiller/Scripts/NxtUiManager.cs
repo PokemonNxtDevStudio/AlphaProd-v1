@@ -116,8 +116,9 @@ public class NxtUiManager : MonoBehaviour
     private ItemAssetDatabase db;
     public ItemAssetDatabase DB { get { return db; }/* set { db = value; }*/ }
 
-    private GameObject player;    
-       
+    private GameObject player;
+
+    public PokeParty PlayerPokePt { get; set; }
 
     void Awake()
     {
