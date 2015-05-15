@@ -1,4 +1,4 @@
-﻿namespace PokemonNXT {
+﻿namespace NXT {
 
     public enum InputState {
         None,

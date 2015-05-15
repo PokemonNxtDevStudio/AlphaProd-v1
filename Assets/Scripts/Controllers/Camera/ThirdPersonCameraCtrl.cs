@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace PokemonNXT.Controllers {
+namespace NXT.Controllers {
 
     /// <summary>
     /// @TODO: This Controller should be split into peaces

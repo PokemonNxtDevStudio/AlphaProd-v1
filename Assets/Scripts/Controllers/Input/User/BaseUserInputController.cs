@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace PokemonNXT.Controllers {
+namespace NXT.Controllers {
 
     /// <summary>
     /// Any controller that is responsible for receiving input from the user should inherit from this class

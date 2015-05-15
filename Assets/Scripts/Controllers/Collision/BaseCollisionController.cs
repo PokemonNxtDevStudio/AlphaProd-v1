@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace PokemonNXT.Controllers {
+namespace NXT.Controllers {
 
     /// <summary>
     /// Any Collision Unity callback should be implemented in classes that inherit from this class

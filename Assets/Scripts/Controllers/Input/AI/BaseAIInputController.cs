@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace PokemonNXT.Controllers {
+namespace NXT.Controllers {
 
     /// <summary>
     /// Every AI controller should inherits from this class.

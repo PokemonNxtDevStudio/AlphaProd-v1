@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using Client;
-namespace PokemonNXT.Controllers
+namespace NXT.Controllers
 {
     class CharactorAnimatorCtrl : BaseAnimatorController
     {

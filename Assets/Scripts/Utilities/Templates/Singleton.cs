@@ -18,7 +18,7 @@
 /// }
 /// </summary>
 
-namespace PokemonNXT.Templates {
+namespace NXT.Templates {
 
     [RequireComponent(typeof(DontDestroyOnLoad))]
     public class Singleton<T>: BaseBehavior where T: BaseBehavior {

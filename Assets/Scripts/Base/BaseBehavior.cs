@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace PokemonNXT {
+namespace NXT {
 
     /// <summary>
     /// Every Monobehavior in the project must inherit from this class
