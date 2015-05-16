@@ -255,7 +255,6 @@ MonoBehaviour:
   m_cameraTargets:
   - {fileID: 1166521900}
   - {fileID: 1585357012}
-  ease: 20
 --- !u!1 &829632694 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100054, guid: 9305606a1f2593f4f8a2573911c22665, type: 2}

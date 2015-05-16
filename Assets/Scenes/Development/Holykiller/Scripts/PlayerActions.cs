@@ -42,28 +42,59 @@ public class PlayerActions : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
-            pokept.AddAPokemon(new Pokemon((25)));
+            pokept.AddPokemon(new Pokemon((25)));
             //NxtUiManager.instance.PlayerPokePt = pokept;
         }
         if (Input.GetKeyDown(KeyCode.Keypad2))
         {
-            pokept.AddAPokemon(new Pokemon(1));
+            pokept.AddPokemon(new Pokemon(1));
         }
         if (Input.GetKeyDown(KeyCode.Keypad3))
         {
-            pokept.AddAPokemon(new Pokemon(4));
+            pokept.AddPokemon(new Pokemon(4));
         }
         if (Input.GetKeyDown(KeyCode.Keypad4))
         {
-            pokept.AddAPokemon(new Pokemon(10));
+            pokept.AddPokemon(new Pokemon(10));
         }
         if (Input.GetKeyDown(KeyCode.Keypad5))
         {
-            pokept.AddAPokemon(new Pokemon(14));
+            pokept.AddPokemon(new Pokemon(14));
         }
         if (Input.GetKeyDown(KeyCode.Keypad6))
         {
-            pokept.AddAPokemon(new Pokemon(50));
+            pokept.AddPokemon(new Pokemon(50));
+        }
+
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            pokept.SelectedIndex = 0;
+            NxtUiManager.instance.CurSelectedPoke(0);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            pokept.SelectedIndex = 1;
+            NxtUiManager.instance.CurSelectedPoke(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            pokept.SelectedIndex = 2;
+            NxtUiManager.instance.CurSelectedPoke(2);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            pokept.SelectedIndex = 3;
+            NxtUiManager.instance.CurSelectedPoke(3);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            pokept.SelectedIndex = 4;
+            NxtUiManager.instance.CurSelectedPoke(4);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            pokept.SelectedIndex = 5;
+            NxtUiManager.instance.CurSelectedPoke(5);
         }
     }
 

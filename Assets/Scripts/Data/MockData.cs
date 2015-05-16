@@ -35,7 +35,7 @@ public class MockData
     private PokemonType TypeSteel = PokemonType.Steel;
 
 
-    private MoveAssetDatabase moveAssetDatabase;
+    //private MoveAssetDatabase moveAssetDatabase;
     private Sprite[] pokemonIcons;
     private Sprite[] moveIcons;
     private DeamageType normal = DeamageType.None;
@@ -112,8 +112,8 @@ public class MockData
 
     public  void PokemonmockData(/*PokeAssetDatabase pokeAssetDatabase*/)
     {
-        MoveMockData();
-        //moveAssetDatabase = (MoveAssetDatabase)Resources.Load("Database/MovesAssetDatabase", typeof(MoveAssetDatabase));
+        //MoveMockData();
+        MoveAssetDatabase moveAssetDatabase = (MoveAssetDatabase)Resources.Load("Database/MovesAssetDatabase", typeof(MoveAssetDatabase));
        // moveAssetDatabase = (MoveAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/MovesAssetDatabase.asset", typeof(MoveAssetDatabase));
         //PokeAssetDatabase pokeAssetDatabase = (PokeAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/PokemonAssetDatabase.asset", typeof(PokeAssetDatabase));
        
@@ -128,7 +128,8 @@ public class MockData
         if(moveAssetDatabase == null)
         {
             Debug.Log("MovesDatabase is null");
-            return;
+            //return;
+           // moveAssetDatabase = (MoveAssetDatabase)Resources.Load("Database/MovesAssetDatabase", typeof(MoveAssetDatabase));
         }
 
         MoveData DoubleSlap = new MoveData(moveAssetDatabase.GetByID(3));
@@ -678,7 +679,7 @@ public class MockData
     }  
     public void MoveMockData()
     {
-        moveAssetDatabase = (MoveAssetDatabase)Resources.Load("Database/MovesAssetDatabase", typeof(MoveAssetDatabase));
+        MoveAssetDatabase moveAssetDatabase = (MoveAssetDatabase)Resources.Load("Database/MovesAssetDatabase", typeof(MoveAssetDatabase));
         //moveAssetDatabase = (MoveAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/MovesAssetDatabase.asset", typeof(MoveAssetDatabase));
         moveAssetDatabase.Moves = new MoveData[621];
         moveData = new List<MoveData> ();

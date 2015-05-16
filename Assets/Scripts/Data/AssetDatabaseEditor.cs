@@ -6,7 +6,7 @@ using System.Security.Policy;
 #if UNITY_EDITOR
 public class AssetDatabaseEditor
 {
-    private static MockData mockdata = new MockData();
+   
     private static string GetSelectionFolder()
     {
         if (Selection.activeObject != null)
@@ -75,18 +75,21 @@ public class AssetDatabaseEditor
     [MenuItem("NXT/Asset Database/Items Database/Update Items DataBase")]
     public static void UpdateItemsDataBase()
     {
+        MockData mockdata = new MockData();
         mockdata.ItemMockData();
         Debug.Log("Items Database Updated");
     }
     [MenuItem("NXT/Asset Database/Moves Database/Update Moves DataBase")]
     public static void UpdateMoveDataBase()
     {
+        MockData mockdata = new MockData();
         mockdata.MoveMockData();
         Debug.Log("Move Database Updated");
     }
     [MenuItem("NXT/Asset Database/Pokemon Database/Update Pokemon DataBase")]
     public static void UpdatePokemonDataBase()
     {
+        MockData mockdata = new MockData();
         mockdata.PokemonmockData();
         Debug.Log("pokemon Database Updated");
     }
@@ -108,7 +111,6 @@ public class AssetDatabaseEditor
 
     static void GetFromSQL(PokeAssetDatabase asset)
     {
-
     }
 
     //TODO GET ARRAY OF POKELIST FROM SQL
