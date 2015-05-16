@@ -2,8 +2,13 @@
 using System.Collections;
 
 public class TrainerInputHandler : MonoBehaviour {
-	[SerializeField]
-	private MoterInputHandler motor;
+	[SerializeField] private Camera camera;
+	[SerializeField] private float speed;
+	private MotorController motor;
+	void Start(){
+		speed = speed == 0 ? .2f : speed;
+		motor = GetComponent<MotorController> ();
+	}
 
 	// Update is called once per frame
 	void Update(){
@@ -13,17 +18,26 @@ public class TrainerInputHandler : MonoBehaviour {
 	void readInputs(){
 		//handle cases for triggering release/capture/cast/inventory/etc
 		if (motor) {
-			if (Input.GetKeyUp(KeyCode.W)) {
-				motor.MoveCharacter(SharedConstants.Movement.forward);
+			if (Input.GetKey(KeyCode.W)) {
+//				motor.MoveCharacter(SharedConstants.Movement.forward);
+				Vector3 facingAngle = camera.transform.eulerAngles;
+				Vector3 facePos = camera.transform.position;
+				transform.eulerAngles = new Vector3(transform.eulerAngles.x, facingAngle.y, transform.eulerAngles.z);
+				camera.transform.eulerAngles = new Vector3(facingAngle.x, facingAngle.y, facingAngle.z); 
+				camera.transform.position = new Vector3(facePos.x, facePos.y, facePos.z); 
+				motor.Move(Vector3.forward*speed);
 			}
 			if (Input.GetKeyUp(KeyCode.S)) {
-				motor.MoveCharacter(SharedConstants.Movement.back);
+				motor.Move(Vector3.back*speed);
+//				motor.MoveCharacter(SharedConstants.Movement.back);
 			}
 			if (Input.GetKeyUp(KeyCode.D)) {
-				motor.MoveCharacter(SharedConstants.Movement.right);
+				motor.Move(Vector3.right*speed);
+//				motor.MoveCharacter(SharedConstants.Movement.right);
 			}
 			if (Input.GetKeyUp(KeyCode.A)) {
-				motor.MoveCharacter(SharedConstants.Movement.left);
+				motor.Move(Vector3.left*speed);
+//				motor.MoveCharacter(SharedConstants.Movement.left);
 			}
 		}
 
@@ -51,8 +65,8 @@ public class TrainerInputHandler : MonoBehaviour {
 		if (Input.GetKeyUp (KeyCode.Alpha5)){
 			//cast skill 5
 		}
-
 	}
+
 	void OnCollision(Collider collision){
 		//handlec quicktrigger with shops and such
 //		switch (collision.tag) {

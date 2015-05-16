@@ -87,6 +87,10 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &81721213 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400048, guid: 9305606a1f2593f4f8a2573911c22665, type: 2}
+  m_PrefabInternal: {fileID: 389971548}
 --- !u!1001 &389971548
 Prefab:
   m_ObjectHideFlags: 0
@@ -253,9 +257,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_cameraTargets:
-  - {fileID: 1166521900}
-  - {fileID: 1585357012}
+  - {fileID: 829632696}
+  - {fileID: 1166521901}
   ease: 20
+  offsetY: 2
 --- !u!1 &829632694 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100054, guid: 9305606a1f2593f4f8a2573911c22665, type: 2}
@@ -266,7 +271,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 829632694}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc9b1becda369bc42b10cd9c6b0f1e92, type: 3}
   m_Name: 
@@ -282,6 +287,35 @@ MonoBehaviour:
   baseSpeed: 10
   interpolationSmoothing: 5
   obj: {fileID: 0}
+--- !u!4 &829632696 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400054, guid: 9305606a1f2593f4f8a2573911c22665, type: 2}
+  m_PrefabInternal: {fileID: 389971548}
+--- !u!114 &829632697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 829632694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b645b520698ec8745ab3ee3a2bdb88db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pokemon: []
+--- !u!114 &829632703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 829632694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5904a656b19578942b9bf6a7a907426e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 2113403486}
+  modelRef: {fileID: 81721213}
 --- !u!1 &849307442
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,14 +458,10 @@ MonoBehaviour:
   baseSpeed: 10
   interpolationSmoothing: 5
   obj: {fileID: 0}
---- !u!4 &1166521900 stripped
+--- !u!4 &1166521901 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 400040, guid: 9305606a1f2593f4f8a2573911c22665, type: 2}
+  m_PrefabParentObject: {fileID: 400054, guid: 9305606a1f2593f4f8a2573911c22665, type: 2}
   m_PrefabInternal: {fileID: 1166521897}
---- !u!4 &1585357012 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400040, guid: 9305606a1f2593f4f8a2573911c22665, type: 2}
-  m_PrefabInternal: {fileID: 389971548}
 --- !u!1 &2113403480
 GameObject:
   m_ObjectHideFlags: 0

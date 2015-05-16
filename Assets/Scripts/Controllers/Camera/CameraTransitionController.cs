@@ -3,10 +3,11 @@ using System.Collections;
 using Holoville.HOTween;
 
 public class CameraTransitionController : MonoBehaviour {
-	[SerializeField]
-	private Transform[] m_cameraTargets;
-	[SerializeField]
-	private EaseType ease;
+	[SerializeField] private Transform[] m_cameraTargets;
+	[SerializeField] private EaseType ease;
+	[SerializeField] private float offsetY;
+
+
 	private int currentTarget=0;
 	private Tweener tween;
 	// Use this for initialization
@@ -30,10 +31,10 @@ public class CameraTransitionController : MonoBehaviour {
 			tween.Kill ();
 		tween = null;
 		if (__noAnim) {
-			transform.localPosition = Vector3.zero;
+			transform.localPosition = new Vector3(0,offsetY,0);
 		} else {
 			Vector3 localPos = transform.localPosition;
-			tween = HOTween.To (gameObject.transform, .5f, new TweenParms ().Prop ( "localPosition", new Vector3 ( 0, 0, 0 )).Ease(ease));
+			tween = HOTween.To (gameObject.transform, .5f, new TweenParms ().Prop ( "localPosition", new Vector3 ( 0, offsetY, 0 )).Ease(ease));
 		}
 	}
 }

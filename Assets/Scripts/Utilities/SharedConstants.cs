@@ -21,14 +21,14 @@ public struct SharedConstants  {
 		player,
 		ai
 	}
-	public enum Movement {
-		forward,
-		back,
-		up,
-		down,
-		left,
-		right
-	}
+//	public enum Movement {
+//		forward,
+//		back,
+//		up,
+//		down,
+//		left,
+//		right
+//	}
 	public enum CollisionType {
 		shop
 	}
