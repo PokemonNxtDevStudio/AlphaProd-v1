@@ -111,7 +111,6 @@ public class AssetDatabaseEditor
 
     static void GetFromSQL(PokeAssetDatabase asset)
     {
-
     }
 
     //TODO GET ARRAY OF POKELIST FROM SQL
