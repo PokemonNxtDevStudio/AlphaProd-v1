@@ -87,10 +87,6 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &81721213 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400048, guid: 9305606a1f2593f4f8a2573911c22665, type: 2}
-  m_PrefabInternal: {fileID: 389971548}
 --- !u!1001 &389971548
 Prefab:
   m_ObjectHideFlags: 0
@@ -315,7 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 2113403486}
-  modelRef: {fileID: 81721213}
+  speed: .200000003
 --- !u!1 &849307442
 GameObject:
   m_ObjectHideFlags: 0
