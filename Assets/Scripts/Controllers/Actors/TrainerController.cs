@@ -6,7 +6,7 @@ public class TrainerController : MonoBehaviour
 {
     private PokeParty pokeParty; 
     public List<String> pokemon;
-	public SharedConstants.CharacterType characterType;
+	//public SharedConstants.CharacterType characterType;
 
     void Start()
     {
