@@ -117,6 +117,17 @@ public class MoveData : AssetItem
         this.m_movetype = move.MoveType;
         this.m_moveeffect = move.MoveEffect;
     }
+    public MoveData()
+    {
+        this.m_id = 0;
+        this.m_name = "";
+        this.m_pp = 0;
+        this.m_power = 0;
+        this.m_movecooldown = 0;
+        this.m_description = "";
+        this.m_movetype = DeamageType.None;
+        this.m_moveeffect = MoveEffect.None;
+    }
 
 }
 [System.Serializable]

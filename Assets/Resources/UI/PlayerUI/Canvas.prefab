@@ -14196,9 +14196,8 @@ MonoBehaviour:
   - {fileID: 11410362}
   - {fileID: 11454176}
   - {fileID: 11407566}
-  db: {fileID: 11400000, guid: 17003dc0a279f804baf283b6fc14a17a, type: 2}
-  PokeDB: {fileID: 11400000, guid: 36ebde4cd74b4a74c8b31e29e1a598b4, type: 2}
-  MovesDB: {fileID: 11400000, guid: fa96a9dc1e2504043bf3c690344f5cbc, type: 2}
+  m_itemsDB: {fileID: 11400000, guid: 7a059ed2a5c36e7448a080c7373db0e9, type: 2}
+  PokeDB: {fileID: 11400000, guid: d7f15b1f17898164a816a3f6a4f24cea, type: 2}
 --- !u!114 &11488708
 MonoBehaviour:
   m_ObjectHideFlags: 1

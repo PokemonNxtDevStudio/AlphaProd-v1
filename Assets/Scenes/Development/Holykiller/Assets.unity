@@ -11408,6 +11408,10 @@ Prefab:
       propertyPath: m_Name
       value: Trainer_Shop_2
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8a72bd3e2850b3c4581609fac423438f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a72bd3e2850b3c4581609fac423438f, type: 2}
   m_IsPrefabParent: 0
@@ -33232,16 +33236,10 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: .931249976
       objectReference: {fileID: 0}
-    - target: {fileID: 11488558, guid: 39ce62a27ca82dc41804fe3978e8b616, type: 2}
-      propertyPath: PokeDB
-      value: 
-      objectReference: {fileID: 11400000, guid: 740e7649a6276d940b5784836a246ba6,
-        type: 2}
-    - target: {fileID: 11488558, guid: 39ce62a27ca82dc41804fe3978e8b616, type: 2}
-      propertyPath: MovesDB
-      value: 
-      objectReference: {fileID: 11400000, guid: 8de12212188c2d243b816ab9bc3ab6ca,
-        type: 2}
+    - target: {fileID: 183428, guid: 39ce62a27ca82dc41804fe3978e8b616, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 39ce62a27ca82dc41804fe3978e8b616, type: 2}
   m_IsPrefabParent: 0
@@ -54489,7 +54487,6 @@ MonoBehaviour:
   StoreUI: {fileID: 1786538121}
   StoreItemsPanel: {fileID: 1795350580}
   InteractUI: {fileID: 647520088}
-  db: {fileID: 11400000, guid: 17003dc0a279f804baf283b6fc14a17a, type: 2}
   m_IDsOfItemsInStore: 2c0100002d0100002e010000
 --- !u!65 &1516598220
 BoxCollider:
@@ -67042,7 +67039,6 @@ MonoBehaviour:
   StoreUI: {fileID: 1786538121}
   StoreItemsPanel: {fileID: 1795350580}
   InteractUI: {fileID: 647520088}
-  db: {fileID: 11400000, guid: 17003dc0a279f804baf283b6fc14a17a, type: 2}
   m_IDsOfItemsInStore: 0100000002000000030000000400000005000000060000000700000008000000090000000a000000
 --- !u!1001 &1860562229
 Prefab:

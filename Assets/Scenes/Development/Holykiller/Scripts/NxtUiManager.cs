@@ -116,11 +116,12 @@ public class NxtUiManager : MonoBehaviour
     private List<GPokeUi> m_gpokeUis = new List<GPokeUi>();
 
     [SerializeField]
-    private ItemAssetDatabase db;
-    public ItemAssetDatabase DB { get { return db; }/* set { db = value; }*/ }
+    private ItemAssetDatabase m_itemsDB;
+    public ItemAssetDatabase ItemsDB { get { return m_itemsDB; }/* set { db = value; }*/ }
 
     [SerializeField]
     PokeAssetDatabase PokeDB;
+    public PokeAssetDatabase PokemonDB { get {return PokeDB; } }
     //[SerializeField]
     //MoveAssetDatabase MovesDB;
 
@@ -391,7 +392,7 @@ public class NxtUiManager : MonoBehaviour
         }
     }
 
-    public Pokemon NewPoke(int id)
+    /*public Pokemon NewPoke(int id)
     {
        
 
@@ -411,5 +412,5 @@ public class NxtUiManager : MonoBehaviour
         poke.LearnMovesLevels = PokeDB.GetByID(id).LearnMovesLevels;
 
         return poke;
-    }
+    }*/
 }
