@@ -125,16 +125,16 @@ public class Pokemon : AssetItem
     {
         //PokeAssetDatabase pokeAssetDatabase = (PokeAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/PokemonAssetDatabase.asset", typeof(PokeAssetDatabase));
         PokeAssetDatabase pokeAssetDatabase = (PokeAssetDatabase)Resources.Load("Database/PokemonAssetDatabase");
-        Pokemon poke =  new Pokemon( pokeAssetDatabase.GetByID(id));
-        m_id = poke.ID;
-        m_name = poke.Name;
-        m_pp = poke.PP;
-        m_icon = poke.Icon;
-        m_type1 = poke.Type1;
-        m_type2 = poke.Type2;
-        m_pokemonprefab = poke.PokemonPrefab;
-        m_moves = poke.Moves;
-        m_learnmovelevel = poke.LearnMovesLevels;
+       // Pokemon poke =  new Pokemon( pokeAssetDatabase.GetByID(id));
+        this.m_id = pokeAssetDatabase.GetByID(id).ID;
+        this.m_name = pokeAssetDatabase.GetByID(id).Name;
+        this.m_pp = pokeAssetDatabase.GetByID(id).PP;
+        this.m_icon = pokeAssetDatabase.GetByID(id).Icon;
+        this.m_type1 = pokeAssetDatabase.GetByID(id).Type1;
+        this.m_type2 = pokeAssetDatabase.GetByID(id).Type2;
+        this.m_pokemonprefab = pokeAssetDatabase.GetByID(id).PokemonPrefab;
+        this.m_moves = pokeAssetDatabase.GetByID(id).Moves;
+        this.m_learnmovelevel = pokeAssetDatabase.GetByID(id).LearnMovesLevels;
     }
     public Pokemon(Pokemon poke)
     {
