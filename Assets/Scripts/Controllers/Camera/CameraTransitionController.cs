@@ -17,7 +17,7 @@ public class CameraTransitionController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyUp (KeyCode.A)) {
+		if (Input.GetKeyUp (KeyCode.Q)) {
 			//cycle targets
 			currentTarget = currentTarget+1 < m_cameraTargets.Length ? currentTarget+1 : 0;
 			SetTarget (m_cameraTargets[currentTarget], false);

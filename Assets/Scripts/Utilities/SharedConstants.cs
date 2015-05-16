@@ -32,4 +32,8 @@ public struct SharedConstants  {
 	public enum CollisionType {
 		shop
 	}
+	public enum Commands {
+		ReleasePokemon,
+		CapturePokemon
+	}
 }
