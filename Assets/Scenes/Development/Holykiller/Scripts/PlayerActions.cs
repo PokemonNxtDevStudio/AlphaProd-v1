@@ -22,7 +22,7 @@ public class PlayerActions : MonoBehaviour
     private PokeParty pokept = new PokeParty();
     public PokeParty PokePT { get { return pokept; } set { pokept = value; } }
 
-
+    private Pokemon Poke = new Pokemon();
     void Start()
     {
         NxtUiManager.instance.PlayerPokePt = pokept;
@@ -42,28 +42,34 @@ public class PlayerActions : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
-            pokept.AddPokemon(new Pokemon((25)));
+            pokept.AddPokemon(NxtUiManager.instance.NewPoke(25));
+          //  pokept.AddPokemon(Pokemon.);
             //NxtUiManager.instance.PlayerPokePt = pokept;
         }
         if (Input.GetKeyDown(KeyCode.Keypad2))
         {
-            pokept.AddPokemon(new Pokemon(1));
+            pokept.AddPokemon(NxtUiManager.instance.NewPoke(1));
+            //pokept.AddPokemon(new Pokemon(1));
         }
         if (Input.GetKeyDown(KeyCode.Keypad3))
         {
-            pokept.AddPokemon(new Pokemon(4));
+            pokept.AddPokemon(NxtUiManager.instance.NewPoke(4));
+            //pokept.AddPokemon(new Pokemon(4));
         }
         if (Input.GetKeyDown(KeyCode.Keypad4))
         {
-            pokept.AddPokemon(new Pokemon(10));
+            pokept.AddPokemon(NxtUiManager.instance.NewPoke(10));
+            //pokept.AddPokemon(new Pokemon(10));
         }
         if (Input.GetKeyDown(KeyCode.Keypad5))
         {
-            pokept.AddPokemon(new Pokemon(14));
+            pokept.AddPokemon(NxtUiManager.instance.NewPoke(14));
+            //pokept.AddPokemon(new Pokemon(14));
         }
         if (Input.GetKeyDown(KeyCode.Keypad6))
         {
-            pokept.AddPokemon(new Pokemon(50));
+            pokept.AddPokemon(NxtUiManager.instance.NewPoke(50));
+           // pokept.AddPokemon(new Pokemon(50));
         }
 
         if(Input.GetKeyDown(KeyCode.Alpha1))

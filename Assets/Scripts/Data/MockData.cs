@@ -4,7 +4,7 @@ using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 
-public class MockData  
+public class MockData : ScriptableObject
 {
 
     //private string movesURL = "http://mjbcdn.com/nxt/login/getMoveInfo.php";
@@ -84,8 +84,59 @@ public class MockData
 //    private ItemType mttm = ItemType.MtTm;
    // private ItemType berry = ItemType.Berry;
    // private ItemType keyitem = ItemType.KeyItem;
-    
-    
+   // MoveAssetDatabase moveAssetDatabase = ScriptableObject.CreateInstance("MoveAssetDatabase") as MoveAssetDatabase;
+     static PokeAssetDatabase pokeAssetDatabase;
+     static MoveAssetDatabase m_moveAssetDatabase = (MoveAssetDatabase)Resources.Load("Database/MovesAssetDatabase", typeof(MoveAssetDatabase));
+    MoveData DoubleSlap = new MoveData(m_moveAssetDatabase.GetByID(3));
+    MoveData Scratch = new MoveData(m_moveAssetDatabase.GetByID(10));
+    MoveData Gust = new MoveData(m_moveAssetDatabase.GetByID(16));
+    MoveData Whirlwind = new MoveData(m_moveAssetDatabase.GetByID(18));
+    MoveData WingAttack = new MoveData(m_moveAssetDatabase.GetByID(17));
+    MoveData Slam = new MoveData(m_moveAssetDatabase.GetByID(21));
+    MoveData VineWhip = new MoveData(m_moveAssetDatabase.GetByID(22));
+    MoveData SandAttack = new MoveData(m_moveAssetDatabase.GetByID(28));
+    MoveData Tackle = new MoveData(m_moveAssetDatabase.GetByID(33));
+    MoveData BodySlam = new MoveData(m_moveAssetDatabase.GetByID(34));
+    MoveData TailWhip = new MoveData(m_moveAssetDatabase.GetByID(39));
+    MoveData Leer = new MoveData(m_moveAssetDatabase.GetByID(43));
+    MoveData Growl = new MoveData(m_moveAssetDatabase.GetByID(45));
+    MoveData Supersonic = new MoveData(m_moveAssetDatabase.GetByID(48));
+    MoveData SonicBoom = new MoveData(m_moveAssetDatabase.GetByID(49));
+    MoveData Ember = new MoveData(m_moveAssetDatabase.GetByID(52));
+    MoveData Flamethrower = new MoveData(m_moveAssetDatabase.GetByID(53));
+    MoveData WaterGun = new MoveData(m_moveAssetDatabase.GetByID(55));
+    MoveData HydroPump = new MoveData(m_moveAssetDatabase.GetByID(56));
+    MoveData LeechSeed = new MoveData(m_moveAssetDatabase.GetByID(73));
+    MoveData Growth = new MoveData(m_moveAssetDatabase.GetByID(74));
+    MoveData RazorLeaf = new MoveData(m_moveAssetDatabase.GetByID(75));
+    MoveData SolarBeam = new MoveData(m_moveAssetDatabase.GetByID(76));
+    MoveData PoisonPoweder = new MoveData(m_moveAssetDatabase.GetByID(77));
+    MoveData SleepPower = new MoveData(m_moveAssetDatabase.GetByID(79));
+    MoveData StringShot = new MoveData(m_moveAssetDatabase.GetByID(81));
+    MoveData FireSpin = new MoveData(m_moveAssetDatabase.GetByID(83));
+    MoveData ThunderShock = new MoveData(m_moveAssetDatabase.GetByID(84));
+    MoveData Thunderbolt = new MoveData(m_moveAssetDatabase.GetByID(85));
+    MoveData ThunderWave = new MoveData(m_moveAssetDatabase.GetByID(86));
+    MoveData Thunder = new MoveData(m_moveAssetDatabase.GetByID(87));
+    MoveData Earthquake = new MoveData(m_moveAssetDatabase.GetByID(89));
+    MoveData Dig = new MoveData(m_moveAssetDatabase.GetByID(91));
+    MoveData Hypnosis = new MoveData(m_moveAssetDatabase.GetByID(95));
+    MoveData Agility = new MoveData(m_moveAssetDatabase.GetByID(97));
+    MoveData QuickAttack = new MoveData(m_moveAssetDatabase.GetByID(98));
+    MoveData Rage = new MoveData(m_moveAssetDatabase.GetByID(99));
+    MoveData Screech = new MoveData(m_moveAssetDatabase.GetByID(103));
+    MoveData DoubleTeam = new MoveData(m_moveAssetDatabase.GetByID(104));
+    MoveData Harden = new MoveData(m_moveAssetDatabase.GetByID(106));
+    MoveData LightScreen = new MoveData(m_moveAssetDatabase.GetByID(113));
+    MoveData FocusEnergy = new MoveData(m_moveAssetDatabase.GetByID(116));
+    MoveData MirrorMove = new MoveData(m_moveAssetDatabase.GetByID(119));
+    MoveData Swift = new MoveData(m_moveAssetDatabase.GetByID(129));
+    MoveData Amnesia = new MoveData(m_moveAssetDatabase.GetByID(133));
+    MoveData Bubble = new MoveData(m_moveAssetDatabase.GetByID(145));
+    MoveData Splash = new MoveData(m_moveAssetDatabase.GetByID(150));
+    MoveData HyperFang = new MoveData(m_moveAssetDatabase.GetByID(158));
+    MoveData SuperFang = new MoveData(m_moveAssetDatabase.GetByID(162));
+    MoveData Slash = new MoveData(m_moveAssetDatabase.GetByID(163));
     public static MockData instance;
     void Awake()
     {
@@ -110,14 +161,18 @@ public class MockData
         //}        
     }
 
-    public  void PokemonmockData(/*PokeAssetDatabase pokeAssetDatabase*/)
+    public  void PokemonmockData(PokeAssetDatabase pokeAssetDatabase)
     {
         //MoveMockData();
-        MoveAssetDatabase moveAssetDatabase = (MoveAssetDatabase)Resources.Load("Database/MovesAssetDatabase", typeof(MoveAssetDatabase));
+        
        // moveAssetDatabase = (MoveAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/MovesAssetDatabase.asset", typeof(MoveAssetDatabase));
         //PokeAssetDatabase pokeAssetDatabase = (PokeAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/PokemonAssetDatabase.asset", typeof(PokeAssetDatabase));
-       
-        PokeAssetDatabase pokeAssetDatabase = (PokeAssetDatabase)Resources.Load("Database/PokemonAssetDatabase", typeof(PokeAssetDatabase));
+
+        
+       //PokeAssetDatabase pokeAssetDatabase PokeAssetDatabase pokeAssetDatabase = ScriptableObject.CreateInstance("PokeAssetDatabase") as PokeAssetDatabase;
+         
+        //pokeAssetDatabase = (PokeAssetDatabase)Resources.Load("Database/PokemonAssetDatabase", typeof(PokeAssetDatabase));
+        
         pokeAssetDatabase.Pokemons = new Pokemon[151];
         
         pokeData = new List<Pokemon>();
@@ -125,63 +180,14 @@ public class MockData
         pokemonIcons = Resources.LoadAll<Sprite>("UI/Icons/Pokemons");
         //moveAssetDatabase = (MoveAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/MovesAssetDatabase.asset", typeof(MoveAssetDatabase));
 
-        if(moveAssetDatabase == null)
+        if(m_moveAssetDatabase == null)
         {
             Debug.Log("MovesDatabase is null");
             //return;
            // moveAssetDatabase = (MoveAssetDatabase)Resources.Load("Database/MovesAssetDatabase", typeof(MoveAssetDatabase));
         }
 
-        MoveData DoubleSlap = new MoveData(moveAssetDatabase.GetByID(3));
-        MoveData Scratch = new MoveData(moveAssetDatabase.GetByID(10));
-        MoveData Gust = new MoveData(moveAssetDatabase.GetByID(16));
-        MoveData Whirlwind = new MoveData(moveAssetDatabase.GetByID(18));
-        MoveData WingAttack = new MoveData(moveAssetDatabase.GetByID(17));
-        MoveData Slam = new MoveData(moveAssetDatabase.GetByID(21));
-        MoveData VineWhip = new MoveData(moveAssetDatabase.GetByID(22));
-        MoveData SandAttack = new MoveData(moveAssetDatabase.GetByID(28));
-        MoveData Tackle = new MoveData(moveAssetDatabase.GetByID(33));
-        MoveData BodySlam = new MoveData(moveAssetDatabase.GetByID(34));
-        MoveData TailWhip = new MoveData(moveAssetDatabase.GetByID(39));
-        MoveData Leer = new MoveData(moveAssetDatabase.GetByID(43));
-        MoveData Growl = new MoveData( moveAssetDatabase.GetByID(45));
-        MoveData Supersonic = new MoveData(moveAssetDatabase.GetByID(48));
-        MoveData SonicBoom = new MoveData(moveAssetDatabase.GetByID(49));
-        MoveData Ember = new MoveData(moveAssetDatabase.GetByID(52));
-        MoveData Flamethrower = new MoveData(moveAssetDatabase.GetByID(53));
-        MoveData WaterGun = new MoveData(moveAssetDatabase.GetByID(55));
-        MoveData HydroPump = new MoveData(moveAssetDatabase.GetByID(56));
-        MoveData LeechSeed = new MoveData(moveAssetDatabase.GetByID(73));
-        MoveData Growth = new MoveData(moveAssetDatabase.GetByID(74));  
-        MoveData RazorLeaf = new MoveData(moveAssetDatabase.GetByID(75));
-        MoveData SolarBeam = new MoveData(moveAssetDatabase.GetByID(76));
-        MoveData PoisonPoweder = new MoveData( moveAssetDatabase.GetByID(77));  
-        MoveData SleepPower = new MoveData( moveAssetDatabase.GetByID(79));
-        MoveData StringShot = new MoveData(moveAssetDatabase.GetByID(81));
-        MoveData FireSpin = new MoveData(moveAssetDatabase.GetByID(83));
-        MoveData ThunderShock = new MoveData(moveAssetDatabase.GetByID(84));
-        MoveData Thunderbolt = new MoveData(moveAssetDatabase.GetByID(85));
-        MoveData ThunderWave = new MoveData(moveAssetDatabase.GetByID(86));
-        MoveData Thunder = new MoveData(moveAssetDatabase.GetByID(87));
-        MoveData Earthquake = new MoveData(moveAssetDatabase.GetByID(89));
-        MoveData Dig = new MoveData(moveAssetDatabase.GetByID(91));
-        MoveData Hypnosis = new MoveData(moveAssetDatabase.GetByID(95));
-        MoveData Agility = new MoveData(moveAssetDatabase.GetByID(97));
-        MoveData QuickAttack = new MoveData(moveAssetDatabase.GetByID(98));
-        MoveData Rage = new MoveData(moveAssetDatabase.GetByID(99));
-        MoveData Screech = new MoveData(moveAssetDatabase.GetByID(103));
-        MoveData DoubleTeam = new MoveData(moveAssetDatabase.GetByID(104));
-        MoveData Harden = new MoveData(moveAssetDatabase.GetByID(106));
-        MoveData LightScreen = new MoveData(moveAssetDatabase.GetByID(113));
-        MoveData FocusEnergy = new MoveData(moveAssetDatabase.GetByID(116));
-        MoveData MirrorMove = new MoveData(moveAssetDatabase.GetByID(119));
-        MoveData Swift = new MoveData(moveAssetDatabase.GetByID(129));
-        MoveData Amnesia = new MoveData(moveAssetDatabase.GetByID(133));
-        MoveData Bubble = new MoveData(moveAssetDatabase.GetByID(145));
-        MoveData Splash = new MoveData(moveAssetDatabase.GetByID(150));
-        MoveData HyperFang = new MoveData(moveAssetDatabase.GetByID(158));
-        MoveData SuperFang = new MoveData(moveAssetDatabase.GetByID(162));
-        MoveData Slash = new MoveData(moveAssetDatabase.GetByID(163));
+        
         //Debug.Log("SomeMove is null");
         
 
@@ -676,10 +682,13 @@ public class MockData
     {
         InventoryItem item = new InventoryItem(id, name, icon, type, buy, sell, stacksupto, description);
         items.Add(item);
-    }  
-    public void MoveMockData()
+    }
+
+    
+    public void MoveMockData(MoveAssetDatabase moveAssetDatabase)
     {
-        MoveAssetDatabase moveAssetDatabase = (MoveAssetDatabase)Resources.Load("Database/MovesAssetDatabase", typeof(MoveAssetDatabase));
+       // MoveAssetDatabase moveAssetDatabase = ScriptableObject.CreateInstance("MoveAssetDatabase") as MoveAssetDatabase;
+       //  moveAssetDatabase = (MoveAssetDatabase)Resources.Load("Database/MovesAssetDatabase", typeof(MoveAssetDatabase));
         //moveAssetDatabase = (MoveAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/MovesAssetDatabase.asset", typeof(MoveAssetDatabase));
         moveAssetDatabase.Moves = new MoveData[621];
         moveData = new List<MoveData> ();
@@ -746,6 +755,7 @@ public class MockData
         }
 
         Debug.Log("Move Moke Data created");
+        m_moveAssetDatabase = moveAssetDatabase;
         AssetDatabase.SaveAssets();
     }
     private void AddMove(int Id, string Name, float PP, float Power, float Cooldown, string Description, DeamageType Type, MoveEffect Effect)

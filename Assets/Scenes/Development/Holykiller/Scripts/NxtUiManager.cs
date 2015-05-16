@@ -119,6 +119,11 @@ public class NxtUiManager : MonoBehaviour
     private ItemAssetDatabase db;
     public ItemAssetDatabase DB { get { return db; }/* set { db = value; }*/ }
 
+    [SerializeField]
+    PokeAssetDatabase PokeDB;
+    //[SerializeField]
+    //MoveAssetDatabase MovesDB;
+
     private GameObject player;
 
     public PokeParty PlayerPokePt { get; set; }
@@ -384,5 +389,27 @@ public class NxtUiManager : MonoBehaviour
                 m_gpokeUis[i].SelectedisThis(true);
             }
         }
+    }
+
+    public Pokemon NewPoke(int id)
+    {
+       
+
+        Pokemon poke = new Pokemon();
+        //PokeAssetDatabase pokeAssetDatabase = (PokeAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/PokemonAssetDatabase.asset", typeof(PokeAssetDatabase));
+        //PokeAssetDatabase pokeAssetDatabase = ScriptableObject.CreateInstance("PokeAssetDatabase") as PokeAssetDatabase;
+        // PokeAssetDatabase pokeAssetDatabase = (PokeAssetDatabase)Resources.Load("Database/PokemonAssetDatabase") as PokeAssetDatabase;
+        // Pokemon poke =  new Pokemon( pokeAssetDatabase.GetByID(id));
+        poke.ID = PokeDB.GetByID(id).ID;
+        poke.Name = PokeDB.GetByID(id).Name;
+        poke.PP = PokeDB.GetByID(id).PP;
+        poke.Icon = PokeDB.GetByID(id).Icon;
+        poke.Type1 = PokeDB.GetByID(id).Type1;
+        poke.Type2 = PokeDB.GetByID(id).Type2;
+        poke.PokemonPrefab = PokeDB.GetByID(id).PokemonPrefab;
+        poke.Moves = PokeDB.GetByID(id).Moves;
+        poke.LearnMovesLevels = PokeDB.GetByID(id).LearnMovesLevels;
+
+        return poke;
     }
 }
