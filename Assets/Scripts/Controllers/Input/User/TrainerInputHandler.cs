@@ -17,13 +17,13 @@ public class TrainerInputHandler : MonoBehaviour {
 	void readInputs(){
 		//handle cases for triggering release/capture/cast/inventory/etc
 		if (Input.GetKey(KeyCode.W))
-			Movement(KeyCode.W);
+			MOVEMENT(KeyCode.W);
 		if (Input.GetKeyUp(KeyCode.S))
-			Movement(KeyCode.S);
+			MOVEMENT(KeyCode.S);
 		if (Input.GetKeyUp(KeyCode.D))
-			Movement(KeyCode.D);
+			MOVEMENT(KeyCode.D);
 		if (Input.GetKeyUp(KeyCode.A))
-			Movement(KeyCode.A);
+			MOVEMENT(KeyCode.A);
 		if (Input.GetKeyUp(KeyCode.I))
 			UI(KeyCode.I);
 		checkTrainerCommands ();
