@@ -17,7 +17,7 @@ Coding conventions
   Exposure type ThisCouldBeAMethodWithASingleStatement(type arg) { }
   
   Exposure const type THIS_IS_A_CONST_VAR
-  private type thisIsAPrivateVar
+  private type m_ThisIsAPrivateVar
   Exposure type ThisIsANonPrivateVar
   
   Exposure type ThisIsAProperty {
@@ -114,7 +114,7 @@ namespace Some.Namespace.Path {
 
   	public vars
   	protected vars
-  	private vars
+  	private m_vars
 
   	constructors
 
