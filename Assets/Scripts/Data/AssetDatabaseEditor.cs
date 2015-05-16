@@ -6,7 +6,7 @@ using System.Security.Policy;
 #if UNITY_EDITOR
 public class AssetDatabaseEditor
 {
-   
+    static MockData mockdata = ScriptableObject.CreateInstance("MockData") as MockData;
     private static string GetSelectionFolder()
     {
         if (Selection.activeObject != null)
@@ -32,8 +32,9 @@ public class AssetDatabaseEditor
         AssetDatabase.CreateAsset(asset, AssetDatabase.GenerateUniqueAssetPath(currentPath + assetName));
         AssetDatabase.Refresh();
     }
-
-    [MenuItem("NXT/Asset Database/Pokemon Database/Create Pokemon Database")]
+    /*
+    //Pokemons
+    [MenuItem("NXT/Asset Database/Pokemon Database/Create Pokemon Database")] 
     public static void CreatePokemonsDatabase()
     {
         // Get the currently selected asset directory
@@ -70,8 +71,34 @@ public class AssetDatabaseEditor
         GetFromSQL(asset);
         AssetDatabase.CreateAsset(asset, AssetDatabase.GenerateUniqueAssetPath(currentPath + assetName));
         AssetDatabase.Refresh();
+    }*/
+    [MenuItem("NXT/Asset Database/The Pokemon Database")]
+    public static void CreatePokeDatabase()
+    {
+        
+      //  MockData.instance. mockdata = new MockData();
+        string path = "Assets/Resources/Database/";
+        // New asset name
+        string assetName1 = "MovesAssetDatabase.asset";
+        MoveAssetDatabase asset1 = ScriptableObject.CreateInstance("MoveAssetDatabase") as MoveAssetDatabase;  //scriptable object
+        mockdata.MoveMockData(asset1);
+        AssetDatabase.CreateAsset(asset1, AssetDatabase.GenerateUniqueAssetPath(path + assetName1));
+        AssetDatabase.Refresh();
+        AssetDatabase.SaveAssets(); 
+        // Get the currently selected asset directory
+        //        string currentPath = GetSelectionFolder();
+        // New asset name
+        string assetName = "PokemonAssetDatabase.asset";
+        PokeAssetDatabase asset = ScriptableObject.CreateInstance("PokeAssetDatabase") as PokeAssetDatabase;  //scriptable object
+        mockdata.PokemonmockData(asset);
+        AssetDatabase.CreateAsset(asset, AssetDatabase.GenerateUniqueAssetPath(path + assetName));
+        AssetDatabase.Refresh();
+        AssetDatabase.SaveAssets(); 
+        Debug.Log("Pokemon Database Created and Updated With the Moves");
+   
+        
     }
-
+    /*
     [MenuItem("NXT/Asset Database/Items Database/Update Items DataBase")]
     public static void UpdateItemsDataBase()
     {
@@ -92,7 +119,7 @@ public class AssetDatabaseEditor
         MockData mockdata = new MockData();
         mockdata.PokemonmockData();
         Debug.Log("pokemon Database Updated");
-    }
+    }*/
     /*[MenuItem("NXT/Asset Database/Update DataBase")]
     public static void UpdateDataBase()
     {

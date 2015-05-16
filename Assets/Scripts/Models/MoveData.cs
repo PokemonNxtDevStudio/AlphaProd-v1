@@ -119,6 +119,7 @@ public class MoveData : AssetItem
     }
 
 }
+[System.Serializable]
 public enum DeamageType
 {
     None,
@@ -138,6 +139,7 @@ public enum DeamageType
     Flying,
     Psychic
 }
+[System.Serializable]
 public enum MoveEffect 
 {
     None,
