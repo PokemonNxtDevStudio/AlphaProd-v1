@@ -1,18 +1,12 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-
 public class TrainerController : MonoBehaviour
 {
-
-
-
     private PokeParty pokeParty; 
     public List<String> pokemon;
+	//public SharedConstants.CharacterType characterType;
 
     void Start()
     {
@@ -24,12 +18,34 @@ public class TrainerController : MonoBehaviour
         pokemon.Add("SDSDDSaichu");
     }
 
-    public void ReleasePokemon(int i)
+	void OnEnable(){
+//		TrainerInputHandler.Commands += OnCommand;
+	}
+
+	void Update() {
+		
+	}
+
+	private void OnCommand(){
+
+	}
+
+    public void ReleasePokemon(int __slot)
     {
-        Debug.Log("Releasing " + pokemon[i]);
+		Debug.Log("Releasing " + pokemon[__slot]);
     }
-   
-        
+	
+	public void UseSkill(int __skillID)
+	{
+//		Debug.Log("Using Skill ");
+	}
+	
+	public void UseItem(int __slot)
+	{
+//		Debug.Log("usingItem ");
+	}
+
+    
 
 
     //TODO:

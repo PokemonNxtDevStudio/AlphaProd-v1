@@ -11,4 +11,155 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2102cdb697f6aad4c9684dbde3105d2f, type: 3}
   m_Name: PokemonAssetDatabase
   m_EditorClassIdentifier: 
-  Pokemons: []
+  Pokemons:
+  - m_name: 
+  - m_name: Bulbasaur
+  - m_name: 
+  - m_name: 
+  - m_name: Charmander
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: Caterpie
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: Kakuna
+  - m_name: 
+  - m_name: Pidgey
+  - m_name: 
+  - m_name: 
+  - m_name: Rattata
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: Pikachu
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: Diglett
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: Poliwag
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: Magnemite
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: Magikarp
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 
+  - m_name: 

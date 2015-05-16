@@ -1,0 +1,242 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: NatureAssets_002
+  m_Shader: {fileID: 4800000, guid: 96dadcea3984d494da0e0158a65cc73e, type: 3}
+  m_ShaderKeywords: EFFECT_BUMP
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 6ac67fa5574321f439c20a5257d947a7, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BumpMap
+        second:
+          m_Texture: {fileID: 2800000, guid: 2fbb392d6cb947e4fba639c1b3809011, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Control
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Splat0
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Splat1
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Splat2
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Splat3
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Normal0
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Normal1
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Normal2
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Normal3
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DecalTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ParallaxMap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Ramp
+        second:
+          m_Texture: {fileID: 2800000, guid: e932c54d6500f9c46b63c4d9d03387d2, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Detail
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ToonShade
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _TranslucencyMap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _GlossMap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ShadowOffset
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DetailTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _Cutoff
+        second: .25
+      data:
+        first:
+          name: _Shininess
+        second: 1
+      data:
+        first:
+          name: _WindQuality
+        second: 0
+      data:
+        first:
+          name: _Parallax
+        second: .0199999996
+      data:
+        first:
+          name: _Outline
+        second: .0186999999
+      data:
+        first:
+          name: _Occlusion
+        second: 9.64285755
+      data:
+        first:
+          name: _SquashAmount
+        second: 1
+      data:
+        first:
+          name: _BaseLight
+        second: .321428567
+      data:
+        first:
+          name: _AO
+        second: 10
+      data:
+        first:
+          name: _TranslucencyViewDependency
+        second: .699999988
+      data:
+        first:
+          name: _ShadowStrength
+        second: 1
+      data:
+        first:
+          name: _BumpAmt
+        second: 10
+      data:
+        first:
+          name: _Cull
+        second: 2
+    m_Colors:
+      data:
+        first:
+          name: _Scale
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _Color
+        second: {r: .838235259, g: .838235259, b: .838235259, a: 1}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: .176470578, g: .176470578, b: .176470578, a: 1}
+      data:
+        first:
+          name: _Emission
+        second: {r: 0, g: 0, b: 0, a: 0}
+      data:
+        first:
+          name: _OutlineColor
+        second: {r: .0514705777, g: .0514705777, b: .0514705777, a: 1}
+      data:
+        first:
+          name: _SColor
+        second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _TranslucencyColor
+        second: {r: .730000019, g: .850000024, b: .409999996, a: 1}
+      data:
+        first:
+          name: _HueVariation
+        second: {r: 1, g: .5, b: 0, a: .100000001}

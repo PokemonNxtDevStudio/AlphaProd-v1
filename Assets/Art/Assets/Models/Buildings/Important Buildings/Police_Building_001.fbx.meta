@@ -1,0 +1,93 @@
+fileFormatVersion: 2
+guid: 4a2679917f5de9f4b8f9088b02bb2a87
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Police_Building_01
+    100004: Police_Building_Door
+    100006: Police_Building_DoorGlass
+    100008: Police_building_Garage_Door
+    100010: Police_Building_Glasses
+    100012: Police_Building_Handle
+    400000: //RootNode
+    400002: Police_Building_01
+    400004: Police_Building_Door
+    400006: Police_Building_DoorGlass
+    400008: Police_building_Garage_Door
+    400010: Police_Building_Glasses
+    400012: Police_Building_Handle
+    2300000: Police_Building_01
+    2300002: Police_Building_DoorGlass
+    2300004: Police_building_Garage_Door
+    2300006: Police_Building_Glasses
+    2300008: Police_Building_Handle
+    3300000: Police_Building_01
+    3300002: Police_Building_DoorGlass
+    3300004: Police_building_Garage_Door
+    3300006: Police_Building_Glasses
+    3300008: Police_Building_Handle
+    4300000: Police_building_Garage_Door
+    4300002: Police_Building_DoorGlass
+    4300004: Police_Building_Handle
+    4300006: Police_Building_01
+    4300008: Police_Building_Glasses
+    9500000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 1
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .25
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

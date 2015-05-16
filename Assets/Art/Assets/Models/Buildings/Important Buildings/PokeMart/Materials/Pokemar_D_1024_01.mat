@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Pokemar_D_1024_01
+  m_Shader: {fileID: 4800000, guid: 90402f5bce1d4844db387eef6ece2606, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 91998c98c4bb82b44b891014b400dc51, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BumpMap
+        second:
+          m_Texture: {fileID: 2800000, guid: d6f8b683e3b380643b2c42d2b4b68ff5, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Ramp
+        second:
+          m_Texture: {fileID: 2800000, guid: e932c54d6500f9c46b63c4d9d03387d2, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _Outline
+        second: .00319999992
+    m_Colors:
+      data:
+        first:
+          name: _Color
+        second: {r: .661764741, g: .642301083, b: .642301083, a: 1}
+      data:
+        first:
+          name: _OutlineColor
+        second: {r: .200000003, g: .200000003, b: .200000003, a: 1}
+      data:
+        first:
+          name: _SColor
+        second: {r: 0, g: 0, b: 0, a: 1}
