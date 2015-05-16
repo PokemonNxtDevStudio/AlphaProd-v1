@@ -32,15 +32,20 @@ public class TrainerInputHandler : MonoBehaviour {
 			//Return pokemon if pokemon is out
 		}
 
-		if (Input.GetKeyUp (KeyCode.Alpha1))
+		if (Input.GetKeyUp (KeyCode.Alpha1)) {
+		}
 			//cast skill 1
-		if (Input.GetKeyUp (KeyCode.Alpha2))
+		if (Input.GetKeyUp (KeyCode.Alpha2)){
+		}
 			//cast skill 2
-		if (Input.GetKeyUp (KeyCode.Alpha3))
+		if (Input.GetKeyUp (KeyCode.Alpha3)){
+		}
 			//cast skill 3
-		if (Input.GetKeyUp (KeyCode.Alpha4))
+		if (Input.GetKeyUp (KeyCode.Alpha4)){
+		}
 			//cast skill 4
-		if (Input.GetKeyUp (KeyCode.Alpha5))
+		if (Input.GetKeyUp (KeyCode.Alpha5)){
+		}
 			//cast skill 5
 
 	}
