@@ -298,6 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b645b520698ec8745ab3ee3a2bdb88db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 2113403486}
   pokemon: []
 --- !u!114 &829632703
 MonoBehaviour:
@@ -310,7 +311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5904a656b19578942b9bf6a7a907426e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 2113403486}
   speed: .200000003
 --- !u!1 &849307442
 GameObject:
