@@ -79,19 +79,21 @@ public class TrainerController : MonoBehaviour
 				break;
 		}
 	}
+
     public void TogglePokemon() {
 		Debug.Log("Releasing "+pokemon[pokeSlot]);
 		ReleasePokeball pokeball = ((GameObject)GameObject.Instantiate (releasePokeball, transform.position, transform.rotation)).GetComponent<ReleasePokeball>();
-		pokeball.pokemon = pokemon [pokeSlot];
-		pokeball.direction = Vector3.forward;
+		pokeball.transform.eulerAngles = transform.eulerAngles;
+		pokeball.transform.position = new Vector3 (transform.position.x, transform.position.y + 2, transform.position.z);
 		pokeball.releaseComplete += PokemonSpawned;
+		pokeball.pokemon = pokemon [pokeSlot];
 		//		releasePokeball.transform.position = Vector3.zero;
     }
 
 	public void PokemonSpawned(GameObject __pokemon, Transform __transform){
 		Debug.Log ("spawn dat pokemon!");
 		GameObject pokemon = (GameObject) GameObject.Instantiate (__pokemon.gameObject, __transform.position, __transform.rotation);
-		cameraController.SetTarget(pokemon.transform);
+		cameraController.SetTarget(pokemon.transform, .25f);
 //		cameraController.
 	}
 	

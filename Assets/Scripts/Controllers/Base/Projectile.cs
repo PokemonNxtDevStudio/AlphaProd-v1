@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class Projectile : Destructible {
-	public Vector3 direction;
 	public float force = 10;
 	public int speed = 1;
 	public delegate void CollisionCallback(GameObject __obj);
@@ -11,13 +10,12 @@ public class Projectile : Destructible {
 	protected virtual void Awake () {
 		//do throw here
 		base.Awake ();
-		
-		GetComponent<Rigidbody> ().AddForce (direction*force);
+
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	protected virtual void Update () {
+		GetComponent<Rigidbody> ().AddForce (transform.forward*force);
 	}
 //	throwItem(force)
 //		overrideDestroy()
@@ -30,6 +28,6 @@ public class Projectile : Destructible {
 	public override void DoDeath(){
 		base.DoDeath ();
 		//death animations can go here too
-		GameObject.Destroy(this);
+		GameObject.Destroy(gameObject);
 	}
 }

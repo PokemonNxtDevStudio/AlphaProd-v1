@@ -5,7 +5,6 @@ public class Destructible : MonoBehaviour {
 	public float timeBeforeDeath;
 	// Use this for initialization
 	protected virtual void Awake () {
-		Debug.Log ("before death...!" + timeBeforeDeath);
 		if(timeBeforeDeath > 0) 
 			StartCoroutine ("TimeToDie");
 	}

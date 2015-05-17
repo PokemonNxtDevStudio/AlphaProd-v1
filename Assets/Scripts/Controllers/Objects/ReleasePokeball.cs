@@ -7,13 +7,13 @@ public class ReleasePokeball : Projectile {
 	public GameObject pokemon;
 	// Use this for initialization
 	protected override void Awake () {
-		timeBeforeDeath = 1f;
+//		timeBeforeDeath = 1f;
 		base.Awake ();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	override protected void Update () {
+		base.Update ();
 	}
 
 	public override void DoDeath(){
