@@ -106,13 +106,14 @@ public class HInventory : MonoBehaviour
     {
         if ( NxtUiManager.instance.SelectedItem.ItemID != 0)
         {
-            if (NxtUiManager.instance.DB.GetByID(NxtUiManager.instance.SelectedItem.ItemID).BuyingPrice <= m_Money && (m_Money - NxtUiManager.instance.DB.GetByID(NxtUiManager.instance.SelectedItem.ItemID).BuyingPrice) > -1)
+            if (NxtUiManager.instance.ItemsDB.GetByID(NxtUiManager.instance.SelectedItem.ItemID).BuyingPrice <= m_Money && (m_Money - NxtUiManager.instance.ItemsDB.GetByID(NxtUiManager.instance.SelectedItem.ItemID).BuyingPrice) > -1)
            {
-               NxtUiManager.instance.ShowTypeOfItemInventory(NxtUiManager.instance.DB.GetByID(NxtUiManager.instance.SelectedItem.ItemID).ItemType);
+               NxtUiManager.instance.ShowItemsTab();
+               NxtUiManager.instance.ShowTypeOfItemInventory(NxtUiManager.instance.ItemsDB.GetByID(NxtUiManager.instance.SelectedItem.ItemID).ItemType);
 
                AddItemWithID(NxtUiManager.instance.SelectedItem.ItemID);
               if(m_ItemAdded == true)
-                  m_Money -= NxtUiManager.instance.DB.GetByID(NxtUiManager.instance.SelectedItem.ItemID).BuyingPrice;
+                  m_Money -= NxtUiManager.instance.ItemsDB.GetByID(NxtUiManager.instance.SelectedItem.ItemID).BuyingPrice;
               NxtUiManager.instance.ShowMoney(m_Money);
               ThisCapasitySize();
            }
@@ -200,7 +201,7 @@ public class HInventory : MonoBehaviour
     private void AddItemWithID(int x)
     {
         //each time we make a new item we create a new item instance...
-        InventoryItem item = new InventoryItem(NxtUiManager.instance.DB.GetByID(x));
+        InventoryItem item = new InventoryItem(NxtUiManager.instance.ItemsDB.GetByID(x));
         AddItemToInventory(item);
     }
     //We call this to add items to the inventory

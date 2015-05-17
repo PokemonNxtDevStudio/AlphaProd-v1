@@ -21,16 +21,19 @@ public class AssetDatabaseEditor
         }
         return "Assets/Scripts/Data";
     }
-    [MenuItem("NXT/Asset Database/Items Database/Create Item Database")]
-    public static void CreateItemsDatabase()
+   // [MenuItem("NXT/Asset Database/Items Database/Create Item Database")]
+     [MenuItem("NXT/Asset Database/Items Database")]
+    public static void ItemsDatabase()
     {
         // Get the currently selected asset directory
-        string currentPath = GetSelectionFolder();
+        //string currentPath = GetSelectionFolder();
         // New asset name
-		string assetName = "ItemAssetDatabase.asset";
+		//string assetName = "ItemAssetDatabase.asset";
 		ItemAssetDatabase asset = ScriptableObject.CreateInstance("ItemAssetDatabase") as ItemAssetDatabase;  //scriptable object
-        AssetDatabase.CreateAsset(asset, AssetDatabase.GenerateUniqueAssetPath(currentPath + assetName));
+        mockdata.ItemMockData(asset);
+        AssetDatabase.CreateAsset(asset, AssetDatabase.GenerateUniqueAssetPath("Assets/Resources/Database/ItemAssetDatabase.asset"));
         AssetDatabase.Refresh();
+        AssetDatabase.SaveAssets(); 
     }
     /*
     //Pokemons
@@ -90,7 +93,7 @@ public class AssetDatabaseEditor
         // New asset name
         string assetName = "PokemonAssetDatabase.asset";
         PokeAssetDatabase asset = ScriptableObject.CreateInstance("PokeAssetDatabase") as PokeAssetDatabase;  //scriptable object
-        mockdata.PokemonmockData(asset);
+        mockdata.PokemonmockData(asset,asset1);
         AssetDatabase.CreateAsset(asset, AssetDatabase.GenerateUniqueAssetPath(path + assetName));
         AssetDatabase.Refresh();
         AssetDatabase.SaveAssets(); 
