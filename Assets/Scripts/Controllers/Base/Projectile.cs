@@ -2,13 +2,16 @@
 using System.Collections;
 
 public class Projectile : Destructible {
-	public int speed;
 	public Vector3 force;
+	public int speed = 1;
 	public delegate void CollisionCallback(GameObject __obj);
 	public event CollisionCallback collided;
 	// Use this for initialization
-	void Awake () {
+	protected virtual void Awake () {
 		//do throw here
+		base.Awake ();
+		
+		GetComponent<Rigidbody> ().AddForce (force);
 	}
 	
 	// Update is called once per frame
@@ -24,6 +27,7 @@ public class Projectile : Destructible {
 	}
 
 	public override void DoDeath(){
+		base.DoDeath ();
 		//death animations can go here too
 		GameObject.Destroy(this);
 	}

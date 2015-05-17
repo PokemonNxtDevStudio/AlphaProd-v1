@@ -8,17 +8,19 @@ public class TrainerController : MonoBehaviour
 	private PokeParty pokeParty; 
 	private MotorController motor;
 	private int pokeSlot;
-    public List<String> pokemon;
-	//public SharedConstants.CharacterType characterType;
+	public CameraTransitionController cameraController;
+	//    public List<String> pokemon;
+	public List<GameObject> pokemon;
+	public GameObject releasePokeball;
 
     void Start()
     {
-        pokemon.Add("Pikachu");
-        pokemon.Add("Raichu");
-        pokemon.Add("SDSDDSaichu");
-        pokemon.Add("Pikachu");
-        pokemon.Add("Raichu");
-		pokemon.Add("SDSDDSaichu");
+//        pokemon.Add("Pikachu");
+//        pokemon.Add("Raichu");
+//        pokemon.Add("SDSDDSaichu");
+//        pokemon.Add("Pikachu");
+//        pokemon.Add("Raichu");
+//		pokemon.Add("SDSDDSaichu");
 		motor = GetComponent<MotorController> ();
 
     }
@@ -77,23 +79,31 @@ public class TrainerController : MonoBehaviour
 				break;
 		}
 	}
-    public void TogglePokemon()
-    {
+    public void TogglePokemon() {
 		Debug.Log("Releasing "+pokemon[pokeSlot]);
+		ReleasePokeball pokeball = ((GameObject)GameObject.Instantiate (releasePokeball, transform.position, transform.rotation)).GetComponent<ReleasePokeball>();
+		pokeball.pokemon = pokemon [pokeSlot];
+		pokeball.force = Vector3.forward *10;
+		pokeball.releaseComplete += PokemonSpawned;
+		//		releasePokeball.transform.position = Vector3.zero;
     }
+
+	public void PokemonSpawned(GameObject __pokemon, Transform __transform){
+		Debug.Log ("spawn dat pokemon!");
+		GameObject pokemon = (GameObject) GameObject.Instantiate (__pokemon.gameObject, __transform.position, __transform.rotation);
+		cameraController.SetTarget(pokemon.transform);
+//		cameraController.
+	}
 	
-	public void UseSkill(int __skillSlotID)
-	{
+	public void UseSkill(int __skillSlotID) {
 		Debug.Log("Using Skill from slot: "+__skillSlotID);
 	}
 	
-	public void UseItem(int __slot)
-	{
+	public void UseItem(int __slot) {
 //		Debug.Log("usingItem ");
 	}
 	
-	public void ToggleInventory()
-	{
+	public void ToggleInventory() {
 		Debug.Log("opening inventory ");
 	}
 	

@@ -4,7 +4,7 @@ using System.Collections;
 public class Destructible : MonoBehaviour {
 	public float timeBeforeDeath;
 	// Use this for initialization
-	void Awake () {
+	protected virtual void Awake () {
 		if(timeBeforeDeath > 0) 
 			StartCoroutine ("TimeToDie");
 	}
