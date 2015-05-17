@@ -261,28 +261,6 @@ MonoBehaviour:
 GameObject:
   m_PrefabParentObject: {fileID: 100054, guid: 9305606a1f2593f4f8a2573911c22665, type: 2}
   m_PrefabInternal: {fileID: 389971548}
---- !u!114 &829632695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 829632694}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc9b1becda369bc42b10cd9c6b0f1e92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AnimatorCtrl: {fileID: 0}
-  GroundLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  Gravity: 10
-  CanJump: 0
-  JumpHeight: 2
-  MaxVelocityChange: 10
-  baseSpeed: 10
-  interpolationSmoothing: 5
-  obj: {fileID: 0}
 --- !u!4 &829632696 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400054, guid: 9305606a1f2593f4f8a2573911c22665, type: 2}
@@ -311,7 +289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5904a656b19578942b9bf6a7a907426e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: .200000003
 --- !u!1 &849307442
 GameObject:
   m_ObjectHideFlags: 0
