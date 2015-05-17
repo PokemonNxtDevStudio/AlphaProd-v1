@@ -108,49 +108,49 @@ public class Pokemon : AssetItem
     private PokemonPokeball m_pokeball = PokemonPokeball.None;
     public PokemonPokeball Pokeball { get { return m_pokeball; } set { m_pokeball = value; } }
 
+    public Pokemon()
+    {
+        this.m_id = 0;
+        this.m_name = "";
+        // m_pokedexnumber = PokedexNum;
+        this.m_pp = 0;
+        this.m_icon = null;
+        this.m_type1 = PokemonType.None;
+        this.m_type2 = PokemonType.None;
+        this.m_pokemonprefab = null;
+       // this.m_moves = null;
+       // this.m_learnmovelevel = learnMovesAtLevel;
+    }
     public Pokemon(int id,string name/*,int PokedexNum*/,float PP,Sprite Icon,PokemonType type1,PokemonType type2,GameObject PokePrefab,List<MoveData> moves,List<int> learnMovesAtLevel)
     {
-        m_id = id;
-        m_name = name;
+        this.m_id = id;
+        this.m_name = name;
        // m_pokedexnumber = PokedexNum;
-        m_pp = PP;
-        m_icon = Icon;
-        m_type1 = type1;
-        m_type2 = type2;
-        m_pokemonprefab = PokePrefab;
-        m_moves = moves;
-        m_learnmovelevel = learnMovesAtLevel;
+        this.m_pp = PP;
+        this.m_icon = Icon;
+        this.m_type1 = type1;
+        this.m_type2 = type2;
+        this.m_pokemonprefab = PokePrefab;
+        this.m_moves = moves;
+        this.m_learnmovelevel = learnMovesAtLevel;
     }
-    public Pokemon(int id)
-    {
-        //PokeAssetDatabase pokeAssetDatabase = (PokeAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/PokemonAssetDatabase.asset", typeof(PokeAssetDatabase));
-        PokeAssetDatabase pokeAssetDatabase = (PokeAssetDatabase)Resources.Load("Database/PokemonAssetDatabase");
-        Pokemon poke =  new Pokemon( pokeAssetDatabase.GetByID(id));
-        m_id = poke.ID;
-        m_name = poke.Name;
-        m_pp = poke.PP;
-        m_icon = poke.Icon;
-        m_type1 = poke.Type1;
-        m_type2 = poke.Type2;
-        m_pokemonprefab = poke.PokemonPrefab;
-        m_moves = poke.Moves;
-        m_learnmovelevel = poke.LearnMovesLevels;
-    }
+    
     public Pokemon(Pokemon poke)
     {
-        m_id = poke.ID;
-        m_name = poke.Name;
-        m_pp = poke.PP;
-        m_icon = poke.Icon;
-        m_type1 = poke.Type1;
-        m_type2 = poke.Type2;
-        m_pokemonprefab = poke.PokemonPrefab;
-        m_moves = poke.Moves;
-        m_learnmovelevel = poke.LearnMovesLevels;
+        this.m_id = poke.ID;
+        this.m_name = poke.Name;
+        this.m_pp = poke.PP;
+        this.m_icon = poke.Icon;
+        this.m_type1 = poke.Type1;
+        this.m_type2 = poke.Type2;
+        this.m_pokemonprefab = poke.PokemonPrefab;
+        this.m_moves = poke.Moves;
+        this.m_learnmovelevel = poke.LearnMovesLevels;
     }
     
     
 }
+[System.Serializable]
 public enum PokemonType
 {
     None,
@@ -166,6 +166,7 @@ public enum PokemonType
     Flying,
     Steel
 }
+[System.Serializable]
 public enum PokemonPokeball
 {
     None,

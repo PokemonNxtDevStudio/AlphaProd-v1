@@ -97,28 +97,40 @@ public class MoveData : AssetItem
 
     public MoveData(int mId, string mName, float mPP, float mPower, float mCooldown, string mDescription, DeamageType mType, MoveEffect mEffect)
     {
-        m_id = mId;
-        m_name = mName;
-        m_pp = mPP;
-        m_power = mPower;
-        m_movecooldown = mCooldown;
-        m_description = mDescription;
-        m_movetype = mType;
-        m_moveeffect = mEffect;
+        this.m_id = mId;
+        this.m_name = mName;
+        this.m_pp = mPP;
+        this.m_power = mPower;
+        this.m_movecooldown = mCooldown;
+        this.m_description = mDescription;
+        this.m_movetype = mType;
+        this.m_moveeffect = mEffect;
     }
     public MoveData(MoveData move)
     {
-        m_id = move.ID;
-        m_name = move.Name;
-        m_pp = move.PP;
-        m_power = move.Power;
-        m_movecooldown = move.MoveCooldown;
-        m_description = move.Description;
-        m_movetype = move.MoveType;
-        m_moveeffect = move.MoveEffect;
+        this.m_id = move.ID;
+        this.m_name = move.Name;
+        this.m_pp = move.PP;
+        this.m_power = move.Power;
+        this.m_movecooldown = move.MoveCooldown;
+        this.m_description = move.Description;
+        this.m_movetype = move.MoveType;
+        this.m_moveeffect = move.MoveEffect;
+    }
+    public MoveData()
+    {
+        this.m_id = 0;
+        this.m_name = "";
+        this.m_pp = 0;
+        this.m_power = 0;
+        this.m_movecooldown = 0;
+        this.m_description = "";
+        this.m_movetype = DeamageType.None;
+        this.m_moveeffect = MoveEffect.None;
     }
 
 }
+[System.Serializable]
 public enum DeamageType
 {
     None,
@@ -138,6 +150,7 @@ public enum DeamageType
     Flying,
     Psychic
 }
+[System.Serializable]
 public enum MoveEffect 
 {
     None,

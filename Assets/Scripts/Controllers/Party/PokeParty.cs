@@ -35,7 +35,7 @@ public class PokeParty
         slots = new List<PokeSlot>();
         GetPokeSlot(0); //Assume the trainer has no pokemon
     }
-
+    /*
     public void AddAPokemon(Pokemon pokemon)
     {
         if(slots.Count >= PARTY_MAX)
@@ -54,7 +54,7 @@ public class PokeParty
 
             //return true;
         }
-    }
+    }*/
     public int SlotCount()
     {
         return slots.Count;
@@ -107,13 +107,42 @@ public class PokeParty
 
         PokeSlot slot = new PokeSlot(this, pokemon);
         GetSlots().Add(slot);
-        NxtUiManager.instance.PokemonsInPtUI[slots.Count - 1].SetThisPokemonIconAndName(pokemon);
+        UiUpdate();
+        //NxtUiManager.instance.PokemonsInPtUI[slots.Count - 1].SetThisPokemonIconAndName(pokemon);
+
         if (selectedIndex == -1)
             GetPokeSlot(slot.index); //Select by default if no pokemon is selectedIndex
 
         return true;
     }
+    public bool AddPokemonByID(int id)
+    {
+        if (!CanAddPokemon())
+            return false;
+        Pokemon poke = new Pokemon();
+        poke.ID = NxtUiManager.instance.PokemonDB.GetByID(id).ID;
+        poke.Name = NxtUiManager.instance.PokemonDB.GetByID(id).Name;
+        poke.PP = NxtUiManager.instance.PokemonDB.GetByID(id).PP;
+        poke.Icon = NxtUiManager.instance.PokemonDB.GetByID(id).Icon;
+        poke.Type1 = NxtUiManager.instance.PokemonDB.GetByID(id).Type1;
+        poke.Type2 = NxtUiManager.instance.PokemonDB.GetByID(id).Type2;
+        poke.PokemonPrefab = NxtUiManager.instance.PokemonDB.GetByID(id).PokemonPrefab;
+        poke.Moves = NxtUiManager.instance.PokemonDB.GetByID(id).Moves;
+        poke.LearnMovesLevels = NxtUiManager.instance.PokemonDB.GetByID(id).LearnMovesLevels;
+        PokeSlot slot = new PokeSlot(this, poke);
+        GetSlots().Add(slot);
+        UiUpdate();
+        //NxtUiManager.instance.PokemonsInPtUI[slots.Count - 1].SetThisPokemonIconAndName(pokemon);
 
+        if (selectedIndex == -1)
+            GetPokeSlot(slot.index); //Select by default if no pokemon is selectedIndex
+
+        return true;
+    }
+    private void UiUpdate()
+    {
+        NxtUiManager.instance.SetCurPokesUis(slots);
+    }
     public void RemovePokemon(int index)
     {
        // PokeSlot slot = GetSlot(index);
@@ -187,6 +216,7 @@ public class PokeParty
         PokeSlot slot = slots[index1];
         slots[index1] = slots[index2];
         slots[index2] = slot;
+        UiUpdate();
     }
 
     public Pokemon GetPokemon(int id)
@@ -200,6 +230,26 @@ public class PokeParty
         return null;
     }
 
+
+
+    //public string GetPokeSlotIcon(int index)
+    //{
+       // return GetPokeSlot(index).pokemon.iconName;
+    //}
+  
+   // public int GetPokeSlotLevel(int index)
+    //{
+       // return GetPokeSlot(index).pokemon.level;
+    //}
+    //public Sprite GetPokemonSlotIconSprite(int index)
+    //{
+        //return GetPokeSlot(index).pokemon.Icon;
+    //}
+    public string GetPokeSlotName(int index)
+    {
+        return GetPokeSlot(index).pokemon.Name;
+    }
+}
     public class PokeSlot
     {
         public int index
@@ -223,22 +273,4 @@ public class PokeParty
         }
     }
 
-    public string GetPokeSlotName(int index)
-    {
-        return GetPokeSlot(index).pokemon.Name;
-    }
-
-    //public string GetPokeSlotIcon(int index)
-    //{
-       // return GetPokeSlot(index).pokemon.iconName;
-    //}
-  
-   // public int GetPokeSlotLevel(int index)
-    //{
-       // return GetPokeSlot(index).pokemon.level;
-    //}
-    //public Sprite GetPokemonSlotIconSprite(int index)
-    //{
-        //return GetPokeSlot(index).pokemon.Icon;
-    //}
-}
+   

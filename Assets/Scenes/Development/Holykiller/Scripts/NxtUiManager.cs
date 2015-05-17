@@ -111,10 +111,19 @@ public class NxtUiManager : MonoBehaviour
     private Text m_pokePP;
     [SerializeField]
     private Text m_pokeSpeed;
+    [Header("General UI")]
+    [SerializeField]
+    private List<GPokeUi> m_gpokeUis = new List<GPokeUi>();
 
     [SerializeField]
-    private ItemAssetDatabase db;
-    public ItemAssetDatabase DB { get { return db; }/* set { db = value; }*/ }
+    private ItemAssetDatabase m_itemsDB;
+    public ItemAssetDatabase ItemsDB { get { return m_itemsDB; }/* set { db = value; }*/ }
+
+    [SerializeField]
+    PokeAssetDatabase PokeDB;
+    public PokeAssetDatabase PokemonDB { get {return PokeDB; } }
+    //[SerializeField]
+    //MoveAssetDatabase MovesDB;
 
     private GameObject player;
 
@@ -348,4 +357,60 @@ public class NxtUiManager : MonoBehaviour
         m_pokePP.text = "PP : " + PP.ToString();
         m_pokeSpeed.text = "Speed : " + speed.ToString();
     }
+
+    public void SetCurPokesUis(List<PokeSlot> slots)
+    {
+        for(int i = 0 ; i < slots.Count ;i++)
+        {
+            PokemonsInPtIcons[i].SetThisPokemonIconAndName(slots[i].pokemon);
+            
+        }
+        for(int x = 0; x < slots.Count;x++)
+        {
+            if(slots[x].pokemon != null)
+            {
+                m_gpokeUis[x].gameObject.SetActive(true);
+                m_gpokeUis[x].SetValues(slots[x].pokemon);
+            }
+            else
+            {
+                m_gpokeUis[x].gameObject.SetActive(false);
+            }
+            
+        }
+       // PokemonsInPtIcons
+    }
+    public void CurSelectedPoke(int index)
+    {
+        for(int i = 0;i < m_gpokeUis.Count;i++)
+        {
+            m_gpokeUis[i].SelectedisThis(false);
+            if(i == index)
+            {
+                m_gpokeUis[i].SelectedisThis(true);
+            }
+        }
+    }
+
+    /*public Pokemon NewPoke(int id)
+    {
+       
+
+        Pokemon poke = new Pokemon();
+        //PokeAssetDatabase pokeAssetDatabase = (PokeAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/PokemonAssetDatabase.asset", typeof(PokeAssetDatabase));
+        //PokeAssetDatabase pokeAssetDatabase = ScriptableObject.CreateInstance("PokeAssetDatabase") as PokeAssetDatabase;
+        // PokeAssetDatabase pokeAssetDatabase = (PokeAssetDatabase)Resources.Load("Database/PokemonAssetDatabase") as PokeAssetDatabase;
+        // Pokemon poke =  new Pokemon( pokeAssetDatabase.GetByID(id));
+        poke.ID = PokeDB.GetByID(id).ID;
+        poke.Name = PokeDB.GetByID(id).Name;
+        poke.PP = PokeDB.GetByID(id).PP;
+        poke.Icon = PokeDB.GetByID(id).Icon;
+        poke.Type1 = PokeDB.GetByID(id).Type1;
+        poke.Type2 = PokeDB.GetByID(id).Type2;
+        poke.PokemonPrefab = PokeDB.GetByID(id).PokemonPrefab;
+        poke.Moves = PokeDB.GetByID(id).Moves;
+        poke.LearnMovesLevels = PokeDB.GetByID(id).LearnMovesLevels;
+
+        return poke;
+    }*/
 }

@@ -5,159 +5,160 @@ using System.Collections;
 public class Custom3DHouses : MonoBehaviour
 {
     #region Paths
+    private const string _foldersPath = "Assets/Resources/Prefabs/Environment/Buildings/";
     #region House 3 Paths
     //House003 Paths
-    private string _h3RoofPath = "Assets/Resources/House_003/Roof/House_003_Roof_";
-    private string _h3InsideRoofPath = "Assets/Resources/House_003/InsideRoof/House_003_InteriorRoof_";
-    private string _h3OutsideWallsPath = "Assets/Resources/House_003/OutsideWalls/House_003_OutsideWalls_";
-    private string _h3InsideWallsPath = "Assets/Resources/House_003/InsideWalls/House_003_InsideWalls_";
-    private string _h3F1FloorPath = "Assets/Resources/House_003/F1Floor/House_003_F1Floor_v";
-    private string _h3F2FloorPath = "Assets/Resources/House_003/F2Floor/House_003_F2Floor_v";
-    private string _h3FirePlacePath = "Assets/Resources/House_003/Fireplace/House_003_FirePlace_";
-    private string _h3StairsPath = "Assets/Resources/House_003/House_003_Stairs_v1";
-    private string _h3CollidersPath = "Assets/Resources/House_003/House_003_Colliders";
-    private string _h3WindowsGlassesPath = "Assets/Resources/House_003/House_003_WindowsGlass";
-    private string _h3DoorPath = "Assets/Resources/House_003/Door/House_003_Door_";
+    private string _h3RoofPath = _foldersPath + "House_003/Roof/House_003_Roof_";
+    private string _h3InsideRoofPath = _foldersPath + "House_003/InsideRoof/House_003_InteriorRoof_";
+    private string _h3OutsideWallsPath = _foldersPath + "House_003/OutsideWalls/House_003_OutsideWalls_";
+    private string _h3InsideWallsPath = _foldersPath + "House_003/InsideWalls/House_003_InsideWalls_";
+    private string _h3F1FloorPath = _foldersPath + "House_003/F1Floor/House_003_F1Floor_v";
+    private string _h3F2FloorPath = _foldersPath + "House_003/F2Floor/House_003_F2Floor_v";
+    private string _h3FirePlacePath = _foldersPath + "House_003/Fireplace/House_003_FirePlace_";
+    private string _h3StairsPath = _foldersPath + "House_003/House_003_Stairs_v1";
+    private string _h3CollidersPath = _foldersPath + "House_003/House_003_Colliders";
+    private string _h3WindowsGlassesPath = _foldersPath + "House_003/House_003_WindowsGlass";
+    private string _h3DoorPath = _foldersPath + "House_003/Door/House_003_Door_";
     #endregion
     #region House 4 Paths
     //House004 Paths 
-    private string _h4Roof1Path = "Assets/Resources/House_004/Roof1/House_004_Roof_1_v";
-    private string _h4Roof2Path = "Assets/Resources/House_004/Roof2/House_004_Roof_2_v";
-    private string _h4OutsideWallsPath = "Assets/Resources/House_004/OutsideWalls/House_004_OutSideWalls_v";
-    private string _h4InsideWallsPath = "Assets/Resources/House_004/InsideWalls/house_004_InsideWalls_v";
-    private string _h4F1FloorPath = "Assets/Resources/House_004/F1Floor/House_004_F1Floor_v";
-    private string _h4F2FloorPath = "Assets/Resources/House_004/F2Floor/House_004_F2Floor_v";
-    private string _h4FrontStarisPath = "Assets/Resources/House_004/Detail/House_004_Detail_v";
-    private string _h4FirePlacePath = "Assets/Resources/House_004/Detail/House_004_Detail_02_v";
-    private string _h4StairsPath = "Assets/Resources/House_004/House_004_Stairs_v1";
-    private string _h4CollidersPath = "Assets/Resources/House_004/House_004_Colliders";
-    private string _h4BasementPath = "Assets/Resources/House_004/Basement/House_004_Basemant_v";
-    private string _h4WindowsGlassesPath = "Assets/Resources/House_004/House_004_WindosGlases";
-    private string _h4DoorPath = "Assets/Resources/House_004/Door/House_004_Door_v";
+    private string _h4Roof1Path = _foldersPath + "House_004/Roof1/House_004_Roof_1_v";
+    private string _h4Roof2Path = _foldersPath + "House_004/Roof2/House_004_Roof_2_v";
+    private string _h4OutsideWallsPath = _foldersPath + "House_004/OutsideWalls/House_004_OutSideWalls_v";
+    private string _h4InsideWallsPath = _foldersPath + "House_004/InsideWalls/house_004_InsideWalls_v";
+    private string _h4F1FloorPath = _foldersPath + "House_004/F1Floor/House_004_F1Floor_v";
+    private string _h4F2FloorPath = _foldersPath + "House_004/F2Floor/House_004_F2Floor_v";
+    private string _h4FrontStarisPath = _foldersPath + "House_004/Detail/House_004_Detail_v";
+    private string _h4FirePlacePath = _foldersPath + "House_004/Detail/House_004_Detail_02_v";
+    private string _h4StairsPath = _foldersPath + "House_004/House_004_Stairs_v1";
+    private string _h4CollidersPath = _foldersPath + "House_004/House_004_Colliders";
+    private string _h4BasementPath = _foldersPath + "House_004/Basement/House_004_Basemant_v";
+    private string _h4WindowsGlassesPath = _foldersPath + "House_004/House_004_WindosGlases";
+    private string _h4DoorPath = _foldersPath + "House_004/Door/House_004_Door_v";
     #endregion
 
     #region House 5 Paths
     //House005 Paths 
-    private string _h5RoofPath = "Assets/Resources/House_005/Roof/House_005_Roof_";
-    private string _h5OutsideWallsPath = "Assets/Resources/House_005/OutsideWalls/House_005_OutSideWalls_";
-    private string _h5InsideWallsPath = "Assets/Resources/House_005/InsideWalls/House_005_InsideWalls_";
-    private string _h5F1FloorPath = "Assets/Resources/House_005/F1Floor/House_005_F1Floor_";
-    private string _h5F2FloorPath = "Assets/Resources/House_005/F2Floor/House_005_F2Floor_";
-    private string _h5StairsPath = "Assets/Resources/House_005/House_005_Stairs";
-    private string _h5WindowsGlassesPath = "Assets/Resources/House_005/House_005_WindowsGlass";
-    private string _h5DoorPath = "Assets/Resources/House_005/Door/House_005_Door_v";
-    private string _h5InsideExtraWallsPath = "Assets/Resources/House_005/F2Walls/House_005_F2InsideWalls_";
-    private string _h5PillarsPath = "Assets/Resources/House_005/Pillar/House_005_Pillars_";
-    private string _h5InsideRoofPath = "Assets/Resources/House_005/InsideRoof/House_005_InsideRoof_";
+    private string _h5RoofPath = "Assets/Resources/Prefabs/Environment/Buildings/House_005/Roof/House_005_Roof_";
+    private string _h5OutsideWallsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_005/OutsideWalls/House_005_OutSideWalls_";
+    private string _h5InsideWallsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_005/InsideWalls/House_005_InsideWalls_";
+    private string _h5F1FloorPath = "Assets/Resources/Prefabs/Environment/Buildings/House_005/F1Floor/House_005_F1Floor_";
+    private string _h5F2FloorPath = "Assets/Resources/Prefabs/Environment/Buildings/House_005/F2Floor/House_005_F2Floor_";
+    private string _h5StairsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_005/House_005_Stairs";
+    private string _h5WindowsGlassesPath = "Assets/Resources/Prefabs/Environment/Buildings/House_005/House_005_WindowsGlass";
+    private string _h5DoorPath = "Assets/Resources/House_005/Prefabs/Environment/Buildings/Door/House_005_Door_v";
+    private string _h5InsideExtraWallsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_005/F2Walls/House_005_F2InsideWalls_";
+    private string _h5PillarsPath = "Assets/Resources/House_005/Prefabs/Environment/Buildings/Pillar/House_005_Pillars_";
+    private string _h5InsideRoofPath = "Assets/Resources/Prefabs/Environment/Buildings/House_005/InsideRoof/House_005_InsideRoof_";
     #endregion
 
     #region House 6 Paths
     //House006 Paths 
-    private string _h6RoofPath = "Assets/Resources/House_006/Roof/House_006_Roof_";
-    private string _h6OutsideWallsPath = "Assets/Resources/House_006/OutsideWalls/House_006_OutSideWalls_";
-    private string _h6InsideWallsPath = "Assets/Resources/House_006/InsideWalls/House_006_InsideWalls_";
-    private string _h6F1FloorPath = "Assets/Resources/House_006/F1Floor/House_006_F1Floor_";
-    private string _h6F2FloorPath = "Assets/Resources/House_006/F2Floor/House_006_F2Floor_";
-    private string _h6StairsPath = "Assets/Resources/House_006/House_006_Stairs";
-    private string _h6WindowsGlassesPath = "Assets/Resources/House_006/House_006_WindowsGlass";
-    private string _h6DoorPath = "Assets/Resources/House_006/Door/House_006_Door_v";
-    private string _h6FramesPath = "Assets/Resources/House_006/Frame/House_006_Frames_";
-    private string _h6FrontStairsPath = "Assets/Resources/House_006/FrontStairs/House_006_FrontStairs_";
-    private string _h6InsideRoofPath = "Assets/Resources/House_006/InteriorRoof/House_006_InsideRoof_";
+    private string _h6RoofPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/Roof/House_006_Roof_";
+    private string _h6OutsideWallsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/OutsideWalls/House_006_OutSideWalls_";
+    private string _h6InsideWallsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/InsideWalls/House_006_InsideWalls_";
+    private string _h6F1FloorPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/F1Floor/House_006_F1Floor_";
+    private string _h6F2FloorPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/F2Floor/House_006_F2Floor_";
+    private string _h6StairsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/House_006_Stairs";
+    private string _h6WindowsGlassesPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/House_006_WindowsGlass";
+    private string _h6DoorPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/Door/House_006_Door_v";
+    private string _h6FramesPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/Frame/House_006_Frames_";
+    private string _h6FrontStairsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/FrontStairs/House_006_FrontStairs_";
+    private string _h6InsideRoofPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/InteriorRoof/House_006_InsideRoof_";
     #endregion
 
     #region House 7 Paths
     //House007 Paths
-    private string _h7Door1Path = "Assets/Resources/House_007/Door/Door_3_v";
-    private string _h7Door2Path = "Assets/Resources/House_007/Door/Door_2_v";
-    private string _h7Door3Path = "Assets/Resources/House_007/Door/Door_1_v";
-    private string _h7F1FloorPath = "Assets/Resources/House_007/Floor1/House_007_Floor_01_v";
-    private string _h7F2FloorPath = "Assets/Resources/House_007/Floor3/House_007_Floor_03_v";
-    private string _h7ExtraFloorPath = "Assets/Resources/House_007/Floor2/House_007_Floor_02_v";
-    private string _h7GaragePath = "Assets/Resources/House_007/Garage/House_007_Garage_v";
-    private string _h7GarageDoorPath = "Assets/Resources/House_007/GarageDoor/GarashDoor_v";
-    private string _h7InsideWallsPath = "Assets/Resources/House_007/InsideWalls/House_007_InsideWalls_v";
-    private string _h7OutSideWallsPath = "Assets/Resources/House_007/OutsideWalls/House_007_OutsideWalls_v";
-    private string _h7RoofsPath = "Assets/Resources/House_007/Roof/House_007_Roof_V";
-    private string _h7FramesPath = "Assets/Resources/House_007/House_007_Frames_v";
-    private string _h7StairsPath = "Assets/Resources/House_007/House_007_Inside";
-    private string _h7WindowsGlassPath = "Assets/Resources/House_007/Windows_T";
-    private string _h7CollidersPath = "Assets/Resources/House_007/House007_Colliders";
+    private string _h7Door1Path = "Assets/Resources/Prefabs/Environment/Buildings/House_007/Door/Door_3_v";
+    private string _h7Door2Path = "Assets/Resources/Prefabs/Environment/Buildings/House_007/Door/Door_2_v";
+    private string _h7Door3Path = "Assets/Resources/Prefabs/Environment/Buildings/House_007/Door/Door_1_v";
+    private string _h7F1FloorPath = "Assets/Resources/Prefabs/Environment/Buildings/House_007/Floor1/House_007_Floor_01_v";
+    private string _h7F2FloorPath = "Assets/Resources/Prefabs/Environment/Buildings/House_007/Floor3/House_007_Floor_03_v";
+    private string _h7ExtraFloorPath = "Assets/Resources/Prefabs/Environment/Buildings/House_007/Floor2/House_007_Floor_02_v";
+    private string _h7GaragePath = "Assets/Resources/Prefabs/Environment/Buildings/House_007/Garage/House_007_Garage_v";
+    private string _h7GarageDoorPath = "Assets/Resources/Prefabs/Environment/Buildings/House_007/GarageDoor/GarashDoor_v";
+    private string _h7InsideWallsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_007/InsideWalls/House_007_InsideWalls_v";
+    private string _h7OutSideWallsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_007/OutsideWalls/House_007_OutsideWalls_v";
+    private string _h7RoofsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_007/Roof/House_007_Roof_V";
+    private string _h7FramesPath = "Assets/Resources/Prefabs/Environment/Buildings/House_007/House_007_Frames_v";
+    private string _h7StairsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_007/House_007_Inside";
+    private string _h7WindowsGlassPath = "Assets/Resources/Prefabs/Environment/Buildings/House_007/Windows_T";
+    private string _h7CollidersPath = "Assets/Resources/Prefabs/Environment/Buildings/House_007/House007_Colliders";
     #endregion
     #region House 8 Paths
     //House 008 Paths
-    private string _h8RoofPath = "Assets/Resources/House_008/Roof/House_008_roof_v";
-    private string _h8OutsideWallsPath = "Assets/Resources/House_008/OutsideWalls/House_008_OutSideWalls_v";
-    private string _h8InsideWallsPath = "Assets/Resources/House_008/InsideWalls/House_008_InSideWalls_v";
-    private string _h8FloorPath = "Assets/Resources/House_008/Floor/House_008_Floor1_v";
-    private string _h8PillarsPath = "Assets/Resources/House_008/Pillar/House_008_Pillars_v";
-    private string _h8FramesPath = "Assets/Resources/House_008/Details/House_008_Details_v";
-    private string _h8WindowsPath = "Assets/Resources/House_008/House_008_WindowGlass";
-    private string _h8CollidersPath = "Assets/Resources/House_008/House_008_Colliders";
-    private string _h8DoorPath = "Assets/Resources/House_008/Door1/Door_01_v";
+    private string _h8RoofPath = "Assets/Resources/Prefabs/Environment/Buildings/House_008/Roof/House_008_roof_v";
+    private string _h8OutsideWallsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_008/OutsideWalls/House_008_OutSideWalls_v";
+    private string _h8InsideWallsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_008/InsideWalls/House_008_InSideWalls_v";
+    private string _h8FloorPath = "Assets/Resources/Prefabs/Environment/Buildings/House_008/Floor/House_008_Floor1_v";
+    private string _h8PillarsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_008/Pillar/House_008_Pillars_v";
+    private string _h8FramesPath = "Assets/Resources/Prefabs/Environment/Buildings/House_008/Details/House_008_Details_v";
+    private string _h8WindowsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_008/House_008_WindowGlass";
+    private string _h8CollidersPath = "Assets/Resources/Prefabs/Environment/Buildings/House_008/House_008_Colliders";
+    private string _h8DoorPath = "Assets/Resources/Prefabs/Environment/Buildings/House_008/Door1/Door_01_v";
     #endregion
     #region House 9 Paths
     //House 009 Paths
-    private string _h9RoofPath = "Assets/Resources/House_009/Roof/House_009_Roofs_v";
-    private string _h9OutsideWallsPath = "Assets/Resources/House_009/OutsideWall/House_009_OutSideWalls_v";
-    private string _h9InsideWallsPath = "Assets/Resources/House_009/InsideWall/House_009_Insides_v";
-    private string _h9PillarsPath = "Assets/Resources/House_009/Pilar/House_009_Pilars_v";
-    private string _h9InsideRoofsPath = "Assets/Resources/House_009/House_009_Inside_Roofs_v";
-    private string _h9WindowGlassesPath = "Assets/Resources/House_009/House_009_Glasses_T";
-    private string _h9StairsPath = "Assets/Resources/House_009/House_009_Inside_stairs_v1";
-    private string _h9F1FloorPath = "Assets/Resources/House_009/F1Floor/House_009_F1_Floor_v";
-    private string _h9F2FloorPath = "Assets/Resources/House_009/F2Floor/House_009_F2_Floor_v";
-    private string _h9CollidersPath = "Assets/Resources/House_009/House009_Colliders";
-    private string _h9Door1Path = "Assets/Resources/House_009/Door1/Door_01_v";
-    private string _h9Door2Path = "Assets/Resources/House_009/Door2/Door_02_v";
-    private string _h9Door3Path = "Assets/Resources/House_009/Door3/Door_03_v";
-    private string _h9Door4Path = "Assets/Resources/House_009/Door4/Door_04_v";
+    private string _h9RoofPath = "Assets/Resources/Prefabs/Environment/Buildings/House_009/Roof/House_009_Roofs_v";
+    private string _h9OutsideWallsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_009/OutsideWall/House_009_OutSideWalls_v";
+    private string _h9InsideWallsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_009/InsideWall/House_009_Insides_v";
+    private string _h9PillarsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_009/Pilar/House_009_Pilars_v";
+    private string _h9InsideRoofsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_009/House_009_Inside_Roofs_v";
+    private string _h9WindowGlassesPath = "Assets/Resources/Prefabs/Environment/Buildings/House_009/House_009_Glasses_T";
+    private string _h9StairsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_009/House_009_Inside_stairs_v1";
+    private string _h9F1FloorPath = "Assets/Resources/Prefabs/Environment/Buildings/House_009/F1Floor/House_009_F1_Floor_v";
+    private string _h9F2FloorPath = "Assets/Resources/Prefabs/Environment/Buildings/House_009/F2Floor/House_009_F2_Floor_v";
+    private string _h9CollidersPath = "Assets/Resources/Prefabs/Environment/Buildings/House_009/House009_Colliders";
+    private string _h9Door1Path = "Assets/Resources/Prefabs/Environment/Buildings/House_009/Door1/Door_01_v";
+    private string _h9Door2Path = "Assets/Resources/Prefabs/Environment/Buildings/House_009/Door2/Door_02_v";
+    private string _h9Door3Path = "Assets/Resources/Prefabs/Environment/Buildings/House_009/Door3/Door_03_v";
+    private string _h9Door4Path = "Assets/Resources/Prefabs/Environment/Buildings/House_009/Door4/Door_04_v";
     #endregion
 
     #region LongHouse Paths 
-    private string _LBaseL1Path = "Assets/Resources/LongHouse/Base/Left/1/Base_L_1_";
-    private string _LBaseL1FramePath = "Assets/Resources/LongHouse/Base/Left/1F/Frame_L_1_";
+    private string _LBaseL1Path = "Assets/Resources/Prefabs/Environment/Buildings/LongHouse/Base/Left/1/Base_L_1_";
+    private string _LBaseL1FramePath = "Assets/Resources/Prefabs/Environment/Buildings/LongHouse/Base/Left/1F/Frame_L_1_";
 
-    private string _LBaseM1Path = "Assets/Resources/LongHouse/Base/Middle/1/Base_M_1_";
-    private string _LBaseM1FramePath = "Assets/Resources/LongHouse/Base/Middle/1F/Frame_M_1_";
-    private string _LBaseM2Path = "Assets/Resources/LongHouse/Base/Middle/2/Base_M_2_";
-    private string _LBaseM2FramePath = "Assets/Resources/LongHouse/Base/Middle/2F/Frame_M_2_";
+    private string _LBaseM1Path = "Assets/Resources/Prefabs/Environment/Buildings/LongHouse/Base/Middle/1/Base_M_1_";
+    private string _LBaseM1FramePath = "Assets/Resources/Prefabs/Environment/Buildings/LongHouse/Base/Middle/1F/Frame_M_1_";
+    private string _LBaseM2Path = "Assets/Resources/Prefabs/Environment/Buildings/LongHouse/Base/Middle/2/Base_M_2_";
+    private string _LBaseM2FramePath = "Assets/Resources/Prefabs/Environment/Buildings/LongHouse/Base/Middle/2F/Frame_M_2_";
 
-    private string _LBaseR1Path = "Assets/Resources/LongHouse/Base/Right/1/Base_R_1_";
-    private string _LBaseR1FramePath = "Assets/Resources/LongHouse/Base/Right/1F/Frame_R_";
+    private string _LBaseR1Path = "Assets/Resources/Prefabs/Environment/Buildings/LongHouse/Base/Right/1/Base_R_1_";
+    private string _LBaseR1FramePath = "Assets/Resources/Prefabs/Environment/Buildings/LongHouse/Base/Right/1F/Frame_R_";
 
-    private string _LDoorRPath = "Assets/Resources/LongHouse/Door/Base_R_Door_";
-    private string _LDoorMPath = "Assets/Resources/LongHouse/Door/Base_M_Door_";
-    private string _LDoorM2Path = "Assets/Resources/LongHouse/Door/Base_M2_Door_";
-    private string _LDoorLPath = "Assets/Resources/LongHouse/Door/Base_L_Door_";
+    private string _LDoorRPath = "Assets/Resources/Prefabs/Environment/Buildings/LongHouse/Door/Base_R_Door_";
+    private string _LDoorMPath = "Assets/Resources/Prefabs/Environment/Buildings/LongHouse/Door/Base_M_Door_";
+    private string _LDoorM2Path = "Assets/Resources/Prefabs/Environment/Buildings/LongHouse/Door/Base_M2_Door_";
+    private string _LDoorLPath = "Assets/Resources/Prefabs/Environment/Buildings/LongHouse/Door/Base_L_Door_";
 
-    private string _LF21Path = "Assets/Resources/LongHouse/F2/1/F2_1_";
+    private string _LF21Path = "Assets/Resources/Prefabs/Environment/Buildings/LongHouse/F2/1/F2_1_";
 
-    private string _LRoof1Path = "Assets/Resources/LongHouse/Roof/1/Roof_1_";
-    private string _LRoof1PartPath = "Assets/Resources/LongHouse/Roof/1P/Roof_P_1_";
-    private string _LRoof2Path = "Assets/Resources/LongHouse/Roof/2/Roof_2_";
-    private string _LRoof3Path = "Assets/Resources/LongHouse/Roof/3/Roof_3_";
-    private string _LRoof3PartPath = "Assets/Resources/LongHouse/Roof/3P/Roof_P_3_";
+    private string _LRoof1Path = "Assets/Resources/Prefabs/Environment/Buildings/LongHouse/Roof/1/Roof_1_";
+    private string _LRoof1PartPath = "Assets/Resources/Prefabs/Environment/Buildings/LongHouse/Roof/1P/Roof_P_1_";
+    private string _LRoof2Path = "Assets/Resources/Prefabs/Environment/Buildings/LongHouse/Roof/2/Roof_2_";
+    private string _LRoof3Path = "Assets/Resources/Prefabs/Environment/Buildings/LongHouse/Roof/3/Roof_3_";
+    private string _LRoof3PartPath = "Assets/Resources/Prefabs/Environment/Buildings/LongHouse/Roof/3P/Roof_P_3_";
 
 
     #endregion
 
     #region WideHouse1 Paths
-    private string _W1Addon1Path = "Assets/Resources/WideHouse/Addon_1/Addon_1_";
-    private string _W1Door1Path = "Assets/Resources/WideHouse/Door/Door_1_";
-    private string _W1DoorFramePath = "Assets/Resources/WideHouse/DoorFrame/FrameDoor_1_";
-    private string _W1OutsideWallsPath = "Assets/Resources/WideHouse/OutsideWalls/OutsideWalls_1_";
-    private string _W1RoofPath = "Assets/Resources/WideHouse/Roof/Roof_1_";
-    private string _W1WindowFrame = "Assets/Resources/WideHouse/WindowFrame/FramesWindows_1_";
+    private string _W1Addon1Path = "Assets/Resources/Prefabs/Environment/Buildings/WideHouse/Addon_1/Addon_1_";
+    private string _W1Door1Path = "Assets/Resources/Prefabs/Environment/Buildings/WideHouse/Door/Door_1_";
+    private string _W1DoorFramePath = "Assets/Resources/Prefabs/Environment/Buildings/WideHouse/DoorFrame/FrameDoor_1_";
+    private string _W1OutsideWallsPath = "Assets/Resources/Prefabs/Environment/Buildings/WideHouse/OutsideWalls/OutsideWalls_1_";
+    private string _W1RoofPath = "Assets/Resources/Prefabs/Environment/Buildings/WideHouse/Roof/Roof_1_";
+    private string _W1WindowFrame = "Assets/Resources/Prefabs/Environment/Buildings/WideHouse/WindowFrame/FramesWindows_1_";
 
     #endregion
 
     #region WideHouse2 Paths
-    private string _W2Door1Path = "Assets/Resources/WideHouse/Door/Door_1_";
-    private string _W2DoorFramePath = "Assets/Resources/WideHouse/DoorFrame/FrameDoor_1_";
-    private string _W2OutsideWallsPath = "Assets/Resources/WideHouse2/OutsideWalls/OutsideWalls_2_";
-    private string _W2RoofPath = "Assets/Resources/WideHouse2/Roof/Roof_2_";
-    private string _W2WindowFrame = "Assets/Resources/WideHouse2/WindowsFrame/WindowFrames_2_";
+    private string _W2Door1Path = "Assets/Resources/Prefabs/Environment/Buildings/WideHouse/Door/Door_1_";
+    private string _W2DoorFramePath = "Assets/Resources/Prefabs/Environment/Buildings/WideHouse/DoorFrame/FrameDoor_1_";
+    private string _W2OutsideWallsPath = "Assets/Resources/Prefabs/Environment/Buildings/WideHouse2/OutsideWalls/OutsideWalls_2_";
+    private string _W2RoofPath = "Assets/Resources/Prefabs/Environment/Buildings/WideHouse2/Roof/Roof_2_";
+    private string _W2WindowFrame = "Assets/Resources/Prefabs/Environment/Buildings/WideHouse2/WindowsFrame/WindowFrames_2_";
 
     #endregion
     #endregion

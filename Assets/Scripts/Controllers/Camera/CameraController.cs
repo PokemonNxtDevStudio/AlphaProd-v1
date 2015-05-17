@@ -190,6 +190,10 @@ namespace NXT.Controllers
         private void Start()
         {
             SharedManager.InitializeSharedFields(this.m_Character, this);
+            if((m_Anchor = m_Character.GetComponent<AnchorCache>().headAchor)==null)
+            {
+                Debug.LogError("Please Attach an anchor to the camera");
+            }
         }
         public void LateUpdate()
         {
