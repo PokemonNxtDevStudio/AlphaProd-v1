@@ -126,6 +126,11 @@ public class NPCStore : MonoBehaviour
             //GameObject StoreItem = (GameObject)Instantiate(m_StoreItemsBotton);
             // NPCBottons b_info =  StoreItem.GetComponent<NPCBottons>();
             BIEnable(asd);
+            if(NxtUiManager.instance.ItemsDB.GetByID(m_IDsOfItemsInStore[asd]) == null)
+            {
+                Debug.Log("Item is Null");
+                return;
+            }
             InventoryItem i =  new InventoryItem(NxtUiManager.instance.ItemsDB.GetByID(m_IDsOfItemsInStore[asd]));
             ItemsInStore[asd].NpcBottonInfo(i.Icon, i.Name, i.Description, i.BuyingPrice, i.SellingPrice, i.ID);
             // StoreItemsPanel.transform.GetChild(asd).GetComponent<NPCBottons>

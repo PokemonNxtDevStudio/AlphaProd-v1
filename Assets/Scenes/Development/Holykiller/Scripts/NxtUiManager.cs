@@ -115,11 +115,11 @@ public class NxtUiManager : MonoBehaviour
     [SerializeField]
     private List<GPokeUi> m_gpokeUis = new List<GPokeUi>();
 
-    [SerializeField]
+    //[SerializeField]
     private ItemAssetDatabase m_itemsDB;
     public ItemAssetDatabase ItemsDB { get { return m_itemsDB; }/* set { db = value; }*/ }
 
-    [SerializeField]
+  //  [SerializeField]
     PokeAssetDatabase PokeDB;
     public PokeAssetDatabase PokemonDB { get {return PokeDB; } }
     //[SerializeField]
@@ -135,10 +135,23 @@ public class NxtUiManager : MonoBehaviour
         {
             instance = this;
         }
+        PokeDB = Resources.Load("Database/PokemonAssetDatabase") as PokeAssetDatabase;
+        m_itemsDB = Resources.Load("Database/ItemAssetDatabase") as ItemAssetDatabase;
+        if(PokeDB == null)
+        {
+            Debug.Log("Pomons Db is Null");
+        }
+        if(m_itemsDB == null)
+        {
+            Debug.Log("Items DB is NUll");
+        }
     }
 	void Start () 
     {
-
+        if (PokeDB == null)
+        {
+            Debug.Log("PokeDatabase is null");
+        }
         
         player = GameObject.FindGameObjectWithTag("Player");
         NXT.EventHandler.RegisterEvent(player, "ShowInventory", new Action(ShowInventory));

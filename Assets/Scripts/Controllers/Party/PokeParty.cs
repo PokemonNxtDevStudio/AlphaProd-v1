@@ -120,6 +120,10 @@ public class PokeParty
         if (!CanAddPokemon())
             return false;
         Pokemon poke = new Pokemon();
+        if(NxtUiManager.instance.PokemonDB.GetByID(id) == null)
+        {
+            Debug.Log("Pokemon with id :" + id + " Is Null");
+        }
         poke.ID = NxtUiManager.instance.PokemonDB.GetByID(id).ID;
         poke.Name = NxtUiManager.instance.PokemonDB.GetByID(id).Name;
         poke.PP = NxtUiManager.instance.PokemonDB.GetByID(id).PP;
