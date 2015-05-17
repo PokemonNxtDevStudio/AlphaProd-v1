@@ -83,7 +83,7 @@ public class TrainerController : MonoBehaviour
 		Debug.Log("Releasing "+pokemon[pokeSlot]);
 		ReleasePokeball pokeball = ((GameObject)GameObject.Instantiate (releasePokeball, transform.position, transform.rotation)).GetComponent<ReleasePokeball>();
 		pokeball.pokemon = pokemon [pokeSlot];
-		pokeball.force = Vector3.forward *10;
+		pokeball.direction = Vector3.forward;
 		pokeball.releaseComplete += PokemonSpawned;
 		//		releasePokeball.transform.position = Vector3.zero;
     }

@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class Projectile : Destructible {
-	public Vector3 force;
+	public Vector3 direction;
+	public float force = 10;
 	public int speed = 1;
 	public delegate void CollisionCallback(GameObject __obj);
 	public event CollisionCallback collided;
@@ -11,7 +12,7 @@ public class Projectile : Destructible {
 		//do throw here
 		base.Awake ();
 		
-		GetComponent<Rigidbody> ().AddForce (force);
+		GetComponent<Rigidbody> ().AddForce (direction*force);
 	}
 	
 	// Update is called once per frame
