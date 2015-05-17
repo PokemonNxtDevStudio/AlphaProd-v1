@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class ReleasePokeball : Projectile {
-	public delegate void ReleaseComplete(GameObject __pokemon, Transform __origin);
+	public delegate void ReleaseComplete(Transform __origin);
 	public event ReleaseComplete releaseComplete;
 	public GameObject pokemon;
 	// Use this for initialization
@@ -18,6 +18,6 @@ public class ReleasePokeball : Projectile {
 
 	public override void DoDeath(){
 		base.DoDeath ();
-		releaseComplete (pokemon, transform);
+		releaseComplete (transform);
 	}
 }

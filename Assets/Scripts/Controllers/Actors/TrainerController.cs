@@ -8,6 +8,8 @@ public class TrainerController : MonoBehaviour
 	private PokeParty pokeParty; 
 	private MotorController motor;
 	private int pokeSlot;
+	private GameObject activePokemon;
+//	private GameObject activePokeball;
 	public CameraTransitionController cameraController;
 	//    public List<String> pokemon;
 	public List<GameObject> pokemon;
@@ -81,20 +83,47 @@ public class TrainerController : MonoBehaviour
 	}
 
     public void TogglePokemon() {
-		Debug.Log("Releasing "+pokemon[pokeSlot]);
+		Debug.Log ("actimon" + activePokemon);
+		if (activePokemon == null) {
+			Debug.Log("Releasing "+pokemon[pokeSlot]);
+			ReleasePokemon ();
+		} else if (activePokemon.activeSelf) {
+			Debug.Log("returning pokemon ");
+			ReturnPokemon();
+		}
+		//		releasePokeball.transform.position = Vector3.zero;
+    }
+	
+	public void ReturnPokemon() {
+		cameraController.SetTarget(gameObject.transform);
+		GameObject.Destroy (activePokemon);
+		activePokemon = null;
+	}
+	public void ReleasePokemon() {
+		//active pokemon
+		activePokemon = (GameObject) GameObject.Instantiate (pokemon[pokeSlot]);
+		activePokemon.SetActive (false);
+
+		//spawning and throwing pokeball
 		ReleasePokeball pokeball = ((GameObject)GameObject.Instantiate (releasePokeball, transform.position, transform.rotation)).GetComponent<ReleasePokeball>();
 		pokeball.transform.eulerAngles = transform.eulerAngles;
 		pokeball.transform.position = new Vector3 (transform.position.x, transform.position.y + 2, transform.position.z);
+		//binding oncomplete
 		pokeball.releaseComplete += PokemonSpawned;
 		pokeball.pokemon = pokemon [pokeSlot];
-		//		releasePokeball.transform.position = Vector3.zero;
-    }
+	}
 
-	public void PokemonSpawned(GameObject __pokemon, Transform __transform){
+	public void PokemonSpawned(Transform __transform){
+		if (activePokemon == null)
+			return;
 		Debug.Log ("spawn dat pokemon!");
-		GameObject pokemon = (GameObject) GameObject.Instantiate (__pokemon.gameObject, __transform.position, __transform.rotation);
-		cameraController.SetTarget(pokemon.transform, .25f);
-//		cameraController.
+		//moving camera
+		cameraController.SetTarget(activePokemon.transform, .25f);
+
+		//setting active and position
+		activePokemon.transform.position = __transform.position;
+		activePokemon.transform.rotation = __transform.rotation;
+		activePokemon.SetActive (true);
 	}
 	
 	public void UseSkill(int __skillSlotID) {
