@@ -11,7 +11,8 @@ using NXT.Controllers;
         public float Gravity = 10.0f; 
         public float baseSpeed = .2f;
         public float MaxVelocityChange = 10f;
-            protected virtual float JumpSpeed {
+		public bool moveOverrde;
+        protected virtual float JumpSpeed {
             // From the jump height and gravity we deduce the upwards speed 
             // for the character to reach at the apex.
             get { return Mathf.Sqrt(2 * JumpHeight * Gravity); }
@@ -27,7 +28,7 @@ using NXT.Controllers;
         {  //if(obj!=null && obj.IsMine)
             //obj.UpdatePosition(transform.position);
 
-//           Move(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
+		if(!moveOverrde) Move(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
            AnimatorCtrl.SetFloat("DirX", Input.GetAxis("Horizontal"));
            AnimatorCtrl.SetFloat("DirY", Input.GetAxis("Vertical"));
         }
