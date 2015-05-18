@@ -84,3 +84,5 @@ UnityGenerated/
 Assets/Plugins/UnityEngine.dll
 Assets/Scenes/Development/Network/WorldSceneCache.unity
 Assets/Scenes/Development/Network/WorldSceneCache.unity.meta
+Assets/Plugins/UnityVS/Editor/UnityVS.VersionSpecific.dll
+Assets/Plugins/UnityVS/Editor/UnityVS.VersionSpecific.dll.meta

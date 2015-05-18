@@ -15,7 +15,7 @@ public class Projectile : Destructible {
 	
 	// Update is called once per frame
 	protected virtual void Update () {
-		GetComponent<Rigidbody> ().AddForce (transform.forward*force);
+		//GetComponent<Rigidbody> ().AddForce (transform.forward*force);
 	}
 //	throwItem(force)
 //		overrideDestroy()
