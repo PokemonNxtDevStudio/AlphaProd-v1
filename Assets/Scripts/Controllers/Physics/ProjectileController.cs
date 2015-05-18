@@ -34,11 +34,7 @@ public class ProjectileController : MonoBehaviour
 
     public AudioSource audioSource;
 
-    void Awake()
-    {
-        //base.Awake();
-        //timeBeforeDeath = projectileLife;
-    }
+
 
     void Start()
     {
@@ -95,8 +91,6 @@ public class ProjectileController : MonoBehaviour
                     + projectileAcceleration.z * Camera.main.transform.right) * accelerationScale;
            cf.force += (projectileGlobalAcceleration) * accelerationScale;
            cf.force *= 50f;
-
-            //newprojectile.AddComponent<APEprojectile> ().life = projectileLife;
         }
     }
 
