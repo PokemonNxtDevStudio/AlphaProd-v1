@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ReleasePokeball : Projectile {
 	public delegate void ReleaseComplete(Transform __origin);
-	public event ReleaseComplete releaseComplete;
+	public ReleaseComplete releaseComplete;
 	public GameObject pokemon;
 	// Use this for initialization
 	protected override void Awake () {

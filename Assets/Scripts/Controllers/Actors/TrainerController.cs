@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using NXT.PhysX;
 
 public class TrainerController : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class TrainerController : MonoBehaviour
 	//    public List<String> pokemon;
 	public List<GameObject> pokemon;
 	public GameObject releasePokeball;
+
+    public ProjectileController projectileController;
 
     void Start()
     {
@@ -100,16 +103,18 @@ public class TrainerController : MonoBehaviour
 		activePokemon = null;
 	}
 	public void ReleasePokemon() {
+        projectileController.projectile = releasePokeball;
+        ReleasePokeball pokeball = (ReleasePokeball)projectileController.Spawnprojectile();
 		//active pokemon
 		activePokemon = (GameObject) GameObject.Instantiate (pokemon[pokeSlot]);
 		activePokemon.SetActive (false);
 
 		//spawning and throwing pokeball
-		ReleasePokeball pokeball = ((GameObject)GameObject.Instantiate (releasePokeball, transform.position, transform.rotation)).GetComponent<ReleasePokeball>();
-		pokeball.transform.eulerAngles = transform.eulerAngles;
-		pokeball.transform.position = new Vector3 (transform.position.x, transform.position.y + 2, transform.position.z);
+		//ReleasePokeball pokeball = ((GameObject)GameObject.Instantiate (releasePokeball, transform.position, transform.rotation)).GetComponent<ReleasePokeball>();
+		//pokeball.transform.eulerAngles = transform.eulerAngles;
+		//pokeball.transform.position = new Vector3 (transform.position.x, transform.position.y + 2, transform.position.z);
 		//binding oncomplete
-		pokeball.releaseComplete += PokemonSpawned;
+		pokeball.releaseComplete = PokemonSpawned;
 		pokeball.pokemon = pokemon [pokeSlot];
 	}
 
@@ -142,7 +147,13 @@ public class TrainerController : MonoBehaviour
 	private void faceCamera(){
 		Vector3 facingAngle = camera.transform.eulerAngles;
 		Vector3 facePos = camera.transform.position;
-		transform.eulerAngles = new Vector3(transform.eulerAngles.x, facingAngle.y, transform.eulerAngles.z);
+        //smoothing + optiomiation
+        //Olday way, doesnt resolve rotations on 2/4 quadrant, need use Quaternions
+        //transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, Vector3.up * facingAngle.y, 7 * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(camera.transform.eulerAngles.y * Vector3.up), Time.deltaTime * 7.0f);
+      
+       
+       
 		camera.transform.eulerAngles = new Vector3(facingAngle.x, facingAngle.y, facingAngle.z); 
 		camera.transform.position = new Vector3(facePos.x, facePos.y, facePos.z); 
 	}

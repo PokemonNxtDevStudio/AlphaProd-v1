@@ -59,8 +59,10 @@ public class ProjectileController : MonoBehaviour
 
     }
 
-    public virtual void Spawnprojectile(Type projectileType= null)
+    public virtual Projectile Spawnprojectile(Type projectileType = null)  //ReleasePokeball
     {
+         Projectile p = null;
+         
         for (int i = 0; i < projectileCount; i++)
         {
             GameObject newprojectile = (GameObject)Instantiate(projectile, transform.position, transform.rotation);
@@ -71,11 +73,11 @@ public class ProjectileController : MonoBehaviour
             rb.mass = projectileMass;
             rb.drag = 0;
             rb.useGravity = false;
-
+           
             //Example Runtime Type add
             if (projectileType != null)
             {
-                Projectile p;
+                
                 if ((p = (Projectile)newprojectile.GetComponent(projectileType)) == null)
                     p = (Projectile)newprojectile.AddComponent(projectileType);
                 p.timeBeforeDeath = projectileLife;
@@ -92,8 +94,10 @@ public class ProjectileController : MonoBehaviour
            cf.force += (projectileGlobalAcceleration) * accelerationScale;
            cf.force *= 50f;
         }
-    }
 
+        return p; 
+    }
+   
     public Vector3 DisplayPosition(bool swap = false)
     {
         Vector3 result = DisplayOffset(swap) + transform.position;
