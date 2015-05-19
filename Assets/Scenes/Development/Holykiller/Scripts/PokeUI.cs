@@ -11,6 +11,7 @@ public class PokeUI : MonoBehaviour
     private Text m_pokeButtonName;
 
     private Pokemon m_pokemon;
+    public Pokemon Pokemon { get { return m_pokemon; } set { m_pokemon = value; } }
 
 
     void Start()

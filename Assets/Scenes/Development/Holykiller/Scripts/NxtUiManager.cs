@@ -129,6 +129,12 @@ public class NxtUiManager : MonoBehaviour
 
     public PokeParty PlayerPokePt { get; set; }
 
+    [SerializeField]
+    private Image pokepic;
+    public Image PokePic { get { return pokepic; } set { pokepic = value; } }
+    [SerializeField]
+    private Sprite Spempty;
+    public Sprite EmptyPokeball { get {return Spempty; } }
     void Awake()
     {
         if(instance == null)
