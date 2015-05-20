@@ -115,13 +115,17 @@ public class NxtUiManager : MonoBehaviour
     [SerializeField]
     private List<GPokeUi> m_gpokeUis = new List<GPokeUi>();
 
-    //[SerializeField]
+    [SerializeField]
     private ItemAssetDatabase m_itemsDB;
     public ItemAssetDatabase ItemsDB { get { return m_itemsDB; }/* set { db = value; }*/ }
 
   //  [SerializeField]
+     [SerializeField]
     PokeAssetDatabase PokeDB;
     public PokeAssetDatabase PokemonDB { get {return PokeDB; } }
+    [SerializeField]
+    private MoveAssetDatabase m_movesDB;
+    public MoveAssetDatabase MovesDB { get { return m_movesDB; } }
     //[SerializeField]
     //MoveAssetDatabase MovesDB;
 
@@ -141,8 +145,9 @@ public class NxtUiManager : MonoBehaviour
         {
             instance = this;
         }
-        PokeDB = Resources.Load("Database/PokemonAssetDatabase") as PokeAssetDatabase;
-        m_itemsDB = Resources.Load("Database/ItemAssetDatabase") as ItemAssetDatabase;
+        m_movesDB = (MoveAssetDatabase)Resources.Load("Database/MovesAssetDatabase");
+        PokeDB = (PokeAssetDatabase)Resources.Load("Database/PokemonAssetDatabase");
+        m_itemsDB = (ItemAssetDatabase)Resources.Load("Database/ItemAssetDatabase");
         if(PokeDB == null)
         {
             Debug.Log("Pomons Db is Null");

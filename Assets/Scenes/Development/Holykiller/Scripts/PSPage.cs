@@ -12,7 +12,8 @@ public class PSPage
         m_PageSlot = new List<Pokemon>();
         for (int i = 0; i < PageSize; i++)
         {
-            m_PageSlot.Add(new Pokemon());
+            Pokemon noll = null;
+            m_PageSlot.Add(noll);
         }
     }
 

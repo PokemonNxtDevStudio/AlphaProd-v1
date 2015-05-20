@@ -2,10 +2,11 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 /// <summary>
 ///  Each pokemon move is refereced by its moveData
 /// </summary>
-[System.Serializable]
+[Serializable]
 public class MoveData : AssetItem
 {
     /*
@@ -78,55 +79,70 @@ public class MoveData : AssetItem
     public Sprite MoveUIIcon { get; set; }
     public Sprite MoveSpriteIcon;
     */
+    [SerializeField]
     private float m_pp;
     public float PP { get { return m_pp; } set { m_pp = value; } }
+  
+    [SerializeField]
     private float m_power;
     public float Power { get { return m_power; } set { m_power = value; } }
+    [SerializeField]
+   
     private bool m_isoncooldown = false;
     public bool IsOnCooldown { get { return m_isoncooldown; } set { m_isoncooldown = value; } }
+   
+    [SerializeField]
     private float m_movecooldown;
     public float MoveCooldown { get { return m_movecooldown; } set { m_movecooldown = value; } }
+   
+    [SerializeField]
     private DeamageType m_movetype;
     public DeamageType MoveType { get { return m_movetype; } set { m_movetype = value; } }
+   
+    [SerializeField]
     private MoveEffect m_moveeffect;
     public MoveEffect MoveEffect { get { return m_moveeffect; } set { m_moveeffect = value; } }
+
+    [SerializeField]
     private AudioClip m_moveaudio = null;
     public AudioClip MoveAudio { get { return m_moveaudio; } set { m_moveaudio = value; } }
+
+    [SerializeField]
     private GameObject m_movevfxprefab = null;
     public GameObject MoveVFXPrefab { get { return m_movevfxprefab; } set { m_movevfxprefab = value; } }
 
     public MoveData(int mId, string mName, float mPP, float mPower, float mCooldown, string mDescription, DeamageType mType, MoveEffect mEffect)
     {
-        this.m_id = mId;
-        this.m_name = mName;
-        this.m_pp = mPP;
-        this.m_power = mPower;
-        this.m_movecooldown = mCooldown;
-        this.m_description = mDescription;
-        this.m_movetype = mType;
-        this.m_moveeffect = mEffect;
+        this.ID = mId;
+        this.Name = mName;
+        this.PP = mPP;
+        this.Power = mPower;
+        this.MoveCooldown = mCooldown;
+        this.Description = mDescription;
+        this.MoveType = mType;
+        this.MoveEffect = mEffect;
     }
     public MoveData(MoveData move)
     {
-        this.m_id = move.ID;
-        this.m_name = move.Name;
-        this.m_pp = move.PP;
-        this.m_power = move.Power;
-        this.m_movecooldown = move.MoveCooldown;
-        this.m_description = move.Description;
-        this.m_movetype = move.MoveType;
-        this.m_moveeffect = move.MoveEffect;
+        this.ID = move.ID;
+        this.Name = move.Name;
+        this.PP = move.PP;
+        this.Power = move.Power;
+        this.MoveCooldown = move.MoveCooldown;
+        this.Description = move.Description;
+        this.MoveType = move.MoveType;
+        this.MoveEffect = move.MoveEffect;
     }
     public MoveData()
     {
-        this.m_id = 0;
-        this.m_name = "";
-        this.m_pp = 0;
-        this.m_power = 0;
-        this.m_movecooldown = 0;
-        this.m_description = "";
-        this.m_movetype = DeamageType.None;
-        this.m_moveeffect = MoveEffect.None;
+        this.ID = 0;
+        this.Name = "";
+        this.PP = 0;
+        this.Power = 0;
+        this.MoveCooldown = 0;
+        this.Description = "";
+        this.MoveType = DeamageType.None;
+        this.MoveEffect = MoveEffect.None;
     }
 
 }

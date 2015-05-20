@@ -112,6 +112,20 @@ public class MockData : ScriptableObject
         //}        
     }
 
+    /*
+    public void UpdateDBS()
+    {
+        PokeAssetDatabase pdb = (PokeAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Resources/Database/PokemonAssetDatabase.asset",typeof(PokeAssetDatabase)) ;
+        //PokeAssetDatabase pdb = Resources.Load("Database/PokemonAssetDatabase") as PokeAssetDatabase;
+        //MoveAssetDatabase mdb = Resources.Load("Database/MovesAssetDatabase") as MoveAssetDatabase;
+        //ItemAssetDatabase idb = Resources.Load("Database/ItemAssetDatabase") as ItemAssetDatabase;
+        MoveAssetDatabase mdb = (MoveAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Resources/Database/MovesAssetDatabase.asset", typeof(MoveAssetDatabase));
+        ItemAssetDatabase idb = (ItemAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Resources/Database/ItemAssetDatabase.asset", typeof(ItemAssetDatabase)); 
+
+
+        PokemonmockData(pdb, mdb);
+        ItemMockData(idb);
+    }*/
     public void PokemonmockData(PokeAssetDatabase pokeAssetDatabase, MoveAssetDatabase m_moveAssetDatabase)
     {
         //MoveMockData();
@@ -124,7 +138,7 @@ public class MockData : ScriptableObject
          
         //pokeAssetDatabase = (PokeAssetDatabase)Resources.Load("Database/PokemonAssetDatabase", typeof(PokeAssetDatabase));
         
-        pokeAssetDatabase.Pokemons = new Pokemon[151];
+        //pokeAssetDatabase.Pokemons = new Pokemon[151];
         
         pokeData = new List<Pokemon>();
 
@@ -137,56 +151,56 @@ public class MockData : ScriptableObject
             //return;
            // moveAssetDatabase = (MoveAssetDatabase)Resources.Load("Database/MovesAssetDatabase", typeof(MoveAssetDatabase));
         }
-        MoveData DoubleSlap = new MoveData(m_moveAssetDatabase.GetByID(3));
-        MoveData Scratch = new MoveData(m_moveAssetDatabase.GetByID(10));
-        MoveData Gust = new MoveData(m_moveAssetDatabase.GetByID(16));
-        MoveData Whirlwind = new MoveData(m_moveAssetDatabase.GetByID(18));
-        MoveData WingAttack = new MoveData(m_moveAssetDatabase.GetByID(17));
-        MoveData Slam = new MoveData(m_moveAssetDatabase.GetByID(21));
-        MoveData VineWhip = new MoveData(m_moveAssetDatabase.GetByID(22));
-        MoveData SandAttack = new MoveData(m_moveAssetDatabase.GetByID(28));
-        MoveData Tackle = new MoveData(m_moveAssetDatabase.GetByID(33));
-        MoveData BodySlam = new MoveData(m_moveAssetDatabase.GetByID(34));
-        MoveData TailWhip = new MoveData(m_moveAssetDatabase.GetByID(39));
-        MoveData Leer = new MoveData(m_moveAssetDatabase.GetByID(43));
-        MoveData Growl = new MoveData(m_moveAssetDatabase.GetByID(45));
-        MoveData Supersonic = new MoveData(m_moveAssetDatabase.GetByID(48));
-        MoveData SonicBoom = new MoveData(m_moveAssetDatabase.GetByID(49));
-        MoveData Ember = new MoveData(m_moveAssetDatabase.GetByID(52));
-        MoveData Flamethrower = new MoveData(m_moveAssetDatabase.GetByID(53));
-        MoveData WaterGun = new MoveData(m_moveAssetDatabase.GetByID(55));
-        MoveData HydroPump = new MoveData(m_moveAssetDatabase.GetByID(56));
-        MoveData LeechSeed = new MoveData(m_moveAssetDatabase.GetByID(73));
-        MoveData Growth = new MoveData(m_moveAssetDatabase.GetByID(74));
-        MoveData RazorLeaf = new MoveData(m_moveAssetDatabase.GetByID(75));
-        MoveData SolarBeam = new MoveData(m_moveAssetDatabase.GetByID(76));
-        MoveData PoisonPoweder = new MoveData(m_moveAssetDatabase.GetByID(77));
-        MoveData SleepPower = new MoveData(m_moveAssetDatabase.GetByID(79));
-        MoveData StringShot = new MoveData(m_moveAssetDatabase.GetByID(81));
-        MoveData FireSpin = new MoveData(m_moveAssetDatabase.GetByID(83));
-        MoveData ThunderShock = new MoveData(m_moveAssetDatabase.GetByID(84));
-        MoveData Thunderbolt = new MoveData(m_moveAssetDatabase.GetByID(85));
-        MoveData ThunderWave = new MoveData(m_moveAssetDatabase.GetByID(86));
-        MoveData Thunder = new MoveData(m_moveAssetDatabase.GetByID(87));
-        MoveData Earthquake = new MoveData(m_moveAssetDatabase.GetByID(89));
-        MoveData Dig = new MoveData(m_moveAssetDatabase.GetByID(91));
-        MoveData Hypnosis = new MoveData(m_moveAssetDatabase.GetByID(95));
-        MoveData Agility = new MoveData(m_moveAssetDatabase.GetByID(97));
-        MoveData QuickAttack = new MoveData(m_moveAssetDatabase.GetByID(98));
-        MoveData Rage = new MoveData(m_moveAssetDatabase.GetByID(99));
-        MoveData Screech = new MoveData(m_moveAssetDatabase.GetByID(103));
-        MoveData DoubleTeam = new MoveData(m_moveAssetDatabase.GetByID(104));
-        MoveData Harden = new MoveData(m_moveAssetDatabase.GetByID(106));
-        MoveData LightScreen = new MoveData(m_moveAssetDatabase.GetByID(113));
-        MoveData FocusEnergy = new MoveData(m_moveAssetDatabase.GetByID(116));
-        MoveData MirrorMove = new MoveData(m_moveAssetDatabase.GetByID(119));
-        MoveData Swift = new MoveData(m_moveAssetDatabase.GetByID(129));
-        MoveData Amnesia = new MoveData(m_moveAssetDatabase.GetByID(133));
-        MoveData Bubble = new MoveData(m_moveAssetDatabase.GetByID(145));
-        MoveData Splash = new MoveData(m_moveAssetDatabase.GetByID(150));
-        MoveData HyperFang = new MoveData(m_moveAssetDatabase.GetByID(158));
-        MoveData SuperFang = new MoveData(m_moveAssetDatabase.GetByID(162));
-        MoveData Slash = new MoveData(m_moveAssetDatabase.GetByID(163));
+        MoveData DoubleSlap = new MoveData(m_moveAssetDatabase.GetByIDInList(3));
+        MoveData Scratch = new MoveData(m_moveAssetDatabase.GetByIDInList(10));
+        MoveData Gust = new MoveData(m_moveAssetDatabase.GetByIDInList(16));
+        MoveData Whirlwind = new MoveData(m_moveAssetDatabase.GetByIDInList(18));
+        MoveData WingAttack = new MoveData(m_moveAssetDatabase.GetByIDInList(17));
+        MoveData Slam = new MoveData(m_moveAssetDatabase.GetByIDInList(21));
+        MoveData VineWhip = new MoveData(m_moveAssetDatabase.GetByIDInList(22));
+        MoveData SandAttack = new MoveData(m_moveAssetDatabase.GetByIDInList(28));
+        MoveData Tackle = new MoveData(m_moveAssetDatabase.GetByIDInList(33));
+        MoveData BodySlam = new MoveData(m_moveAssetDatabase.GetByIDInList(34));
+        MoveData TailWhip = new MoveData(m_moveAssetDatabase.GetByIDInList(39));
+        MoveData Leer = new MoveData(m_moveAssetDatabase.GetByIDInList(43));
+        MoveData Growl = new MoveData(m_moveAssetDatabase.GetByIDInList(45));
+        MoveData Supersonic = new MoveData(m_moveAssetDatabase.GetByIDInList(48));
+        MoveData SonicBoom = new MoveData(m_moveAssetDatabase.GetByIDInList(49));
+        MoveData Ember = new MoveData(m_moveAssetDatabase.GetByIDInList(52));
+        MoveData Flamethrower = new MoveData(m_moveAssetDatabase.GetByIDInList(53));
+        MoveData WaterGun = new MoveData(m_moveAssetDatabase.GetByIDInList(55));
+        MoveData HydroPump = new MoveData(m_moveAssetDatabase.GetByIDInList(56));
+        MoveData LeechSeed = new MoveData(m_moveAssetDatabase.GetByIDInList(73));
+        MoveData Growth = new MoveData(m_moveAssetDatabase.GetByIDInList(74));
+        MoveData RazorLeaf = new MoveData(m_moveAssetDatabase.GetByIDInList(75));
+        MoveData SolarBeam = new MoveData(m_moveAssetDatabase.GetByIDInList(76));
+        MoveData PoisonPoweder = new MoveData(m_moveAssetDatabase.GetByIDInList(77));
+        MoveData SleepPower = new MoveData(m_moveAssetDatabase.GetByIDInList(79));
+        MoveData StringShot = new MoveData(m_moveAssetDatabase.GetByIDInList(81));
+        MoveData FireSpin = new MoveData(m_moveAssetDatabase.GetByIDInList(83));
+        MoveData ThunderShock = new MoveData(m_moveAssetDatabase.GetByIDInList(84));
+        MoveData Thunderbolt = new MoveData(m_moveAssetDatabase.GetByIDInList(85));
+        MoveData ThunderWave = new MoveData(m_moveAssetDatabase.GetByIDInList(86));
+        MoveData Thunder = new MoveData(m_moveAssetDatabase.GetByIDInList(87));
+        MoveData Earthquake = new MoveData(m_moveAssetDatabase.GetByIDInList(89));
+        MoveData Dig = new MoveData(m_moveAssetDatabase.GetByIDInList(91));
+        MoveData Hypnosis = new MoveData(m_moveAssetDatabase.GetByIDInList(95));
+        MoveData Agility = new MoveData(m_moveAssetDatabase.GetByIDInList(97));
+        MoveData QuickAttack = new MoveData(m_moveAssetDatabase.GetByIDInList(98));
+        MoveData Rage = new MoveData(m_moveAssetDatabase.GetByIDInList(99));
+        MoveData Screech = new MoveData(m_moveAssetDatabase.GetByIDInList(103));
+        MoveData DoubleTeam = new MoveData(m_moveAssetDatabase.GetByIDInList(104));
+        MoveData Harden = new MoveData(m_moveAssetDatabase.GetByIDInList(106));
+        MoveData LightScreen = new MoveData(m_moveAssetDatabase.GetByIDInList(113));
+        MoveData FocusEnergy = new MoveData(m_moveAssetDatabase.GetByIDInList(116));
+        MoveData MirrorMove = new MoveData(m_moveAssetDatabase.GetByIDInList(119));
+        MoveData Swift = new MoveData(m_moveAssetDatabase.GetByIDInList(129));
+        MoveData Amnesia = new MoveData(m_moveAssetDatabase.GetByIDInList(133));
+        MoveData Bubble = new MoveData(m_moveAssetDatabase.GetByIDInList(145));
+        MoveData Splash = new MoveData(m_moveAssetDatabase.GetByIDInList(150));
+        MoveData HyperFang = new MoveData(m_moveAssetDatabase.GetByIDInList(158));
+        MoveData SuperFang = new MoveData(m_moveAssetDatabase.GetByIDInList(162));
+        MoveData Slash = new MoveData(m_moveAssetDatabase.GetByIDInList(163));
 
         
         //Debug.Log("SomeMove is null");
@@ -626,8 +640,14 @@ public class MockData : ScriptableObject
 
         for (int i = 0; i < pokeData.Count; i++)
         {
+            pokeAssetDatabase.AddToList(pokeData[i]);
+            /*
             if (pokeAssetDatabase.Pokemons[pokeData[i].ID] == null)
+            {
                 pokeAssetDatabase.Pokemons[pokeData[i].ID] = pokeData[i];
+                EditorUtility.SetDirty(pokeAssetDatabase);
+            }*/
+               
         }
         AssetDatabase.SaveAssets();
 
@@ -639,11 +659,95 @@ public class MockData : ScriptableObject
         Pokemon poke = new Pokemon(id, name, PP, Icon, type1, type2, pokeprefab, moves,levelforMoves);
         pokeData.Add(poke);       
     }
+    public void MoveMockData(MoveAssetDatabase moveAssetDatabase)
+    {
+        // MoveAssetDatabase moveAssetDatabase = ScriptableObject.CreateInstance("MoveAssetDatabase") as MoveAssetDatabase;
+        //  moveAssetDatabase = (MoveAssetDatabase)Resources.Load("Database/MovesAssetDatabase", typeof(MoveAssetDatabase));
+        //moveAssetDatabase = (MoveAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/MovesAssetDatabase.asset", typeof(MoveAssetDatabase));
+        // moveAssetDatabase.Moves = new MoveData[621];
+        moveData = new List<MoveData>();
+
+        AddMove(3, "Double Slap", 1, 15, 4, "The foe is slapped repeatedly, back and forth, two to five times in a row", normal, none);
+
+        AddMove(10, "Scratch", 1, 40, 4, "Hard, pointed, and sharp claws rake the foe to inflict damage", normal, none);
+        AddMove(16, "Gust", 1, 40, 4, "A gust of wind is whipped up by wings and launched at the foe to inflict damage", flying, none);
+        AddMove(17, "Wing Attack", 1, 60, 4, "Demage the foe using the pokemos wings", flying, none);
+        AddMove(18, "Whirlwind", 1, 40, 4, "Create a Whirlwind that demage the foe", normal, none);
+        AddMove(21, "Slam", 1, 80, 4, "The foe is slammed with a long tail, vines, etc., to inflict damage", normal, none);
+        AddMove(22, "Vine Whip", 1, 45, 4, "The foe is struck with slender, whiplike vines to inflict damage", grass, none);
+        AddMove(28, "Sand Attack", 1, 0, 4, "Sand is hurled in the foe's face, reducing its accuracy", ground, slow);
+        AddMove(33, "Tackle", 1, 50, 4, "Tackle deals damage and has no secondary effect", normal, none);
+        AddMove(34, "Body Slam", 1, 85, 4, "30% chance of paralyzing Target", normal, paralyze);
+        AddMove(36, "Take Down", 1, 90, 4, "Deals a high damage but also inflicts damage to the user after successful usage", normal, none);
+        AddMove(38, "Double-Edge", 1, 120, 4, "A reckless, life-risking tackle. It also damages the user by a fairly large amount, however", normal, none);
+        AddMove(39, "Tail Whip", 1, 0, 4, "Lowers foe Defense", normal, lowerdef);
+        AddMove(43, "Leer", 1, 0, 4, "The foe is given an intimidating leer with sharp eyes. The target's Defense stat is reduced", normal, lowerdef);
+        AddMove(45, "Growl", 1, 0, 4, "The user growls in an endearing way, making the foe less wary. The target's Attack stat is lowered.", normal, loweratk);
+        AddMove(48, "Supersonic", 1, 0, 4, "The user generates odd sound waves from its body. It may confuse the target", normal, confuse);
+        AddMove(49, "Sonic Boom", 1, 20, 4, "The foe is hit with a destructive shock wave that always inflicts 20 HP damage", normal, constantdamage);
+        AddMove(52, "Ember", 1, 40, 4, "The foe is attacked with small flames. The target may also be left with a burn", fire, burn);
+        AddMove(53, "Flamethrowe", 1, 90, 4, "The foe is scorched with an intense blast of fire. The target may also be left with a burn", fire, burn);
+        AddMove(55, "Water Gun", 1, 40, 4, "Inflicts damage to the foe with a stream of water", water, none);
+        AddMove(56, "Hydro Pump", 1, 110, 4, "The foe is blasted by a huge volume of water launched under great pressure", water, none);
+        AddMove(73, "Leech Seed", 1, 0, 4, "A seed is planted on the foe. It steals some HP from the for to heal the user on every turn", grass, drain);
+        AddMove(74, "Growth", 1, 0, 4, "The user's body is forced to grow all at once. It raises the Sp. Atk stat", normal, raiseSAtk);
+        AddMove(75, "Razor Leaf", 1, 55, 4, "Sharp-edged leaves are launched to slash at the foe. It has a high critical-hit ratio", grass, none);
+        AddMove(76, "Solar Beam", 1, 120, 4, "A two-turn attack. The user gathers light, then blasts a bundled beam on the second turn", grass, none);
+        AddMove(77, "Poison Powder", 1, 0, 4, "A cloud of poisonous dust is scattered on the foe. It may poison the target", poison, poisons);
+        AddMove(79, "Sleep Powder", 1, 0, 4, "The user scatters a big cloud of sleep-inducing dust around the foe", grass, sleep);
+        AddMove(81, "String Shot", 1, 0, 4, "The foe is bound with silk blown from the user’s mouth. It reduces the target’s Speed stat", bug, slow);
+        AddMove(83, "Fire Spin", 1, 35, 4, "The foe becomes trapped within a fierce vortex of fire that rages for two to five turns", fire, slow);
+        AddMove(84, "Thunder Shock", 1, 40, 4, "Inflicts damage to the foe with a small shock", electic, paralyze);
+        AddMove(85, "Thunderbolt", 1, 90, 4, "A Thunderbolt that hits hard to the foe and can also inflict paralyz", electic, paralyze);
+        AddMove(86, "Thunder Wave", 1, 0, 4, "Paralyze the foe", electic, paralyze);
+        AddMove(87, "Thunder", 1, 110, 4, "One of the most strong attacks of electricity", electic, paralyze);
+        AddMove(89, "Earthquake", 1, 100, 4, "The user sets off an earthquake that hits all the Pokémon in the battle", ground, areaeffect);
+        AddMove(91, "Dig", 1, 80, 4, "The user burrows then attacks on the second turn. It can also be used to exit dungeons", ground, none);
+        AddMove(95, "Hypnosis", 1, 0, 4, "The user employs hypnotic suggestion to make the target fall into a deep sleep", psychic, sleep);
+        AddMove(97, "Agility", 1, 0, 4, "Raises the Pokemon's speed", psychic, raiseSpeed);
+        AddMove(98, "Quick Attack", 1, 40, 4, "The user lunges at the foe at a speed that makes it almost invisible. It is sure to strike first", normal, none);
+        AddMove(99, "Rage", 1, 40, 4, "While this move is in use, it gains attack power each time the user is hit in battle", normal, raiseAtk);
+        AddMove(103, "Screech", 1, 0, 4, "An earsplitting screech is emitted to sharply reduce the foe’s Defense stat", normal, lowerdef);
+        AddMove(104, "Double Team", 1, 0, 4, "By moving rapidly, the user makes illusory copies of itself to raise its evasiveness", normal, makeacopyofhisself);
+        AddMove(106, "Harden", 1, 0, 4, "The user stiffens all the muscles in its body to raise its Defense stat", normal, raiseDef);
+        AddMove(113, "Light Screen", 1, 0, 4, "A wondrous wall of light is put up to suppress damage from special attacks for five turns", psychic, protectfromsp);
+        AddMove(116, "Focus Energy", 1, 0, 4, "The user takes a deep breath and focuses to raise the critical-hit ratio of its attacks", normal, raiseAtk);
+        AddMove(119, "Mirror Move", 1, 0, 4, "The user counters the foe by mimicking the move last used by the foe", flying, copycat);
+        AddMove(129, "Swift", 1, 60, 4, "Star-shaped rays are shot at the foe. This attack never misses", normal, nevermiss);
+        AddMove(133, "Amnesia", 1, 0, 4, "Raises the Pokémon's Special Defense by two points", psychic, raiseSPDef);
+        AddMove(145, "Bubble", 1, 40, 4, "10% chance of lowering target's Speed. Weaker in Double Battles", water, slow);
+        AddMove(150, "Splash", 1, 0, 4, "The user just flops and splashes around to no effect at all...", normal, none);
+        AddMove(158, "Hyper Fang", 1, 80, 4, "The user bites hard on the foe with it sharp fornt fangs. It may also make the target flinch", normal, none);
+        AddMove(162, "Super Fang", 1, 0, 4, "The user chomps hard on the foe with its sharp front fangs. It cuts the target’s HP to half", normal, reducehpbyhalf);
+        AddMove(163, "Slash", 1, 70, 4, "The foe is attacked with a slash of claws, etc. It has a high critical-hit ratio", normal, none);
+        AddMove(230, "Sweet Scent", 1, 0, 4, "A sweet scent that Slows the foe", normal, slow);
+
+        for (int i = 0; i < moveData.Count; i++)
+        {
+            /*
+            if (moveAssetDatabase.Moves[moveData[i].ID] == null)
+            {
+                moveAssetDatabase.Moves[moveData[i].ID] = moveData[i];
+                EditorUtility.SetDirty(moveAssetDatabase);
+            }*/
+            moveAssetDatabase.AddToList(moveData[i]);
+
+        }
+
+        Debug.Log("Move Moke Data created");
+        //m_moveAssetDatabase = moveAssetDatabase;
+        AssetDatabase.SaveAssets();
+    }
+    private void AddMove(int Id, string Name, float PP, float Power, float Cooldown, string Description, DeamageType Type, MoveEffect Effect)
+    {
+        MoveData move = new MoveData(Id, Name, PP, Power, Cooldown, Description, Type, Effect);
+        moveData.Add(move);
+    }
     public void ItemMockData(ItemAssetDatabase itemAssetDatabase)
     {
        // itemAssetDatabase = (ItemAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/ItemAssetDatabase.asset", typeof(ItemAssetDatabase));
         //itemAssetDatabase = (ItemAssetDatabase)Resources.Load("Database/ItemAssetDatabase", typeof(ItemAssetDatabase)); 
-        itemAssetDatabase.items = new InventoryItem[1500];
+        //itemAssetDatabase.items = new InventoryItem[1500];
         items = new List<InventoryItem>();
         itemsIcon = Resources.LoadAll<Sprite>("UI/Icons/ItemsIcons");
         pokeballIcons = Resources.LoadAll<Sprite>("UI/Icons/pokeballs");
@@ -673,8 +777,14 @@ public class MockData : ScriptableObject
 
         for (int i = 0; i < items.Count; i++)
         {
+            /*
             if (itemAssetDatabase.items[items[i].ID] == null)
+            {
                 itemAssetDatabase.items[items[i].ID] = items[i];
+                EditorUtility.SetDirty(itemAssetDatabase);
+            }*/
+            itemAssetDatabase.AddToList(items[i]);
+                
         }
         AssetDatabase.SaveAssets();
  
@@ -686,84 +796,7 @@ public class MockData : ScriptableObject
     }
 
     
-    public void MoveMockData(MoveAssetDatabase moveAssetDatabase)
-    {
-       // MoveAssetDatabase moveAssetDatabase = ScriptableObject.CreateInstance("MoveAssetDatabase") as MoveAssetDatabase;
-       //  moveAssetDatabase = (MoveAssetDatabase)Resources.Load("Database/MovesAssetDatabase", typeof(MoveAssetDatabase));
-        //moveAssetDatabase = (MoveAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/MovesAssetDatabase.asset", typeof(MoveAssetDatabase));
-        moveAssetDatabase.Moves = new MoveData[621];
-        moveData = new List<MoveData> ();
-
-        AddMove(3, "Double Slap", 1, 15, 4, "The foe is slapped repeatedly, back and forth, two to five times in a row", normal, none);
-
-        AddMove(10, "Scratch", 1, 40, 4, "Hard, pointed, and sharp claws rake the foe to inflict damage", normal, none);
-        AddMove(16, "Gust", 1, 40, 4, "A gust of wind is whipped up by wings and launched at the foe to inflict damage", flying, none);
-        AddMove(17, "Wing Attack", 1, 60, 4, "Demage the foe using the pokemos wings", flying, none);
-        AddMove(18, "Whirlwind", 1, 40, 4, "Create a Whirlwind that demage the foe", normal, none);
-        AddMove(21, "Slam", 1, 80, 4, "The foe is slammed with a long tail, vines, etc., to inflict damage", normal, none);
-        AddMove(22, "Vine Whip", 1, 45, 4, "The foe is struck with slender, whiplike vines to inflict damage", grass, none);
-        AddMove(28, "Sand Attack", 1, 0, 4, "Sand is hurled in the foe's face, reducing its accuracy", ground, slow);
-        AddMove(33, "Tackle", 1, 50, 4, "Tackle deals damage and has no secondary effect", normal, none);
-        AddMove(34, "Body Slam", 1, 85, 4, "30% chance of paralyzing Target", normal, paralyze);
-        AddMove(36, "Take Down", 1, 90, 4, "Deals a high damage but also inflicts damage to the user after successful usage", normal, none);
-        AddMove(38, "Double-Edge", 1, 120, 4, "A reckless, life-risking tackle. It also damages the user by a fairly large amount, however", normal, none);
-        AddMove(39, "Tail Whip", 1, 0, 4, "Lowers foe Defense", normal, lowerdef);
-        AddMove(43, "Leer", 1, 0, 4, "The foe is given an intimidating leer with sharp eyes. The target's Defense stat is reduced", normal, lowerdef);
-        AddMove(45, "Growl", 1, 0, 4, "The user growls in an endearing way, making the foe less wary. The target's Attack stat is lowered.", normal, loweratk);
-        AddMove(48, "Supersonic", 1, 0, 4, "The user generates odd sound waves from its body. It may confuse the target", normal, confuse);
-        AddMove(49, "Sonic Boom", 1, 20, 4, "The foe is hit with a destructive shock wave that always inflicts 20 HP damage", normal, constantdamage);
-        AddMove(52, "Ember", 1, 40, 4, "The foe is attacked with small flames. The target may also be left with a burn", fire, burn);
-        AddMove(53, "Flamethrowe", 1, 90, 4, "The foe is scorched with an intense blast of fire. The target may also be left with a burn", fire, burn);
-        AddMove(55, "Water Gun", 1, 40, 4, "Inflicts damage to the foe with a stream of water", water, none);
-        AddMove(56, "Hydro Pump", 1, 110, 4, "The foe is blasted by a huge volume of water launched under great pressure", water, none);
-        AddMove(73, "Leech Seed", 1, 0, 4, "A seed is planted on the foe. It steals some HP from the for to heal the user on every turn", grass, drain);
-        AddMove(74, "Growth", 1, 0, 4, "The user's body is forced to grow all at once. It raises the Sp. Atk stat", normal, raiseSAtk);
-        AddMove(75, "Razor Leaf", 1, 55, 4, "Sharp-edged leaves are launched to slash at the foe. It has a high critical-hit ratio", grass, none);
-        AddMove(76, "Solar Beam", 1, 120, 4, "A two-turn attack. The user gathers light, then blasts a bundled beam on the second turn", grass, none);
-        AddMove(77, "Poison Powder", 1, 0, 4, "A cloud of poisonous dust is scattered on the foe. It may poison the target", poison, poisons);       
-        AddMove(79, "Sleep Powder", 1, 0, 4, "The user scatters a big cloud of sleep-inducing dust around the foe", grass, sleep);
-        AddMove(81, "String Shot", 1, 0, 4, "The foe is bound with silk blown from the user’s mouth. It reduces the target’s Speed stat", bug, slow);
-        AddMove(83, "Fire Spin", 1, 35, 4, "The foe becomes trapped within a fierce vortex of fire that rages for two to five turns", fire,slow);
-        AddMove(84, "Thunder Shock", 1, 40, 4, "Inflicts damage to the foe with a small shock", electic, paralyze);
-        AddMove(85, "Thunderbolt", 1, 90, 4, "A Thunderbolt that hits hard to the foe and can also inflict paralyz", electic, paralyze);
-        AddMove(86, "Thunder Wave", 1, 0, 4, "Paralyze the foe", electic, paralyze);
-        AddMove(87, "Thunder", 1, 110, 4, "One of the most strong attacks of electricity", electic, paralyze);
-        AddMove(89, "Earthquake", 1, 100, 4, "The user sets off an earthquake that hits all the Pokémon in the battle", ground, areaeffect);
-        AddMove(91, "Dig", 1, 80, 4, "The user burrows then attacks on the second turn. It can also be used to exit dungeons", ground, none);
-        AddMove(95, "Hypnosis", 1, 0, 4, "The user employs hypnotic suggestion to make the target fall into a deep sleep", psychic, sleep);
-        AddMove(97, "Agility", 1, 0, 4, "Raises the Pokemon's speed", psychic, raiseSpeed);
-        AddMove(98, "Quick Attack", 1, 40, 4, "The user lunges at the foe at a speed that makes it almost invisible. It is sure to strike first", normal, none);
-        AddMove(99, "Rage", 1, 40, 4, "While this move is in use, it gains attack power each time the user is hit in battle", normal, raiseAtk);
-        AddMove(103, "Screech", 1, 0, 4, "An earsplitting screech is emitted to sharply reduce the foe’s Defense stat", normal, lowerdef);
-        AddMove(104, "Double Team", 1, 0, 4, "By moving rapidly, the user makes illusory copies of itself to raise its evasiveness", normal, makeacopyofhisself);
-        AddMove(106, "Harden", 1, 0, 4, "The user stiffens all the muscles in its body to raise its Defense stat", normal, raiseDef);
-        AddMove(113, "Light Screen", 1, 0, 4, "A wondrous wall of light is put up to suppress damage from special attacks for five turns", psychic, protectfromsp);        
-        AddMove(116, "Focus Energy", 1, 0, 4, "The user takes a deep breath and focuses to raise the critical-hit ratio of its attacks", normal, raiseAtk);
-        AddMove(119, "Mirror Move", 1, 0, 4, "The user counters the foe by mimicking the move last used by the foe", flying, copycat);
-        AddMove(129, "Swift", 1, 60, 4, "Star-shaped rays are shot at the foe. This attack never misses", normal, nevermiss);
-        AddMove(133, "Amnesia", 1, 0, 4, "Raises the Pokémon's Special Defense by two points", psychic, raiseSPDef);
-        AddMove(145, "Bubble", 1, 40, 4, "10% chance of lowering target's Speed. Weaker in Double Battles", water, slow);
-        AddMove(150, "Splash", 1, 0, 4, "The user just flops and splashes around to no effect at all...", normal, none);
-        AddMove(158, "Hyper Fang", 1, 80, 4, "The user bites hard on the foe with it sharp fornt fangs. It may also make the target flinch", normal, none);
-        AddMove(162, "Super Fang", 1, 0, 4, "The user chomps hard on the foe with its sharp front fangs. It cuts the target’s HP to half", normal, reducehpbyhalf);
-        AddMove(163, "Slash", 1, 70, 4, "The foe is attacked with a slash of claws, etc. It has a high critical-hit ratio", normal, none);
-        AddMove(230, "Sweet Scent", 1, 0, 4, "A sweet scent that Slows the foe", normal, slow);
-
-        for (int i = 0; i < moveData.Count; i++)
-        {
-            if (moveAssetDatabase.Moves[moveData[i].ID] == null)
-                moveAssetDatabase.Moves[moveData[i].ID] = moveData[i];
-        }
-
-        Debug.Log("Move Moke Data created");
-        //m_moveAssetDatabase = moveAssetDatabase;
-        AssetDatabase.SaveAssets();
-    }
-    private void AddMove(int Id, string Name, float PP, float Power, float Cooldown, string Description, DeamageType Type, MoveEffect Effect)
-    {
-        MoveData move = new MoveData(Id, Name, PP, Power, Cooldown, Description, Type, Effect);
-        moveData.Add(move);
-    }
+   
     /*
     public Pokemon getBasicPokemon(int id)
     {

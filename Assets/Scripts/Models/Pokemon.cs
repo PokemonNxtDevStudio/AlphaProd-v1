@@ -2,8 +2,9 @@
 using UnityEditor;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System;
 
-[System.Serializable]
+[Serializable]
 public class Pokemon : AssetItem
 {
     /*
@@ -59,98 +60,129 @@ public class Pokemon : AssetItem
     * */
    // private int m_pokedexnumber = 0;
    // public int PokedexNumber { get { return m_pokedexnumber; } set { m_pokedexnumber = value; } }
+    [SerializeField]
     private int m_level = 5;
     public int level { get { return m_level; } set { m_level = value; } }
+
+    [SerializeField]
     private float m_exp = 0;
     public float exp { get { return m_exp; } set { m_exp = value; } }
+
+    [SerializeField]
     private float m_pp = 30;
     public float PP { get { return m_pp; } set { m_pp = value; } }
+
+    [SerializeField]
     private float m_health = 10;
     public float Health { get { return m_health; } set { m_health = value; } }
+
+    [SerializeField]
     private float m_attack = 10;
     public float Attack{get{return m_attack;}set{m_attack = value;}}
+
+    [SerializeField]
     private float m_defence = 10;
     public float defence { get { return m_defence; } set { m_defence = value; } }
+
+    [SerializeField]
     private float m_demage = 0;
     public float damage { get { return m_demage; } set { m_demage = value; } }
+
+    [SerializeField]
     private float m_speed = 10;
     public float speed { get { return m_speed; } set { m_speed = value; } }
 
+    [SerializeField]
     private float m_currenthealth = 10;
     public float CurrentHealth { get { return m_currenthealth; } set { m_currenthealth = value; } }
+
+    [SerializeField]
     private float m_currentexp = 0;
     public float currentEXP { get { return m_currentexp; } set { m_currentexp = value; } }
+
+    [SerializeField]
     private float m_currentpp = 30;
     public float currentPP { get { return m_currentpp; } set { m_currentpp = value; } }
 
+    [SerializeField]
     private PokemonType m_type1;
     public PokemonType Type1 { get { return m_type1; } set { m_type1 = value; } }
+
+    [SerializeField]
     private PokemonType m_type2;
     public PokemonType Type2 { get { return m_type2; } set { m_type2 = value; } }
+
+    [SerializeField]
     private GameObject m_pokemonprefab;
     public GameObject PokemonPrefab { get { return m_pokemonprefab; } set { m_pokemonprefab = value; } }
 
+    [SerializeField]
     private bool m_released = false;
     public bool Released { get { return m_released; } set { m_released = value; } }
+
+    [SerializeField]
     private bool m_isPlayer = false;
     public bool isPlayer { get { return m_isPlayer; } set { m_isPlayer = value; } }
 
+    [SerializeField]
     private List<MoveData> m_moves = new List<MoveData>();
     public List<MoveData> Moves { get { return m_moves; } set { m_moves = value; } }
 
+    [SerializeField]
     private List<int> m_learnmovelevel;
-
     public List<int> LearnMovesLevels { get { return m_learnmovelevel; } set { m_learnmovelevel = value; } }
 
+    [SerializeField]
     private bool m_isCapture = false;
     public bool IsCapture { get { return m_isCapture; } set { m_isCapture = value; } }
-    //pokeball that is trap on
+
+    [SerializeField] //pokeball that is trap on
     private PokemonPokeball m_pokeball = PokemonPokeball.None;
     public PokemonPokeball Pokeball { get { return m_pokeball; } set { m_pokeball = value; } }
 
     public Pokemon()
     {
-        this.m_id = 0;
-        this.m_name = "";
+        this.ID = 0;
+        this.Name = "";
         // m_pokedexnumber = PokedexNum;
-        this.m_pp = 0;
-        this.m_icon = null;
-        this.m_type1 = PokemonType.None;
-        this.m_type2 = PokemonType.None;
-        this.m_pokemonprefab = null;
+        this.PP = 0;
+        this.Icon = null;
+        this.Type1 = PokemonType.None;
+        this.Type2 = PokemonType.None;
+        this.PokemonPrefab = null;
        // this.m_moves = null;
        // this.m_learnmovelevel = learnMovesAtLevel;
     }
     public Pokemon(int id,string name/*,int PokedexNum*/,float PP,Sprite Icon,PokemonType type1,PokemonType type2,GameObject PokePrefab,List<MoveData> moves,List<int> learnMovesAtLevel)
     {
-        this.m_id = id;
-        this.m_name = name;
+        this.ID = id;
+        this.Name = name;
        // m_pokedexnumber = PokedexNum;
-        this.m_pp = PP;
-        this.m_icon = Icon;
-        this.m_type1 = type1;
-        this.m_type2 = type2;
-        this.m_pokemonprefab = PokePrefab;
-        this.m_moves = moves;
-        this.m_learnmovelevel = learnMovesAtLevel;
+        this.PP = PP;
+        this.Icon = Icon;
+        this.Type1 = type1;
+        this.Type2 = type2;
+        this.PokemonPrefab = PokePrefab;
+        this.Moves = moves;
+        this.LearnMovesLevels = learnMovesAtLevel;
     }
     
     public Pokemon(Pokemon poke)
     {
-        this.m_id = poke.ID;
-        this.m_name = poke.Name;
-        this.m_pp = poke.PP;
-        this.m_icon = poke.Icon;
-        this.m_type1 = poke.Type1;
-        this.m_type2 = poke.Type2;
-        this.m_pokemonprefab = poke.PokemonPrefab;
-        this.m_moves = poke.Moves;
-        this.m_learnmovelevel = poke.LearnMovesLevels;
+        this.ID = poke.ID;
+        this.Name = poke.Name;
+        this.PP = poke.PP;
+        this.Icon = poke.Icon;
+        this.Type1 = poke.Type1;
+        this.Type2 = poke.Type2;
+        this.PokemonPrefab = poke.PokemonPrefab;
+        this.Moves = poke.Moves;
+        this.LearnMovesLevels = poke.LearnMovesLevels;
     }
     
     
 }
-[System.Serializable]
+[Serializable]
 public enum PokemonType
 {
     None,
@@ -166,7 +198,7 @@ public enum PokemonType
     Flying,
     Steel
 }
-[System.Serializable]
+[Serializable]
 public enum PokemonPokeball
 {
     None,

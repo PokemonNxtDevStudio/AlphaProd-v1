@@ -1,10 +1,17 @@
 using UnityEngine;
+using UnityEditor;
 using System.Collections;
+using System.Collections.Generic;
+using System;
+
+[Serializable]
 
 public class ItemAssetDatabase : ScriptableObject
 {
-	
-	public InventoryItem[] items;
+    [SerializeField]
+    private List<InventoryItem> m_ItemsList = new List<InventoryItem>();
+    public List<InventoryItem> ItemsList { get { return m_ItemsList; } /*set { m_ItemsList = value; } */}
+	/*public InventoryItem[] items;
 	
 	/// <summary>
 	/// Get the specified SpellInfo by index.
@@ -27,5 +34,26 @@ public class ItemAssetDatabase : ScriptableObject
 				return items[i];
 		}		
 		return null;
-	}
+	}*/
+    public void AddToList(InventoryItem item)
+    {
+        if(!ItemsList.Contains(item))
+        {
+            ItemsList.Add(item);
+            EditorUtility.SetDirty(this);
+        }
+    }
+    public InventoryItem GetByIDInList(int ID)
+    {
+        InventoryItem tem = null;
+        for (int i = 0; i < ItemsList.Count;i++ )
+        {
+            if(ItemsList[i].ID == ID)
+            {
+                tem = ItemsList[i];
+            }
+        }
+           
+        return tem;
+    }
 }
