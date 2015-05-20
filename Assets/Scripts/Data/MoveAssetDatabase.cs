@@ -1,11 +1,19 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System;
 
+[Serializable]
 public class MoveAssetDatabase : ScriptableObject 
 {
 
-    public MoveData[] Moves;
-
+  //  public MoveData[] Moves;
+    [SerializeField]
+    private List<MoveData> m_MovesList = new List<MoveData>();
+   [HideInInspector]
+    public List<MoveData> MovesList { get { return m_MovesList; } /*set { m_MovesList = value; } */}
+/*
     /// <summary>
     /// Get the specified SpellInfo by index.
     /// </summary>
@@ -27,5 +35,25 @@ public class MoveAssetDatabase : ScriptableObject
                 return Moves[i];
         }
         return null;
+    }*/
+    public void AddToList(MoveData move)
+    {
+        if(!MovesList.Contains(move))
+        {
+            MovesList.Add(move);
+            EditorUtility.SetDirty(this);
+        }
+    }
+    public MoveData GetByIDInList(int ID)
+    {
+        MoveData tem = null;
+        for(int i = 0;i < MovesList.Count ; i++)
+        {
+            if(MovesList[i].ID == ID)
+            {
+                tem = MovesList[i];
+            }
+        }
+        return tem;
     }
 }

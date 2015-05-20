@@ -20,7 +20,7 @@ public class PokemosUIS : MonoBehaviour , IBeginDragHandler, IDragHandler, IEndD
         thepokeIcon = gameObject.GetComponent<Image>();
         
         if(ID != 0)        
-            poke = NxtUiManager.instance.PokemonDB.GetByID(ID);
+            poke = NxtUiManager.instance.PokemonDB.GetByIDInList(ID);
           
         if (poke != null)                
             Debug.Log("Poke Wasnt Null");        

@@ -18,6 +18,7 @@ public class ReleasePokeball : Projectile {
 
 	public override void DoDeath(){
 		base.DoDeath ();
-		releaseComplete (transform);
+		if(gameObject != null)
+			releaseComplete (transform);
 	}
 }

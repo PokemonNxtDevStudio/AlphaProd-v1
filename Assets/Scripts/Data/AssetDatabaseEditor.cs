@@ -22,7 +22,7 @@ public class AssetDatabaseEditor
         return "Assets/Scripts/Data";
     }
    // [MenuItem("NXT/Asset Database/Items Database/Create Item Database")]
-     [MenuItem("NXT/Asset Database/Items Database")]
+     [MenuItem("NXT/Asset Database/Create/Items Database")]
     public static void ItemsDatabase()
     {
         // Get the currently selected asset directory
@@ -34,7 +34,7 @@ public class AssetDatabaseEditor
         AssetDatabase.CreateAsset(asset, AssetDatabase.GenerateUniqueAssetPath("Assets/Resources/Database/ItemAssetDatabase.asset"));
         AssetDatabase.Refresh();
         AssetDatabase.SaveAssets();
-        EditorUtility.SetDirty(asset);
+        //EditorUtility.SetDirty(asset);
     }
     /*
     //Pokemons
@@ -76,7 +76,7 @@ public class AssetDatabaseEditor
         AssetDatabase.CreateAsset(asset, AssetDatabase.GenerateUniqueAssetPath(currentPath + assetName));
         AssetDatabase.Refresh();
     }*/
-    [MenuItem("NXT/Asset Database/The Pokemon Database")]
+    [MenuItem("NXT/Asset Database/Create/The Pokemon Database")]
     public static void CreatePokeDatabase()
     {
         
@@ -89,7 +89,7 @@ public class AssetDatabaseEditor
         AssetDatabase.CreateAsset(asset1, AssetDatabase.GenerateUniqueAssetPath(path + assetName1));
         AssetDatabase.Refresh();
         AssetDatabase.SaveAssets();
-        EditorUtility.SetDirty(asset1);
+        //EditorUtility.SetDirty(asset1);
         // Get the currently selected asset directory
         //        string currentPath = GetSelectionFolder();
         // New asset name
@@ -101,9 +101,32 @@ public class AssetDatabaseEditor
         AssetDatabase.SaveAssets(); 
         Debug.Log("Pokemon Database Created and Updated With the Moves");
 
-        EditorUtility.SetDirty(asset);
+      //  EditorUtility.SetDirty(asset);
    
         
+    }
+
+    [MenuItem("NXT/Asset Database/UpdateDataBase")]
+    public static void UpdateItemsDataBase()
+    {
+        PokeAssetDatabase pdb = (PokeAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Resources/Database/PokemonAssetDatabase.asset", typeof(PokeAssetDatabase));
+        MoveAssetDatabase mdb = (MoveAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Resources/Database/MovesAssetDatabase.asset", typeof(MoveAssetDatabase));
+        ItemAssetDatabase idb = (ItemAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Resources/Database/ItemAssetDatabase.asset", typeof(ItemAssetDatabase));
+        if (AssetDatabase.Contains(pdb))
+        {
+            AssetDatabase.DeleteAsset("Assets/Resources/Database/PokemonAssetDatabase.asset");
+        }
+        if(AssetDatabase.Contains(mdb))
+        {
+            AssetDatabase.DeleteAsset("Assets/Resources/Database/MovesAssetDatabase.asset");
+        }
+        if(AssetDatabase.Contains(idb))
+        {
+            AssetDatabase.DeleteAsset("Assets/Resources/Database/ItemAssetDatabase.asset");
+        }
+        ItemsDatabase();
+        CreatePokeDatabase();
+        Debug.Log("Databases Updated");
     }
     /*
     [MenuItem("NXT/Asset Database/Items Database/Update Items DataBase")]

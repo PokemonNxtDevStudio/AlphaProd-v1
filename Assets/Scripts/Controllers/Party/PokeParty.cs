@@ -180,19 +180,19 @@ public class PokeParty
         if (!CanAddPokemon())
             return false;
         Pokemon poke = new Pokemon();
-        if(NxtUiManager.instance.PokemonDB.GetByID(id) == null)
+        if(NxtUiManager.instance.PokemonDB.GetByIDInList(id) == null)
         {
             Debug.Log("Pokemon with id :" + id + " Is Null");
         }
-        poke.ID = NxtUiManager.instance.PokemonDB.GetByID(id).ID;
-        poke.Name = NxtUiManager.instance.PokemonDB.GetByID(id).Name;
-        poke.PP = NxtUiManager.instance.PokemonDB.GetByID(id).PP;
-        poke.Icon = NxtUiManager.instance.PokemonDB.GetByID(id).Icon;
-        poke.Type1 = NxtUiManager.instance.PokemonDB.GetByID(id).Type1;
-        poke.Type2 = NxtUiManager.instance.PokemonDB.GetByID(id).Type2;
-        poke.PokemonPrefab = NxtUiManager.instance.PokemonDB.GetByID(id).PokemonPrefab;
-        poke.Moves = NxtUiManager.instance.PokemonDB.GetByID(id).Moves;
-        poke.LearnMovesLevels = NxtUiManager.instance.PokemonDB.GetByID(id).LearnMovesLevels;
+        poke.ID = NxtUiManager.instance.PokemonDB.GetByIDInList(id).ID;
+        poke.Name = NxtUiManager.instance.PokemonDB.GetByIDInList(id).Name;
+        poke.PP = NxtUiManager.instance.PokemonDB.GetByIDInList(id).PP;
+        poke.Icon = NxtUiManager.instance.PokemonDB.GetByIDInList(id).Icon;
+        poke.Type1 = NxtUiManager.instance.PokemonDB.GetByIDInList(id).Type1;
+        poke.Type2 = NxtUiManager.instance.PokemonDB.GetByIDInList(id).Type2;
+        poke.PokemonPrefab = NxtUiManager.instance.PokemonDB.GetByIDInList(id).PokemonPrefab;
+        poke.Moves = NxtUiManager.instance.PokemonDB.GetByIDInList(id).Moves;
+        poke.LearnMovesLevels = NxtUiManager.instance.PokemonDB.GetByIDInList(id).LearnMovesLevels;
         PokeSlot slot = new PokeSlot(this, poke);
         GetSlots().Add(slot);
         UiUpdate();
