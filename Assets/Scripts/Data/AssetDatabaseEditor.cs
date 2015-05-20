@@ -33,7 +33,8 @@ public class AssetDatabaseEditor
         mockdata.ItemMockData(asset);
         AssetDatabase.CreateAsset(asset, AssetDatabase.GenerateUniqueAssetPath("Assets/Resources/Database/ItemAssetDatabase.asset"));
         AssetDatabase.Refresh();
-        AssetDatabase.SaveAssets(); 
+        AssetDatabase.SaveAssets();
+        EditorUtility.SetDirty(asset);
     }
     /*
     //Pokemons
@@ -87,7 +88,8 @@ public class AssetDatabaseEditor
         mockdata.MoveMockData(asset1);
         AssetDatabase.CreateAsset(asset1, AssetDatabase.GenerateUniqueAssetPath(path + assetName1));
         AssetDatabase.Refresh();
-        AssetDatabase.SaveAssets(); 
+        AssetDatabase.SaveAssets();
+        EditorUtility.SetDirty(asset1);
         // Get the currently selected asset directory
         //        string currentPath = GetSelectionFolder();
         // New asset name
@@ -98,6 +100,8 @@ public class AssetDatabaseEditor
         AssetDatabase.Refresh();
         AssetDatabase.SaveAssets(); 
         Debug.Log("Pokemon Database Created and Updated With the Moves");
+
+        EditorUtility.SetDirty(asset);
    
         
     }

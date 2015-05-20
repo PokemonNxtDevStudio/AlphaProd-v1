@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class PokeUI : MonoBehaviour
-{
+{/*
     //[SerializeField]
     public Image m_pokeIcon;
     //public Sprite PokeIcon { get { return m_pokeIcon; } set { m_pokeIcon = value; } }
@@ -136,5 +136,5 @@ public class PokeUI : MonoBehaviour
             Debug.Log("None Existing Pokemon");
         }
        
-    }
+    }*/
 }

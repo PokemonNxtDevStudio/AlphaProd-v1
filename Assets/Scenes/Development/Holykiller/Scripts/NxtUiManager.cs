@@ -84,8 +84,8 @@ public class NxtUiManager : MonoBehaviour
     private GameObject ShopUI;
     [Header("Pokemons Icons In Pt")]
     [SerializeField]
-    private List<PokeUI> PokemonsInPtIcons = new List<PokeUI>();
-    public List<PokeUI> PokemonsInPtUI { get { return PokemonsInPtIcons; } set { PokemonsInPtIcons = value; } }
+    private List<PokemosUIS> PokemonsInPtIcons = new List<PokemosUIS>();
+    public List<PokemosUIS> PokemonsInPtUI { get { return PokemonsInPtIcons; } set { PokemonsInPtIcons = value; } }
     [Header("Pokemons Status")]    
     [SerializeField]
     private Text m_pokeName;
@@ -381,7 +381,7 @@ public class NxtUiManager : MonoBehaviour
     {
         for(int i = 0 ; i < slots.Count ;i++)
         {
-            PokemonsInPtIcons[i].SetThisPokemonIconAndName(slots[i].pokemon);
+            PokemonsInPtIcons[i].SetThisIConInfo(slots[i].pokemon);
             
         }
         for(int x = 0; x < slots.Count;x++)

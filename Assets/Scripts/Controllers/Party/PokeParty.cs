@@ -12,7 +12,59 @@ public class PokeParty
     
     List<PokeSlot> slots;
     private int selectedIndex;
+   
 
+    private List<PSPage> PsPages;
+    public List<PSPage> PokeStoringPages { get { return PsPages; } set { PsPages = value;} }
+    private int m_PagesUnlocked = 1;
+
+    #region NewCodes
+
+    public void AddFromPSSToPT(Pokemon poke)
+    {
+        if (poke == null)
+            return;
+        if(CanAddPokemon() == true)
+        {
+            AddPokemon(poke);
+        }
+        else
+        {
+            Debug.Log("Cant Add to PokeParty");
+        }
+    }
+    public void AddToPSS(Pokemon poke)
+    {
+        if (poke == null)
+            return;
+        Pokemon temp = poke;
+        bool findspace = false;
+        for(int i = 0; i < PsPages.Count;i++)
+        {
+            for(int x = 0;x < PsPages[i].PagesSlot.Count;x++)
+            {
+                if(PsPages[i].PagesSlot[x] == null)
+                {
+                    PsPages[i].PagesSlot[x] = temp;
+                    poke = null;
+                    findspace = true;
+                    Debug.Log("Added to page " + (i + 1).ToString() + " Slot " + (x + 1).ToString());
+                    return;
+                }
+            }
+        }
+        //If didnt find any free space
+        if(findspace == false)
+        {
+
+            Debug.Log("cant Add this pokemon");
+        }
+        
+        
+    }
+    //public void 
+
+    #endregion
     public void SetPokeSlotsInActive()
     {
         selectedIndex = -1;
@@ -33,7 +85,15 @@ public class PokeParty
     public PokeParty()
     {
         slots = new List<PokeSlot>();
+
         GetPokeSlot(0); //Assume the trainer has no pokemon
+
+        PsPages = new List<PSPage>();
+        for(int i = 0;i< m_PagesUnlocked ;i++ )
+        {
+            PSPage page = new PSPage();
+            PsPages.Add(page);
+        }
     }
     /*
     public void AddAPokemon(Pokemon pokemon)
