@@ -81,9 +81,11 @@ public class ProjectileController : MonoBehaviour
                 if ((p = (Projectile)newprojectile.GetComponent(projectileType)) == null)
                     p = (Projectile)newprojectile.AddComponent(projectileType);
                 p.timeBeforeDeath = projectileLife;
-            }
+            } else {
+					p = newprojectile.GetComponent<Projectile>();
+			}
             rb.velocity =
-     Camera.main.transform.forward * (projectileSpeed + projectileSpeedDelta * (UnityEngine.Random.value - 0.5f) * 2)
+    		 Camera.main.transform.forward * (projectileSpeed + projectileSpeedDelta * (UnityEngine.Random.value - 0.5f) * 2)
                     + Camera.main.transform.up * (verticalSpread * (UnityEngine.Random.value - 0.5f) * 2)
                     + Camera.main.transform.right * (horizontalSpread * (UnityEngine.Random.value - 0.5f) * 2);
 
@@ -94,7 +96,7 @@ public class ProjectileController : MonoBehaviour
            cf.force += (projectileGlobalAcceleration) * accelerationScale;
            cf.force *= 50f;
         }
-
+			Debug.Log ("returninnng..." + (p==null) + "stuff");
         return p; 
     }
    
