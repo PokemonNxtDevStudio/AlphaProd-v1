@@ -102,6 +102,7 @@ public class TrainerController : MonoBehaviour
 		GameObject.Destroy (activePokemon);
 		activePokemon = null;
 	}
+
 	public void ReleasePokemon() {
         projectileController.projectile = releasePokeball;
         ReleasePokeball pokeball = (ReleasePokeball) projectileController.Spawnprojectile();

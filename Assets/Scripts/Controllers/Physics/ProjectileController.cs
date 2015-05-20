@@ -10,6 +10,7 @@ public class ProjectileController : MonoBehaviour
 
     public GameObject projectile;
     public bool isSemiAutomatic;
+    public bool debugMode;
     public float verticalSpread = 0;
     public float horizontalSpread = 0;
     public int projectileCount = 1;
@@ -45,7 +46,7 @@ public class ProjectileController : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0)) //add this to input controller etc
+		if (debugMode && Input.GetMouseButtonDown(0)) //add this to input controller etc
             Spawnprojectile(Type.GetType("Projectile"));
         // or Spawnprojectile();
     }
