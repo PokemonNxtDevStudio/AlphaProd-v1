@@ -3,28 +3,43 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.EventSystems;
 
-public class PokemosUIS : MonoBehaviour , IBeginDragHandler, IDragHandler, IEndDragHandler
+public class PokemosUIS : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     //[SerializeField]
-    private Pokemon poke;
+    private Pokemon poke = null;
     public Pokemon THEPoke { get { return poke; } set { poke = value; } }
 
     private Image thepokeIcon;
 
-    public int ID = 0;
+  //  private PokemosUIS other = null;
+    //public int ID = 0;
 
     Pokemon tem;
 
+    private PSUiPage parentlist;
+
+   
+
+    void OnEnable()
+    {
+        parentlist = gameObject.transform.parent.GetComponent<PSUiPage>();
+        if (parentlist != null)
+            parentlist.AddToList(this);
+        thepokeIcon = gameObject.GetComponent<Image>();
+    }
     void Start()
     {
-        thepokeIcon = gameObject.GetComponent<Image>();
         
+        /*
         if(ID != 0)        
             poke = NxtUiManager.instance.PokemonDB.GetByIDInList(ID);
           
         if (poke != null)                
             Debug.Log("Poke Wasnt Null");        
-        SetThisIConInfo(poke);
+        SetThisIConInfo(poke);*/
+
+        
+       
     }
     public void OnBeginDrag(PointerEventData eventData)
     {        
@@ -33,6 +48,7 @@ public class PokemosUIS : MonoBehaviour , IBeginDragHandler, IDragHandler, IEndD
         tem = poke;
         NxtUiManager.instance.PokePic.gameObject.SetActive(true);
         NxtUiManager.instance.PokePic.sprite = poke.Icon;
+        //other = null;
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -45,30 +61,30 @@ public class PokemosUIS : MonoBehaviour , IBeginDragHandler, IDragHandler, IEndD
     {
         if (poke == null)
             return;
-        NxtUiManager.instance.PokePic.gameObject.SetActive(false);
-        PokemosUIS other = eventData.pointerEnter.gameObject.transform.GetComponent<PokemosUIS>();
-        if (other == null)
-            return;
         else 
         {
-            //PokemosUIS other = eventData.pointerCurrentRaycast.gameObject.transform.GetComponent<PokemosUIS>();
-            poke = other.THEPoke;
-            // Debug.Log("Hit" + other.gameObject.name /*eventData.pointerCurrentRaycast.gameObject.name*/);        
-            SetThisIConInfo(other.THEPoke);
-            other.THEPoke = tem;
-            other.SetThisIConInfo(tem);
-            tem = null;
-            return;
+            NxtUiManager.instance.PokePic.gameObject.SetActive(false);
+
+            //Debug.Log("Hit " + eventData.pointerEnter.gameObject.name);
+            PokemosUIS other = eventData.pointerEnter.gameObject.transform.GetComponent<PokemosUIS>();            
+            if (other == null)
+            {
+               // Debug.Log("The Other item didnt had a PokemonUIS");
+                return;
+            }
+            else
+            {
+
+                
+                poke = other.THEPoke;                    
+                SetThisIConInfo(other.THEPoke);
+                other.THEPoke = tem;
+                other.SetThisIConInfo(tem);
+                tem = null;
+            }
+           
         }
-      /*  PokeUI otherInPT = eventData.pointerEnter.gameObject.transform.GetComponent<PokeUI>();
-        if (otherInPT == null)
-            return;
-        else
-        {
-            poke = otherInPT.Pokemon;
-            setthisIcon();
-            otherInPT.SetThisPokemonIconAndName(tem);
-        }*/
+        
     }
 
 
@@ -99,6 +115,21 @@ public class PokemosUIS : MonoBehaviour , IBeginDragHandler, IDragHandler, IEndD
         }  
        // PokeInthis();
     }
+    /*public void SetTheIConInfo()
+    {
+        
+        if (poke == null)
+        {
+            thepokeIcon.sprite = NxtUiManager.instance.EmptyPokeball;
+            //Debug.Log("THe Poke Was NUll in Setting the Icon" + gameObject.name);           
+        }
+        else
+        {
+            thepokeIcon.sprite = poke.Icon;
+            //Debug.Log("Slot " + gameObject.name + " Have Pokemon" + poke.Name);
+        }
+        // PokeInthis();
+    }*/
  
 
 

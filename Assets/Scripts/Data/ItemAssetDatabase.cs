@@ -10,6 +10,8 @@ public class ItemAssetDatabase : ScriptableObject
 {
     [SerializeField]
     private List<InventoryItem> m_ItemsList = new List<InventoryItem>();
+   
+    [HideInInspector]
     public List<InventoryItem> ItemsList { get { return m_ItemsList; } /*set { m_ItemsList = value; } */}
 	/*public InventoryItem[] items;
 	

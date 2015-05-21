@@ -35,9 +35,16 @@ public class GPokeUi : MonoBehaviour
     }
     public void SetValues(Pokemon poke)
     {
-        gameObject.SetActive(true);
-        m_hp.text = "Hp: " + poke.CurrentHealth.ToString();
-        m_pp.text = "PP: " + poke.currentPP.ToString();
-        m_sprite.sprite = poke.Icon;
+        if(poke == null)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.SetActive(true);
+            m_hp.text = "Hp: " + poke.CurrentHealth.ToString();
+            m_pp.text = "PP: " + poke.currentPP.ToString();
+            m_sprite.sprite = poke.Icon;
+        }
     }
 }

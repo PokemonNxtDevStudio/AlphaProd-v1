@@ -26,6 +26,7 @@ public class PlayerActions : MonoBehaviour
     void Start()
     {
         NxtUiManager.instance.PlayerPokePt = pokept;
+        Debug.Log("poke pt has " + pokept.PokeStoringPages.Count + " Pages");
     }
 
     void Update()

@@ -139,6 +139,12 @@ public class NxtUiManager : MonoBehaviour
     [SerializeField]
     private Sprite Spempty;
     public Sprite EmptyPokeball { get {return Spempty; } }
+
+
+    [SerializeField]
+    private List<PSUiPage> m_StorePages = new List<PSUiPage>();
+    public List<PSUiPage> StorePages { get { return m_StorePages; } set { m_StorePages = value; } }
+
     void Awake()
     {
         if(instance == null)

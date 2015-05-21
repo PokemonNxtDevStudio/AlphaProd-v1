@@ -16,10 +16,20 @@ public class PokeParty
 
     private List<PSPage> PsPages;
     public List<PSPage> PokeStoringPages { get { return PsPages; } set { PsPages = value;} }
+
+    private int m_curPage = 0;
+    public int CurPage { get { return m_curPage; } set { m_curPage = value; } }
     private int m_PagesUnlocked = 1;
 
     #region NewCodes
 
+    public void AddAStoringPage()
+    {
+        m_PagesUnlocked++;
+
+        PSPage page = new PSPage();
+        PsPages.Add(page);
+    }
     public void AddFromPSSToPT(Pokemon poke)
     {
         if (poke == null)
@@ -89,11 +99,11 @@ public class PokeParty
         GetPokeSlot(0); //Assume the trainer has no pokemon
 
         PsPages = new List<PSPage>();
-        for(int i = 0;i< m_PagesUnlocked ;i++ )
-        {
+        //for(int i = 0;i< m_PagesUnlocked ;i++ )
+        //{
             PSPage page = new PSPage();
             PsPages.Add(page);
-        }
+       // }
     }
     /*
     public void AddAPokemon(Pokemon pokemon)
@@ -203,7 +213,7 @@ public class PokeParty
 
         return true;
     }
-    private void UiUpdate()
+    public void UiUpdate()
     {
         NxtUiManager.instance.SetCurPokesUis(slots);
     }
