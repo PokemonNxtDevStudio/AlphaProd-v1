@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System.Collections;
-
+#if UNITY_EDITOR
 public class NXTUtilitys : Editor
 {
     [MenuItem ("NXT/OpenScene/Assets")]
@@ -29,3 +31,4 @@ public class NXTUtilitys : Editor
         }
     }
 }
+#endif

@@ -37,11 +37,13 @@ public class GPokeUi : MonoBehaviour
     {
         if(poke == null)
         {
-            gameObject.SetActive(false);
+            m_sprite.sprite = NxtUiManager.instance.EmptyPokeball;
+            SelectedUI.SetActive(false);
+            //gameObject.SetActive(false);
         }
         else
         {
-            gameObject.SetActive(true);
+            //gameObject.SetActive(true);
             m_hp.text = "Hp: " + poke.CurrentHealth.ToString();
             m_pp.text = "PP: " + poke.currentPP.ToString();
             m_sprite.sprite = poke.Icon;

@@ -43,33 +43,33 @@ public class PlayerActions : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
-            pokept.AddPokemonByID(25);
+            pokept.AddToPokePtByID(25);
           //  pokept.AddPokemon(Pokemon.);
             //NxtUiManager.instance.PlayerPokePt = pokept;
         }
         if (Input.GetKeyDown(KeyCode.Keypad2))
         {
-            pokept.AddPokemonByID(1);
+            pokept.AddToPokePtByID(1);
             //pokept.AddPokemon(new Pokemon(1));
         }
         if (Input.GetKeyDown(KeyCode.Keypad3))
         {
-            pokept.AddPokemonByID(4);
+            pokept.AddToPokePtByID(4);
             //pokept.AddPokemon(new Pokemon(4));
         }
         if (Input.GetKeyDown(KeyCode.Keypad4))
         {
-            pokept.AddPokemonByID(10);
+            pokept.AddToPokePtByID(10);
             //pokept.AddPokemon(new Pokemon(10));
         }
         if (Input.GetKeyDown(KeyCode.Keypad5))
         {
-            pokept.AddPokemonByID(14);
+            pokept.AddToPokePtByID(14);
             //pokept.AddPokemon(new Pokemon(14));
         }
         if (Input.GetKeyDown(KeyCode.Keypad6))
         {
-            pokept.AddPokemonByID(50);
+            pokept.AddToPokePtByID(50);
            // pokept.AddPokemon(new Pokemon(50));
         }
 

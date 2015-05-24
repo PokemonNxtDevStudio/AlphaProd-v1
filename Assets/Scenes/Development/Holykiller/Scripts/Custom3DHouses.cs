@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System.Collections;
 
+#if UNITY_EDITOR
 public class Custom3DHouses : MonoBehaviour
 {
+    
     #region Paths
     private const string _foldersPath = "Assets/Resources/Prefabs/Environment/Buildings/";
     #region House 3 Paths
@@ -2798,4 +2802,6 @@ public class Custom3DHouses : MonoBehaviour
     #endregion
     */
     #endregion
+
 }
+#endif

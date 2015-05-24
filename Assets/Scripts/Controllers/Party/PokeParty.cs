@@ -12,6 +12,9 @@ public class PokeParty
     
     List<PokeSlot> slots;
     private int selectedIndex;
+
+    PokemonsInPt pokePT;
+    public PokemonsInPt PokemonsParty { get { return pokePT; } set { pokePT = value; } }
    
 
     private List<PSPage> PsPages;
@@ -23,6 +26,15 @@ public class PokeParty
 
     #region NewCodes
 
+    public PokeParty()
+    {
+        PsPages = new List<PSPage>();
+        PSPage page = new PSPage();
+        PsPages.Add(page);
+
+        pokePT = new PokemonsInPt();        
+    }
+
     public void AddAStoringPage()
     {
         m_PagesUnlocked++;
@@ -30,19 +42,7 @@ public class PokeParty
         PSPage page = new PSPage();
         PsPages.Add(page);
     }
-    public void AddFromPSSToPT(Pokemon poke)
-    {
-        if (poke == null)
-            return;
-        if(CanAddPokemon() == true)
-        {
-            AddPokemon(poke);
-        }
-        else
-        {
-            Debug.Log("Cant Add to PokeParty");
-        }
-    }
+
     public void AddToPSS(Pokemon poke)
     {
         if (poke == null)
@@ -72,9 +72,57 @@ public class PokeParty
         
         
     }
-    //public void 
+
+
+    public void AddToPokePtByID(int id)
+    {
+
+        if (pokePT.CanAddPoke() == false)
+        {
+            Debug.Log("Cant Add More Pokemons");
+            return;
+        }
+        else
+        {
+            Pokemon poke = new Pokemon();
+            if (NxtUiManager.instance.PokemonDB.GetByIDInList(id) == null)
+            {
+                Debug.Log("Pokemon with id :" + id + " Is Null");
+            }
+            poke.ID = NxtUiManager.instance.PokemonDB.GetByIDInList(id).ID;
+            poke.Name = NxtUiManager.instance.PokemonDB.GetByIDInList(id).Name;
+            poke.PP = NxtUiManager.instance.PokemonDB.GetByIDInList(id).PP;
+            poke.Icon = NxtUiManager.instance.PokemonDB.GetByIDInList(id).Icon;
+            poke.Type1 = NxtUiManager.instance.PokemonDB.GetByIDInList(id).Type1;
+            poke.Type2 = NxtUiManager.instance.PokemonDB.GetByIDInList(id).Type2;
+            poke.PokemonPrefab = NxtUiManager.instance.PokemonDB.GetByIDInList(id).PokemonPrefab;
+            poke.Moves = NxtUiManager.instance.PokemonDB.GetByIDInList(id).Moves;
+            poke.LearnMovesLevels = NxtUiManager.instance.PokemonDB.GetByIDInList(id).LearnMovesLevels;
+
+            AddToPokePT(poke);
+        }       
+    }    
+    public void AddToPokePT(Pokemon poke)
+    {
+        for (int i = 0; i < pokePT.PokemonsInThePt.Count; i++)
+        {
+            if (pokePT.PokemonsInThePt[i] == null)
+            {
+                pokePT.PokemonsInThePt[i] = poke;
+                PokePTUIUpdate();
+                return;
+            }
+        }
+    }
+    public void PokePTUIUpdate()
+    {
+        NxtUiManager.instance.PokePtUIUpdate();
+    }
 
     #endregion
+
+
+    #region OldCode
     public void SetPokeSlotsInActive()
     {
         selectedIndex = -1;
@@ -83,7 +131,7 @@ public class PokeParty
     public int SelectedIndex
     {
         get { return selectedIndex; }
-        set { if (SlotCount() >= selectedIndex) selectedIndex = value; }
+        set { /*if (SlotCount() >= selectedIndex)*/ selectedIndex = value; }
     }
     public PokeParty(Trainer trainer)
     {
@@ -92,19 +140,9 @@ public class PokeParty
         slots = new List<PokeSlot>();
         GetPokeSlot(-1); //Assume the trainer has no pokemon
     }
-    public PokeParty()
-    {
-        slots = new List<PokeSlot>();
+   
 
-        GetPokeSlot(0); //Assume the trainer has no pokemon
-
-        PsPages = new List<PSPage>();
-        //for(int i = 0;i< m_PagesUnlocked ;i++ )
-        //{
-            PSPage page = new PSPage();
-            PsPages.Add(page);
-       // }
-    }
+    
     /*
     public void AddAPokemon(Pokemon pokemon)
     {
@@ -323,28 +361,70 @@ public class PokeParty
     {
         return GetPokeSlot(index).pokemon.Name;
     }
+    #endregion
 }
-    public class PokeSlot
+   
+public class PokeSlot
+    
+{
+    public int index
     {
-        public int index
-        {
-            get { return pokeParty.GetSlots().FindIndex(v => (v != null) ? v == this : false); }
-            set { }
-        } //Directly refer to List<> for the index
-        public Pokemon pokemon;
+        get { return pokeParty.GetSlots().FindIndex(v => (v != null) ? v == this : false); }
+        set { }
+    } //Directly refer to List<> for the index
+    public Pokemon pokemon;
 
-        private PokeParty pokeParty;
+    private PokeParty pokeParty;
 
-        public PokeSlot(PokeParty pokeParty, Pokemon pokemon)
-        {
-            this.pokeParty = pokeParty;
-            this.index = -1;
-            this.pokemon = pokemon;
-        }
-        public PokeSlot(Pokemon pokemon)
-        {          
-            this.pokemon = pokemon;
-        }
+    public PokeSlot(PokeParty pokeParty, Pokemon pokemon)
+    {
+        this.pokeParty = pokeParty;
+        this.index = -1;
+        this.pokemon = pokemon;
     }
+    public PokeSlot(Pokemon pokemon)
+    {          
+        this.pokemon = pokemon;
+    }
+   
+   
+}
+
+public class PokemonsInPt
+{
+    List<Pokemon> pokesInPt = new List<Pokemon>();
+    public List<Pokemon> PokemonsInThePt { get { return pokesInPt; } set { pokesInPt = value; } }
+
+
+    public PokemonsInPt()
+    {
+        Pokemon p1 = null;
+        Pokemon p2 = null;
+        Pokemon p3 = null;
+        Pokemon p4 = null;
+        Pokemon p5 = null;
+        Pokemon p6 = null;
+        pokesInPt.Add(p1);
+        pokesInPt.Add(p2);
+        pokesInPt.Add(p3);
+        pokesInPt.Add(p4);
+        pokesInPt.Add(p5);
+        pokesInPt.Add(p6);
+    }
+
+    public bool CanAddPoke()
+    {
+        for(int i = 0; i < pokesInPt.Count;i++)
+        {
+            if(pokesInPt[i] == null)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+}
 
    

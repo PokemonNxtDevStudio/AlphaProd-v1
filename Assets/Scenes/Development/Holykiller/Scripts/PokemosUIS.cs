@@ -73,13 +73,12 @@ public class PokemosUIS : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
                 return;
             }
             else
-            {
-
-                
+            {                
                 poke = other.THEPoke;                    
                 SetThisIConInfo(other.THEPoke);
                 other.THEPoke = tem;
                 other.SetThisIConInfo(tem);
+                NxtUiManager.instance.PokePtUpdate();
                 tem = null;
             }
            

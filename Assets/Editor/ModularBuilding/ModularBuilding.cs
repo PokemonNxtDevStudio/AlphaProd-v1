@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System.Collections;
 using System.Collections.Generic;
 
 
 public class ModularBuilding : EditorWindow
 {
+    #if UNITY_EDITOR
 
     #region Houses vars
     private int _CurvbaseDesign = 1;
@@ -1151,4 +1154,5 @@ public class ModularBuilding : EditorWindow
 
     #endregion
 
+#endif
 }
