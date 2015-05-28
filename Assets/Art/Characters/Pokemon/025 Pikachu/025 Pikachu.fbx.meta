@@ -59,6 +59,7 @@ ModelImporter:
     7400010: StrafeLeft
     7400012: PreStrafeLeft
     7400014: Idle
+    7400016: Quick Attack
     9500000: //RootNode
     13700000: Pikachu
     13700002: Pikachu_LoD
@@ -587,6 +588,78 @@ ModelImporter:
       takeName: Take 001
       firstFrame: 60
       lastFrame: 69
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Pikachu
+        weight: 1
+      - path: Pikachu_LoD
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Leg
+        weight: 1
+      - path: Root/L_Hip/L_Leg/L_Foot
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Leg
+        weight: 1
+      - path: Root/R_Hip/R_Leg/R_Foot
+        weight: 1
+      - path: Root/Spine_01
+        weight: 1
+      - path: Root/Spine_01/Spine_02
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head/L_Ear
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head/Nose
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head/R_Ear
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Arm
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Arm/L_Hand
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Arm
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Arm/R_Hand
+        weight: 1
+      - path: Root/Tail
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Quick Attack
+      takeName: Take 001
+      firstFrame: 167
+      lastFrame: 179
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

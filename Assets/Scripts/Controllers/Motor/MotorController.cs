@@ -4,14 +4,23 @@ using System.Linq;
 using UnityEngine;
 using NXT.Controllers;
 
+public enum MotorState
+{
+    Input,
+    AI
+}
     public class MotorController :MonoBehaviour
     {
+
+        public MotorState motorState = MotorState.Input;
         public BaseAnimatorController AnimatorCtrl;
         public float JumpHeight = 2.0f;
         public float Gravity = 10.0f; 
         public float baseSpeed = .2f;
+        private float m_speed;
         public float MaxVelocityChange = 10f;
 		public bool moveOverrde;
+        private Camera camera;
         protected virtual float JumpSpeed {
             // From the jump height and gravity we deduce the upwards speed 
             // for the character to reach at the apex.
@@ -20,23 +29,62 @@ using NXT.Controllers;
 
         public virtual void Start()
         {
-            
-
+            m_speed = baseSpeed;
+            camera = Camera.main;
         }
-		
+
         void Update()
         {  //if(obj!=null && obj.IsMine)
             //obj.UpdatePosition(transform.position);
+            if (Input.GetKey(KeyCode.W))
+            {
+                FaceCamera();
+            }
 
-		if(!moveOverrde) Move(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
-           AnimatorCtrl.SetFloat("DirX", Input.GetAxis("Horizontal"));
-           AnimatorCtrl.SetFloat("DirY", Input.GetAxis("Vertical"));
+            if (motorState == MotorState.Input)
+            {
+
+
+                if (!moveOverrde) Move(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
+                AnimatorCtrl.SetFloat("DirX", Input.GetAxis("Horizontal"));
+                AnimatorCtrl.SetFloat("DirY", Input.GetAxis("Vertical"));
+            }
+        }
+        public void SetState(MotorState ms)
+        {
+            this.motorState = ms;
+        }
+        public void FaceCamera()
+        {
+        
+
+            Vector3 facingAngle = camera.transform.eulerAngles;
+            Vector3 facePos = camera.transform.position;
+            //smoothing + optiomiation
+            //Olday way, doesnt resolve rotations on 2/4 quadrant, need use Quaternions
+            //transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, Vector3.up * facingAngle.y, 7 * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(camera.transform.eulerAngles.y * Vector3.up), Time.deltaTime * 7.0f);
+
+
+
+            camera.transform.eulerAngles = new Vector3(facingAngle.x, facingAngle.y, facingAngle.z);
+            camera.transform.position = new Vector3(facePos.x, facePos.y, facePos.z); 
         }
         public virtual void Interpolate(Vector3 newPos,Vector3 rot)
         {
 
             //transform.position = Vector3.Lerp(transform.position, newPos, interpolationSmoothing * Time.deltaTime);
         
+        }
+
+        public void RestoreBaseSpeed()
+        {
+            baseSpeed = m_speed;
+        }
+        public void IncreaseSpeedByFactor(float factor,float max)
+        {
+            baseSpeed *= factor;
+            baseSpeed = Mathf.Clamp(baseSpeed, 0, max);
         }
         public virtual void Move(Vector3 InputDirection) {
             if(!InputDirection.Equals(Vector3.zero)) {

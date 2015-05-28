@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using System.Reflection;
+using NXT;
 namespace NXT.Controllers
 {
    public class PokeController :MonoBehaviour
@@ -17,13 +18,14 @@ namespace NXT.Controllers
        private Dictionary<int, MoveBehavior> currentMoveBehaviors = new Dictionary<int, MoveBehavior>(); 
        protected virtual void Start()
        {
+
            //moves = m_Pokemon.Moves;
            for(int i =0; i <moves.Count; i++)
            {
                Type t = System.Type.GetType("TailWhip");
                currentMoveBehaviors.Add(0, ((MoveBehavior)this.gameObject.AddComponent(t)).SetMoveData(moves[i]));
            }
-           Type t1 = System.Type.GetType("TailWhip");
+           Type t1 = System.Type.GetType("Tackle");
            currentMoveBehaviors.Add(0, (MoveBehavior)this.gameObject.AddComponent(t1));
        }
 
@@ -34,7 +36,13 @@ namespace NXT.Controllers
        }
        void Update()
        {
+           if(Input.GetMouseButtonDown(0))
            CastMove(0);
+
+           if (Input.GetMouseButtonDown(1))
+           {
+               EventHandler.ExecuteEvent(this.gameObject, "RightClick");
+           }
        }
        public void UsePP(int PP)
        {

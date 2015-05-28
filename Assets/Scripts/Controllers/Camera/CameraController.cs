@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using NXT;
-
+using UnityStandardAssets.ImageEffects;
 namespace NXT.Controllers
 {
     [RequireComponent(typeof(CameraHandler))]
@@ -543,6 +543,15 @@ namespace NXT.Controllers
                 return -num / this.m_MaxPitchLimit;
             }
             return (Utility.RestrictAngle(num) - 360f) / this.m_MinPitchLimit;
+        }
+
+        public void ActivateBlur()
+        {
+            GetComponent<CameraMotionBlur>().enabled = true;
+        }
+        public void DeactivateBlur()
+        {
+            GetComponent<CameraMotionBlur>().enabled = false;
         }
     }
 }
