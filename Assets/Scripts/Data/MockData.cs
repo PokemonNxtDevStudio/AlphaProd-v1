@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
+
 using System.Collections;
 using System.Collections.Generic;
 
+#if UNITY_EDITOR
+using UnityEditor;
 public class MockData : ScriptableObject
 {
 
@@ -848,3 +850,4 @@ public class MockData : ScriptableObject
         
 
 }
+#endif

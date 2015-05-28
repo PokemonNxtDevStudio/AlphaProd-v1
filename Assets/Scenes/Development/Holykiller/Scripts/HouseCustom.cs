@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 //using UnityEditor;
-
+#if UNITY_EDITOR
 public class HouseCustom : MonoBehaviour
 {
     public enum TypeOfHouse
@@ -1140,3 +1140,4 @@ public class HouseCustom : MonoBehaviour
     
     
 }
+#endif

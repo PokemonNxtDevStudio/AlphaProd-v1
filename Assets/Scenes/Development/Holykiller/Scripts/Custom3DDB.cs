@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System;
-
+#if UNITY_EDITOR
 [Serializable]
 public class Custom3DDB 
 {
@@ -299,3 +301,4 @@ public enum HousePart
     TheRoofParts,
 
 }
+#endif

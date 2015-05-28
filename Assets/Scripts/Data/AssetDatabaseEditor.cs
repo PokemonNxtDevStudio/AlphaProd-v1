@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
-using UnityEditor;
+
 using System.Collections;
 using System.Security.Policy;
 
 #if UNITY_EDITOR
+using UnityEditor;
 public class AssetDatabaseEditor
 {
     static MockData mockdata = ScriptableObject.CreateInstance("MockData") as MockData;

@@ -172,23 +172,6 @@ public class NxtUiManager : MonoBehaviour
         
         player = GameObject.FindGameObjectWithTag("Player");
         NXT.EventHandler.RegisterEvent(player, "ShowInventory", new Action(ShowInventory));
-
-
-        /*
-        PokeUI poke1 = GameObject.Find("PokemonPt1").GetComponent<PokeUI>();
-        PokeUI poke2 = GameObject.Find("PokemonPt2").GetComponent<PokeUI>();
-        PokeUI poke3 = GameObject.Find("PokemonPt3").GetComponent<PokeUI>();
-        PokeUI poke4 = GameObject.Find("PokemonPt4").GetComponent<PokeUI>();
-        PokeUI poke5 = GameObject.Find("PokemonPt5").GetComponent<PokeUI>();
-        PokeUI poke6 = GameObject.Find("PokemonPt6").GetComponent<PokeUI>();
-        PokemonsInPtIcons.Add(poke1);
-        PokemonsInPtIcons.Add(poke2);
-        PokemonsInPtIcons.Add(poke3);
-        PokemonsInPtIcons.Add(poke4);
-        PokemonsInPtIcons.Add(poke5);
-        PokemonsInPtIcons.Add(poke6);
-         * */
-
 	}
     public void ShowMoney(float Money)
     {
@@ -388,6 +371,39 @@ public class NxtUiManager : MonoBehaviour
         m_pokeSpeed.text = "Speed : " + speed.ToString();
     }
 
+    
+    public void CurSelectedPoke(int index)
+    {
+        for(int i = 0;i < m_gpokeUis.Count;i++)
+        {
+            m_gpokeUis[i].SelectedisThis(false);
+            if(i == index && PlayerPokePt.PokemonsParty.PokemonsInThePt[i] != null)
+            {
+                m_gpokeUis[i].SelectedisThis(true);
+            }
+        }
+    }
+
+    public void PokePtUIUpdate()
+    {
+        //PlayerPokePt.PokemonsParty
+        for(int i = 0 ; i < PlayerPokePt.PokemonsParty.PokemonsInThePt.Count;i++)
+        {
+            PokemonsInPtIcons[i].SetThisIConInfo(PlayerPokePt.PokemonsParty.PokemonsInThePt[i]);   
+               
+            m_gpokeUis[i].SetValues(PlayerPokePt.PokemonsParty.PokemonsInThePt[i]);        
+        }
+    }
+    public void PokePtUpdate()
+    {
+        for (int i = 0; i < PlayerPokePt.PokemonsParty.PokemonsInThePt.Count; i++)
+        {
+            PlayerPokePt.PokemonsParty.PokemonsInThePt[i] = PokemonsInPtIcons[i].THEPoke;
+        }
+        PokePtUIUpdate();
+    }
+
+    #region oldCode
     public void SetCurPokesUis(List<PokeSlot> slots)
     {
         for(int i = 0 ; i < slots.Count ;i++)
@@ -408,39 +424,8 @@ public class NxtUiManager : MonoBehaviour
             }
             
         }
-       // PokemonsInPtIcons
-    }
-    public void CurSelectedPoke(int index)
-    {
-        for(int i = 0;i < m_gpokeUis.Count;i++)
-        {
-            m_gpokeUis[i].SelectedisThis(false);
-            if(i == index)
-            {
-                m_gpokeUis[i].SelectedisThis(true);
-            }
-        }
+        // PokemonsInPtIcons
     }
 
-    /*public Pokemon NewPoke(int id)
-    {
-       
-
-        Pokemon poke = new Pokemon();
-        //PokeAssetDatabase pokeAssetDatabase = (PokeAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/PokemonAssetDatabase.asset", typeof(PokeAssetDatabase));
-        //PokeAssetDatabase pokeAssetDatabase = ScriptableObject.CreateInstance("PokeAssetDatabase") as PokeAssetDatabase;
-        // PokeAssetDatabase pokeAssetDatabase = (PokeAssetDatabase)Resources.Load("Database/PokemonAssetDatabase") as PokeAssetDatabase;
-        // Pokemon poke =  new Pokemon( pokeAssetDatabase.GetByID(id));
-        poke.ID = PokeDB.GetByID(id).ID;
-        poke.Name = PokeDB.GetByID(id).Name;
-        poke.PP = PokeDB.GetByID(id).PP;
-        poke.Icon = PokeDB.GetByID(id).Icon;
-        poke.Type1 = PokeDB.GetByID(id).Type1;
-        poke.Type2 = PokeDB.GetByID(id).Type2;
-        poke.PokemonPrefab = PokeDB.GetByID(id).PokemonPrefab;
-        poke.Moves = PokeDB.GetByID(id).Moves;
-        poke.LearnMovesLevels = PokeDB.GetByID(id).LearnMovesLevels;
-
-        return poke;
-    }*/
+    #endregion
 }
