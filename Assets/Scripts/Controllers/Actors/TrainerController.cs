@@ -39,7 +39,7 @@ public class TrainerController : MonoBehaviour
 	void OnMove(KeyCode __dir) {
 		switch (__dir) {
 			case KeyCode.W:
-				faceCamera ();
+				//faceCamera ();
 				motor.Move(Vector3.forward);
 				break;
 			case KeyCode.S:
