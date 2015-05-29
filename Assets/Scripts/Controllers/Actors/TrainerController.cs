@@ -93,13 +93,13 @@ public class TrainerController : MonoBehaviour
 		if (activePokemon == null)
 			return;
 		Debug.Log ("spawn dat pokemon!");
-		//moving camera
-		cameraController.SetTarget(activePokemon.transform, .25f);
 
 		//setting active and position
 		activePokemon.transform.position = __transform.position;
 		activePokemon.transform.rotation = __transform.rotation;
 		activePokemon.SetActive (true);
+		//moving camera
+		cameraController.SetTarget(activePokemon.transform, .25f);
 	}
 	
 	public void UseSkill(int __skillSlotID) {
