@@ -15,6 +15,8 @@ public class TrainerInputHandler : MonoBehaviour {
 	}
 
 	void readInputs(){
+		if (MOVEMENT == null)
+			return;
 		//handle cases for triggering release/capture/cast/inventory/etc
 		if (Input.GetKey(KeyCode.W))
 			MOVEMENT(KeyCode.W);
