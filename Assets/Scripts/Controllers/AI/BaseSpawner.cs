@@ -30,8 +30,9 @@ public class AISpawner : MonoBehaviour
         for (int i = 0; i < maximumSpawnerCount; i++)
         {
             GameObject prefab = (GameObject) enemyPokemonToSpawn[discreteDistribution.Sample()];
-            GameObject newPokemon = (GameObject) Instantiate(prefab, RandomPostion(), Quaternion.identity);
-            // newPokemon.AddComponent<PokeCore>().pokemon = Temp.PopulateDB.instance.getBasicPokemon(1);
+			GameObject newPokemon = PokemonSpawner.SpawnPokemon(prefab, RandomPostion(), Quaternion.identity);
+			
+			// newPokemon.AddComponent<PokeCore>().pokemon = Temp.PopulateDB.instance.getBasicPokemon(1);
             //newPokemon.GetComponent<PokeCore>().pokeCoreType = PokeCoreType.WildPokemon;
             //RaycastHit hit;
             //if (Physics.Raycast (newPokemon.transform.position, Vector3.down, out hit)) {

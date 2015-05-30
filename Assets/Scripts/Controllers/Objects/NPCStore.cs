@@ -39,6 +39,7 @@ public class NPCStore : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         NXT.EventHandler.RegisterEvent(player, "OnShopRequest", new Action(OnShopRequest));
+		//checking to make items are assigned	
         if (m_StoreItemsBotton == null)
         {
             Debug.Log("Add Store Item Botton to " + gameObject.name);
@@ -59,8 +60,8 @@ public class NPCStore : MonoBehaviour
             Debug.Log("Add InteractUI GameObject to " + gameObject.name);
             return;
         }
-        if(InteractUI.activeSelf == true)
-        {
+
+        if(InteractUI.activeSelf) {
             InteractUI.SetActive(false);
         }
         for (int i = 0; i < StoreItemsPanel.transform.childCount; i++)
