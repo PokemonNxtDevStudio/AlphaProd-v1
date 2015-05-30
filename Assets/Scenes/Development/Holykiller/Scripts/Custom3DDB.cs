@@ -221,7 +221,7 @@ public class Custom3DDB
 
     public HouseNumber HouseNumber;
     public HouseFiller HouseFiller;
-
+#if UNITY_EDITOR
     public static GameObject NewCustomPart(GameObject goparent,string path,string nameforthego)
     {
 
@@ -233,6 +233,7 @@ public class Custom3DDB
         go.transform.parent = goparent.transform;
         return go;       
     }
+#endif
     public Custom3DDB() { }
 }
 
