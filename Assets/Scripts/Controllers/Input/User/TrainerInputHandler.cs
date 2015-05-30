@@ -12,6 +12,7 @@ public class TrainerInputHandler : MonoBehaviour {
 	// Update is called once per frame
 	void Update(){
 		readInputs ();
+		checkTrainerCommands ();
 	}
 
 	void readInputs(){
@@ -28,7 +29,6 @@ public class TrainerInputHandler : MonoBehaviour {
 			MOVEMENT(KeyCode.A);
 		if (Input.GetKeyUp(KeyCode.I))
 			UI(KeyCode.I);
-		checkTrainerCommands ();
 	}
 
 	public void checkTrainerCommands(){

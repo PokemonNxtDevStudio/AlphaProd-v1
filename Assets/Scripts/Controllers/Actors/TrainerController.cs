@@ -71,15 +71,15 @@ public class TrainerController : MonoBehaviour
 	
 	public void ReturnPokemon() {
 		cameraController.SetTarget(gameObject.transform);
-		GameObject.Destroy (activePokemon);
-		activePokemon = null;
+		PokemonSpawner.KillPokemon (activePokemon);
+//		activePokemon = null;
 	}
 
 	public void ReleasePokemon() {
         projectileController.projectile = releasePokeball;
         ReleasePokeball pokeball = (ReleasePokeball) projectileController.Spawnprojectile();
 		//active pokemon
-		activePokemon = (GameObject) GameObject.Instantiate (pokemon[pokeSlot]);
+		activePokemon = PokemonSpawner.SpawnPokemon (pokemon[pokeSlot]);
 		activePokemon.SetActive (false);
 
 		//spawning and throwing pokeball

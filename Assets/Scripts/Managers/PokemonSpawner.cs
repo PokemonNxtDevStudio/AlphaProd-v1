@@ -16,4 +16,9 @@ public class PokemonSpawner {
 
 		return newPokemon;
 	}
+	//killing pokemon
+	//TODO add functionality to kill any coroutines or memory leaks that comes with the pokemon
+	public static void KillPokemon(GameObject __pokemon) {
+		GameObject.Destroy (__pokemon);
+	}
 }
