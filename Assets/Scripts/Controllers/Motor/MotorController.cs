@@ -22,9 +22,10 @@ public enum MotorState
 		public bool CanJump;
 
 	
+		private bool Grounded = true;
 		private Camera camera;
-		private bool Grounded;
 		private float m_speed;
+		private Rigidbody rigidbody;
 
         protected virtual float JumpSpeed {
             // From the jump height and gravity we deduce the upwards speed 
@@ -36,23 +37,34 @@ public enum MotorState
         {
             m_speed = baseSpeed;
             camera = Camera.main;
+			rigidbody = GetComponent<Rigidbody>();
         }
 
         void Update()
         {  //if(obj!=null && obj.IsMine)
             //obj.UpdatePosition(transform.position);
-            if (Input.GetKey(KeyCode.W))
-            {
+			if (Input.GetAxis("Vertical") >= 1)  {
                 FaceCamera();
             }
 
+			if(!Grounded)
+				Grounded = rigidbody.velocity.y == 0;
+
+		
             if (motorState == MotorState.Input)
             {
 
 
                 if (!moveOverrde) Move(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
-                AnimatorCtrl.SetFloat("DirX", Input.GetAxis("Horizontal"));
-                AnimatorCtrl.SetFloat("DirY", Input.GetAxis("Vertical"));
+				if(Grounded) {
+					AnimatorCtrl.SetFloat("DirX", Input.GetAxis("Horizontal"));
+					AnimatorCtrl.SetFloat("DirY", Input.GetAxis("Vertical"));
+				} else {
+					AnimatorCtrl.SetFloat("DirX", 0);
+					AnimatorCtrl.SetFloat("DirY", 0);
+//					AnimatorCtrl.SetFloat("DirZ", 1);
+				}
+//			AnimatorCtrl.SetFloat
             }
         }
         public void SetState(MotorState ms)
@@ -61,8 +73,6 @@ public enum MotorState
         }
         public void FaceCamera()
         {
-        
-
             Vector3 facingAngle = camera.transform.eulerAngles;
             Vector3 facePos = camera.transform.position;
             //smoothing + optiomiation
@@ -106,11 +116,13 @@ public enum MotorState
                // if(velocityChange.magnitude > 0.1f)
                     GetComponent<Rigidbody>().AddForce(velocityChange, ForceMode.VelocityChange);
 
-                if(CanJump && !Grounded && Input.GetKey(KeyCode.Space)) {
-                    GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, JumpSpeed, velocity.z);
+                if(CanJump && Grounded && Input.GetKey(KeyCode.Space)) {
+					Grounded = false;
+					rigidbody.velocity = new Vector3(velocity.x, JumpSpeed, velocity.z);
                 }
+//			Grounded
                 //Stay on the ground bitch
-                GetComponent<Rigidbody>().AddForce(new Vector3(0, -Gravity * GetComponent<Rigidbody>().mass, 0));
+				//                rigidbody.AddForce(new Vector3(0, -Gravity * GetComponent<Rigidbody>().mass, 0));
             
             }
             //@You can uncomment the following two lines and comment the content of the UpdateAnimator method in Ctrl/Handlers/Net/CharacterNetCtrlHandler.cs
