@@ -88,6 +88,7 @@ public class Custom3DHousesEditor : Editor
                 GUILayout.Label("ExtraRoof v " + house.House.CurExtraRoof + " / " + house.House.MaxExtraRoofAtm);
                 if (GUILayout.Button("Next ExtraRoof"))
                 {
+                    //Debug.Log("Next ExtraRoof");
                     house.HouseChanger((int)house.House.HouseNumber, PartOfHouse.ExtraRoof, true);
                 }
                 if (GUILayout.Button("Previous ExtraRoof"))

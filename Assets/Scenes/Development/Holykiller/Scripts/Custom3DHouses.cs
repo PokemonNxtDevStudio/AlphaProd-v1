@@ -43,32 +43,32 @@ public class Custom3DHouses : MonoBehaviour
 
     #region House 5 Paths
     //House005 Paths 
-    private string _h5RoofPath = "Assets/Resources/Prefabs/Environment/Buildings/House_005/Roof/House_005_Roof_";
-    private string _h5OutsideWallsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_005/OutsideWalls/House_005_OutSideWalls_";
-    private string _h5InsideWallsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_005/InsideWalls/House_005_InsideWalls_";
-    private string _h5F1FloorPath = "Assets/Resources/Prefabs/Environment/Buildings/House_005/F1Floor/House_005_F1Floor_";
-    private string _h5F2FloorPath = "Assets/Resources/Prefabs/Environment/Buildings/House_005/F2Floor/House_005_F2Floor_";
-    private string _h5StairsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_005/House_005_Stairs";
-    private string _h5WindowsGlassesPath = "Assets/Resources/Prefabs/Environment/Buildings/House_005/House_005_WindowsGlass";
-    private string _h5DoorPath = "Assets/Resources/House_005/Prefabs/Environment/Buildings/Door/House_005_Door_v";
-    private string _h5InsideExtraWallsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_005/F2Walls/House_005_F2InsideWalls_";
-    private string _h5PillarsPath = "Assets/Resources/House_005/Prefabs/Environment/Buildings/Pillar/House_005_Pillars_";
-    private string _h5InsideRoofPath = "Assets/Resources/Prefabs/Environment/Buildings/House_005/InsideRoof/House_005_InsideRoof_";
+    private string _h5RoofPath = _foldersPath +"House_005/Roof/House_005_Roof_";
+    private string _h5OutsideWallsPath = _foldersPath + "House_005/OutsideWalls/House_005_OutSideWalls_";
+    private string _h5InsideWallsPath = _foldersPath + "House_005/InsideWalls/House_005_InsideWalls_";
+    private string _h5F1FloorPath = _foldersPath + "House_005/F1Floor/House_005_F1Floor_";
+    private string _h5F2FloorPath = _foldersPath + "House_005/F2Floor/House_005_F2Floor_";
+    private string _h5StairsPath = _foldersPath + "House_005/House_005_Stairs";
+    private string _h5WindowsGlassesPath = _foldersPath + "House_005/House_005_WindowsGlass";
+    private string _h5DoorPath = _foldersPath + "House_005/Door/House_005_Door_v";
+    private string _h5InsideExtraWallsPath = _foldersPath + "House_005/F2Walls/House_005_F2InsideWalls_";
+    private string _h5PillarsPath = _foldersPath + "House_005/Pillar/House_005_Pillars_";
+    private string _h5InsideRoofPath = _foldersPath + "House_005/InsideRoof/House_005_InsideRoof_";
     #endregion
 
     #region House 6 Paths
     //House006 Paths 
-    private string _h6RoofPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/Roof/House_006_Roof_";
-    private string _h6OutsideWallsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/OutsideWalls/House_006_OutSideWalls_";
-    private string _h6InsideWallsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/InsideWalls/House_006_InsideWalls_";
-    private string _h6F1FloorPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/F1Floor/House_006_F1Floor_";
-    private string _h6F2FloorPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/F2Floor/House_006_F2Floor_";
-    private string _h6StairsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/House_006_Stairs";
-    private string _h6WindowsGlassesPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/House_006_WindowsGlass";
-    private string _h6DoorPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/Door/House_006_Door_v";
-    private string _h6FramesPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/Frame/House_006_Frames_";
-    private string _h6FrontStairsPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/FrontStairs/House_006_FrontStairs_";
-    private string _h6InsideRoofPath = "Assets/Resources/Prefabs/Environment/Buildings/House_006/InteriorRoof/House_006_InsideRoof_";
+    private string _h6RoofPath = _foldersPath + "House_006/Roof/House_006_Roof_";
+    private string _h6OutsideWallsPath = _foldersPath + "House_006/OutsideWalls/House_006_OutSideWalls_";
+    private string _h6InsideWallsPath = _foldersPath + "House_006/InsideWalls/House_006_InsideWalls_";
+    private string _h6F1FloorPath = _foldersPath + "House_006/F1Floor/House_006_F1Floor_";
+    private string _h6F2FloorPath = _foldersPath + "House_006/F2Floor/House_006_F2Floor_";
+    private string _h6StairsPath = _foldersPath + "House_006/House_006_Stairs";
+    private string _h6WindowsGlassesPath = _foldersPath + "House_006/House_006_WindowsGlass";
+    private string _h6DoorPath = _foldersPath + "House_006/Door/House_006_Door_v";
+    private string _h6FramesPath = _foldersPath + "House_006/Frame/House_006_Frames_";
+    private string _h6FrontStairsPath = _foldersPath  + "House_006/FrontStairs/House_006_FrontStairs_";
+    private string _h6InsideRoofPath = _foldersPath + "House_006/InteriorRoof/House_006_InsideRoof_";
     #endregion
 
     #region House 7 Paths
@@ -382,6 +382,7 @@ public class Custom3DHouses : MonoBehaviour
                 house.MaxDoor1Atm = house.MaxDoors6;
                 house.MaxFramesAtm = house.MaxFrames6;
                 house.MaxFrontStairsAtm = house.MaxFrontStairs6;
+              //  Debug.Log("All Values Set");
                 break;
             case 7:
                 roof = _h7RoofsPath;
@@ -510,14 +511,19 @@ public class Custom3DHouses : MonoBehaviour
             if (house.CurRoof > house.MaxRoofAtm)
                 house.CurRoof = house.MaxRoofAtm;
             house.Roof = Custom3DDB.NewCustomPart(gameObject, roof + house.CurRoof,nameforthehouse + " Roof v" + house.CurRoof);
+
+           // Debug.Log("Roof Created");
         }
         if(extraroof != "")
         {
+            //Debug.Log("was Extra Roof " + house.CurExtraRoof);
             if (house.ExtraRoof != null)
                 DestroyImmediate(house.ExtraRoof);
-            if (house.CurExtraRoof > house.MaxExtraFloorAtm)
-                house.CurExtraRoof = house.MaxExtraFloorAtm;
+            if (house.CurExtraRoof > house.MaxExtraRoofAtm)
+                house.CurExtraRoof = house.MaxExtraRoofAtm;
             house.ExtraRoof = Custom3DDB.NewCustomPart(gameObject, extraroof + house.CurExtraRoof, nameforthehouse + " Extra Roof v" + house.CurExtraRoof);
+           // Debug.Log("Cur Extra Roof " + house.CurExtraRoof);
+            //Debug.Log("ExtraRoof Created");
         }
         if (outsidewall != "")
         {
@@ -526,6 +532,8 @@ public class Custom3DHouses : MonoBehaviour
             if (house.CurOutsideWall > house.MaxOutSideWallsAtm)
                 house.CurOutsideWall = house.MaxOutSideWallsAtm;
             house.OutSideWall = Custom3DDB.NewCustomPart(gameObject, outsidewall + house.CurOutsideWall, nameforthehouse + " OutSideWalls v" + house.CurOutsideWall);
+
+          //  Debug.Log("OutsideWalls Created");
         }
         if (frames != "")
         {
@@ -534,26 +542,35 @@ public class Custom3DHouses : MonoBehaviour
             if (house.CurFrames > house.MaxFramesAtm)
                 house.CurFrames = house.MaxFramesAtm;
             house.Frames = Custom3DDB.NewCustomPart(gameObject, frames + house.CurFrames, nameforthehouse + " Frames v" + house.CurFrames);
+
+            //Debug.Log("Frames Created");
         }
-        if(windowframes != null)
+        if(windowframes != "")
         {
             if (house.WindowFrames != null)
                 DestroyImmediate(house.WindowFrames);
             if (house.CurWindowFrames > house.MaxWindowFramesAtm)
                 house.CurWindowFrames = house.MaxWindowFramesAtm;
             house.WindowFrames = Custom3DDB.NewCustomPart(gameObject, windowframes + house.CurWindowFrames, nameforthehouse + "Window Frames v" + house.CurWindowFrames);
-       
+
+
+            //Debug.Log("Window Frames Created");
         }
         if (insidewall != "")
         {
+            //Debug.Log("start of InsideWalls insideWalls");
             if (house.InsideWall != null)
                 DestroyImmediate(house.InsideWall);
             if (house.CurInsideWall > house.MaxInsideWallsAtm)
                 house.CurInsideWall = house.MaxInsideWallsAtm;
+            //Debug.Log("Creating insideWalls");
             house.InsideWall = Custom3DDB.NewCustomPart(gameObject, insidewall + house.CurInsideWall, nameforthehouse + " InSideWalls v" + house.CurInsideWall);
+            //Debug.Log("Created InsideWalls");
+
         }
         if(insideroof != "")
         {
+            //Debug.Log("start of InsideRoof insideWalls");
             if (house.InsideRoof != null)
                 DestroyImmediate(house.InsideRoof);
             if (house.CurInsideRoof > house.MaxInsideRoofAtm)
@@ -813,16 +830,36 @@ public class Custom3DHouses : MonoBehaviour
         {
 
             if (house.CurExtraRoof >= maxextraroof)
+            {
+              //  Debug.Log("before " + house.CurExtraRoof);
                 house.CurExtraRoof = 1;
+               // Debug.Log("After " + house.CurExtraRoof);
+            }                
             else
+            {
+              //  Debug.Log("it was " + house.CurExtraRoof);
                 house.CurExtraRoof++;
+              //  Debug.Log("Is Now " + house.CurExtraRoof);
+            }
         }
-        else if (part == PartOfHouse.ExtraRoof && more == false)
+        if (part == PartOfHouse.ExtraRoof && more == false)
         {
             if (house.CurExtraRoof == 1)
+            {
+               // Debug.Log("was Extra Roof " + house.CurExtraRoof);
                 house.CurExtraRoof = maxextraroof;
+               // Debug.Log("Cur Extra Roof " + house.CurExtraRoof);
+            }
+                
             else
+            {
+              //  Debug.Log("b4 Extra Roof " + house.CurExtraRoof);
                 house.CurExtraRoof--;
+               // Debug.Log("Cur Extra Roof " + house.CurExtraRoof);
+            }
+                
+
+            
         }
         //Outsidewalls
         if (part == PartOfHouse.OutsideWall && more == true)

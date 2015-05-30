@@ -3,7 +3,7 @@
 using UnityEditor;
 #endif
 using System;
-#if UNITY_EDITOR
+
 [Serializable]
 public class Custom3DDB 
 {
@@ -232,7 +232,8 @@ public class Custom3DDB
         go.name = nameforthego;
         go.transform.parent = goparent.transform;
         return go;       
-    }   
+    }
+    public Custom3DDB() { }
 }
 
 public enum PartOfHouse
@@ -301,4 +302,4 @@ public enum HousePart
     TheRoofParts,
 
 }
-#endif
+
