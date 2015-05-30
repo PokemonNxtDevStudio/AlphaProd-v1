@@ -17,10 +17,15 @@ public enum MotorState
         public float JumpHeight = 2.0f;
         public float Gravity = 10.0f; 
         public float baseSpeed = .2f;
-        private float m_speed;
         public float MaxVelocityChange = 10f;
 		public bool moveOverrde;
-        private Camera camera;
+		public bool CanJump;
+
+	
+		private Camera camera;
+		private bool Grounded;
+		private float m_speed;
+
         protected virtual float JumpSpeed {
             // From the jump height and gravity we deduce the upwards speed 
             // for the character to reach at the apex.
@@ -101,9 +106,9 @@ public enum MotorState
                // if(velocityChange.magnitude > 0.1f)
                     GetComponent<Rigidbody>().AddForce(velocityChange, ForceMode.VelocityChange);
 
-                //if(CanJump && !Grounded && Input.GetKey(KeyCode.Space)) {
-                //    rigidbody.velocity = new Vector3(velocity.x, JumpSpeed, velocity.z);
-                //}
+                if(CanJump && !Grounded && Input.GetKey(KeyCode.Space)) {
+                    GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, JumpSpeed, velocity.z);
+                }
                 //Stay on the ground bitch
                 GetComponent<Rigidbody>().AddForce(new Vector3(0, -Gravity * GetComponent<Rigidbody>().mass, 0));
             
