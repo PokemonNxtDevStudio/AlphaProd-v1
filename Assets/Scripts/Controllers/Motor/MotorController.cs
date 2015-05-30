@@ -46,9 +46,11 @@ public enum MotorState
 			if (Input.GetAxis("Vertical") >= 1)  {
                 FaceCamera();
             }
-
-			if(!Grounded)
+			
+			if (!Grounded) {
 				Grounded = rigidbody.velocity.y == 0;
+				if(Grounded) AnimatorCtrl.SetBool(Animator.StringToHash("Jump"), false);
+			}
 
 		
             if (motorState == MotorState.Input)
@@ -118,6 +120,8 @@ public enum MotorState
 
                 if(CanJump && Grounded && Input.GetKey(KeyCode.Space)) {
 					Grounded = false;
+				
+					AnimatorCtrl.SetBool(Animator.StringToHash("Jump"), true);
 					rigidbody.velocity = new Vector3(velocity.x, JumpSpeed, velocity.z);
                 }
 //			Grounded
