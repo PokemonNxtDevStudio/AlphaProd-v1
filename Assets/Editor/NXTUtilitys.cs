@@ -30,5 +30,23 @@ public class NXTUtilitys : Editor
             EditorApplication.OpenScene("Assets/Scenes/" + SceneName + ".unity");
         }
     }
+
+    [MenuItem("NXT/Tools/SetToGoundLevel %g")]
+    public static void SetToGoundLevel()
+    {
+        Transform[] trans = Selection.transforms;
+        
+        foreach(Transform myTransforms in trans)
+        {
+            RaycastHit hit;
+           
+            if(Physics.Raycast(myTransforms.position, - Vector3.up,out hit))
+            {
+                Vector3 targetposition = hit.point;
+                myTransforms.position = targetposition;
+
+            }
+        }
+    }
 }
 #endif
