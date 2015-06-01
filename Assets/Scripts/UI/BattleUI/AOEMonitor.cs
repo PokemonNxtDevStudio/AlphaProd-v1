@@ -1,0 +1,67 @@
+﻿using System.Collections;
+using UnityEngine;
+
+namespace NXT
+{
+    public class AOEMonitor : MonoBehaviour
+    {
+
+        public GameObject UIAOEPrefab;
+
+        private bool m_isActive = false;
+        private GameObject m_trainer;
+        void Start()
+        {
+
+            EventHandler.RegisterEvent(this.gameObject, EventAOE.TRIGGER_ON, TriggerOn);
+            EventHandler.RegisterEvent<Vector3>(this.gameObject, EventAOE.EXECUTE, Excecute);
+        }
+
+        void SetTrainer(GameObject trainer)
+        {
+            m_trainer = trainer;
+        }
+
+        void Update()
+        {
+            
+        }
+
+        void TriggerOn()
+        {
+            m_isActive = true;
+            StartCoroutine(TriggerOnCo());
+        }
+
+        IEnumerator TriggerOnCo()
+        {
+
+            GameObject aoe = ObjectPool.Instantiate(UIAOEPrefab, transform.position, Quaternion.Euler(90, 0, 0));
+            RaycastHit hit;
+            while (m_isActive)
+            {
+                var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit))
+                {
+                    Debug.DrawLine(Camera.main.transform.position, hit.point, Color.red);
+                    aoe.transform.position = hit.point + new Vector3(0, 5, 0);
+
+                    if(Input.GetMouseButtonDown(1))
+                    {
+      
+                          EventHandler.ExecuteEvent<Vector3>(this.gameObject, EventAOE.EXECUTE, hit.point);
+                    }
+
+                }
+            }
+            yield  return null;
+        }
+
+        void Excecute(Vector3 pos)
+        {
+
+        }
+
+    }
+
+}
