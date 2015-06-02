@@ -33,7 +33,7 @@ public class TrainerInputHandler : MonoBehaviour {
 
 	public void checkTrainerCommands(){
 		if (Input.GetMouseButtonUp(0)) {
-//			UI(KeyCode.R);
+			UI(KeyCode.R);
 			//Release pokemon if no pokemon
 			//or
 			//Return pokemon if pokemon is out

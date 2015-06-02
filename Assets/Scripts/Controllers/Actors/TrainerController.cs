@@ -79,7 +79,7 @@ public class TrainerController : MonoBehaviour
         projectileController.projectile = releasePokeball;
         ReleasePokeball pokeball = (ReleasePokeball) projectileController.Spawnprojectile();
 		//active pokemon
-		activePokemon = PokemonSpawner.SpawnPokemon (pokemon[pokeSlot]);
+		activePokemon = NXT.ObjectPool.Instantiate(pokemon[pokeSlot]);
 		activePokemon.SetActive (false);
 
 		//spawning and throwing pokeball
@@ -96,7 +96,7 @@ public class TrainerController : MonoBehaviour
 
 		//setting active and position
 		activePokemon.transform.position = __transform.position;
-		activePokemon.transform.rotation = __transform.rotation;
+		activePokemon.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 		activePokemon.SetActive (true);
 		//moving camera
 		cameraController.SetTarget(activePokemon.transform, .25f);
