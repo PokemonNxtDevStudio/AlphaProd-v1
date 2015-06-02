@@ -62,7 +62,7 @@ public class Tackle : MoveBehavior
     void Update()
     {
 
-        if (isCheckingCollision && animController.GetCurrentAnimatorStateInfo(0).IsName("QuickAttackRun") && animController.GetCurrentAnimatorStateInfo(0).normalizedTime >0.5f) 
+        if (isCheckingCollision && animController.GetCurrentAnimatorStateInfo(0).IsName("Quick Attack") && animController.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f) 
         {
             Debug.Log("QUICK ATKKKKKKKKKKKKK");
             isCheckingCollision = false;
@@ -83,14 +83,14 @@ public class Tackle : MoveBehavior
     {
         isWaitingSecondaryAction = true;
         motorController.SetState(MotorState.AI);
-        GetComponent<Animator>().CrossFade(Animator.StringToHash("QuickAttackRun"), 0.1f, 0, 0);
+        GetComponent<Animator>().CrossFade(Animator.StringToHash("Quick Attack Run"), 0.1f, 0, 0);
         m_camera.ActivateBlur();
         float factor = 1.1f;
        
 
         while (isWaitingSecondaryAction)
         {
-            motorController.IncreaseSpeedByFactor(1.01f,0.4f);
+            motorController.IncreaseSpeedByFactor(1.01f,20f);
             motorController.FaceCamera();
             motorController.Move(Vector3.forward);
             yield return null;

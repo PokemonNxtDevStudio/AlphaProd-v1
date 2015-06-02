@@ -29,10 +29,10 @@ namespace NXT.Controllers
             currentMoveBehaviors.Add(0, (MoveBehavior)this.gameObject.AddComponent(t1));
 
             Type t2 = Type.GetType("Thunder");
-            currentMoveBehaviors.Add(0, (MoveBehavior)this.gameObject.AddComponent(t2));
+            currentMoveBehaviors.Add(1, (MoveBehavior)this.gameObject.AddComponent(t2));
 
             Type t3 = Type.GetType("TailWhip");
-            currentMoveBehaviors.Add(0, (MoveBehavior)this.gameObject.AddComponent(t3));
+            currentMoveBehaviors.Add(2, (MoveBehavior)this.gameObject.AddComponent(t3));
         }
 
 
@@ -42,11 +42,11 @@ namespace NXT.Controllers
         }
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.Alpha1))
                 CastMove(0);
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.Alpha2))
                 CastMove(1);
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.Alpha3))
                 CastMove(2);
 
 

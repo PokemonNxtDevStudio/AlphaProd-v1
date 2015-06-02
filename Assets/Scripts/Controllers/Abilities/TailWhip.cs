@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using NXT.Controllers;
+using NXT;
 
-namespace NXT
-{
     public class TailWhip : MoveBehavior
     {
 
@@ -23,4 +22,3 @@ namespace NXT
 
 
     }
-}

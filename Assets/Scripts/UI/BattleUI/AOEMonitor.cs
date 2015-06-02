@@ -10,9 +10,14 @@ namespace NXT
 
         private bool m_isActive = false;
         private GameObject m_trainer;
+        public GameObject thunder;
+        private GameObject cachedPrefab;
         void Start()
         {
 
+
+            cachedPrefab = (GameObject)Instantiate(UIAOEPrefab, transform.position, Quaternion.Euler(90, 0, 0));
+            cachedPrefab.transform.parent = this.gameObject.transform;
             EventHandler.RegisterEvent(this.gameObject, EventAOE.TRIGGER_ON, TriggerOn);
             EventHandler.RegisterEvent<Vector3>(this.gameObject, EventAOE.EXECUTE, Excecute);
         }
@@ -35,8 +40,9 @@ namespace NXT
 
         IEnumerator TriggerOnCo()
         {
-
-            GameObject aoe = ObjectPool.Instantiate(UIAOEPrefab, transform.position, Quaternion.Euler(90, 0, 0));
+            Debug.Log("Activating AOE");
+            cachedPrefab.SetActive(true);
+           
             RaycastHit hit;
             while (m_isActive)
             {
@@ -44,22 +50,25 @@ namespace NXT
                 if (Physics.Raycast(ray, out hit))
                 {
                     Debug.DrawLine(Camera.main.transform.position, hit.point, Color.red);
-                    aoe.transform.position = hit.point + new Vector3(0, 5, 0);
+                    cachedPrefab.transform.position = hit.point + new Vector3(0, 5, 0);
 
                     if(Input.GetMouseButtonDown(1))
                     {
-      
+        
                           EventHandler.ExecuteEvent<Vector3>(this.gameObject, EventAOE.EXECUTE, hit.point);
+                          Instantiate(thunder, hit.point, Quaternion.identity);
                     }
 
                 }
+                yield  return null;
             }
             yield  return null;
         }
 
         void Excecute(Vector3 pos)
         {
-
+            m_isActive = false;
+            cachedPrefab.SetActive(false);
         }
 
     }

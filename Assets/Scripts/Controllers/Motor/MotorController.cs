@@ -23,7 +23,7 @@ public enum MotorState
 
 	
 		private bool Grounded = true;
-		private Camera camera;
+		public Camera camera;
 		private float m_speed;
 		private Rigidbody rigidbody;
 
