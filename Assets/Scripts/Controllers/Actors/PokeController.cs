@@ -6,7 +6,7 @@ using System.Reflection;
 using NXT;
 namespace NXT.Controllers
 {
-    public class PokeController : MonoBehaviour
+    public class PokeController : MonoBehaviour//Entity
     {
 
         public Pokemon m_Pokemon;
@@ -19,11 +19,12 @@ namespace NXT.Controllers
         protected virtual void Start()
         {
 
+            
             //moves = m_Pokemon.Moves;
             for (int i = 0; i < moves.Count; i++)
             {
                 Type t = Type.GetType("TailWhip");
-                currentMoveBehaviors.Add(0, ((MoveBehavior)this.gameObject.AddComponent(t)).SetMoveData(moves[i]));
+                currentMoveBehaviors.Add(0, ((MoveBehavior)this.gameObject.AddComponent(t)).SetMoveData(moves[i])); //SetModeAI
             }
             Type t1 = Type.GetType("Tackle");
             currentMoveBehaviors.Add(0, (MoveBehavior)this.gameObject.AddComponent(t1));
@@ -61,6 +62,12 @@ namespace NXT.Controllers
             m_Pokemon.currentPP -= PP;
             if (m_Pokemon.currentPP < 0)
                 m_Pokemon.PP = 0;
+        }
+
+        public virtual void OnDeath()
+        {
+            //TODO kill all references
+            Destroy(gameObject);
         }
 
     }

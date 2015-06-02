@@ -64,11 +64,21 @@ public class Tackle : MoveBehavior
 
         if (isCheckingCollision && animController.GetCurrentAnimatorStateInfo(0).IsName("Quick Attack") && animController.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f) 
         {
+            //TODO Physics raycast
             Debug.Log("QUICK ATKKKKKKKKKKKKK");
             isCheckingCollision = false;
         }
     }
     
+
+
+    void onColliderHit(Collider collider)
+    {
+        //TODO: CHECK IF VALID LAYERS
+        //isWaitingSecondaryAction = false;
+        //StopCoroutine(QuickAttackCo());
+        //TriggerSecondaryAction();
+    }
     void TriggerSecondaryAction()
     {
         Debug.Log("TriggerSecondary");

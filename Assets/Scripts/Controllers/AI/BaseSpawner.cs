@@ -4,7 +4,7 @@ using System.Collections;
 
 /// <summary>
 /// </summary>
-public class AISpawner : MonoBehaviour
+public class BaseSpawner : MonoBehaviour
 {
     public float[] spawnProbabilty;
     public GameObject[] enemyPokemonToSpawn;
