@@ -1,7 +1,4 @@
-#if !(UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2)
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAudioSource
 {
@@ -9,14 +6,22 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAudioSource
     [TaskDescription("Stores the ignore listener pause value of the AudioSource. Returns Success.")]
     public class GetIgnoreListenerPause : Action
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("The ignore listener pause value of the AudioSource")]
+        [RequiredField]
         public SharedBool storeValue;
 
         private AudioSource audioSource;
+        private GameObject prevGameObject;
 
-        public override void OnAwake()
+        public override void OnStart()
         {
-            audioSource = gameObject.GetComponent<AudioSource>();
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                audioSource = currentGameObject.GetComponent<AudioSource>();
+                prevGameObject = currentGameObject;
+            }
         }
 
         public override TaskStatus OnUpdate()
@@ -33,10 +38,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAudioSource
 
         public override void OnReset()
         {
-            if (storeValue != null) {
-                storeValue.Value = false;
-            }
+            targetGameObject = null;
+            storeValue = false;
         }
     }
 }
-#endif

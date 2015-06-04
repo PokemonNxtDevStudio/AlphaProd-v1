@@ -14,5 +14,6 @@ namespace BehaviorDesigner.Runtime
         public override void SetValue(object value) { mValue = (Transform)value; }
 
         public override string ToString() { return (mValue == null ? "null" : mValue.name); }
+        public static implicit operator SharedTransform(Transform value) { var sharedVariable = new SharedTransform(); sharedVariable.SetValue(value); return sharedVariable; }
     }
 }

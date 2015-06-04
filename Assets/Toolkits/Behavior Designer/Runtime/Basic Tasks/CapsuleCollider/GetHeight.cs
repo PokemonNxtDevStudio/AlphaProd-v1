@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityCapsuleCollider
 {
@@ -8,14 +6,22 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityCapsuleCollider
     [TaskDescription("Gets the height of the CapsuleCollider. Returns Success.")]
     public class GetHeight : Action
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("The height of the CapsuleCollider")]
+        [RequiredField]
         public SharedFloat storeValue;
 
         private CapsuleCollider capsuleCollider;
+        private GameObject prevGameObject;
 
-        public override void OnAwake()
+        public override void OnStart()
         {
-            capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                capsuleCollider = currentGameObject.GetComponent<CapsuleCollider>();
+                prevGameObject = currentGameObject;
+            }
         }
 
         public override TaskStatus OnUpdate()
@@ -32,9 +38,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityCapsuleCollider
 
         public override void OnReset()
         {
-            if (storeValue != null) {
-                storeValue.Value = 0;
-            }
+            targetGameObject = null;
+            storeValue = 0;
         }
     }
 }

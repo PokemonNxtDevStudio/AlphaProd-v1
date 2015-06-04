@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimation
 {
@@ -8,8 +6,23 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimation
     [TaskDescription("Returns Success if the animation is currently playing.")]
     public class IsPlaying : Conditional
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("The name of the animation")]
         public SharedString animationName;
+
+        // cache the animation component
+        private Animation animation;
+        private GameObject prevGameObject;
+
+        public override void OnStart()
+        {
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                animation = currentGameObject.GetComponent<Animation>();
+                prevGameObject = currentGameObject;
+            }
+        }
 
         public override TaskStatus OnUpdate()
         {
@@ -27,9 +40,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimation
 
         public override void OnReset()
         {
-            if (animationName != null) {
-                animationName.Value = "";
-            }
+            targetGameObject = null;
+            animationName.Value = "";
         }
     }
 }

@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.Math
 {
@@ -9,19 +7,19 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.Math
     public class SetInt : Action
     {
         [Tooltip("The int value to set")]
-        public SharedInt floatValue;
+        public SharedInt intValue;
         [Tooltip("The variable to store the result")]
         public SharedInt storeResult;
 
         public override TaskStatus OnUpdate()
         {
-            storeResult.Value = floatValue.Value;
+            storeResult.Value = intValue.Value;
             return TaskStatus.Success;
         }
 
         public override void OnReset()
         {
-            floatValue.Value = 0;
+            intValue.Value = 0;
             storeResult.Value = 0;
         }
     }

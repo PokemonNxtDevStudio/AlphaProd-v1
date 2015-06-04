@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityCharacterController
 {
@@ -8,14 +6,21 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityCharacterController
     [TaskDescription("Moves the character with speed. Returns Success.")]
     public class SimpleMove : Action
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("The speed of the movement")]
         public SharedVector3 speed;
 
         private CharacterController characterController;
+        private GameObject prevGameObject;
 
-        public override void OnAwake()
+        public override void OnStart()
         {
-            characterController = gameObject.GetComponent<CharacterController>();
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                characterController = currentGameObject.GetComponent<CharacterController>();
+                prevGameObject = currentGameObject;
+            }
         }
 
         public override TaskStatus OnUpdate()
@@ -32,9 +37,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityCharacterController
 
         public override void OnReset()
         {
-            if (speed != null) {
-                speed.Value = Vector3.zero;
-            }
+            targetGameObject = null;
+            speed = Vector3.zero;
         }
     }
 }

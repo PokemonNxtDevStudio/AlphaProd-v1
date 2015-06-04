@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityRigidbody
 {
@@ -8,8 +6,24 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityRigidbody
     [TaskDescription("Stores the rotation of the Rigidbody. Returns Success.")]
     public class GetRotation : Action
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("The rotation of the Rigidbody")]
+        [RequiredField]
         public SharedQuaternion storeValue;
+
+        // cache the rigidbody component
+        private Rigidbody rigidbody;
+        private GameObject prevGameObject;
+
+        public override void OnStart()
+        {
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                rigidbody = currentGameObject.GetComponent<Rigidbody>();
+                prevGameObject = currentGameObject;
+            }
+        }
 
         public override TaskStatus OnUpdate()
         {
@@ -25,9 +39,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityRigidbody
 
         public override void OnReset()
         {
-            if (storeValue != null) {
-                storeValue.Value = Quaternion.identity;
-            }
+            targetGameObject = null;
+            storeValue = Quaternion.identity;
         }
     }
 }

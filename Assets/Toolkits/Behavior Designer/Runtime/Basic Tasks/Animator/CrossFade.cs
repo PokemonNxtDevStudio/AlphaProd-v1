@@ -1,7 +1,4 @@
-#if !(UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2)
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator
 {
@@ -9,6 +6,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator
     [TaskDescription("Creates a dynamic transition between the current state and the destination state. Returns Success.")]
     public class CrossFade : Action
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("The name of the state")]
         public SharedString stateName;
         [Tooltip("The duration of the transition. Value is in source state normalized time")]
@@ -19,10 +18,15 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator
         public float normalizedTime = float.NegativeInfinity;
 
         private Animator animator;
+        private GameObject prevGameObject;
 
-        public override void OnAwake()
+        public override void OnStart()
         {
-            animator = gameObject.GetComponent<Animator>();
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                animator = currentGameObject.GetComponent<Animator>();
+                prevGameObject = currentGameObject;
+            }
         }
 
         public override TaskStatus OnUpdate()
@@ -39,15 +43,11 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator
 
         public override void OnReset()
         {
-            if (stateName != null) {
-                stateName.Value = "";
-            }
-            if (transitionDuration != null) {
-                transitionDuration.Value = 0;
-            }
+            targetGameObject = null;
+            stateName = "";
+            transitionDuration = 0;
             layer = -1;
             normalizedTime = float.NegativeInfinity;
         }
     }
 }
-#endif

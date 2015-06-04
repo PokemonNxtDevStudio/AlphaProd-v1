@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator
 {
@@ -8,14 +6,21 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator
     [TaskDescription("Returns success if the specified parameter is controlled by an additional curve on an animation.")]
     public class IsParameterControlledByCurve : Conditional
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("The name of the parameter")]
         public SharedString paramaterName;
 
         private Animator animator;
+        private GameObject prevGameObject;
 
-        public override void OnAwake()
+        public override void OnStart()
         {
-            animator = gameObject.GetComponent<Animator>();
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                animator = currentGameObject.GetComponent<Animator>();
+                prevGameObject = currentGameObject;
+            }
         }
 
         public override TaskStatus OnUpdate()
@@ -30,9 +35,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator
 
         public override void OnReset()
         {
-            if (paramaterName != null) {
-                paramaterName.Value = "";
-            }
+            targetGameObject = null;
+            paramaterName = "";
         }
     }
 }

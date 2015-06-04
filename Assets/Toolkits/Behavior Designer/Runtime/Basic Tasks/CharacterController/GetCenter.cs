@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityCharacterController
 {
@@ -8,14 +6,22 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityCharacterController
     [TaskDescription("Stores the center of the CharacterController. Returns Success.")]
     public class GetCenter : Action
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("The center of the CharacterController")]
+        [RequiredField]
         public SharedVector3 storeValue;
 
         private CharacterController characterController;
+        private GameObject prevGameObject;
 
-        public override void OnAwake()
+        public override void OnStart()
         {
-            characterController = gameObject.GetComponent<CharacterController>();
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                characterController = currentGameObject.GetComponent<CharacterController>();
+                prevGameObject = currentGameObject;
+            }
         }
 
         public override TaskStatus OnUpdate()
@@ -32,9 +38,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityCharacterController
 
         public override void OnReset()
         {
-            if (storeValue != null) {
-                storeValue.Value = Vector3.zero;
-            }
+            targetGameObject = null;
+            storeValue = Vector3.zero;
         }
     }
 }

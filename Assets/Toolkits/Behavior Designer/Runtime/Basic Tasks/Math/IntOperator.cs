@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.Math
 {
@@ -24,6 +22,7 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.Math
         public SharedInt integer1;
         [Tooltip("The second integer")]
         public SharedInt integer2;
+        [RequiredField]
         [Tooltip("The variable to store the result")]
         public SharedInt storeResult;
 

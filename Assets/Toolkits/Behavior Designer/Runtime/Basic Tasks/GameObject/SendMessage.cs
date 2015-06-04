@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityGameObject
 {
@@ -8,31 +6,28 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityGameObject
     [TaskDescription("Sends a message to the target GameObject. Returns Success.")]
     public class SendMessage : Action
     {
-        [Tooltip("The GameObject to send a message to")]
-        public SharedGameObject targetObject;
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("The message to send")]
         public SharedString message;
+        [Tooltip("The value to send")]
+        public SharedGenericVariable value;
 
         public override TaskStatus OnUpdate()
         {
-            if (targetObject.Value == null) {
-                Debug.LogWarning("Target object is null");
-                return TaskStatus.Failure;
+            if (value.Value != null) {
+                GetDefaultGameObject(targetGameObject.Value).SendMessage(message.Value, value.Value.value.GetValue());
+            } else {
+                GetDefaultGameObject(targetGameObject.Value).SendMessage(message.Value);
             }
-
-            targetObject.Value.SendMessage(message.Value);
 
             return TaskStatus.Success;
         }
 
         public override void OnReset()
         {
-            if (targetObject != null) {
-                targetObject.Value = null;
-            }
-            if (message != null) {
-                message.Value = "";
-            }
+            targetGameObject = null;
+            message = "";
         }
     }
 }

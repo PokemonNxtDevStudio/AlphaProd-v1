@@ -7,11 +7,11 @@ namespace BehaviorDesigner.Runtime.Tasks
     public class Repeater : Decorator
     {
         [Tooltip("The number of times to repeat the execution of its child task")]
-        public int count = 1;
+        public SharedInt count = 1;
         [Tooltip("Allows the repeater to repeat forever")]
-        public bool repeatForever = false;
+        public SharedBool repeatForever;
         [Tooltip("Should the task return if the child task returns a failure")]
-        public bool endOnFailure = false;
+        public SharedBool endOnFailure;
 
         // The number of times the child task has been run.
         private int executionCount = 0;
@@ -21,7 +21,7 @@ namespace BehaviorDesigner.Runtime.Tasks
         public override bool CanExecute()
         {
             // Continue executing until we've reached the count or the child task returned failure and we should stop on a failure.
-            return (repeatForever || executionCount < count) && (!endOnFailure || (endOnFailure && executionStatus != TaskStatus.Failure));
+            return (repeatForever.Value || executionCount < count.Value) && (!endOnFailure.Value || (endOnFailure.Value && executionStatus != TaskStatus.Failure));
         }
 
         public override void OnChildExecuted(TaskStatus childStatus)

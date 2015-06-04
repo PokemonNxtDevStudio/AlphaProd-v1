@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAudioSource
 {
@@ -8,11 +6,19 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAudioSource
     [TaskDescription("Returns Success if the AudioClip is playing, otherwise Failure.")]
     public class IsPlaying : Conditional
     {
-        private AudioSource audioSource;
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
 
-        public override void OnAwake()
+        private AudioSource audioSource;
+        private GameObject prevGameObject;
+
+        public override void OnStart()
         {
-            audioSource = gameObject.GetComponent<AudioSource>();
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                audioSource = currentGameObject.GetComponent<AudioSource>();
+                prevGameObject = currentGameObject;
+            }
         }
 
         public override TaskStatus OnUpdate()
@@ -23,6 +29,11 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAudioSource
             }
 
             return audioSource.isPlaying ? TaskStatus.Success : TaskStatus.Failure;
+        }
+
+        public override void OnReset()
+        {
+            targetGameObject = null;
         }
     }
 }

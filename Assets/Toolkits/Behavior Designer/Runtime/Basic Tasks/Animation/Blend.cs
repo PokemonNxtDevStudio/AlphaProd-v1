@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimation
 {
@@ -8,12 +6,27 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimation
     [TaskDescription("Blends the animation. Returns Success.")]
     public class Blend : Action
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("The name of the animation")]
         public SharedString animationName;
         [Tooltip("The weight the animation should blend to")]
         public float targetWeight = 1;
         [Tooltip("The amount of time it takes to blend")]
         public float fadeLength = 0.3f;
+
+        // cache the animation component
+        private Animation animation;
+        private GameObject prevGameObject;
+
+        public override void OnStart()
+        {
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                animation = currentGameObject.GetComponent<Animation>();
+                prevGameObject = currentGameObject;
+            }
+        }
 
         public override TaskStatus OnUpdate()
         {
@@ -29,9 +42,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimation
 
         public override void OnReset()
         {
-            if (animationName != null) {
-                animationName.Value = "";
-            }
+            targetGameObject = null;
+            animationName = "";
             targetWeight = 1;
             fadeLength = 0.3f;
         }

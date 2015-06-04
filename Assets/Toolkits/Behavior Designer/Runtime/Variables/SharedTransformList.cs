@@ -14,5 +14,6 @@ namespace BehaviorDesigner.Runtime
         public override void SetValue(object value) { mValue = (List<Transform>)value; }
 
         public override string ToString() { return (mValue == null ? "null" : mValue.Count + " Transforms"); }
+        public static implicit operator SharedTransformList(List<Transform> value) { var sharedVariable = new SharedTransformList(); sharedVariable.SetValue(value); return sharedVariable; }
     }
 }

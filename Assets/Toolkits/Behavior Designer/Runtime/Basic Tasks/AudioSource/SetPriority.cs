@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAudioSource
 {
@@ -8,14 +6,21 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAudioSource
     [TaskDescription("Sets the priority value of the AudioSource. Returns Success.")]
     public class SetPriority : Action
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("The priority value of the AudioSource")]
         public SharedInt priority;
 
         private AudioSource audioSource;
+        private GameObject prevGameObject;
 
-        public override void OnAwake()
+        public override void OnStart()
         {
-            audioSource = gameObject.GetComponent<AudioSource>();
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                audioSource = currentGameObject.GetComponent<AudioSource>();
+                prevGameObject = currentGameObject;
+            }
         }
 
         public override TaskStatus OnUpdate()
@@ -32,9 +37,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAudioSource
 
         public override void OnReset()
         {
-            if (priority != null) {
-                priority.Value = 1;
-            }
+            targetGameObject = null;
+            priority = 1;
         }
     }
 }

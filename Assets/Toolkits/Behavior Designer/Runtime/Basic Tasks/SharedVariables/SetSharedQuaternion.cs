@@ -1,7 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
-
 namespace BehaviorDesigner.Runtime.Tasks.Basic.SharedVariables
 {
     [TaskCategory("Basic/SharedVariable")]
@@ -10,6 +7,7 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.SharedVariables
     {
         [Tooltip("The value to set the SharedQuaternion to")]
         public SharedQuaternion targetValue;
+        [RequiredField]
         [Tooltip("The SharedQuaternion to set")]
         public SharedQuaternion targetVariable;
 
@@ -22,12 +20,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.SharedVariables
 
         public override void OnReset()
         {
-            if (targetValue != null) {
-                targetValue.Value = Quaternion.identity;
-            }
-            if (targetVariable != null) {
-                targetVariable.Value = Quaternion.identity;
-            }
+            targetValue = Quaternion.identity;
+            targetVariable = Quaternion.identity;
         }
     }
 }

@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityGameObject
 {
@@ -8,21 +6,22 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityGameObject
     [TaskDescription("Sets the GameObject tag. Returns Success.")]
     public class SetTag : Action
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("The GameObject tag")]
         public SharedString tag;
 
         public override TaskStatus OnUpdate()
         {
-            gameObject.tag = tag.Value;
+            GetDefaultGameObject(targetGameObject.Value).tag = tag.Value;
 
             return TaskStatus.Success;
         }
 
         public override void OnReset()
         {
-            if (tag != null) {
-                tag.Value = "";
-            }
+            targetGameObject = null;
+            tag = "";
         }
     }
 }

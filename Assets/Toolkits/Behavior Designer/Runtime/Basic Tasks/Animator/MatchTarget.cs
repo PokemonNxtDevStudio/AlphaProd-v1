@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator
 {
@@ -8,6 +6,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator
     [TaskDescription("Automatically adjust the gameobject position and rotation so that the AvatarTarget reaches the matchPosition when the current state is at the specified progress. Returns Success.")]
     public class MatchTarget : Action
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("The position we want the body part to reach")]
         public SharedVector3 matchPosition;
         [Tooltip("The rotation in which we want the body part to be")]
@@ -24,10 +24,15 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator
         public float targetNormalizedTime = 1;
 
         private Animator animator;
+        private GameObject prevGameObject;
 
-        public override void OnAwake()
+        public override void OnStart()
         {
-            animator = gameObject.GetComponent<Animator>();
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                animator = currentGameObject.GetComponent<Animator>();
+                prevGameObject = currentGameObject;
+            }
         }
 
         public override TaskStatus OnUpdate()
@@ -44,12 +49,9 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator
 
         public override void OnReset()
         {
-            if (matchPosition != null) {
-                matchPosition.Value = Vector3.zero;
-            }
-            if (matchRotation != null) {
-                matchRotation.Value = Quaternion.identity;
-            }
+            targetGameObject = null;
+            matchPosition = Vector3.zero;
+            matchRotation = Quaternion.identity;
             targetBodyPart = AvatarTarget.Root;
             weightMaskPosition = Vector3.zero;
             weightMaskRotation = 0;

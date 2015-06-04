@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityGameObject
 {
@@ -11,6 +9,7 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityGameObject
         [Tooltip("The GameObject name to find")]
         public SharedString gameObjectName;
         [Tooltip("The object found by name")]
+        [RequiredField]
         public SharedGameObject storeValue;
 
         public override TaskStatus OnUpdate()
@@ -22,12 +21,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityGameObject
 
         public override void OnReset()
         {
-            if (gameObjectName != null) {
-                gameObjectName.Value = null;
-            }
-            if (storeValue != null) {
-                storeValue.Value = null;
-            }
+            gameObjectName = null;
+            storeValue = null;
         }
     }
 }

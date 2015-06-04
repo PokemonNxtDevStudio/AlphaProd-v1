@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityRigidbody
 {
@@ -8,8 +6,23 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityRigidbody
     [TaskDescription("Sets the center of mass of the Rigidbody. Returns Success.")]
     public class SetCenterOfMass : Action
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("The center of mass of the Rigidbody")]
         public SharedVector3 centerOfMass;
+
+        // cache the rigidbody component
+        private Rigidbody rigidbody;
+        private GameObject prevGameObject;
+
+        public override void OnStart()
+        {
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                rigidbody = currentGameObject.GetComponent<Rigidbody>();
+                prevGameObject = currentGameObject;
+            }
+        }
 
         public override TaskStatus OnUpdate()
         {
@@ -25,9 +38,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityRigidbody
 
         public override void OnReset()
         {
-            if (centerOfMass != null) {
-                centerOfMass.Value = Vector3.zero;
-            }
+            targetGameObject = null;
+            centerOfMass = Vector3.zero;
         }
     }
 }

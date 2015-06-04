@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.SharedVariables
 {
@@ -20,12 +18,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.SharedVariables
 
         public override void OnReset()
         {
-            if (variable != null) {
-                variable.Value = Color.black;
-            }
-            if (compareTo != null) {
-                compareTo.Value = Color.black;
-            }
+            variable = Color.black;
+            compareTo = Color.black;
         }
     }
 }

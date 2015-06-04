@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityBehaviour
 {
@@ -30,9 +28,7 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityBehaviour
             if (specifiedObject != null) {
                 specifiedObject.Value = null;
             }
-            if (enabled != null) {
-                enabled.Value = false;
-            }
+            enabled = false;
         }
     }
 }

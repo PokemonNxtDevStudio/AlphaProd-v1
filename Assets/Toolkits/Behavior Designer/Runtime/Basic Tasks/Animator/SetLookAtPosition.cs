@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator
 {
@@ -8,14 +6,21 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator
     [TaskDescription("Sets the look at position. Returns Success.")]
     public class SetLookAtPosition : Action
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("The position to lookAt")]
         public SharedVector3 position;
 
         private Animator animator;
+        private GameObject prevGameObject;
 
-        public override void OnAwake()
+        public override void OnStart()
         {
-            animator = gameObject.GetComponent<Animator>();
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                animator = currentGameObject.GetComponent<Animator>();
+                prevGameObject = currentGameObject;
+            }
         }
 
         public override TaskStatus OnUpdate()
@@ -32,9 +37,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator
 
         public override void OnReset()
         {
-            if (position != null) {
-                position.Value = Vector3.zero;
-            }
+            targetGameObject = null;
+            position = Vector3.zero;
         }
     }
 }

@@ -14,5 +14,6 @@ namespace BehaviorDesigner.Runtime
         public override void SetValue(object value) { mValue = (Quaternion)value; }
 
         public override string ToString() { return mValue.ToString(); }
+        public static implicit operator SharedQuaternion(Quaternion value) { var sharedVariable = new SharedQuaternion(); sharedVariable.SetValue(value); return sharedVariable; }
     }
 }

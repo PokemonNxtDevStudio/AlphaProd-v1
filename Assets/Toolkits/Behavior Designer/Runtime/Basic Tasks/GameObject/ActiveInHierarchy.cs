@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityGameObject
 {
@@ -8,9 +6,17 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityGameObject
     [TaskDescription("Returns Success if the GameObject is active in the hierarchy, otherwise Failure.")]
     public class ActiveInHierarchy : Conditional
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
+
         public override TaskStatus OnUpdate()
         {
-            return gameObject.activeInHierarchy ? TaskStatus.Success : TaskStatus.Failure;
+            return GetDefaultGameObject(targetGameObject.Value).activeInHierarchy ? TaskStatus.Success : TaskStatus.Failure;
+        }
+
+        public override void OnReset()
+        {
+            targetGameObject = null;
         }
     }
 }

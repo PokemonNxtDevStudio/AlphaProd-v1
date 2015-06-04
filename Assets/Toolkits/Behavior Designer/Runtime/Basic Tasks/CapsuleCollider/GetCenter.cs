@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityCapsuleCollider
 {
@@ -8,14 +6,22 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityCapsuleCollider
     [TaskDescription("Stores the center of the CapsuleCollider. Returns Success.")]
     public class GetCenter : Action
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("The center of the CapsuleCollider")]
+        [RequiredField]
         public SharedVector3 storeValue;
 
         private CapsuleCollider capsuleCollider;
+        private GameObject prevGameObject;
 
-        public override void OnAwake()
+        public override void OnStart()
         {
-            capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                capsuleCollider = currentGameObject.GetComponent<CapsuleCollider>();
+                prevGameObject = currentGameObject;
+            }
         }
 
         public override TaskStatus OnUpdate()
@@ -32,9 +38,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityCapsuleCollider
 
         public override void OnReset()
         {
-            if (storeValue != null) {
-                storeValue.Value = Vector3.zero;
-            }
+            targetGameObject = null;
+            storeValue = Vector3.zero;
         }
     }
 }

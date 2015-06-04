@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.SharedVariables
 {
@@ -10,6 +8,7 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.SharedVariables
     {
         [Tooltip("The value to set the SharedGameObject to. If null the variable will be set to the current GameObject")]
         public SharedGameObject targetValue;
+        [RequiredField]
         [Tooltip("The SharedGameObject to set")]
         public SharedGameObject targetVariable;
 
@@ -22,12 +21,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.SharedVariables
 
         public override void OnReset()
         {
-            if (targetValue != null) {
-                targetValue.Value = null;
-            }
-            if (targetVariable != null) {
-                targetVariable.Value = null;
-            }
+            targetValue = null;
+            targetVariable = null;
         }
     }
 }

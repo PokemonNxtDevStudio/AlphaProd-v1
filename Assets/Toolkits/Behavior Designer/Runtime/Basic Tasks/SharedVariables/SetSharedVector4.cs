@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.SharedVariables
 {
@@ -10,6 +8,7 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.SharedVariables
     {
         [Tooltip("The value to set the SharedVector4 to")]
         public SharedVector4 targetValue;
+        [RequiredField]
         [Tooltip("The SharedVector4 to set")]
         public SharedVector4 targetVariable;
 
@@ -22,12 +21,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.SharedVariables
 
         public override void OnReset()
         {
-            if (targetValue != null) {
-                targetValue.Value = Vector4.zero;
-            }
-            if (targetVariable != null) {
-                targetVariable.Value = Vector4.zero;
-            }
+            targetValue = Vector4.zero;
+            targetVariable = Vector4.zero;
         }
     }
 }

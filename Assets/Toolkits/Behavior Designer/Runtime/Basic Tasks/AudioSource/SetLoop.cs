@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAudioSource
 {
@@ -8,14 +6,21 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAudioSource
     [TaskDescription("Sets the loop value of the AudioSource. Returns Success.")]
     public class SetLoop : Action
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("The loop value of the AudioSource")]
         public SharedBool loop;
 
         private AudioSource audioSource;
+        private GameObject prevGameObject;
 
-        public override void OnAwake()
+        public override void OnStart()
         {
-            audioSource = gameObject.GetComponent<AudioSource>();
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                audioSource = currentGameObject.GetComponent<AudioSource>();
+                prevGameObject = currentGameObject;
+            }
         }
 
         public override TaskStatus OnUpdate()
@@ -32,9 +37,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAudioSource
 
         public override void OnReset()
         {
-            if (loop != null) {
-                loop.Value = false;
-            }
+            targetGameObject = null;
+            loop = false;
         }
     }
 }

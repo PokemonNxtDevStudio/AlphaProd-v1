@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnitySphereCollider
 {
@@ -8,14 +6,22 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnitySphereCollider
     [TaskDescription("Stores the center of the SphereCollider. Returns Success.")]
     public class GetCenter : Action
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("The center of the SphereCollider")]
+        [RequiredField]
         public SharedVector3 storeValue;
 
         private SphereCollider sphereCollider;
+        private GameObject prevGameObject;
 
-        public override void OnAwake()
+        public override void OnStart()
         {
-            sphereCollider = gameObject.GetComponent<SphereCollider>();
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                sphereCollider = currentGameObject.GetComponent<SphereCollider>();
+                prevGameObject = currentGameObject;
+            }
         }
 
         public override TaskStatus OnUpdate()
@@ -32,9 +38,7 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnitySphereCollider
 
         public override void OnReset()
         {
-            if (storeValue != null) {
-                storeValue.Value = Vector3.zero;
-            }
+            storeValue = Vector3.zero;
         }
     }
 }

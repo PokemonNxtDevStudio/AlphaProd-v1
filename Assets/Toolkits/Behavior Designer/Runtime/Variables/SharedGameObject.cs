@@ -14,5 +14,6 @@ namespace BehaviorDesigner.Runtime
         public override void SetValue(object value) { mValue = (GameObject)value; }
 
         public override string ToString() { return (mValue == null ? "null" : mValue.name); }
+        public static implicit operator SharedGameObject(GameObject value) { var sharedVariable = new SharedGameObject(); sharedVariable.SetValue(value); return sharedVariable; }
     }
 }

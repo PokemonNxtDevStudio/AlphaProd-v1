@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.SharedVariables
 {
@@ -10,6 +8,7 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.SharedVariables
     {
         [Tooltip("The value to set the SharedBool to")]
         public SharedBool targetValue;
+        [RequiredField]
         [Tooltip("The SharedBool to set")]
         public SharedBool targetVariable;
 
@@ -22,12 +21,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.SharedVariables
 
         public override void OnReset()
         {
-            if (targetValue != null) {
-                targetValue.Value = false;
-            }
-            if (targetVariable != null) {
-                targetVariable.Value = false;
-            }
+            targetValue = false;
+            targetVariable = false;
         }
     }
 }

@@ -34,7 +34,13 @@ namespace BehaviorDesigner.Runtime.Tasks
                 return TaskStatus.Failure;
             }
 
-            var component = targetGameObject.Value.GetComponent(componentName.Value);
+            var type = TaskUtility.GetTypeWithinAssembly(componentName.Value);
+            if (type == null) {
+                Debug.LogWarning("Unable to invoke - type is null");
+                return TaskStatus.Failure;
+            }
+
+            var component = targetGameObject.Value.GetComponent(type);
             if (component == null) {
                 Debug.LogWarning("Unable to invoke method with component " + componentName.Value);
                 return TaskStatus.Failure;
@@ -52,6 +58,8 @@ namespace BehaviorDesigner.Runtime.Tasks
                     break;
                 }
             }
+            // If you are receiving a compiler error on the Windows Store platform see this topic:
+            // http://www.opsive.com/assets/BehaviorDesigner/documentation.php?id=46 
             var methodInfo = component.GetType().GetMethod(methodName.Value, parameterTypeList.ToArray());
 
             if (methodInfo == null) {

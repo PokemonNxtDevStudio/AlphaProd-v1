@@ -8,14 +8,14 @@ namespace BehaviorDesigner.Runtime.Tasks
     public class Log : Action
     {
         [Tooltip("Text to output to the log")]
-        public string text = "";
+        public SharedString text;
         [Tooltip("Is this text an error?")]
-        public bool logError = false;
-
+        public SharedBool logError;
+        
         public override TaskStatus OnUpdate()
         {
             // Log the text and return success
-            if (logError) {
+            if (logError.Value) {
                 Debug.LogError(text);
             } else {
                 Debug.Log(text);

@@ -11,13 +11,13 @@ namespace BehaviorDesigner.Runtime.Tasks
     public class TaskGuard : Decorator
     {
         [Tooltip("The number of times the child tasks can be accessed by parallel tasks at once")]
-        public SharedInt maxTaskAccessCount = null;
+        public SharedInt maxTaskAccessCount;
         [Tooltip("The linked tasks that also guard a task. If the task guard is not linked against any other tasks it doesn't have much purpose. Marked as LinkedTask to " +
                  "ensure all tasks linked are linked to the same set of tasks")]
         [LinkedTask]
         public TaskGuard[] linkedTaskGuards = null;
         [Tooltip("If true the task will wait until the child task is available. If false then any unavailable child tasks will be skipped over")]
-        public bool waitUntilTaskAvailable = true;
+        public SharedBool waitUntilTaskAvailable;
 
         // The number of tasks that are currently using a particular task.
         private int executingTasks = 0;
@@ -43,7 +43,7 @@ namespace BehaviorDesigner.Runtime.Tasks
         public override TaskStatus OverrideStatus(TaskStatus status)
         {
             // return a running status if the children are currently waiting for a task to become available
-            return (!executing && waitUntilTaskAvailable) ? TaskStatus.Running : status;
+            return (!executing && waitUntilTaskAvailable.Value) ? TaskStatus.Running : status;
         }
 
         public void taskExecuting(bool increase)

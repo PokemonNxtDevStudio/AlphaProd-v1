@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimation
 {
@@ -8,8 +6,24 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimation
     [TaskDescription("Stores the animate physics value. Returns Success.")]
     public class GetAnimatePhysics : Action
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("Are the if animations are executed in the physics loop?")]
+        [RequiredField]
         public SharedBool storeValue;
+
+        // cache the animation component
+        private Animation animation;
+        private GameObject prevGameObject;
+
+        public override void OnStart()
+        {
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                animation = currentGameObject.GetComponent<Animation>();
+                prevGameObject = currentGameObject;
+            }
+        }
 
         public override TaskStatus OnUpdate()
         {
@@ -25,9 +39,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimation
 
         public override void OnReset()
         {
-            if (storeValue != null) {
-                storeValue.Value = false;
-            }
+            targetGameObject = null;
+            storeValue.Value = false;
         }
     }
 }

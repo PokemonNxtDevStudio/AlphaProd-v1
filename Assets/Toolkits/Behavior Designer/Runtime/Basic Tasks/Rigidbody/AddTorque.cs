@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityRigidbody
 {
@@ -8,10 +6,25 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityRigidbody
     [TaskDescription("Applies a torque to the rigidbody. Returns Success.")]
     public class AddTorque : Action
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("The amount of torque to apply")]
         public SharedVector3 torque;
         [Tooltip("The type of torque")]
         public ForceMode forceMode = ForceMode.Force;
+
+        // cache the rigidbody component
+        private Rigidbody rigidbody;
+        private GameObject prevGameObject;
+
+        public override void OnStart()
+        {
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                rigidbody = currentGameObject.GetComponent<Rigidbody>();
+                prevGameObject = currentGameObject;
+            }
+        }
 
         public override TaskStatus OnUpdate()
         {
@@ -27,9 +40,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityRigidbody
 
         public override void OnReset()
         {
-            if (torque != null) {
-                torque.Value = Vector3.zero;
-            }
+            targetGameObject = null;
+            torque = Vector3.zero;
             forceMode = ForceMode.Force;
         }
     }

@@ -14,5 +14,6 @@ namespace BehaviorDesigner.Runtime
         public override void SetValue(object value) { mValue = (Color)value; }
 
         public override string ToString() { return mValue.ToString(); }
+        public static implicit operator SharedColor(Color value) { var sharedVariable = new SharedColor(); sharedVariable.SetValue(value); return sharedVariable; }
     }
 }

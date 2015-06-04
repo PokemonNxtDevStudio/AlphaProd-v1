@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.SharedVariables
 {
@@ -10,6 +8,7 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.SharedVariables
     {
         [Tooltip("The value to set the SharedColor to")]
         public SharedColor targetValue;
+        [RequiredField]
         [Tooltip("The SharedColor to set")]
         public SharedColor targetVariable;
 
@@ -22,12 +21,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.SharedVariables
 
         public override void OnReset()
         {
-            if (targetValue != null) {
-                targetValue.Value = Color.black;
-            }
-            if (targetVariable != null) {
-                targetVariable.Value = Color.black;
-            }
+            targetValue = Color.black;
+            targetVariable = Color.black;
         }
     }
 }

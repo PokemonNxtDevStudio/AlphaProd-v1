@@ -1,7 +1,4 @@
-#if !(UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2)
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator
 {
@@ -9,11 +6,19 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator
     [TaskDescription("Stops the animator playback mode. Returns Success.")]
     public class StopPlayback : Action
     {
-        private Animator animator;
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
 
-        public override void OnAwake()
+        private Animator animator;
+        private GameObject prevGameObject;
+
+        public override void OnStart()
         {
-            animator = gameObject.GetComponent<Animator>();
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                animator = currentGameObject.GetComponent<Animator>();
+                prevGameObject = currentGameObject;
+            }
         }
 
         public override TaskStatus OnUpdate()
@@ -27,6 +32,10 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator
 
             return TaskStatus.Success;
         }
+
+        public override void OnReset()
+        {
+            targetGameObject = null;
+        }
     }
 }
-#endif

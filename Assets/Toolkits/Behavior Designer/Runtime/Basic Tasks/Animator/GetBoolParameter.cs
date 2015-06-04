@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator
 {
@@ -8,16 +6,24 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator
     [TaskDescription("Stores the bool parameter on an animator. Returns Success.")]
     public class GetBoolParameter : Action
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("The name of the parameter")]
         public SharedString paramaterName;
         [Tooltip("The value of the bool parameter")]
+        [RequiredField]
         public SharedBool storeValue;
 
         private Animator animator;
+        private GameObject prevGameObject;
 
-        public override void OnAwake()
+        public override void OnStart()
         {
-            animator = gameObject.GetComponent<Animator>();
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                animator = currentGameObject.GetComponent<Animator>();
+                prevGameObject = currentGameObject;
+            }
         }
 
         public override TaskStatus OnUpdate()
@@ -34,12 +40,9 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityAnimator
 
         public override void OnReset()
         {
-            if (paramaterName.Value != null) {
-                paramaterName.Value = "";
-            }
-            if (storeValue != null) {
-                storeValue.Value = false;
-            }
+            targetGameObject = null;
+            paramaterName = "";
+            storeValue = false;
         }
     }
 }

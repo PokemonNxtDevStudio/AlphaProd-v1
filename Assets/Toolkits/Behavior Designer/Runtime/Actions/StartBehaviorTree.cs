@@ -8,48 +8,83 @@ namespace BehaviorDesigner.Runtime.Tasks
     public class StartBehaviorTree : Action
     {
         [Tooltip("The GameObject of the behavior tree that should be started. If null use the current behavior")]
-        public GameObject behaviorGameObject;
+        public SharedGameObject behaviorGameObject;
         [Tooltip("The group of the behavior tree that should be started")]
-        public int group;
+        public SharedInt group;
+        [Tooltip("Should this task wait for the behavior tree to complete?")]
+        public SharedBool waitForCompletion = false;
+        [Tooltip("Should the variables be synchronized?")]
+        public SharedBool synchronizeVariables;
 
+        private bool behaviorComplete;
         private Behavior behavior;
 
-        public override void OnAwake()
+        public override void OnStart()
         {
-            // If behaviorGameObject is null use the GameObject that this task is attached to.
-            if (behaviorGameObject == null) {
-                behaviorGameObject = gameObject;
-            }
-            if (behaviorGameObject != null) {// search for the behavior tree based on the group number
-                var behaviorTrees = behaviorGameObject.GetComponents<Behavior>();
-                if (behaviorTrees.Length == 1) {
+            var behaviorTrees = GetDefaultGameObject(behaviorGameObject.Value).GetComponents<Behavior>();
+            if (behaviorTrees.Length == 1) {
+                behavior = behaviorTrees[0];
+            } else if (behaviorTrees.Length > 1) {
+                for (int i = 0; i < behaviorTrees.Length; ++i) {
+                    if (behaviorTrees[i].Group == group.Value) {
+                        behavior = behaviorTrees[i];
+                        break;
+                    }
+                }
+                // If the group can't be found then use the first behavior tree
+                if (behavior == null) {
                     behavior = behaviorTrees[0];
-                } else {
-                    for (int i = 0; i < behaviorTrees.Length; ++i) {
-                        if (behaviorTrees[i].Group == group) {
-                            behavior = behaviorTrees[i];
-                            break;
-                        }
-                    }
-                    // If the group can't be found then use the first behavior tree
-                    if (behavior == null) {
-                        behavior = behaviorTrees[0];
-                    }
+                }
+            }
+
+            if (behavior != null) {
+                var variables = Owner.GetAllVariables();
+                for (int i = 0; i < variables.Count; ++i) {
+                    behavior.SetVariable(variables[i].Name, variables[i]);
+                }
+
+                behavior.EnableBehavior();
+
+                if (waitForCompletion.Value) {
+                    behaviorComplete = false;
+                    behavior.OnBehaviorEnd += BehaviorEnded;
                 }
             }
         }
 
         public override TaskStatus OnUpdate()
         {
-            // Start the behavior and return success.
-            behavior.EnableBehavior();
+            if (behavior == null) {
+                return TaskStatus.Failure;
+            }
+
+            // Return a status of running if we are waiting for the behavior tree to end and it hasn't ended yet
+            if (waitForCompletion.Value && !behaviorComplete) {
+                return TaskStatus.Running;
+            }
+
             return TaskStatus.Success;
+        }
+
+        private void BehaviorEnded()
+        {
+            behaviorComplete = true;
+        }
+
+        public override void OnEnd()
+        {
+            if (behavior != null && waitForCompletion.Value) {
+                behavior.OnBehaviorEnd -= BehaviorEnded;
+            }
         }
 
         public override void OnReset()
         {
             // Reset the properties back to their original values.
-            behavior = null;
+            behaviorGameObject = null;
+            group = 0;
+            waitForCompletion = false;
+            synchronizeVariables = false;
         }
     }
 }

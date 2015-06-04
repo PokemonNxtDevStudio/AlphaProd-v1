@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityBehaviour
 {
@@ -11,6 +9,7 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityBehaviour
         [Tooltip("The Object to use")]
         public SharedObject specifiedObject;
         [Tooltip("The enabled/disabled state")]
+        [RequiredField]
         public SharedBool storeValue;
 
         public override TaskStatus OnUpdate()
@@ -30,9 +29,7 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityBehaviour
             if (specifiedObject != null) {
                 specifiedObject.Value = null;
             }
-            if (storeValue != null) {
-                storeValue.Value = false;
-            }
+            storeValue = false;
         }
     }
 }

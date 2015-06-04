@@ -1,6 +1,4 @@
 using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityRigidbody
 {
@@ -8,6 +6,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityRigidbody
     [TaskDescription("Applies a force to the rigidbody that simulates explosion effects. Returns Success.")]
     public class AddExplosionForce : Action
     {
+        [Tooltip("The GameObject that the task operates on. If null the task GameObject is used.")]
+        public SharedGameObject targetGameObject;
         [Tooltip("The force of the explosion")]
         public SharedFloat explosionForce;
         [Tooltip("The position of the explosion")]
@@ -18,6 +18,19 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityRigidbody
         public float upwardsModifier = 0;
         [Tooltip("The type of force")]
         public ForceMode forceMode = ForceMode.Force;
+
+        // cache the rigidbody component
+        private Rigidbody rigidbody;
+        private GameObject prevGameObject;
+
+        public override void OnStart()
+        {
+            var currentGameObject = GetDefaultGameObject(targetGameObject.Value);
+            if (currentGameObject != prevGameObject) {
+                rigidbody = currentGameObject.GetComponent<Rigidbody>();
+                prevGameObject = currentGameObject;
+            }
+        }
 
         public override TaskStatus OnUpdate()
         {
@@ -33,15 +46,10 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityRigidbody
 
         public override void OnReset()
         {
-            if (explosionForce != null) {
-                explosionForce.Value = 0;
-            }
-            if (explosionPosition != null) {
-                explosionPosition.Value = Vector3.zero;
-            }
-            if (explosionRadius != null) {
-                explosionRadius.Value = 0;
-            }
+            targetGameObject = null;
+            explosionForce = 0;
+            explosionPosition = Vector3.zero;
+            explosionRadius = 0;
             upwardsModifier = 0;
             forceMode = ForceMode.Force;
         }
