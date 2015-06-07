@@ -57,18 +57,7 @@ public enum MotorState
 		
             if (motorState == MotorState.Input)
             {
-
-
                	Move(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
-				if(Grounded) {
-					AnimatorCtrl.SetFloat("DirX", Input.GetAxis("Horizontal"));
-					AnimatorCtrl.SetFloat("DirY", Input.GetAxis("Vertical"));
-				} else {
-					AnimatorCtrl.SetFloat("DirX", 0);
-					AnimatorCtrl.SetFloat("DirY", 0);
-//					AnimatorCtrl.SetFloat("DirZ", 1);
-				}
-//			AnimatorCtrl.SetFloat
             }
         }
         public void SetState(MotorState ms)
@@ -134,6 +123,16 @@ public enum MotorState
             //@You can uncomment the following two lines and comment the content of the UpdateAnimator method in Ctrl/Handlers/Net/CharacterNetCtrlHandler.cs
             //AnimatorCtrl.SetFloat("DIRY", InputDirection.z, 0.15f, Time.deltaTime);
             //AnimatorCtrl.SetFloat("DIRX", InputDirection.x, 0.15f, Time.deltaTime);
+
+			//animator update
+		
+			if(Grounded) {
+				AnimatorCtrl.SetFloat("DirX", InputDirection.x);
+				AnimatorCtrl.SetFloat("DirY", InputDirection.z);
+			} else {
+				AnimatorCtrl.SetFloat("DirX", 0);
+				AnimatorCtrl.SetFloat("DirY", 0);
+			}
         }
 
         //public virtual void Jump

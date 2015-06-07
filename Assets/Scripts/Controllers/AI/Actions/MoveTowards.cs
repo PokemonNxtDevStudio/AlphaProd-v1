@@ -4,6 +4,8 @@ using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
 public class MoveTowards : Action {
+	// rotationspeed
+	public float rotationspeed = 10f; 
 	// min distance to object
 	public float minDistance = 0.1f; 
 	// The transform that the object is moving towards
@@ -20,21 +22,21 @@ public class MoveTowards : Action {
 
 	public override TaskStatus OnUpdate()
 	{
+		float distance = Vector3.Distance (transform.position, target.Value.position);
 		// Return a task status of success once we've reached the target
-		if (Vector3.SqrMagnitude(transform.position - target.Value.position) < minDistance) {
+		if (distance < minDistance) {
 			return TaskStatus.Success;
 		}
 		// We haven't reached the target yet so keep moving towards it
-		
-//		transform.position = Vector3.MoveTowards(transform.position, target.Value.position, motor.baseSpeed * Time.deltaTime);
 		Vector3 targetDir = target.Value.position - transform.position;
-//		float step = speed * Time.deltaTime;
-		Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, 1, 0.0F);
+		float step = rotationspeed * Time.deltaTime;
+		Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
+//		newDir.z = 0;
 //		Debug.DrawRay(transform.position, newDir, Color.red);
 		transform.rotation = Quaternion.LookRotation(newDir);
 		
-//		updatedPosition = Vector3.MoveTowards(transform.position, target.Value.position, motor.baseSpeed * Time.deltaTime);
-//		motor.Move (updatedPosition);
+//		transform.position = Vector3.MoveTowards(transform.position, target.Value.position, motor.baseSpeed * Time.deltaTime);
+		motor.Move (-(transform.forward * Mathf.Clamp(distance-minDistance,0,1)));
 		return TaskStatus.Running;
 	}
 }
