@@ -8,7 +8,7 @@ public class TrainerController : MonoBehaviour
 	private PokeParty pokeParty; 
 	private int pokeSlot;
 	private GameObject activePokemon;
-//	private GameObject activePokeball;
+	private TrainerAI trainerAI;
 	public CameraTransitionController cameraController;
 	//    public List<String> pokemon;
 	public List<GameObject> pokemon;
@@ -16,9 +16,8 @@ public class TrainerController : MonoBehaviour
 
     public ProjectileController projectileController;
 
-    void Start()
-    {
-
+    void Start() {
+		trainerAI = GetComponent<TrainerAI> ();
     }
 
 	void OnEnable(){
@@ -64,6 +63,7 @@ public class TrainerController : MonoBehaviour
 			ReleasePokemon ();
 		} else if (activePokemon.activeSelf) {
 			Debug.Log("returning pokemon ");
+			trainerAI.enabled = false;
 			ReturnPokemon();
 		}
 		//		releasePokeball.transform.position = Vector3.zero;
@@ -84,7 +84,7 @@ public class TrainerController : MonoBehaviour
 
 		//spawning and throwing pokeball
 		//binding oncomplete
-		Debug.Log ("bindingo n this! " + pokeball);
+//		Debug.Log ("bindingo n this! " + pokeball);
 		pokeball.releaseComplete = PokemonSpawned;
 		pokeball.pokemon = pokemon [pokeSlot];
 	}
@@ -100,6 +100,11 @@ public class TrainerController : MonoBehaviour
 		activePokemon.SetActive (true);
 		//moving camera
 		cameraController.SetTarget(activePokemon.transform, .25f);
+
+		//enabling AI
+		
+		trainerAI.enabled = true;
+		trainerAI.target = activePokemon.transform;
 	}
 	
 	public void UseSkill(int __skillSlotID) {

@@ -42,6 +42,8 @@ public enum MotorState
 
         void Update()
         {  //if(obj!=null && obj.IsMine)
+			if (moveOverrde)
+				return;
             //obj.UpdatePosition(transform.position);
 			if (Input.GetAxis("Vertical") >= 1)  {
                 FaceCamera();
@@ -57,7 +59,7 @@ public enum MotorState
             {
 
 
-                if (!moveOverrde) Move(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
+               	Move(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
 				if(Grounded) {
 					AnimatorCtrl.SetFloat("DirX", Input.GetAxis("Horizontal"));
 					AnimatorCtrl.SetFloat("DirY", Input.GetAxis("Vertical"));
@@ -83,7 +85,7 @@ public enum MotorState
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(camera.transform.eulerAngles.y * Vector3.up), Time.deltaTime * 7.0f);
 
 
-
+			
             camera.transform.eulerAngles = new Vector3(facingAngle.x, facingAngle.y, facingAngle.z);
             camera.transform.position = new Vector3(facePos.x, facePos.y, facePos.z); 
         }
