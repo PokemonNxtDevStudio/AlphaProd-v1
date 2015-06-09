@@ -1,0 +1,630 @@
+fileFormatVersion: 2
+guid: 43895b705884384499348acea617a960
+timeCreated: 1433819452
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Body_Base
+    100004: Body_end
+    100006: Body_mid
+    100008: Foot_b1_L
+    100010: Foot_b1_R
+    100012: Foot_b2_L
+    100014: Foot_b2_R
+    100016: Foot_Base_L
+    100018: Foot_Base_R
+    100020: Foot_End_L
+    100022: Foot_End_R
+    100024: Poliwag_H
+    100026: Poliwag_L
+    100028: Poliwag_LODs
+    100030: Poliwag_M
+    100032: Root
+    100034: Tail_b1
+    100036: Tail_b2
+    100038: Tail_b3
+    100040: Tail_b4
+    100042: Tail_base
+    100044: Tail_End
+    400000: //RootNode
+    400002: Body_Base
+    400004: Body_end
+    400006: Body_mid
+    400008: Foot_b1_L
+    400010: Foot_b1_R
+    400012: Foot_b2_L
+    400014: Foot_b2_R
+    400016: Foot_Base_L
+    400018: Foot_Base_R
+    400020: Foot_End_L
+    400022: Foot_End_R
+    400024: Poliwag_H
+    400026: Poliwag_L
+    400028: Poliwag_LODs
+    400030: Poliwag_M
+    400032: Root
+    400034: Tail_b1
+    400036: Tail_b2
+    400038: Tail_b3
+    400040: Tail_b4
+    400042: Tail_base
+    400044: Tail_End
+    4300000: Poliwag_H
+    4300002: Poliwag_M
+    4300004: Poliwag_L
+    7400000: Poliwag_idle_1
+    7400002: Poliwag_Idle_2
+    7400004: Poliwag_Jump_1
+    7400006: Poliwag_Faint_1
+    7400008: Poliwag_Walk_1
+    7400010: Poliwag_Attack_1
+    7400012: Poliwag_hit_1
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Poliwag_H
+    13700002: Poliwag_L
+    13700004: Poliwag_M
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Poliwag_idle_1
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 24
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Poliwag_LODs
+        weight: 1
+      - path: Poliwag_LODs/Poliwag_H
+        weight: 1
+      - path: Poliwag_LODs/Poliwag_L
+        weight: 1
+      - path: Poliwag_LODs/Poliwag_M
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Body_Base
+        weight: 1
+      - path: Root/Body_Base/Body_mid
+        weight: 1
+      - path: Root/Body_Base/Body_mid/Body_end
+        weight: 1
+      - path: Root/Foot_Base_L
+        weight: 1
+      - path: Root/Foot_Base_L/Foot_b1_L
+        weight: 1
+      - path: Root/Foot_Base_L/Foot_b1_L/Foot_b2_L
+        weight: 1
+      - path: Root/Foot_Base_L/Foot_b1_L/Foot_b2_L/Foot_End_L
+        weight: 1
+      - path: Root/Foot_Base_R
+        weight: 1
+      - path: Root/Foot_Base_R/Foot_b1_R
+        weight: 1
+      - path: Root/Foot_Base_R/Foot_b1_R/Foot_b2_R
+        weight: 1
+      - path: Root/Foot_Base_R/Foot_b1_R/Foot_b2_R/Foot_End_R
+        weight: 1
+      - path: Root/Tail_base
+        weight: 1
+      - path: Root/Tail_base/Tail_b1
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2/Tail_b3
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2/Tail_b3/Tail_b4
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2/Tail_b3/Tail_b4/Tail_End
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Poliwag_Idle_2
+      takeName: Take 001
+      firstFrame: 25
+      lastFrame: 48
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Poliwag_LODs
+        weight: 1
+      - path: Poliwag_LODs/Poliwag_H
+        weight: 1
+      - path: Poliwag_LODs/Poliwag_L
+        weight: 1
+      - path: Poliwag_LODs/Poliwag_M
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Body_Base
+        weight: 1
+      - path: Root/Body_Base/Body_mid
+        weight: 1
+      - path: Root/Body_Base/Body_mid/Body_end
+        weight: 1
+      - path: Root/Foot_Base_L
+        weight: 1
+      - path: Root/Foot_Base_L/Foot_b1_L
+        weight: 1
+      - path: Root/Foot_Base_L/Foot_b1_L/Foot_b2_L
+        weight: 1
+      - path: Root/Foot_Base_L/Foot_b1_L/Foot_b2_L/Foot_End_L
+        weight: 1
+      - path: Root/Foot_Base_R
+        weight: 1
+      - path: Root/Foot_Base_R/Foot_b1_R
+        weight: 1
+      - path: Root/Foot_Base_R/Foot_b1_R/Foot_b2_R
+        weight: 1
+      - path: Root/Foot_Base_R/Foot_b1_R/Foot_b2_R/Foot_End_R
+        weight: 1
+      - path: Root/Tail_base
+        weight: 1
+      - path: Root/Tail_base/Tail_b1
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2/Tail_b3
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2/Tail_b3/Tail_b4
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2/Tail_b3/Tail_b4/Tail_End
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Poliwag_Jump_1
+      takeName: Take 001
+      firstFrame: 49
+      lastFrame: 72
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Poliwag_LODs
+        weight: 1
+      - path: Poliwag_LODs/Poliwag_H
+        weight: 1
+      - path: Poliwag_LODs/Poliwag_L
+        weight: 1
+      - path: Poliwag_LODs/Poliwag_M
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Body_Base
+        weight: 1
+      - path: Root/Body_Base/Body_mid
+        weight: 1
+      - path: Root/Body_Base/Body_mid/Body_end
+        weight: 1
+      - path: Root/Foot_Base_L
+        weight: 1
+      - path: Root/Foot_Base_L/Foot_b1_L
+        weight: 1
+      - path: Root/Foot_Base_L/Foot_b1_L/Foot_b2_L
+        weight: 1
+      - path: Root/Foot_Base_L/Foot_b1_L/Foot_b2_L/Foot_End_L
+        weight: 1
+      - path: Root/Foot_Base_R
+        weight: 1
+      - path: Root/Foot_Base_R/Foot_b1_R
+        weight: 1
+      - path: Root/Foot_Base_R/Foot_b1_R/Foot_b2_R
+        weight: 1
+      - path: Root/Foot_Base_R/Foot_b1_R/Foot_b2_R/Foot_End_R
+        weight: 1
+      - path: Root/Tail_base
+        weight: 1
+      - path: Root/Tail_base/Tail_b1
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2/Tail_b3
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2/Tail_b3/Tail_b4
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2/Tail_b3/Tail_b4/Tail_End
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Poliwag_Faint_1
+      takeName: Take 001
+      firstFrame: 73
+      lastFrame: 96
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Poliwag_LODs
+        weight: 1
+      - path: Poliwag_LODs/Poliwag_H
+        weight: 1
+      - path: Poliwag_LODs/Poliwag_L
+        weight: 1
+      - path: Poliwag_LODs/Poliwag_M
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Body_Base
+        weight: 1
+      - path: Root/Body_Base/Body_mid
+        weight: 1
+      - path: Root/Body_Base/Body_mid/Body_end
+        weight: 1
+      - path: Root/Foot_Base_L
+        weight: 1
+      - path: Root/Foot_Base_L/Foot_b1_L
+        weight: 1
+      - path: Root/Foot_Base_L/Foot_b1_L/Foot_b2_L
+        weight: 1
+      - path: Root/Foot_Base_L/Foot_b1_L/Foot_b2_L/Foot_End_L
+        weight: 1
+      - path: Root/Foot_Base_R
+        weight: 1
+      - path: Root/Foot_Base_R/Foot_b1_R
+        weight: 1
+      - path: Root/Foot_Base_R/Foot_b1_R/Foot_b2_R
+        weight: 1
+      - path: Root/Foot_Base_R/Foot_b1_R/Foot_b2_R/Foot_End_R
+        weight: 1
+      - path: Root/Tail_base
+        weight: 1
+      - path: Root/Tail_base/Tail_b1
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2/Tail_b3
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2/Tail_b3/Tail_b4
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2/Tail_b3/Tail_b4/Tail_End
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Poliwag_Walk_1
+      takeName: Take 001
+      firstFrame: 97
+      lastFrame: 120
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 1
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Poliwag_LODs
+        weight: 1
+      - path: Poliwag_LODs/Poliwag_H
+        weight: 1
+      - path: Poliwag_LODs/Poliwag_L
+        weight: 1
+      - path: Poliwag_LODs/Poliwag_M
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Body_Base
+        weight: 1
+      - path: Root/Body_Base/Body_mid
+        weight: 1
+      - path: Root/Body_Base/Body_mid/Body_end
+        weight: 1
+      - path: Root/Foot_Base_L
+        weight: 1
+      - path: Root/Foot_Base_L/Foot_b1_L
+        weight: 1
+      - path: Root/Foot_Base_L/Foot_b1_L/Foot_b2_L
+        weight: 1
+      - path: Root/Foot_Base_L/Foot_b1_L/Foot_b2_L/Foot_End_L
+        weight: 1
+      - path: Root/Foot_Base_R
+        weight: 1
+      - path: Root/Foot_Base_R/Foot_b1_R
+        weight: 1
+      - path: Root/Foot_Base_R/Foot_b1_R/Foot_b2_R
+        weight: 1
+      - path: Root/Foot_Base_R/Foot_b1_R/Foot_b2_R/Foot_End_R
+        weight: 1
+      - path: Root/Tail_base
+        weight: 1
+      - path: Root/Tail_base/Tail_b1
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2/Tail_b3
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2/Tail_b3/Tail_b4
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2/Tail_b3/Tail_b4/Tail_End
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Poliwag_Attack_1
+      takeName: Take 001
+      firstFrame: 121
+      lastFrame: 144
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Poliwag_LODs
+        weight: 1
+      - path: Poliwag_LODs/Poliwag_H
+        weight: 1
+      - path: Poliwag_LODs/Poliwag_L
+        weight: 1
+      - path: Poliwag_LODs/Poliwag_M
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Body_Base
+        weight: 1
+      - path: Root/Body_Base/Body_mid
+        weight: 1
+      - path: Root/Body_Base/Body_mid/Body_end
+        weight: 1
+      - path: Root/Foot_Base_L
+        weight: 1
+      - path: Root/Foot_Base_L/Foot_b1_L
+        weight: 1
+      - path: Root/Foot_Base_L/Foot_b1_L/Foot_b2_L
+        weight: 1
+      - path: Root/Foot_Base_L/Foot_b1_L/Foot_b2_L/Foot_End_L
+        weight: 1
+      - path: Root/Foot_Base_R
+        weight: 1
+      - path: Root/Foot_Base_R/Foot_b1_R
+        weight: 1
+      - path: Root/Foot_Base_R/Foot_b1_R/Foot_b2_R
+        weight: 1
+      - path: Root/Foot_Base_R/Foot_b1_R/Foot_b2_R/Foot_End_R
+        weight: 1
+      - path: Root/Tail_base
+        weight: 1
+      - path: Root/Tail_base/Tail_b1
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2/Tail_b3
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2/Tail_b3/Tail_b4
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2/Tail_b3/Tail_b4/Tail_End
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Poliwag_hit_1
+      takeName: Take 001
+      firstFrame: 145
+      lastFrame: 168
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Poliwag_LODs
+        weight: 1
+      - path: Poliwag_LODs/Poliwag_H
+        weight: 1
+      - path: Poliwag_LODs/Poliwag_L
+        weight: 1
+      - path: Poliwag_LODs/Poliwag_M
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Body_Base
+        weight: 1
+      - path: Root/Body_Base/Body_mid
+        weight: 1
+      - path: Root/Body_Base/Body_mid/Body_end
+        weight: 1
+      - path: Root/Foot_Base_L
+        weight: 1
+      - path: Root/Foot_Base_L/Foot_b1_L
+        weight: 1
+      - path: Root/Foot_Base_L/Foot_b1_L/Foot_b2_L
+        weight: 1
+      - path: Root/Foot_Base_L/Foot_b1_L/Foot_b2_L/Foot_End_L
+        weight: 1
+      - path: Root/Foot_Base_R
+        weight: 1
+      - path: Root/Foot_Base_R/Foot_b1_R
+        weight: 1
+      - path: Root/Foot_Base_R/Foot_b1_R/Foot_b2_R
+        weight: 1
+      - path: Root/Foot_Base_R/Foot_b1_R/Foot_b2_R/Foot_End_R
+        weight: 1
+      - path: Root/Tail_base
+        weight: 1
+      - path: Root/Tail_base/Tail_b1
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2/Tail_b3
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2/Tail_b3/Tail_b4
+        weight: 1
+      - path: Root/Tail_base/Tail_b1/Tail_b2/Tail_b3/Tail_b4/Tail_End
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .0250000004
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
