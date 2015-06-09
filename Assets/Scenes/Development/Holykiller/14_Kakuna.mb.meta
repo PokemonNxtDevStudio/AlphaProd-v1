@@ -1,0 +1,428 @@
+fileFormatVersion: 2
+guid: 62c48e521f19d8e4a9025a2aeed1f79d
+timeCreated: 1433884393
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Base
+    100004: Kakuna_H
+    100006: Kakuna_L
+    100008: Kakuna_M
+    100010: Kakuna_VL
+    100012: KakunaWithLODs
+    100014: Mid
+    100016: Root
+    100018: Top
+    400000: //RootNode
+    400002: Base
+    400004: Kakuna_H
+    400006: Kakuna_L
+    400008: Kakuna_M
+    400010: Kakuna_VL
+    400012: KakunaWithLODs
+    400014: Mid
+    400016: Root
+    400018: Top
+    4300000: Kakuna_H
+    4300002: Kakuna_M
+    4300004: Kakuna_L
+    4300006: Kakuna_VL
+    7400000: Kakuna_Idle_1
+    7400002: Kakuna_Idle_2
+    7400004: Kakuna_hit_1
+    7400006: Kakuna_Walk_1
+    7400008: Kakuna_Faint_1
+    7400010: Kakuna_Attack_1
+    7400012: Kakuna_Flee_1
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Kakuna_H
+    13700002: Kakuna_L
+    13700004: Kakuna_M
+    13700006: Kakuna_VL
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Kakuna_Idle_1
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 24
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: KakunaWithLODs
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_H
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_L
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_M
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_VL
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Base
+        weight: 1
+      - path: Root/Base/Mid
+        weight: 1
+      - path: Root/Base/Mid/Top
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Kakuna_Idle_2
+      takeName: Take 001
+      firstFrame: 25
+      lastFrame: 73
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: KakunaWithLODs
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_H
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_L
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_M
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_VL
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Base
+        weight: 1
+      - path: Root/Base/Mid
+        weight: 1
+      - path: Root/Base/Mid/Top
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Kakuna_hit_1
+      takeName: Take 001
+      firstFrame: 74
+      lastFrame: 98
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: KakunaWithLODs
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_H
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_L
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_M
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_VL
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Base
+        weight: 1
+      - path: Root/Base/Mid
+        weight: 1
+      - path: Root/Base/Mid/Top
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Kakuna_Walk_1
+      takeName: Take 001
+      firstFrame: 99
+      lastFrame: 123
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: KakunaWithLODs
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_H
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_L
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_M
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_VL
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Base
+        weight: 1
+      - path: Root/Base/Mid
+        weight: 1
+      - path: Root/Base/Mid/Top
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Kakuna_Faint_1
+      takeName: Take 001
+      firstFrame: 124
+      lastFrame: 148
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: KakunaWithLODs
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_H
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_L
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_M
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_VL
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Base
+        weight: 1
+      - path: Root/Base/Mid
+        weight: 1
+      - path: Root/Base/Mid/Top
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Kakuna_Attack_1
+      takeName: Take 001
+      firstFrame: 149
+      lastFrame: 173
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: KakunaWithLODs
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_H
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_L
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_M
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_VL
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Base
+        weight: 1
+      - path: Root/Base/Mid
+        weight: 1
+      - path: Root/Base/Mid/Top
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Kakuna_Flee_1
+      takeName: Take 001
+      firstFrame: 174
+      lastFrame: 198
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: KakunaWithLODs
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_H
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_L
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_M
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_VL
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Base
+        weight: 1
+      - path: Root/Base/Mid
+        weight: 1
+      - path: Root/Base/Mid/Top
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .0329999998
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
