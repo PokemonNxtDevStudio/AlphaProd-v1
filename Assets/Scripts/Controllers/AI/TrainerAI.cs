@@ -8,6 +8,7 @@ public class TrainerAI : MonoBehaviour {
 	private Transform _target;
 	public BehaviorTree behaviourTree;
 
+
 	public Transform target{
 		get {
 			return _target;
