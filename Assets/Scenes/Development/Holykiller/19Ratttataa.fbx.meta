@@ -1,0 +1,893 @@
+fileFormatVersion: 2
+guid: 5e0a335ae6855bf4ab97795bf8c7d0c5
+timeCreated: 1434418252
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: BackBody
+    100004: Ear_Base_L
+    100006: Ear_Base_R
+    100008: Ear_Mid_L
+    100010: Ear_Mid_R
+    100012: Foot_L_01
+    100014: Foot_L_02
+    100016: Foot_R_01
+    100018: Foot_R_02
+    100020: Front_Foot_01_L
+    100022: Front_Foot_01_R
+    100024: Front_Foot_02_L
+    100026: Front_Foot_02_R
+    100028: Front_Leg_01_L
+    100030: Front_Leg_02_L
+    100032: Front_Leg_03_L
+    100034: Front_Leg_04_L
+    100036: Front_Reg_01_R
+    100038: Front_Reg_02_R
+    100040: Front_Reg_03_R
+    100042: Front_Reg_04_R
+    100044: FrontBody
+    100046: Head
+    100048: Jaw_Base
+    100050: Jaw_End
+    100052: Leg_L_01
+    100054: Leg_L_02
+    100056: Leg_L_03
+    100058: Leg_L_04
+    100060: Leg_R_01
+    100062: Leg_R_02
+    100064: Leg_R_03
+    100066: Leg_R_04
+    100068: MidBody
+    100070: Mustasg_L
+    100072: Mustasg_R
+    100074: Neck
+    100076: Ratata_High
+    100078: Rattata_LODs
+    100080: Root
+    100082: Tail_1
+    100084: Tail_2
+    100086: Tail_3
+    100088: Tail_4
+    100090: Tail_5
+    100092: Tail_6
+    400000: //RootNode
+    400002: BackBody
+    400004: Ear_Base_L
+    400006: Ear_Base_R
+    400008: Ear_Mid_L
+    400010: Ear_Mid_R
+    400012: Foot_L_01
+    400014: Foot_L_02
+    400016: Foot_R_01
+    400018: Foot_R_02
+    400020: Front_Foot_01_L
+    400022: Front_Foot_01_R
+    400024: Front_Foot_02_L
+    400026: Front_Foot_02_R
+    400028: Front_Leg_01_L
+    400030: Front_Leg_02_L
+    400032: Front_Leg_03_L
+    400034: Front_Leg_04_L
+    400036: Front_Reg_01_R
+    400038: Front_Reg_02_R
+    400040: Front_Reg_03_R
+    400042: Front_Reg_04_R
+    400044: FrontBody
+    400046: Head
+    400048: Jaw_Base
+    400050: Jaw_End
+    400052: Leg_L_01
+    400054: Leg_L_02
+    400056: Leg_L_03
+    400058: Leg_L_04
+    400060: Leg_R_01
+    400062: Leg_R_02
+    400064: Leg_R_03
+    400066: Leg_R_04
+    400068: MidBody
+    400070: Mustasg_L
+    400072: Mustasg_R
+    400074: Neck
+    400076: Ratata_High
+    400078: Rattata_LODs
+    400080: Root
+    400082: Tail_1
+    400084: Tail_2
+    400086: Tail_3
+    400088: Tail_4
+    400090: Tail_5
+    400092: Tail_6
+    4300000: Ratata_High
+    7400000: Rattata_idle_1
+    7400002: Rattata_faint_1
+    7400004: Rattata_hit_1
+    7400006: Rattata_attack_1
+    7400008: Rattata_idle_2
+    7400010: Rattata_walk_1
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Ratata_High
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Rattata_idle_1
+      takeName: Take 001
+      firstFrame: 2
+      lastFrame: 25
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Rattata_LODs
+        weight: 1
+      - path: Rattata_LODs/Ratata_High
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Front_Leg_01_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L/Front_Leg_04_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L/Front_Leg_04_L/Front_Foot_01_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L/Front_Leg_04_L/Front_Foot_01_L/Front_Foot_02_L
+        weight: 1
+      - path: Root/Front_Reg_01_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R/Front_Reg_04_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R/Front_Reg_04_R/Front_Foot_01_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R/Front_Reg_04_R/Front_Foot_01_R/Front_Foot_02_R
+        weight: 1
+      - path: Root/FrontBody
+        weight: 1
+      - path: Root/FrontBody/MidBody
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03/Leg_L_04
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03/Leg_L_04/Foot_L_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03/Leg_L_04/Foot_L_01/Foot_L_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03/Leg_R_04
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03/Leg_R_04/Foot_R_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03/Leg_R_04/Foot_R_01/Foot_R_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3/Tail_4
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5/Tail_6
+        weight: 1
+      - path: Root/Neck
+        weight: 1
+      - path: Root/Neck/Head
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_L
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_L/Ear_Mid_L
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_R
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_R/Ear_Mid_R
+        weight: 1
+      - path: Root/Neck/Head/Jaw_Base
+        weight: 1
+      - path: Root/Neck/Head/Jaw_Base/Jaw_End
+        weight: 1
+      - path: Root/Neck/Head/Mustasg_L
+        weight: 1
+      - path: Root/Neck/Head/Mustasg_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Rattata_faint_1
+      takeName: Take 001
+      firstFrame: 26
+      lastFrame: 50
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Rattata_LODs
+        weight: 1
+      - path: Rattata_LODs/Ratata_High
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Front_Leg_01_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L/Front_Leg_04_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L/Front_Leg_04_L/Front_Foot_01_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L/Front_Leg_04_L/Front_Foot_01_L/Front_Foot_02_L
+        weight: 1
+      - path: Root/Front_Reg_01_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R/Front_Reg_04_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R/Front_Reg_04_R/Front_Foot_01_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R/Front_Reg_04_R/Front_Foot_01_R/Front_Foot_02_R
+        weight: 1
+      - path: Root/FrontBody
+        weight: 1
+      - path: Root/FrontBody/MidBody
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03/Leg_L_04
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03/Leg_L_04/Foot_L_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03/Leg_L_04/Foot_L_01/Foot_L_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03/Leg_R_04
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03/Leg_R_04/Foot_R_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03/Leg_R_04/Foot_R_01/Foot_R_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3/Tail_4
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5/Tail_6
+        weight: 1
+      - path: Root/Neck
+        weight: 1
+      - path: Root/Neck/Head
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_L
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_L/Ear_Mid_L
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_R
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_R/Ear_Mid_R
+        weight: 1
+      - path: Root/Neck/Head/Jaw_Base
+        weight: 1
+      - path: Root/Neck/Head/Jaw_Base/Jaw_End
+        weight: 1
+      - path: Root/Neck/Head/Mustasg_L
+        weight: 1
+      - path: Root/Neck/Head/Mustasg_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Rattata_hit_1
+      takeName: Take 001
+      firstFrame: 51
+      lastFrame: 75
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Rattata_LODs
+        weight: 1
+      - path: Rattata_LODs/Ratata_High
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Front_Leg_01_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L/Front_Leg_04_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L/Front_Leg_04_L/Front_Foot_01_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L/Front_Leg_04_L/Front_Foot_01_L/Front_Foot_02_L
+        weight: 1
+      - path: Root/Front_Reg_01_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R/Front_Reg_04_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R/Front_Reg_04_R/Front_Foot_01_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R/Front_Reg_04_R/Front_Foot_01_R/Front_Foot_02_R
+        weight: 1
+      - path: Root/FrontBody
+        weight: 1
+      - path: Root/FrontBody/MidBody
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03/Leg_L_04
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03/Leg_L_04/Foot_L_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03/Leg_L_04/Foot_L_01/Foot_L_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03/Leg_R_04
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03/Leg_R_04/Foot_R_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03/Leg_R_04/Foot_R_01/Foot_R_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3/Tail_4
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5/Tail_6
+        weight: 1
+      - path: Root/Neck
+        weight: 1
+      - path: Root/Neck/Head
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_L
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_L/Ear_Mid_L
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_R
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_R/Ear_Mid_R
+        weight: 1
+      - path: Root/Neck/Head/Jaw_Base
+        weight: 1
+      - path: Root/Neck/Head/Jaw_Base/Jaw_End
+        weight: 1
+      - path: Root/Neck/Head/Mustasg_L
+        weight: 1
+      - path: Root/Neck/Head/Mustasg_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Rattata_attack_1
+      takeName: Take 001
+      firstFrame: 76
+      lastFrame: 100
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Rattata_LODs
+        weight: 1
+      - path: Rattata_LODs/Ratata_High
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Front_Leg_01_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L/Front_Leg_04_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L/Front_Leg_04_L/Front_Foot_01_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L/Front_Leg_04_L/Front_Foot_01_L/Front_Foot_02_L
+        weight: 1
+      - path: Root/Front_Reg_01_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R/Front_Reg_04_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R/Front_Reg_04_R/Front_Foot_01_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R/Front_Reg_04_R/Front_Foot_01_R/Front_Foot_02_R
+        weight: 1
+      - path: Root/FrontBody
+        weight: 1
+      - path: Root/FrontBody/MidBody
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03/Leg_L_04
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03/Leg_L_04/Foot_L_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03/Leg_L_04/Foot_L_01/Foot_L_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03/Leg_R_04
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03/Leg_R_04/Foot_R_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03/Leg_R_04/Foot_R_01/Foot_R_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3/Tail_4
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5/Tail_6
+        weight: 1
+      - path: Root/Neck
+        weight: 1
+      - path: Root/Neck/Head
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_L
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_L/Ear_Mid_L
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_R
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_R/Ear_Mid_R
+        weight: 1
+      - path: Root/Neck/Head/Jaw_Base
+        weight: 1
+      - path: Root/Neck/Head/Jaw_Base/Jaw_End
+        weight: 1
+      - path: Root/Neck/Head/Mustasg_L
+        weight: 1
+      - path: Root/Neck/Head/Mustasg_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Rattata_idle_2
+      takeName: Take 001
+      firstFrame: 101
+      lastFrame: 125
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Rattata_LODs
+        weight: 1
+      - path: Rattata_LODs/Ratata_High
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Front_Leg_01_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L/Front_Leg_04_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L/Front_Leg_04_L/Front_Foot_01_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L/Front_Leg_04_L/Front_Foot_01_L/Front_Foot_02_L
+        weight: 1
+      - path: Root/Front_Reg_01_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R/Front_Reg_04_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R/Front_Reg_04_R/Front_Foot_01_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R/Front_Reg_04_R/Front_Foot_01_R/Front_Foot_02_R
+        weight: 1
+      - path: Root/FrontBody
+        weight: 1
+      - path: Root/FrontBody/MidBody
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03/Leg_L_04
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03/Leg_L_04/Foot_L_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03/Leg_L_04/Foot_L_01/Foot_L_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03/Leg_R_04
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03/Leg_R_04/Foot_R_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03/Leg_R_04/Foot_R_01/Foot_R_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3/Tail_4
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5/Tail_6
+        weight: 1
+      - path: Root/Neck
+        weight: 1
+      - path: Root/Neck/Head
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_L
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_L/Ear_Mid_L
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_R
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_R/Ear_Mid_R
+        weight: 1
+      - path: Root/Neck/Head/Jaw_Base
+        weight: 1
+      - path: Root/Neck/Head/Jaw_Base/Jaw_End
+        weight: 1
+      - path: Root/Neck/Head/Mustasg_L
+        weight: 1
+      - path: Root/Neck/Head/Mustasg_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Rattata_walk_1
+      takeName: Take 001
+      firstFrame: 126
+      lastFrame: 155
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Rattata_LODs
+        weight: 1
+      - path: Rattata_LODs/Ratata_High
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Front_Leg_01_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L/Front_Leg_04_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L/Front_Leg_04_L/Front_Foot_01_L
+        weight: 1
+      - path: Root/Front_Leg_01_L/Front_Leg_02_L/Front_Leg_03_L/Front_Leg_04_L/Front_Foot_01_L/Front_Foot_02_L
+        weight: 1
+      - path: Root/Front_Reg_01_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R/Front_Reg_04_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R/Front_Reg_04_R/Front_Foot_01_R
+        weight: 1
+      - path: Root/Front_Reg_01_R/Front_Reg_02_R/Front_Reg_03_R/Front_Reg_04_R/Front_Foot_01_R/Front_Foot_02_R
+        weight: 1
+      - path: Root/FrontBody
+        weight: 1
+      - path: Root/FrontBody/MidBody
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03/Leg_L_04
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03/Leg_L_04/Foot_L_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_L_01/Leg_L_02/Leg_L_03/Leg_L_04/Foot_L_01/Foot_L_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03/Leg_R_04
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03/Leg_R_04/Foot_R_01
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Leg_R_01/Leg_R_02/Leg_R_03/Leg_R_04/Foot_R_01/Foot_R_02
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3/Tail_4
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5
+        weight: 1
+      - path: Root/FrontBody/MidBody/BackBody/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5/Tail_6
+        weight: 1
+      - path: Root/Neck
+        weight: 1
+      - path: Root/Neck/Head
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_L
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_L/Ear_Mid_L
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_R
+        weight: 1
+      - path: Root/Neck/Head/Ear_Base_R/Ear_Mid_R
+        weight: 1
+      - path: Root/Neck/Head/Jaw_Base
+        weight: 1
+      - path: Root/Neck/Head/Jaw_Base/Jaw_End
+        weight: 1
+      - path: Root/Neck/Head/Mustasg_L
+        weight: 1
+      - path: Root/Neck/Head/Mustasg_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1.5
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
