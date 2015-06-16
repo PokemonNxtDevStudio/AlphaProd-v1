@@ -1,0 +1,138 @@
+fileFormatVersion: 2
+guid: 80ddefc9c380b81478e1330b112c42bc
+timeCreated: 1434462969
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Back
+    100004: BackBody_1
+    100006: BackFin
+    100008: Base
+    100010: Fin_L
+    100012: Fin_Mid_L
+    100014: Fin_Mid_R
+    100016: Fin_R
+    100018: Front
+    100020: FrontBody
+    100022: Magikarp_H
+    100024: Magikarp_L
+    100026: Magikarp_LODs
+    100028: Magikarp_M
+    100030: MouthBase_1
+    100032: MouthBase_2
+    100034: Mustache_1_L
+    100036: Mustache_1_R
+    100038: Mustache_2_L
+    100040: Mustache_2_R
+    100042: Mustache_3_L
+    100044: Mustache_3_R
+    100046: Mustache_4_L
+    100048: Mustache_4_R
+    100050: Mustache_5_L
+    100052: Mustache_5_R
+    100054: Root
+    400000: //RootNode
+    400002: Back
+    400004: BackBody_1
+    400006: BackFin
+    400008: Base
+    400010: Fin_L
+    400012: Fin_Mid_L
+    400014: Fin_Mid_R
+    400016: Fin_R
+    400018: Front
+    400020: FrontBody
+    400022: Magikarp_H
+    400024: Magikarp_L
+    400026: Magikarp_LODs
+    400028: Magikarp_M
+    400030: MouthBase_1
+    400032: MouthBase_2
+    400034: Mustache_1_L
+    400036: Mustache_1_R
+    400038: Mustache_2_L
+    400040: Mustache_2_R
+    400042: Mustache_3_L
+    400044: Mustache_3_R
+    400046: Mustache_4_L
+    400048: Mustache_4_R
+    400050: Mustache_5_L
+    400052: Mustache_5_R
+    400054: Root
+    4300000: Magikarp_H
+    4300002: Magikarp_M
+    4300004: Magikarp_L
+    7400000: Magikarp_swiming/walk_1
+    7400002: Magikarp_idle_1
+    7400004: Magikarp_faint_1
+    7400006: Magikarp_idle_2(NoWater)
+    7400008: Magikarp_attack_1
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Magikarp_H
+    13700002: Magikarp_L
+    13700004: Magikarp_M
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 2.5
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

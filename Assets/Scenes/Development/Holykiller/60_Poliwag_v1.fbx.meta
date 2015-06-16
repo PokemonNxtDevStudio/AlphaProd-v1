@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: f4821dd7c67300b4eabd63360380f42f
-timeCreated: 1434421838
+guid: 4863fb9a31a163149a01760352718147
+timeCreated: 1434466783
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -83,12 +83,12 @@ ModelImporter:
     animationRotationError: .5
     animationPositionError: .5
     animationScaleError: .5
-    animationWrapMode: 0
+    animationWrapMode: 2
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
       name: Poliwag_idle_1
-      takeName: Take 001
+      takeName: Poliwag_idle_1
       firstFrame: 1
       lastFrame: 24
       wrapMode: 2
@@ -160,7 +160,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
     - serializedVersion: 16
       name: Poliwag_idle_2
-      takeName: Take 001
+      takeName: Poliwag_idle_2
       firstFrame: 25
       lastFrame: 48
       wrapMode: 2
@@ -232,7 +232,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
     - serializedVersion: 16
       name: Poliwag_jump_1
-      takeName: Take 001
+      takeName: Poliwag_jump_1
       firstFrame: 49
       lastFrame: 72
       wrapMode: 2
@@ -304,7 +304,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
     - serializedVersion: 16
       name: Poliwag_faint_1
-      takeName: Take 001
+      takeName: Poliwag_faint_
       firstFrame: 73
       lastFrame: 96
       wrapMode: 2
@@ -376,7 +376,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
     - serializedVersion: 16
       name: Poliwag_walk_1
-      takeName: Take 001
+      takeName: Poliwag_walk_1
       firstFrame: 97
       lastFrame: 120
       wrapMode: 2
@@ -448,7 +448,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
     - serializedVersion: 16
       name: Poliwag_attack_1
-      takeName: Take 001
+      takeName: Poliwag_attack_1
       firstFrame: 121
       lastFrame: 144
       wrapMode: 2
@@ -520,7 +520,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
     - serializedVersion: 16
       name: Poliwag_hit_1
-      takeName: Take 001
+      takeName: Poliwag_hit_1
       firstFrame: 145
       lastFrame: 168
       wrapMode: 2
