@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 208b16e38f0a54248a0861698910e976
-timeCreated: 1432782399
+timeCreated: 1433558264
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -56,12 +56,12 @@ TextureImporter:
     - name: Targets_Icons_2_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 555
-        width: 454
-        height: 444
+        x: 20
+        y: 530
+        width: 449
+        height: 474
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Targets_Icons_2_1
       rect:
@@ -71,7 +71,7 @@ TextureImporter:
         width: 470
         height: 470
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Targets_Icons_2_2
       rect:
@@ -81,7 +81,7 @@ TextureImporter:
         width: 360
         height: 489
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Targets_Icons_2_3
       rect:
@@ -91,7 +91,7 @@ TextureImporter:
         width: 472
         height: 470
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

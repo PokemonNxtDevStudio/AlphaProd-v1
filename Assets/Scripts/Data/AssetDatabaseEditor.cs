@@ -31,7 +31,9 @@ public class AssetDatabaseEditor
         // New asset name
 		//string assetName = "ItemAssetDatabase.asset";
 		ItemAssetDatabase asset = ScriptableObject.CreateInstance("ItemAssetDatabase") as ItemAssetDatabase;  //scriptable object
-        mockdata.ItemMockData(asset);
+        asset.ItemsList.Clear();
+         mockdata.ItemMockData(asset);
+    
         AssetDatabase.CreateAsset(asset, AssetDatabase.GenerateUniqueAssetPath("Assets/Resources/Database/ItemAssetDatabase.asset"));
         AssetDatabase.Refresh();
         AssetDatabase.SaveAssets();

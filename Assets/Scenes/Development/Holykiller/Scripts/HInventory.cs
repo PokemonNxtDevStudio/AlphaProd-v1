@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
+using NXT.Inventory;
 
 public class HInventory : MonoBehaviour
 {
@@ -109,7 +110,7 @@ public class HInventory : MonoBehaviour
             if (NxtUiManager.instance.ItemsDB.GetByIDInList(NxtUiManager.instance.SelectedItem.ItemID).BuyingPrice <= m_Money && (m_Money - NxtUiManager.instance.ItemsDB.GetByIDInList(NxtUiManager.instance.SelectedItem.ItemID).BuyingPrice) > -1)
            {
                NxtUiManager.instance.ShowItemsTab();
-               NxtUiManager.instance.ShowTypeOfItemInventory(NxtUiManager.instance.ItemsDB.GetByIDInList(NxtUiManager.instance.SelectedItem.ItemID).ItemType);
+              // NxtUiManager.instance.ShowTypeOfItemInventory(NxtUiManager.instance.ItemsDB.GetByIDInList(NxtUiManager.instance.SelectedItem.ItemID).ItemType);
 
                AddItemWithID(NxtUiManager.instance.SelectedItem.ItemID);
               if(m_ItemAdded == true)
@@ -201,8 +202,8 @@ public class HInventory : MonoBehaviour
     private void AddItemWithID(int x)
     {
         //each time we make a new item we create a new item instance...
-        InventoryItem item = new InventoryItem(NxtUiManager.instance.ItemsDB.GetByIDInList(x));
-        AddItemToInventory(item);
+      //  InventoryItem item = new InventoryItem(NxtUiManager.instance.ItemsDB.GetByIDInList(x));
+        //AddItemToInventory(item);
     }
     //We call this to add items to the inventory
     public void AddItemToInventory(InventoryItem item)
@@ -214,6 +215,7 @@ public class HInventory : MonoBehaviour
     //Here we check if there is space in the Inventory Slot that the item that we want to add
     private void LootAtArrayOf(InventoryItem item)
     {
+        /*
         CheckInvStatus();
         NxtUiManager.instance.ShowTypeOfItemInventory(item.ItemType);
         //Check if there a free space in the inventory even if it is in a stackable one 
@@ -274,6 +276,7 @@ public class HInventory : MonoBehaviour
             AddANewItem(item);
             m_ItemAdded = true;
         }
+         * */
     }
 
     private void LookForSpace(InventoryItem item)
@@ -312,27 +315,7 @@ public class HInventory : MonoBehaviour
         }
         GameObject itemToMake = (GameObject)Instantiate(m_buttonPrefab);
         GameObject parent = null;
-        switch (item.ItemType)
-        {
-            case ItemType.GeneralItem:
-                parent =  NxtUiManager.instance.ItemsButtonsPanel;//itemsButtonsPanel;
-                break;
-            case ItemType.Pokeball:
-                parent = NxtUiManager.instance.PokeballsButtonsPanel;//  _pokeballsButtonsPanel;
-                break;
-            case ItemType.Potion:
-                parent = NxtUiManager.instance.PotionButtonsPanel;// _potionButtonsPanel;
-                break;
-            case ItemType.MtTm:
-                parent = NxtUiManager.instance.MtsTmsButtonsPanel;// _mtsTmsButtonsPanel;
-                break;
-            case ItemType.Berry:
-                parent = NxtUiManager.instance.BerrysButtonsPanel;// _berrysButtonsPanel;
-                break;
-            case ItemType.KeyItem:
-                parent = NxtUiManager.instance.KeyItemsButtonsPanel;// _keyItemsButtonsPanel;
-                break;
-        }
+  
         if (parent != null)
         {
             Bottons b = itemToMake.GetComponent<Bottons>();
@@ -355,18 +338,7 @@ public class HInventory : MonoBehaviour
 
         for (int i = 0; i < _invItems.Count; i++)
         {
-            if (_invItems[i].ItemType == ItemType.GeneralItem)
-                generalitems++;
-            if (_invItems[i].ItemType == ItemType.Pokeball)
-                pokeballs++;
-            if (_invItems[i].ItemType == ItemType.Potion)
-                potions++;
-            if (_invItems[i].ItemType == ItemType.MtTm)
-                mttms++;
-            if (_invItems[i].ItemType == ItemType.Berry)
-                berrys++;
-            if (_invItems[i].ItemType == ItemType.KeyItem)
-                keyitems++;
+  
         }
     }
     

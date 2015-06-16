@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System;
 #if UNITY_EDITOR
 using UnityEditor;
+using TeamName.Inventory.Models;
+using NXT.Inventory;
 #endif
 [Serializable]
 public class ItemAssetDatabase : ScriptableObject
@@ -13,7 +15,13 @@ public class ItemAssetDatabase : ScriptableObject
     private List<InventoryItem> m_ItemsList = new List<InventoryItem>();
    
     [HideInInspector]
-    public List<InventoryItem> ItemsList { get { return m_ItemsList; } /*set { m_ItemsList = value; } */}
+    public List<InventoryItem> ItemsList { get { return m_ItemsList; } set { m_ItemsList = value; } }
+
+    public InventoryItem[] items;
+    /// <summary>
+    /// ItemGroup for this assetDatabase
+    /// </summary>
+    public ItemGroup[] itemGroup= new ItemGroup[] { new ItemGroup() { ID = 0, name = "None", cooldownTime = 0.0f } };
     /*public InventoryItem[] items;
 	
     /// <summary>

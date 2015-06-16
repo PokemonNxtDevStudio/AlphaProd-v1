@@ -1,6 +1,8 @@
 fileFormatVersion: 2
-guid: 6fd47074218400e45aec6b0bfd8fc9df
-timeCreated: 1432156715
+guid: 62cfeb923c1010849a1acbe3b4c3f6ca
+labels:
+- InventoryItemPrefab
+timeCreated: 1434333342
 licenseType: Free
 NativeFormatImporter:
   userData: 

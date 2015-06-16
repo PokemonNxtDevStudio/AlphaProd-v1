@@ -5,19 +5,24 @@ using System.Collections;
 public class ProgressBar : MonoBehaviour {
 
 
-
+    private Text progressLabel;
+    private Image progressBar;
     public int maxValue;
 
     public float targetValue;
     public float currentValue;
     public int minValue;
-    private Image progressBar;
+    
     public bool enableSmoothing;
     public float smoothingFactor= 9;
+
+    private bool isLabel;
+   
 	// Use this for initialization
 	
     void Start () {
         progressBar = GetComponent<Image>();
+        isLabel = (progressLabel = GetComponentInChildren<Text>());
 	}
 
     void setMaxValue(float maxValue)
@@ -29,13 +34,24 @@ public class ProgressBar : MonoBehaviour {
 
         if (enableSmoothing)
         {
-            if (!Mathf.Approximately(targetValue,currentValue))
+            if (!Mathf.Approximately(targetValue, currentValue))
             {
                 currentValue = Mathf.Lerp(currentValue, targetValue, Time.deltaTime * smoothingFactor);
-                progressBar.fillAmount = currentValue / maxValue;
+                UpdateProgressBar();
             }
-            }
+        }
         else
+        {
             currentValue = targetValue;
-	}
+            UpdateProgressBar();
+        }
+       }
+
+
+    void UpdateProgressBar()
+    {
+        progressBar.fillAmount = currentValue / maxValue;
+        if(isLabel)
+            progressLabel.text = Mathf.RoundToInt(currentValue).ToString() + " / " +  maxValue.ToString();
+    }
 }

@@ -17,11 +17,11 @@ public class MockData : ScriptableObject
    // public PokeAssetDatabase pokeAssetDatabase;
     //Items DataBase
     //private ItemAssetDatabase itemAssetDatabase;
-    private List<InventoryItem> items;
+    //private List<InventoryItem> items;
     private Sprite[] itemsIcon;
     private Sprite[] pokeballIcons;
-    private ItemType general = ItemType.GeneralItem;
-    private ItemType pokeball = ItemType.Pokeball;
+    //private ItemType general = ItemType.GeneralItem;
+    //private ItemType pokeball = ItemType.Pokeball;
     private string m_pokemonsPath = "Prefabs/Characters/Pokemon/";
 
     private PokemonType Typegrass = PokemonType.Grass;
@@ -747,6 +747,7 @@ public class MockData : ScriptableObject
     }
     public void ItemMockData(ItemAssetDatabase itemAssetDatabase)
     {
+        /*
        // itemAssetDatabase = (ItemAssetDatabase)AssetDatabase.LoadAssetAtPath("Assets/Database/ItemAssetDatabase.asset", typeof(ItemAssetDatabase));
         //itemAssetDatabase = (ItemAssetDatabase)Resources.Load("Database/ItemAssetDatabase", typeof(ItemAssetDatabase)); 
         //itemAssetDatabase.items = new InventoryItem[1500];
@@ -779,22 +780,23 @@ public class MockData : ScriptableObject
 
         for (int i = 0; i < items.Count; i++)
         {
-            /*
+            
             if (itemAssetDatabase.items[items[i].ID] == null)
             {
                 itemAssetDatabase.items[items[i].ID] = items[i];
                 EditorUtility.SetDirty(itemAssetDatabase);
-            }*/
+            }
             itemAssetDatabase.AddToList(items[i]);
                 
         }
         AssetDatabase.SaveAssets();
+    */
  
     }
-    private void AddItem(int id,string name,Sprite icon,ItemType type,float buy,float sell,int stacksupto,string description)
+    private void AddItem(int id,string name,Sprite icon,float buy,float sell,int stacksupto,string description)
     {
-        InventoryItem item = new InventoryItem(id, name, icon, type, buy, sell, stacksupto, description);
-        items.Add(item);
+        //InventoryItem item = new InventoryItem(id, name, icon, type, buy, sell, stacksupto, description);
+        //items.Add(item);
     }
 
     

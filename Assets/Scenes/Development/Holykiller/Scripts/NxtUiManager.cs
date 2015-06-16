@@ -229,29 +229,9 @@ public class NxtUiManager : MonoBehaviour
 
     //This takes care of showing what to show by enableling and disableling all but what we realy want to see
     #region InventorySwitchs
-    public void ShowTypeOfItemInventory(ItemType type)
+    public void ShowTypeOfItemInventory()
     {
-        switch (type)
-        {
-            case ItemType.GeneralItem:
-                ShowItems();
-                break;
-            case ItemType.Pokeball:
-                ShowPokeballs();
-                break;
-            case ItemType.Potion:
-                ShowPotions();
-                break;
-            case ItemType.MtTm:
-                ShowMtsTms();
-                break;
-            case ItemType.Berry:
-                ShowBerrys();
-                break;
-            case ItemType.KeyItem:
-                ShowKeyItems();
-                break;
-        }
+      
     }
     
     

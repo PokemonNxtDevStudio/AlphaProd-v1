@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using NXT.Inventory;
 
 public class NPCStore : MonoBehaviour
 {
@@ -132,8 +133,8 @@ public class NPCStore : MonoBehaviour
                 Debug.Log("Item is Null");
                 return;
             }
-            InventoryItem i = new InventoryItem(NxtUiManager.instance.ItemsDB.GetByIDInList(m_IDsOfItemsInStore[asd]));
-            ItemsInStore[asd].NpcBottonInfo(i.Icon, i.Name, i.Description, i.BuyingPrice, i.SellingPrice, i.ID);
+       //     InventoryItem i = new InventoryItem(NxtUiManager.instance.ItemsDB.GetByIDInList(m_IDsOfItemsInStore[asd]));
+           // ItemsInStore[asd].NpcBottonInfo(i.Icon, i.Name, i.Description, i.BuyingPrice, i.SellingPrice, i.ID);
             // StoreItemsPanel.transform.GetChild(asd).GetComponent<NPCBottons>
             //b_info.NpcBottonInfo(i.icon, i.Name, i.Description, i.BuyingPrice,i.ID);
             //Bottons b = StoreItem.GetComponent<Bottons>();
