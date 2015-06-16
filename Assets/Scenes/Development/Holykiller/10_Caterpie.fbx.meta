@@ -1,47 +1,51 @@
 fileFormatVersion: 2
-guid: 62c48e521f19d8e4a9025a2aeed1f79d
-timeCreated: 1433884393
+guid: 9d1cc012631c7524dabdeba1b7fd76d1
+timeCreated: 1434420507
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: //RootNode
     100002: Base
-    100004: Kakuna_H
-    100006: Kakuna_L
-    100008: Kakuna_M
-    100010: Kakuna_VL
-    100012: KakunaWithLODs
-    100014: Mid
-    100016: Root
-    100018: Top
+    100004: Base_1
+    100006: Base_end
+    100008: Body_1
+    100010: Body_2
+    100012: Caterpie_H
+    100014: Caterpie_L
+    100016: Caterpie_LODs
+    100018: Caterpie_M
+    100020: Head
+    100022: Root1
+    100024: Tail
     400000: //RootNode
     400002: Base
-    400004: Kakuna_H
-    400006: Kakuna_L
-    400008: Kakuna_M
-    400010: Kakuna_VL
-    400012: KakunaWithLODs
-    400014: Mid
-    400016: Root
-    400018: Top
-    4300000: Kakuna_H
-    4300002: Kakuna_M
-    4300004: Kakuna_L
-    4300006: Kakuna_VL
-    7400000: Kakuna_Idle_1
-    7400002: Kakuna_Idle_2
-    7400004: Kakuna_hit_1
-    7400006: Kakuna_Walk_1
-    7400008: Kakuna_Faint_1
-    7400010: Kakuna_Attack_1
-    7400012: Kakuna_Flee_1
+    400004: Base_1
+    400006: Base_end
+    400008: Body_1
+    400010: Body_2
+    400012: Caterpie_H
+    400014: Caterpie_L
+    400016: Caterpie_LODs
+    400018: Caterpie_M
+    400020: Head
+    400022: Root1
+    400024: Tail
+    4300000: Caterpie_H
+    4300002: Caterpie_M
+    4300004: Caterpie_L
+    7400000: Caterpie_Idle_1
+    7400002: Caterpie_eating_1
+    7400004: Caterpie_walk_1
+    7400006: Caterpie_hit_1
+    7400008: Caterpie_Faint_1
+    7400010: Caterpie_Attack_1
+    7400012: Caterpie_Attack_2
     9500000: //RootNode
     11100000: //RootNode
-    13700000: Kakuna_H
-    13700002: Kakuna_L
-    13700004: Kakuna_M
-    13700006: Kakuna_VL
+    13700000: Caterpie_H
+    13700002: Caterpie_L
+    13700004: Caterpie_M
   materials:
     importMaterials: 1
     materialName: 0
@@ -59,11 +63,11 @@ ModelImporter:
     animationRotationError: .5
     animationPositionError: .5
     animationScaleError: .5
-    animationWrapMode: 2
+    animationWrapMode: 0
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Kakuna_Idle_1
+      name: Caterpie_Idle_1
       takeName: Take 001
       firstFrame: 1
       lastFrame: 24
@@ -88,31 +92,37 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: KakunaWithLODs
+      - path: Caterpie_LODs
         weight: 1
-      - path: KakunaWithLODs/Kakuna_H
+      - path: Caterpie_LODs/Caterpie_H
         weight: 1
-      - path: KakunaWithLODs/Kakuna_L
+      - path: Caterpie_LODs/Caterpie_L
         weight: 1
-      - path: KakunaWithLODs/Kakuna_M
+      - path: Caterpie_LODs/Caterpie_M
         weight: 1
-      - path: KakunaWithLODs/Kakuna_VL
+      - path: Root1
         weight: 1
-      - path: Root
+      - path: Root1/Base
         weight: 1
-      - path: Root/Base
+      - path: Root1/Base/Base_1
         weight: 1
-      - path: Root/Base/Mid
+      - path: Root1/Base/Base_1/Base_end
         weight: 1
-      - path: Root/Base/Mid/Top
+      - path: Root1/Base/Base_1/Base_end/Tail
+        weight: 1
+      - path: Root1/Base/Body_1
+        weight: 1
+      - path: Root1/Base/Body_1/Body_2
+        weight: 1
+      - path: Root1/Base/Body_1/Body_2/Head
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Kakuna_Idle_2
+      name: Caterpie_eating_1
       takeName: Take 001
       firstFrame: 25
-      lastFrame: 73
+      lastFrame: 48
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
@@ -134,31 +144,37 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: KakunaWithLODs
+      - path: Caterpie_LODs
         weight: 1
-      - path: KakunaWithLODs/Kakuna_H
+      - path: Caterpie_LODs/Caterpie_H
         weight: 1
-      - path: KakunaWithLODs/Kakuna_L
+      - path: Caterpie_LODs/Caterpie_L
         weight: 1
-      - path: KakunaWithLODs/Kakuna_M
+      - path: Caterpie_LODs/Caterpie_M
         weight: 1
-      - path: KakunaWithLODs/Kakuna_VL
+      - path: Root1
         weight: 1
-      - path: Root
+      - path: Root1/Base
         weight: 1
-      - path: Root/Base
+      - path: Root1/Base/Base_1
         weight: 1
-      - path: Root/Base/Mid
+      - path: Root1/Base/Base_1/Base_end
         weight: 1
-      - path: Root/Base/Mid/Top
+      - path: Root1/Base/Base_1/Base_end/Tail
+        weight: 1
+      - path: Root1/Base/Body_1
+        weight: 1
+      - path: Root1/Base/Body_1/Body_2
+        weight: 1
+      - path: Root1/Base/Body_1/Body_2/Head
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Kakuna_hit_1
+      name: Caterpie_walk_1
       takeName: Take 001
-      firstFrame: 74
-      lastFrame: 98
+      firstFrame: 49
+      lastFrame: 72
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
@@ -180,31 +196,37 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: KakunaWithLODs
+      - path: Caterpie_LODs
         weight: 1
-      - path: KakunaWithLODs/Kakuna_H
+      - path: Caterpie_LODs/Caterpie_H
         weight: 1
-      - path: KakunaWithLODs/Kakuna_L
+      - path: Caterpie_LODs/Caterpie_L
         weight: 1
-      - path: KakunaWithLODs/Kakuna_M
+      - path: Caterpie_LODs/Caterpie_M
         weight: 1
-      - path: KakunaWithLODs/Kakuna_VL
+      - path: Root1
         weight: 1
-      - path: Root
+      - path: Root1/Base
         weight: 1
-      - path: Root/Base
+      - path: Root1/Base/Base_1
         weight: 1
-      - path: Root/Base/Mid
+      - path: Root1/Base/Base_1/Base_end
         weight: 1
-      - path: Root/Base/Mid/Top
+      - path: Root1/Base/Base_1/Base_end/Tail
+        weight: 1
+      - path: Root1/Base/Body_1
+        weight: 1
+      - path: Root1/Base/Body_1/Body_2
+        weight: 1
+      - path: Root1/Base/Body_1/Body_2/Head
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Kakuna_Walk_1
+      name: Caterpie_hit_1
       takeName: Take 001
-      firstFrame: 99
-      lastFrame: 123
+      firstFrame: 73
+      lastFrame: 96
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
@@ -226,31 +248,37 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: KakunaWithLODs
+      - path: Caterpie_LODs
         weight: 1
-      - path: KakunaWithLODs/Kakuna_H
+      - path: Caterpie_LODs/Caterpie_H
         weight: 1
-      - path: KakunaWithLODs/Kakuna_L
+      - path: Caterpie_LODs/Caterpie_L
         weight: 1
-      - path: KakunaWithLODs/Kakuna_M
+      - path: Caterpie_LODs/Caterpie_M
         weight: 1
-      - path: KakunaWithLODs/Kakuna_VL
+      - path: Root1
         weight: 1
-      - path: Root
+      - path: Root1/Base
         weight: 1
-      - path: Root/Base
+      - path: Root1/Base/Base_1
         weight: 1
-      - path: Root/Base/Mid
+      - path: Root1/Base/Base_1/Base_end
         weight: 1
-      - path: Root/Base/Mid/Top
+      - path: Root1/Base/Base_1/Base_end/Tail
+        weight: 1
+      - path: Root1/Base/Body_1
+        weight: 1
+      - path: Root1/Base/Body_1/Body_2
+        weight: 1
+      - path: Root1/Base/Body_1/Body_2/Head
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Kakuna_Faint_1
+      name: Caterpie_Faint_1
       takeName: Take 001
-      firstFrame: 124
-      lastFrame: 148
+      firstFrame: 97
+      lastFrame: 120
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
@@ -272,31 +300,37 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: KakunaWithLODs
+      - path: Caterpie_LODs
         weight: 1
-      - path: KakunaWithLODs/Kakuna_H
+      - path: Caterpie_LODs/Caterpie_H
         weight: 1
-      - path: KakunaWithLODs/Kakuna_L
+      - path: Caterpie_LODs/Caterpie_L
         weight: 1
-      - path: KakunaWithLODs/Kakuna_M
+      - path: Caterpie_LODs/Caterpie_M
         weight: 1
-      - path: KakunaWithLODs/Kakuna_VL
+      - path: Root1
         weight: 1
-      - path: Root
+      - path: Root1/Base
         weight: 1
-      - path: Root/Base
+      - path: Root1/Base/Base_1
         weight: 1
-      - path: Root/Base/Mid
+      - path: Root1/Base/Base_1/Base_end
         weight: 1
-      - path: Root/Base/Mid/Top
+      - path: Root1/Base/Base_1/Base_end/Tail
+        weight: 1
+      - path: Root1/Base/Body_1
+        weight: 1
+      - path: Root1/Base/Body_1/Body_2
+        weight: 1
+      - path: Root1/Base/Body_1/Body_2/Head
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Kakuna_Attack_1
+      name: Caterpie_Attack_1
       takeName: Take 001
-      firstFrame: 149
-      lastFrame: 173
+      firstFrame: 121
+      lastFrame: 144
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
@@ -318,31 +352,37 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: KakunaWithLODs
+      - path: Caterpie_LODs
         weight: 1
-      - path: KakunaWithLODs/Kakuna_H
+      - path: Caterpie_LODs/Caterpie_H
         weight: 1
-      - path: KakunaWithLODs/Kakuna_L
+      - path: Caterpie_LODs/Caterpie_L
         weight: 1
-      - path: KakunaWithLODs/Kakuna_M
+      - path: Caterpie_LODs/Caterpie_M
         weight: 1
-      - path: KakunaWithLODs/Kakuna_VL
+      - path: Root1
         weight: 1
-      - path: Root
+      - path: Root1/Base
         weight: 1
-      - path: Root/Base
+      - path: Root1/Base/Base_1
         weight: 1
-      - path: Root/Base/Mid
+      - path: Root1/Base/Base_1/Base_end
         weight: 1
-      - path: Root/Base/Mid/Top
+      - path: Root1/Base/Base_1/Base_end/Tail
+        weight: 1
+      - path: Root1/Base/Body_1
+        weight: 1
+      - path: Root1/Base/Body_1/Body_2
+        weight: 1
+      - path: Root1/Base/Body_1/Body_2/Head
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Kakuna_Flee_1
+      name: Caterpie_Attack_2
       takeName: Take 001
-      firstFrame: 174
-      lastFrame: 198
+      firstFrame: 145
+      lastFrame: 168
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
@@ -364,30 +404,36 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: KakunaWithLODs
+      - path: Caterpie_LODs
         weight: 1
-      - path: KakunaWithLODs/Kakuna_H
+      - path: Caterpie_LODs/Caterpie_H
         weight: 1
-      - path: KakunaWithLODs/Kakuna_L
+      - path: Caterpie_LODs/Caterpie_L
         weight: 1
-      - path: KakunaWithLODs/Kakuna_M
+      - path: Caterpie_LODs/Caterpie_M
         weight: 1
-      - path: KakunaWithLODs/Kakuna_VL
+      - path: Root1
         weight: 1
-      - path: Root
+      - path: Root1/Base
         weight: 1
-      - path: Root/Base
+      - path: Root1/Base/Base_1
         weight: 1
-      - path: Root/Base/Mid
+      - path: Root1/Base/Base_1/Base_end
         weight: 1
-      - path: Root/Base/Mid/Top
+      - path: Root1/Base/Base_1/Base_end/Tail
+        weight: 1
+      - path: Root1/Base/Body_1
+        weight: 1
+      - path: Root1/Base/Body_1/Body_2
+        weight: 1
+      - path: Root1/Base/Body_1/Body_2/Head
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .0329999998
+    globalScale: 2.5
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

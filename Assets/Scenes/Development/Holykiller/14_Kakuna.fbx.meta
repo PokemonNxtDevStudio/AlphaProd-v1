@@ -1,42 +1,47 @@
 fileFormatVersion: 2
-guid: bd7c1610321d7b44bbb9bbfe703c6260
-timeCreated: 1433703173
+guid: e69cfdc289024044f956001d8758009d
+timeCreated: 1434421010
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: //RootNode
-    100002: BodyBase
-    100004: Digglet_H
-    100006: Digglet_L
-    100008: Digglet_LODs
-    100010: Digglet_M
-    100012: MidPart
-    100014: Root
-    100016: TopPart
+    100002: Base
+    100004: Kakuna_H
+    100006: Kakuna_L
+    100008: Kakuna_M
+    100010: Kakuna_VL
+    100012: KakunaWithLODs
+    100014: Mid
+    100016: Root
+    100018: Top
     400000: //RootNode
-    400002: BodyBase
-    400004: Digglet_H
-    400006: Digglet_L
-    400008: Digglet_LODs
-    400010: Digglet_M
-    400012: MidPart
-    400014: Root
-    400016: TopPart
-    4300000: Digglet_H
-    4300002: Digglet_M
-    4300004: Digglet_L
-    7400000: Digglet_Idle_1
-    7400002: Digglet_Idle_2
-    7400004: Digglet_Move_1
-    7400006: Digglet_Attack_1
-    7400008: Digglet_Faint
-    7400010: Digglet_Yes
+    400002: Base
+    400004: Kakuna_H
+    400006: Kakuna_L
+    400008: Kakuna_M
+    400010: Kakuna_VL
+    400012: KakunaWithLODs
+    400014: Mid
+    400016: Root
+    400018: Top
+    4300000: Kakuna_H
+    4300002: Kakuna_M
+    4300004: Kakuna_L
+    4300006: Kakuna_VL
+    7400000: Kakuna_idle_1
+    7400002: Kakuna_idle_2
+    7400004: Kakuna_hit_1
+    7400006: Kakuna_walk_1
+    7400008: Kakuna_faint_1
+    7400010: Kakuna_attack_1
+    7400012: Kakuna_flee_1
     9500000: //RootNode
     11100000: //RootNode
-    13700000: Digglet_H
-    13700002: Digglet_L
-    13700004: Digglet_M
+    13700000: Kakuna_H
+    13700002: Kakuna_L
+    13700004: Kakuna_M
+    13700006: Kakuna_VL
   materials:
     importMaterials: 1
     materialName: 0
@@ -46,6 +51,10 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
@@ -54,7 +63,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Digglet_Idle_1
+      name: Kakuna_idle_1
       takeName: Take 001
       firstFrame: 1
       lastFrame: 24
@@ -79,29 +88,31 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: Digglet_LODs
+      - path: KakunaWithLODs
         weight: 1
-      - path: Digglet_LODs/Digglet_H
+      - path: KakunaWithLODs/Kakuna_H
         weight: 1
-      - path: Digglet_LODs/Digglet_L
+      - path: KakunaWithLODs/Kakuna_L
         weight: 1
-      - path: Digglet_LODs/Digglet_M
+      - path: KakunaWithLODs/Kakuna_M
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_VL
         weight: 1
       - path: Root
         weight: 1
-      - path: Root/BodyBase
+      - path: Root/Base
         weight: 1
-      - path: Root/BodyBase/MidPart
+      - path: Root/Base/Mid
         weight: 1
-      - path: Root/BodyBase/MidPart/TopPart
+      - path: Root/Base/Mid/Top
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Digglet_Idle_2
+      name: Kakuna_idle_2
       takeName: Take 001
       firstFrame: 25
-      lastFrame: 49
+      lastFrame: 73
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
@@ -123,29 +134,31 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: Digglet_LODs
+      - path: KakunaWithLODs
         weight: 1
-      - path: Digglet_LODs/Digglet_H
+      - path: KakunaWithLODs/Kakuna_H
         weight: 1
-      - path: Digglet_LODs/Digglet_L
+      - path: KakunaWithLODs/Kakuna_L
         weight: 1
-      - path: Digglet_LODs/Digglet_M
+      - path: KakunaWithLODs/Kakuna_M
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_VL
         weight: 1
       - path: Root
         weight: 1
-      - path: Root/BodyBase
+      - path: Root/Base
         weight: 1
-      - path: Root/BodyBase/MidPart
+      - path: Root/Base/Mid
         weight: 1
-      - path: Root/BodyBase/MidPart/TopPart
+      - path: Root/Base/Mid/Top
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Digglet_Move_1
+      name: Kakuna_hit_1
       takeName: Take 001
-      firstFrame: 50
-      lastFrame: 74
+      firstFrame: 74
+      lastFrame: 98
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
@@ -167,29 +180,31 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: Digglet_LODs
+      - path: KakunaWithLODs
         weight: 1
-      - path: Digglet_LODs/Digglet_H
+      - path: KakunaWithLODs/Kakuna_H
         weight: 1
-      - path: Digglet_LODs/Digglet_L
+      - path: KakunaWithLODs/Kakuna_L
         weight: 1
-      - path: Digglet_LODs/Digglet_M
+      - path: KakunaWithLODs/Kakuna_M
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_VL
         weight: 1
       - path: Root
         weight: 1
-      - path: Root/BodyBase
+      - path: Root/Base
         weight: 1
-      - path: Root/BodyBase/MidPart
+      - path: Root/Base/Mid
         weight: 1
-      - path: Root/BodyBase/MidPart/TopPart
+      - path: Root/Base/Mid/Top
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Digglet_Attack_1
+      name: Kakuna_walk_1
       takeName: Take 001
-      firstFrame: 75
-      lastFrame: 99
+      firstFrame: 99
+      lastFrame: 123
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
@@ -211,29 +226,31 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: Digglet_LODs
+      - path: KakunaWithLODs
         weight: 1
-      - path: Digglet_LODs/Digglet_H
+      - path: KakunaWithLODs/Kakuna_H
         weight: 1
-      - path: Digglet_LODs/Digglet_L
+      - path: KakunaWithLODs/Kakuna_L
         weight: 1
-      - path: Digglet_LODs/Digglet_M
+      - path: KakunaWithLODs/Kakuna_M
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_VL
         weight: 1
       - path: Root
         weight: 1
-      - path: Root/BodyBase
+      - path: Root/Base
         weight: 1
-      - path: Root/BodyBase/MidPart
+      - path: Root/Base/Mid
         weight: 1
-      - path: Root/BodyBase/MidPart/TopPart
+      - path: Root/Base/Mid/Top
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Digglet_Faint
+      name: Kakuna_faint_1
       takeName: Take 001
-      firstFrame: 100
-      lastFrame: 124
+      firstFrame: 124
+      lastFrame: 148
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
@@ -255,29 +272,31 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: Digglet_LODs
+      - path: KakunaWithLODs
         weight: 1
-      - path: Digglet_LODs/Digglet_H
+      - path: KakunaWithLODs/Kakuna_H
         weight: 1
-      - path: Digglet_LODs/Digglet_L
+      - path: KakunaWithLODs/Kakuna_L
         weight: 1
-      - path: Digglet_LODs/Digglet_M
+      - path: KakunaWithLODs/Kakuna_M
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_VL
         weight: 1
       - path: Root
         weight: 1
-      - path: Root/BodyBase
+      - path: Root/Base
         weight: 1
-      - path: Root/BodyBase/MidPart
+      - path: Root/Base/Mid
         weight: 1
-      - path: Root/BodyBase/MidPart/TopPart
+      - path: Root/Base/Mid/Top
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Digglet_Yes
+      name: Kakuna_attack_1
       takeName: Take 001
-      firstFrame: 125
-      lastFrame: 143
+      firstFrame: 149
+      lastFrame: 173
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
@@ -299,28 +318,76 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: Digglet_LODs
+      - path: KakunaWithLODs
         weight: 1
-      - path: Digglet_LODs/Digglet_H
+      - path: KakunaWithLODs/Kakuna_H
         weight: 1
-      - path: Digglet_LODs/Digglet_L
+      - path: KakunaWithLODs/Kakuna_L
         weight: 1
-      - path: Digglet_LODs/Digglet_M
+      - path: KakunaWithLODs/Kakuna_M
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_VL
         weight: 1
       - path: Root
         weight: 1
-      - path: Root/BodyBase
+      - path: Root/Base
         weight: 1
-      - path: Root/BodyBase/MidPart
+      - path: Root/Base/Mid
         weight: 1
-      - path: Root/BodyBase/MidPart/TopPart
+      - path: Root/Base/Mid/Top
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Kakuna_flee_1
+      takeName: Take 001
+      firstFrame: 174
+      lastFrame: 198
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: KakunaWithLODs
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_H
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_L
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_M
+        weight: 1
+      - path: KakunaWithLODs/Kakuna_VL
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Base
+        weight: 1
+      - path: Root/Base/Mid
+        weight: 1
+      - path: Root/Base/Mid/Top
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .0299999993
+    globalScale: 3.29999995
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

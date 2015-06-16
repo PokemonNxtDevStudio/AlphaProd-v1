@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 43895b705884384499348acea617a960
-timeCreated: 1433819452
+guid: f4821dd7c67300b4eabd63360380f42f
+timeCreated: 1434421838
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -55,11 +55,11 @@ ModelImporter:
     4300002: Poliwag_M
     4300004: Poliwag_L
     7400000: Poliwag_idle_1
-    7400002: Poliwag_Idle_2
-    7400004: Poliwag_Jump_1
-    7400006: Poliwag_Faint_1
-    7400008: Poliwag_Walk_1
-    7400010: Poliwag_Attack_1
+    7400002: Poliwag_idle_2
+    7400004: Poliwag_jump_1
+    7400006: Poliwag_faint_1
+    7400008: Poliwag_walk_1
+    7400010: Poliwag_attack_1
     7400012: Poliwag_hit_1
     9500000: //RootNode
     11100000: //RootNode
@@ -75,6 +75,10 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
@@ -155,7 +159,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Poliwag_Idle_2
+      name: Poliwag_idle_2
       takeName: Take 001
       firstFrame: 25
       lastFrame: 48
@@ -227,7 +231,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Poliwag_Jump_1
+      name: Poliwag_jump_1
       takeName: Take 001
       firstFrame: 49
       lastFrame: 72
@@ -299,7 +303,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Poliwag_Faint_1
+      name: Poliwag_faint_1
       takeName: Take 001
       firstFrame: 73
       lastFrame: 96
@@ -371,7 +375,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Poliwag_Walk_1
+      name: Poliwag_walk_1
       takeName: Take 001
       firstFrame: 97
       lastFrame: 120
@@ -379,7 +383,7 @@ ModelImporter:
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
-      loop: 1
+      loop: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -443,7 +447,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Poliwag_Attack_1
+      name: Poliwag_attack_1
       takeName: Take 001
       firstFrame: 121
       lastFrame: 144
@@ -589,7 +593,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .0250000004
+    globalScale: 2.45000005
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

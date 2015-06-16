@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 1bb27726a073a7c4492a1a2b19fceffc
-timeCreated: 1433625760
+guid: 9592609f06498a6448c95f85b755a1e7
+timeCreated: 1434422264
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -29,11 +29,11 @@ ModelImporter:
     400020: Screw_Top
     4300000: Magnemite_L
     4300002: Magnemite_H
-    7400000: Magnemite_Move
-    7400002: Magnemite_Jump
-    7400004: Magnemite_Attack1
-    7400006: Magnemite_Attack2
-    7400008: Magnemite_Faint
+    7400000: Magnemite_attack_1
+    7400002: Magnemite_jump_1
+    7400004: Magnemite_move_1
+    7400006: Magnemite_attack_2
+    7400008: Magnemite_faint_1
     9500000: //RootNode
     11100000: //RootNode
     13700000: Magnemite_H
@@ -47,6 +47,10 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
@@ -55,7 +59,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Magnemite_Jump
+      name: Magnemite_jump_1
       takeName: Take 001
       firstFrame: 5
       lastFrame: 20
@@ -103,7 +107,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Magnemite_Move
+      name: Magnemite_move_1
       takeName: Take 001
       firstFrame: 21
       lastFrame: 45
@@ -151,7 +155,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Magnemite_Attack1
+      name: Magnemite_attack_1
       takeName: Take 001
       firstFrame: 46
       lastFrame: 70
@@ -199,7 +203,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Magnemite_Attack2
+      name: Magnemite_attack_2
       takeName: Take 001
       firstFrame: 71
       lastFrame: 95
@@ -247,7 +251,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Magnemite_Faint
+      name: Magnemite_faint_1
       takeName: Take 001
       firstFrame: 96
       lastFrame: 120
@@ -297,7 +301,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .0199999996
+    globalScale: 2
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

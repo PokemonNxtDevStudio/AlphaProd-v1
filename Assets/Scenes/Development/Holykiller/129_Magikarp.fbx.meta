@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: f5e03072695d6954b95bb62a4e706b84
-timeCreated: 1434068338
+guid: ca179e5f162c3204cb90661617dbb374
+timeCreated: 1434422703
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -64,11 +64,11 @@ ModelImporter:
     4300000: Magikarp_H
     4300002: Magikarp_M
     4300004: Magikarp_L
-    7400000: Magikarp_Swiming/Walk_1
-    7400002: Magikarp_Idle_1
-    7400004: Magikarp_Faint_1
-    7400006: Magikarp_Idle_2(NotInWater)
-    7400008: Magikarp_Attack_1
+    7400000: Magikarp_swiming/walk_1
+    7400002: Magikarp_idle_1
+    7400004: Magikarp_faint_1
+    7400006: Magikarp_idle_2(NoWater)
+    7400008: Magikarp_attack_1
     9500000: //RootNode
     11100000: //RootNode
     13700000: Magikarp_H
@@ -95,7 +95,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Magikarp_Swiming/Walk_1
+      name: Magikarp_swiming/walk_1
       takeName: Take 001
       firstFrame: 2
       lastFrame: 25
@@ -177,7 +177,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Magikarp_Idle_1
+      name: Magikarp_idle_1
       takeName: Take 001
       firstFrame: 26
       lastFrame: 50
@@ -259,7 +259,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Magikarp_Faint_1
+      name: Magikarp_faint_1
       takeName: Take 001
       firstFrame: 51
       lastFrame: 75
@@ -341,7 +341,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Magikarp_Idle_2(NotInWater)
+      name: Magikarp_idle_2(NoWater)
       takeName: Take 001
       firstFrame: 76
       lastFrame: 100
@@ -349,7 +349,7 @@ ModelImporter:
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
-      loop: 1
+      loop: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -423,7 +423,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Magikarp_Attack_1
+      name: Magikarp_attack_1
       takeName: Take 001
       firstFrame: 101
       lastFrame: 125
@@ -507,7 +507,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .0250000004
+    globalScale: 2.5
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
