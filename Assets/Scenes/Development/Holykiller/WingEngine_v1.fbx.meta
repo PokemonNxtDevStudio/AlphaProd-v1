@@ -1,0 +1,145 @@
+fileFormatVersion: 2
+guid: 0a16da8a2dfb16e468d9fac394a820aa
+timeCreated: 1434494517
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Lab_001_WindEngine_Blades_H
+    100002: Lab_001_WindEngine_Blades_L
+    100004: Lab_001_WindEngine_L
+    100006: Lab_001_WindEngine_M
+    100008: Lab_01_WingEngine_H
+    100010: Pivot
+    100012: //RootNode
+    100014: WingEngines_LODs
+    400000: Lab_001_WindEngine_Blades_H
+    400002: Lab_001_WindEngine_Blades_L
+    400004: Lab_001_WindEngine_L
+    400006: Lab_001_WindEngine_M
+    400008: Lab_01_WingEngine_H
+    400010: Pivot
+    400012: //RootNode
+    400014: WingEngines_LODs
+    2300000: Lab_001_WindEngine_Blades_H
+    2300002: Lab_001_WindEngine_Blades_L
+    2300004: Lab_001_WindEngine_L
+    2300006: Lab_001_WindEngine_M
+    2300008: Lab_01_WingEngine_H
+    3300000: Lab_001_WindEngine_Blades_H
+    3300002: Lab_001_WindEngine_Blades_L
+    3300004: Lab_001_WindEngine_L
+    3300006: Lab_001_WindEngine_M
+    3300008: Lab_01_WingEngine_H
+    4300000: Lab_01_WingEngine_H
+    4300002: Lab_001_WindEngine_M
+    4300004: Lab_001_WindEngine_L
+    4300006: Lab_001_WindEngine_Blades_H
+    4300008: Lab_001_WindEngine_Blades_L
+    7400000: WingEngineTurning_01
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: WingEngineTurning_01
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 200
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: WingEngines_LODs
+        weight: 1
+      - path: WingEngines_LODs/Lab_001_WindEngine_L
+        weight: 1
+      - path: WingEngines_LODs/Lab_001_WindEngine_M
+        weight: 1
+      - path: WingEngines_LODs/Lab_01_WingEngine_H
+        weight: 1
+      - path: WingEngines_LODs/Pivot
+        weight: 1
+      - path: WingEngines_LODs/Pivot/Lab_001_WindEngine_Blades_H
+        weight: 1
+      - path: WingEngines_LODs/Pivot/Lab_001_WindEngine_Blades_L
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 25
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
