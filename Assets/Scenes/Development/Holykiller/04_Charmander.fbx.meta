@@ -1,0 +1,913 @@
+fileFormatVersion: 2
+guid: fd7304b898acff24b9cf3b66b5acae07
+timeCreated: 1434656293
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Charamander_Mesh
+    100004: Head
+    100006: L_Elbow
+    100008: L_Foot
+    100010: L_Hand
+    100012: L_Hip
+    100014: L_Knee
+    100016: L_Shoulder
+    100018: Lower_Jaw
+    100020: R_Elbow
+    100022: R_Foot
+    100024: R_Hand
+    100026: R_Hip
+    100028: R_Knee
+    100030: R_Shoulder
+    100032: Root
+    100034: Spine_01
+    100036: Spine_02
+    100038: Tail_01
+    100040: Tail_02
+    100042: Tail_03
+    400000: //RootNode
+    400002: Charamander_Mesh
+    400004: Head
+    400006: L_Elbow
+    400008: L_Foot
+    400010: L_Hand
+    400012: L_Hip
+    400014: L_Knee
+    400016: L_Shoulder
+    400018: Lower_Jaw
+    400020: R_Elbow
+    400022: R_Foot
+    400024: R_Hand
+    400026: R_Hip
+    400028: R_Knee
+    400030: R_Shoulder
+    400032: Root
+    400034: Spine_01
+    400036: Spine_02
+    400038: Tail_01
+    400040: Tail_02
+    400042: Tail_03
+    4300000: Charamander_Mesh
+    7400000: Charmander_walk_1
+    7400002: Charmander_run_1
+    7400004: Charmander_faint_1
+    7400006: Charmander_combat_idle_1
+    7400008: Charmander_scratch_1
+    7400010: Charmander_ember(pre)/dragonRage(pre)_1
+    7400012: Charmander_ember(cast)/dragonRage(cast)_1
+    7400014: Charmander_ember(full)/dragonRage(full)_1
+    7400016: Charmander_growl/smokeScreen_1
+    7400018: Charmander_scaryFace_1
+    7400020: Charmander_idle(pre)_1
+    7400022: Charmander_idle(loop)_1
+    7400024: Charmander_idle(post)_1
+    7400026: Charmander_strafeRight(pre)_1
+    7400028: Charmander_strafeRight_1
+    7400030: Charmander_strafeLeft(pre)_1
+    7400032: Charmander_strafeLeft_1
+    7400034: Charmander_strafeRight(full)_1
+    7400036: Charmander_strafeLeft(full)_1
+    7400038: Charmander_fireFang_1
+    7400040: Charmander_flameBurst_1
+    7400042: Charmander_slash_1
+    7400044: Charmander_fireSpin_1
+    7400046: Charmander_inferno_1
+    7400048: Charmander_combarmodeActivated_1
+    7400050: Charmander_idle(full)_1
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Charamander_Mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Charmander_walk_1
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 24
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Charamander_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/Spine_01
+        weight: 1
+      - path: Root/Spine_01/Spine_02
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head/Lower_Jaw
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/Tail_01
+        weight: 1
+      - path: Root/Tail_01/Tail_02
+        weight: 1
+      - path: Root/Tail_01/Tail_02/Tail_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Charmander_run_1
+      takeName: Take 001
+      firstFrame: 28
+      lastFrame: 43
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Charamander_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/Spine_01
+        weight: 1
+      - path: Root/Spine_01/Spine_02
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head/Lower_Jaw
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/Tail_01
+        weight: 1
+      - path: Root/Tail_01/Tail_02
+        weight: 1
+      - path: Root/Tail_01/Tail_02/Tail_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Charmander_faint_1
+      takeName: Take 001
+      firstFrame: 46
+      lastFrame: 58
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Charamander_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/Spine_01
+        weight: 1
+      - path: Root/Spine_01/Spine_02
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head/Lower_Jaw
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/Tail_01
+        weight: 1
+      - path: Root/Tail_01/Tail_02
+        weight: 1
+      - path: Root/Tail_01/Tail_02/Tail_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Charmander_scratch_1
+      takeName: Take 001
+      firstFrame: 71
+      lastFrame: 83
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Charamander_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/Spine_01
+        weight: 1
+      - path: Root/Spine_01/Spine_02
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head/Lower_Jaw
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/Tail_01
+        weight: 1
+      - path: Root/Tail_01/Tail_02
+        weight: 1
+      - path: Root/Tail_01/Tail_02/Tail_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Charmander_growl/smokeScreen_1
+      takeName: Take 001
+      firstFrame: 101
+      lastFrame: 117
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Charamander_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/Spine_01
+        weight: 1
+      - path: Root/Spine_01/Spine_02
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head/Lower_Jaw
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/Tail_01
+        weight: 1
+      - path: Root/Tail_01/Tail_02
+        weight: 1
+      - path: Root/Tail_01/Tail_02/Tail_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Charmander_scaryFace_1
+      takeName: Take 001
+      firstFrame: 118
+      lastFrame: 133
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Charamander_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/Spine_01
+        weight: 1
+      - path: Root/Spine_01/Spine_02
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head/Lower_Jaw
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/Tail_01
+        weight: 1
+      - path: Root/Tail_01/Tail_02
+        weight: 1
+      - path: Root/Tail_01/Tail_02/Tail_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Charmander_idle(loop)_1
+      takeName: Take 001
+      firstFrame: 146
+      lastFrame: 165
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Charamander_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/Spine_01
+        weight: 1
+      - path: Root/Spine_01/Spine_02
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head/Lower_Jaw
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/Tail_01
+        weight: 1
+      - path: Root/Tail_01/Tail_02
+        weight: 1
+      - path: Root/Tail_01/Tail_02/Tail_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Charmander_strafeRight(pre)_1
+      takeName: Take 001
+      firstFrame: 180
+      lastFrame: 187
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Charamander_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/Spine_01
+        weight: 1
+      - path: Root/Spine_01/Spine_02
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head/Lower_Jaw
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/Tail_01
+        weight: 1
+      - path: Root/Tail_01/Tail_02
+        weight: 1
+      - path: Root/Tail_01/Tail_02/Tail_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Charmander_strafeRight_1
+      takeName: Take 001
+      firstFrame: 188
+      lastFrame: 203
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Charamander_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/Spine_01
+        weight: 1
+      - path: Root/Spine_01/Spine_02
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head/Lower_Jaw
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/Tail_01
+        weight: 1
+      - path: Root/Tail_01/Tail_02
+        weight: 1
+      - path: Root/Tail_01/Tail_02/Tail_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Charmander_strafeLeft(pre)_1
+      takeName: Take 001
+      firstFrame: 206
+      lastFrame: 213
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Charamander_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/Spine_01
+        weight: 1
+      - path: Root/Spine_01/Spine_02
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head/Lower_Jaw
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/Tail_01
+        weight: 1
+      - path: Root/Tail_01/Tail_02
+        weight: 1
+      - path: Root/Tail_01/Tail_02/Tail_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Charmander_strafeLeft_1
+      takeName: Take 001
+      firstFrame: 214
+      lastFrame: 229
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Charamander_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/Spine_01
+        weight: 1
+      - path: Root/Spine_01/Spine_02
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head/Lower_Jaw
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/Tail_01
+        weight: 1
+      - path: Root/Tail_01/Tail_02
+        weight: 1
+      - path: Root/Tail_01/Tail_02/Tail_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 5
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
