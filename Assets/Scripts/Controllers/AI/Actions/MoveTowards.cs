@@ -12,12 +12,15 @@ public class MoveTowards : Action {
 	public SharedTransform target;
 	// motor
 	public MotorController motor;
-
+	public AIPath pathfinder;
 	private Vector3 updatedPosition;
 
-	public void OnStart(){
+	public override void OnStart(){
 //		target = GlobalVariables.Instance.GetVariable("MyVariable");
-		Debug.Log ("target!" + target);
+		Debug.Log ("target!!!!!!!!!!!!!!!!!!!!!" + target);
+//		pathfinder.enabled = true;
+//		pathfinder.target = target.Value;
+//		thing.OnP
 	}
 
 	public override TaskStatus OnUpdate()
@@ -33,10 +36,10 @@ public class MoveTowards : Action {
 		Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
 //		newDir.z = 0;
 //		Debug.DrawRay(transform.position, newDir, Color.red);
-		transform.rotation = Quaternion.LookRotation(newDir);
+//		transform.rotation = Quaternion.LookRotation(newDir);
 		
 //		transform.position = Vector3.MoveTowards(transform.position, target.Value.position, motor.baseSpeed * Time.deltaTime);
-		motor.Move (-(transform.forward * Mathf.Clamp(distance-minDistance,0,1)));
+		motor.Move (( transform.worldToLocalMatrix.MultiplyVector(transform.forward) * Mathf.Clamp(distance-minDistance,0,1)));
 		return TaskStatus.Running;
 	}
 }
