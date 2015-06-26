@@ -31,7 +31,7 @@ public class BaseSpawner : MonoBehaviour
         {
             GameObject prefab = (GameObject) enemyPokemonToSpawn[discreteDistribution.Sample()];
 			GameObject newPokemon = PokemonSpawner.SpawnPokemon(prefab, RandomPostion(), Quaternion.identity);
-			
+			newPokemon.transform.parent = transform;
 			// newPokemon.AddComponent<PokeCore>().pokemon = Temp.PopulateDB.instance.getBasicPokemon(1);
             //newPokemon.GetComponent<PokeCore>().pokeCoreType = PokeCoreType.WildPokemon;
             //RaycastHit hit;
@@ -47,8 +47,8 @@ public class BaseSpawner : MonoBehaviour
     private Vector3 RandomPostion()
     {
         randomAngle = Random.Range(0f, 80);
-        randomSpawnVector.x = Mathf.Sin(randomAngle)*radius + transform.position.x;
-        randomSpawnVector.z = Mathf.Cos(randomAngle)*radius + transform.position.z;
+        randomSpawnVector.x = Mathf.Sin(randomAngle)*Random.Range(0,radius) + transform.position.x;
+		randomSpawnVector.z = Mathf.Cos(randomAngle)*Random.Range(0,radius) + transform.position.z;
         randomSpawnVector.y = transform.position.y;
 
         return randomSpawnVector;

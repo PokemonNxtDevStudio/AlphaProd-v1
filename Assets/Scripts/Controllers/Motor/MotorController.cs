@@ -125,7 +125,8 @@ public enum MotorState
             //AnimatorCtrl.SetFloat("DIRX", InputDirection.x, 0.15f, Time.deltaTime);
 
 			//animator update
-		
+			if (AnimatorCtrl == null)
+				return;
 			if(Grounded) {
 				AnimatorCtrl.SetFloat("DirX", InputDirection.x);
 				AnimatorCtrl.SetFloat("DirY", InputDirection.z);
