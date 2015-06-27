@@ -4,7 +4,7 @@ using NXT;
 public class Thunder : MoveBehavior
 {
 
-    void Start()
+    public override void Start()
     {
         EventHandler.RegisterEvent<Vector3>(this.gameObject, EventAOE.EXECUTE, ExcecuteThunder);
     }

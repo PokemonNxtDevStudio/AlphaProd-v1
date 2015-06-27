@@ -7,7 +7,7 @@ public class Projectile : Destructible {
 	public delegate void CollisionCallback(GameObject __obj);
 	public event CollisionCallback collided;
 	// Use this for initialization
-	protected virtual void Awake () {
+	protected override void Awake () {
 		//do throw here
 		base.Awake ();
 

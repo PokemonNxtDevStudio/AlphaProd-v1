@@ -48,11 +48,14 @@ ModelImporter:
     400040: Tail_02
     400042: Tail_03
     4300000: Charamander_Mesh
-    7400000: Run
+    7400000: PreStrafeLeft
     7400002: Idle
     7400004: Walk
     7400006: StrafeLeft
     7400008: StrafeRight
+    7400010: PreStrafeRight
+    7400012: Faint
+    7400014: Run
     9500000: //RootNode
     13700000: Charamander_Mesh
   materials:
@@ -72,10 +75,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Run
+      name: PreStrafeLeft
       takeName: Take 001
-      firstFrame: 28
-      lastFrame: 43
+      firstFrame: 206
+      lastFrame: 213
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -356,6 +359,216 @@ ModelImporter:
       takeName: Take 001
       firstFrame: 188
       lastFrame: 203
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Charamander_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/Spine_01
+        weight: 1
+      - path: Root/Spine_01/Spine_02
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head/Lower_Jaw
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/Tail_01
+        weight: 1
+      - path: Root/Tail_01/Tail_02
+        weight: 1
+      - path: Root/Tail_01/Tail_02/Tail_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: PreStrafeRight
+      takeName: Take 001
+      firstFrame: 180
+      lastFrame: 187
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Charamander_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/Spine_01
+        weight: 1
+      - path: Root/Spine_01/Spine_02
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head/Lower_Jaw
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/Tail_01
+        weight: 1
+      - path: Root/Tail_01/Tail_02
+        weight: 1
+      - path: Root/Tail_01/Tail_02/Tail_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Faint
+      takeName: Take 001
+      firstFrame: 46
+      lastFrame: 58
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Charamander_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/Spine_01
+        weight: 1
+      - path: Root/Spine_01/Spine_02
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head/Lower_Jaw
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/Tail_01
+        weight: 1
+      - path: Root/Tail_01/Tail_02
+        weight: 1
+      - path: Root/Tail_01/Tail_02/Tail_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Run
+      takeName: Take 001
+      firstFrame: 28
+      lastFrame: 43
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
