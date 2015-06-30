@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: fd7304b898acff24b9cf3b66b5acae07
-timeCreated: 1434656293
+guid: e8c91ab3f037b314bab87a42170cc759
+timeCreated: 1435616694
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -92,7 +92,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
     animationScaleError: .5
@@ -906,7 +906,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

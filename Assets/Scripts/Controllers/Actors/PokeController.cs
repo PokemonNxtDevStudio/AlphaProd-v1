@@ -13,6 +13,8 @@ namespace NXT.Controllers
         private Animator m_Anim;
         public List<MoveData> moves = new List<MoveData>();
 
+        public Transform SpawnPointMouth;
+
 
 
         private Dictionary<int, MoveBehavior> currentMoveBehaviors = new Dictionary<int, MoveBehavior>();
@@ -34,6 +36,10 @@ namespace NXT.Controllers
 
             Type t3 = Type.GetType("TailWhip");
             currentMoveBehaviors.Add(2, (MoveBehavior)this.gameObject.AddComponent(t3));
+
+            Type t4 = Type.GetType("Ember");
+            currentMoveBehaviors.Add(3, (MoveBehavior)this.gameObject.AddComponent(t4));
+
         }
 
 
@@ -49,6 +55,8 @@ namespace NXT.Controllers
                 CastMove(1);
             if (Input.GetKeyDown(KeyCode.Alpha3))
                 CastMove(2);
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+                CastMove(3);
 
 
 
