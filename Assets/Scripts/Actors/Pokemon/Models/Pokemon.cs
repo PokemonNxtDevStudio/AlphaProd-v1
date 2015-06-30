@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System;
 
 [Serializable]
-public class Pokemon : AssetItem
+public class Pokemon : Entity
 {
     /*
     //public float Id { get; set; }

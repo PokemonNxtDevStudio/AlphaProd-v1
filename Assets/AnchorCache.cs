@@ -6,7 +6,9 @@ public class AnchorCache : MonoBehaviour {
 	// Use this for initialization
 
     public Transform headAchor;
-    
+
+
+    public Transform mouthAnchor;
 	void Start () {
 	
 	}

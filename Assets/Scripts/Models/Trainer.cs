@@ -5,7 +5,7 @@ using System.Text;
 
 
 
-    public class Trainer : AssetItem
+    public class Trainer : Entity
     {
 
 

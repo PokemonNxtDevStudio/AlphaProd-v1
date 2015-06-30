@@ -15,6 +15,7 @@ public class DatabaseMainEditor : EditorWindow
     public static List<ICustomEditorWindow> editors = new List<ICustomEditorWindow>(1);
 
     public static EditorWindowContainer itemEditor { get; set; }
+    public static EditorWindowContainer pokemonEditor { get; set; }
 
     private int toolbarIndex;
 
@@ -50,8 +51,14 @@ public class DatabaseMainEditor : EditorWindow
         itemEditor = new EditorWindowContainer("Poke Items editor", this);
         itemEditor.requiresDatabase = true;
         itemEditor.childEditors.Add(new ItemEditor("Item", "Items", this));
-
         editors.Add(itemEditor);
+
+
+        pokemonEditor = new EditorWindowContainer("Pokemon Editor", this);
+        itemEditor.requiresDatabase = true;
+        pokemonEditor.childEditors.Add(new PokeEditor("Pokemon", "Pokemons", this));
+        editors.Add(pokemonEditor);
+        
         settingsEditor = new DatabasePreferencesEditor("Preferences editor");
         editors.Add(settingsEditor);
     }
@@ -65,17 +72,20 @@ public class DatabaseMainEditor : EditorWindow
 
     protected virtual bool CheckDatabase()
     {
-        if (EditorUtils.selectedDatabase == null)
+        if (EditorUtils.selectedDatabase == null && EditorUtils.selectedPokeDatabase == null)
         {
             ShowItemDatabasePicker();
             return false;
         }
-
+        if (EditorUtils.selectedPokeDatabase != null)
+        {
+            toolbarIndex = 1;
+        }
         return true;
     }
     protected virtual void ShowItemDatabasePicker()
     {
-        EditorGUILayout.LabelField("Found the following databases in your project folder:", EditorStyles.largeLabel);
+        EditorGUILayout.LabelField("Found the following item databases in your project folder:", EditorStyles.largeLabel);
 
         var dbs = AssetDatabase.FindAssets("t:" + typeof(ItemAssetDatabase).Name);
         foreach (var db in dbs)
@@ -89,6 +99,30 @@ public class DatabaseMainEditor : EditorWindow
             if (GUILayout.Button("Select", GUILayout.Width(100)))
             {
                 EditorUtils.selectedDatabase = (ItemAssetDatabase)AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(db), typeof(ItemAssetDatabase));
+                OnEnable(); // Re-do editors
+            }
+
+            GUI.color = Color.white;
+            EditorGUILayout.EndHorizontal();
+        }
+        EditorGUILayout.Space();
+        EditorGUILayout.Space();
+
+
+        EditorGUILayout.LabelField("Found the following item Pokemon databases in your project folder:", EditorStyles.largeLabel);
+        var pokedbs = AssetDatabase.FindAssets("t:" + typeof(PokeAssetDatabase).Name);
+        foreach (var db in pokedbs)
+        {
+            EditorGUILayout.BeginHorizontal();
+
+            if (EditorUtils.GetItemDatabase(false, false) != null && AssetDatabase.GUIDToAssetPath(db) == AssetDatabase.GetAssetPath(EditorUtils.GetItemDatabase(false, false)))
+                GUI.color = Color.green;
+
+            EditorGUILayout.LabelField(AssetDatabase.GUIDToAssetPath(db), DatabaseEditorStyles.labelStyle);
+            if (GUILayout.Button("Select", GUILayout.Width(100)))
+            {
+                EditorUtils.selectedPokeDatabase = (PokeAssetDatabase)AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(db), typeof(PokeAssetDatabase));
+                EditorUtils.selectedDatabase = null;
                 OnEnable(); // Re-do editors
             }
 
@@ -109,6 +143,7 @@ public class DatabaseMainEditor : EditorWindow
         if (GUILayout.Button("Select Database", DatabaseEditorStyles.toolbarStyle, GUILayout.Width(100)))
         {
             EditorUtils.selectedDatabase = null;
+            EditorUtils.selectedPokeDatabase = null;
             toolbarIndex = 0;
         }
         GUI.color = Color.white;

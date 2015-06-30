@@ -50,23 +50,23 @@ ModelImporter:
     400040: Tail_02
     400042: Tail_03
     4300000: Charamander_Mesh
-    7400000: Charmander_walk_1
-    7400002: Charmander_run_1
-    7400004: Charmander_faint_1
+    7400000: Walk
+    7400002: Run
+    7400004: Faint1
     7400006: Charmander_combat_idle_1
-    7400008: Charmander_scratch_1
+    7400008: Scratch
     7400010: Charmander_ember(pre)/dragonRage(pre)_1
     7400012: Charmander_ember(cast)/dragonRage(cast)_1
     7400014: Charmander_ember(full)/dragonRage(full)_1
-    7400016: Charmander_growl/smokeScreen_1
-    7400018: Charmander_scaryFace_1
+    7400016: smokescreen
+    7400018: scaryface
     7400020: Charmander_idle(pre)_1
-    7400022: Charmander_idle(loop)_1
+    7400022: idle
     7400024: Charmander_idle(post)_1
-    7400026: Charmander_strafeRight(pre)_1
-    7400028: Charmander_strafeRight_1
-    7400030: Charmander_strafeLeft(pre)_1
-    7400032: Charmander_strafeLeft_1
+    7400026: prestrafeRight
+    7400028: strafeRight
+    7400030: preStrafeLeft
+    7400032: strafeLeft
     7400034: Charmander_strafeRight(full)_1
     7400036: Charmander_strafeLeft(full)_1
     7400038: Charmander_fireFang_1
@@ -76,6 +76,7 @@ ModelImporter:
     7400046: Charmander_inferno_1
     7400048: Charmander_combarmodeActivated_1
     7400050: Charmander_idle(full)_1
+    7400052: Ember
     9500000: //RootNode
     11100000: //RootNode
     13700000: Charamander_Mesh
@@ -88,10 +89,6 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
-    animationImportErrors: 
-    animationImportWarnings: 
-    animationRetargetingWarnings: 
-    animationDoRetargetingWarnings: 0
     animationCompression: 3
     animationRotationError: .5
     animationPositionError: .5
@@ -100,7 +97,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Charmander_walk_1
+      name: Walk
       takeName: Take 001
       firstFrame: 1
       lastFrame: 24
@@ -109,7 +106,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -170,7 +167,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Charmander_run_1
+      name: Run
       takeName: Take 001
       firstFrame: 28
       lastFrame: 43
@@ -179,7 +176,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -240,7 +237,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Charmander_faint_1
+      name: Faint1
       takeName: Take 001
       firstFrame: 46
       lastFrame: 58
@@ -310,7 +307,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Charmander_scratch_1
+      name: Scratch
       takeName: Take 001
       firstFrame: 71
       lastFrame: 83
@@ -380,7 +377,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Charmander_growl/smokeScreen_1
+      name: smokescreen
       takeName: Take 001
       firstFrame: 101
       lastFrame: 117
@@ -450,7 +447,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Charmander_scaryFace_1
+      name: scaryface
       takeName: Take 001
       firstFrame: 118
       lastFrame: 133
@@ -520,7 +517,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Charmander_idle(loop)_1
+      name: idle
       takeName: Take 001
       firstFrame: 146
       lastFrame: 165
@@ -590,7 +587,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Charmander_strafeRight(pre)_1
+      name: prestrafeRight
       takeName: Take 001
       firstFrame: 180
       lastFrame: 187
@@ -660,7 +657,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Charmander_strafeRight_1
+      name: strafeRight
       takeName: Take 001
       firstFrame: 188
       lastFrame: 203
@@ -669,7 +666,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -730,10 +727,80 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Charmander_strafeLeft(pre)_1
+      name: preStrafeLeft
       takeName: Take 001
       firstFrame: 206
       lastFrame: 213
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Charamander_Mesh
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/L_Hip
+        weight: 1
+      - path: Root/L_Hip/L_Knee
+        weight: 1
+      - path: Root/L_Hip/L_Knee/L_Foot
+        weight: 1
+      - path: Root/R_Hip
+        weight: 1
+      - path: Root/R_Hip/R_Knee
+        weight: 1
+      - path: Root/R_Hip/R_Knee/R_Foot
+        weight: 1
+      - path: Root/Spine_01
+        weight: 1
+      - path: Root/Spine_01/Spine_02
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head
+        weight: 1
+      - path: Root/Spine_01/Spine_02/Head/Lower_Jaw
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/Spine_01/Spine_02/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/Tail_01
+        weight: 1
+      - path: Root/Tail_01/Tail_02
+        weight: 1
+      - path: Root/Tail_01/Tail_02/Tail_03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: strafeLeft
+      takeName: Take 001
+      firstFrame: 214
+      lastFrame: 229
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
@@ -800,11 +867,11 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Charmander_strafeLeft_1
+      name: Ember
       takeName: Take 001
-      firstFrame: 214
-      lastFrame: 229
-      wrapMode: 2
+      firstFrame: 84
+      lastFrame: 100
+      wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0

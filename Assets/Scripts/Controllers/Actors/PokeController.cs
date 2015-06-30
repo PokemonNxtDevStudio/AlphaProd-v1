@@ -13,14 +13,13 @@ namespace NXT.Controllers
         private Animator m_Anim;
         public List<MoveData> moves = new List<MoveData>();
 
-        public Transform SpawnPointMouth;
-
 
 
         private Dictionary<int, MoveBehavior> currentMoveBehaviors = new Dictionary<int, MoveBehavior>();
         protected virtual void Start()
         {
 
+            //HERE
             
             //moves = m_Pokemon.Moves;
             for (int i = 0; i < moves.Count; i++)
@@ -28,6 +27,8 @@ namespace NXT.Controllers
                 Type t = Type.GetType("TailWhip");
                 currentMoveBehaviors.Add(0, ((MoveBehavior)this.gameObject.AddComponent(t)).SetMoveData(moves[i])); //SetModeAI
             }
+
+
             Type t1 = Type.GetType("Tackle");
             currentMoveBehaviors.Add(0, (MoveBehavior)this.gameObject.AddComponent(t1));
 
@@ -37,9 +38,13 @@ namespace NXT.Controllers
             Type t3 = Type.GetType("TailWhip");
             currentMoveBehaviors.Add(2, (MoveBehavior)this.gameObject.AddComponent(t3));
 
-            Type t4 = Type.GetType("Ember");
+            Type t4 = Type.GetType("Scratch");
             currentMoveBehaviors.Add(3, (MoveBehavior)this.gameObject.AddComponent(t4));
+                
+            Type t5= Type.GetType("Ember");
+            currentMoveBehaviors.Add(4, (MoveBehavior)this.gameObject.AddComponent(t5));
 
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
 
@@ -49,6 +54,11 @@ namespace NXT.Controllers
         }
         void Update()
         {
+
+
+            
+
+            Cursor.visible = true;
             if (Input.GetKeyDown(KeyCode.Alpha1))
                 CastMove(0);
             if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -57,8 +67,8 @@ namespace NXT.Controllers
                 CastMove(2);
             if (Input.GetKeyDown(KeyCode.Alpha4))
                 CastMove(3);
-
-
+            if (Input.GetKeyDown(KeyCode.Alpha5))
+                CastMove(4);
 
             if (Input.GetMouseButtonDown(1))
             {

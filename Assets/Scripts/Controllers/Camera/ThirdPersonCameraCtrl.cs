@@ -167,10 +167,7 @@ namespace NXT.Controllers {
                     if(lockCursor) {
                         if(Input.GetMouseButton(0) || Input.GetMouseButton(1)) {
                             if(Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0) {
-                                if (/*!Screen.lockCursor*/Cursor.lockState == CursorLockMode.None)
-                                {
-                                    //Screen.lockCursor = true;
-                                }
+                              
                             }
 
                             return;
@@ -186,7 +183,7 @@ namespace NXT.Controllers {
 
         void LateUpdate() {
             //Screen.lockCursor = true;
-            Cursor.lockState = CursorLockMode.Locked;
+         //   Cursor.lockState = CursorLockMode.Locked;
 
             if(currentCameraState == CameraState.FirstPerson || currentCameraState == CameraState.ThirdPerson|| currentCameraState == CameraState.FreeZoom)
                 SmoothFollow(target);

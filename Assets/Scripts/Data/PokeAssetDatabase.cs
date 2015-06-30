@@ -9,12 +9,12 @@ using UnityEditor;
 #endif
 
 [Serializable]
-public class PokeAssetDatabase : ScriptableObject
+public class PokeAssetDatabase : ScriptableDatabase
 {
     [SerializeField]
     private List<Pokemon> m_PokemonsList = new List<Pokemon>();
     [HideInInspector]
-    private List<Pokemon> PokemonsList { get { return m_PokemonsList; } /*set { m_PokemonsList = value; }*/ }
+     public List<Pokemon> PokemonsList { get { return m_PokemonsList; } set { m_PokemonsList = value; } }
     /* public Pokemon[] Pokemons;
 
      /// <summary>

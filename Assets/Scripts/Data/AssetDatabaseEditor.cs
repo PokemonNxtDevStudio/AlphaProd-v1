@@ -87,18 +87,18 @@ public class AssetDatabaseEditor
         string path = "Assets/Resources/Database/";
         // New asset name
         string assetName1 = "MovesAssetDatabase.asset";
-        MoveAssetDatabase asset1 = ScriptableObject.CreateInstance("MoveAssetDatabase") as MoveAssetDatabase;  //scriptable object
-        mockdata.MoveMockData(asset1);
-        AssetDatabase.CreateAsset(asset1, AssetDatabase.GenerateUniqueAssetPath(path + assetName1));
-        AssetDatabase.Refresh();
-        AssetDatabase.SaveAssets();
+        //MoveAssetDatabase asset1 = ScriptableObject.CreateInstance("MoveAssetDatabase") as MoveAssetDatabase;  //scriptable object
+        //mockdata.MoveMockData(asset1);
+       // AssetDatabase.CreateAsset(asset1, AssetDatabase.GenerateUniqueAssetPath(path + assetName1));
+        //AssetDatabase.Refresh();
+        //AssetDatabase.SaveAssets();
         //EditorUtility.SetDirty(asset1);
         // Get the currently selected asset directory
         //        string currentPath = GetSelectionFolder();
         // New asset name
         string assetName = "PokemonAssetDatabase.asset";
         PokeAssetDatabase asset = ScriptableObject.CreateInstance("PokeAssetDatabase") as PokeAssetDatabase;  //scriptable object
-        mockdata.PokemonmockData(asset,asset1);
+       // mockdata.PokemonmockData(asset,asset1);
         AssetDatabase.CreateAsset(asset, AssetDatabase.GenerateUniqueAssetPath(path + assetName));
         AssetDatabase.Refresh();
         AssetDatabase.SaveAssets(); 

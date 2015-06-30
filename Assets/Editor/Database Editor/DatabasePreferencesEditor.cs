@@ -58,7 +58,7 @@ namespace TeamName.Editors.Database
 
             EditorGUILayout.BeginHorizontal(DatabaseEditorStyles.boxStyle);
 
-            EditorGUILayout.LabelField("Select asset database folder: " + EditorPrefs.GetString("InventorySystem_ItemPrefabPath"));
+            EditorGUILayout.LabelField("Select Item prefab folder: " + EditorPrefs.GetString("InventorySystem_ItemPrefabPath"));
             if (GUILayout.Button("Set path", GUILayout.Width(100)))
             {
                 string path = EditorUtility.SaveFolderPanel("Choose a folder to save your item prefabs", "", "");
@@ -66,7 +66,25 @@ namespace TeamName.Editors.Database
 
                 EditorPrefs.SetString("InventorySystem_ItemPrefabPath", "Assets" + path.Replace(Application.dataPath, ""));
             }
+
+
             EditorGUILayout.EndHorizontal();
+
+
+            EditorGUILayout.BeginHorizontal(DatabaseEditorStyles.boxStyle);
+
+            EditorGUILayout.LabelField("Select Pokemon prefab database folder: " + EditorPrefs.GetString("Pokemon_PrefabPath"));
+            if (GUILayout.Button("Set path", GUILayout.Width(100)))
+            {
+                string path = EditorUtility.SaveFolderPanel("Choose a folder to save your item prefabs", "", "");
+
+
+                EditorPrefs.SetString("Pokemon_PrefabPath", "Assets" + path.Replace(Application.dataPath, ""));
+            }
+
+
+            EditorGUILayout.EndHorizontal();
+
 
             GUI.color = Color.white;
 

@@ -22,6 +22,7 @@ namespace TeamName.Editors
 
 
         public static ItemAssetDatabase selectedDatabase { get; set; }
+        public static PokeAssetDatabase selectedPokeDatabase { get; set; }
         //public static InventoryLangDatabase selectedLangDatabase { get; set; }
 
 

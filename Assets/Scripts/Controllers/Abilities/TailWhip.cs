@@ -16,7 +16,9 @@ using NXT;
         }
 
         public override void UseMove()
-        {
+        {   
+
+            
             Debug.Log("casting tail whip");
         }
 

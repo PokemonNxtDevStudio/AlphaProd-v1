@@ -7,7 +7,7 @@ using System;
 ///  Each pokemon move is refereced by its moveData
 /// </summary>
 [Serializable]
-public class MoveData : AssetItem
+public class MoveData : Entity
 {
     /*
     /// <summary>
