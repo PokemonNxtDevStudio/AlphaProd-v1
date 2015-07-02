@@ -1,0 +1,158 @@
+fileFormatVersion: 2
+guid: 55e678a57896d8a4991b3e07313f2279
+timeCreated: 1435795527
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Flower_01
+    100002: Flower_010
+    100004: Flower_011
+    100006: Flower_012
+    100008: Flower_013
+    100010: Flower_014
+    100012: Flower_015
+    100014: Flower_016
+    100016: Flower_017
+    100018: Flower_02
+    100020: Flower_03
+    100022: Flower_04
+    100024: Flower_05
+    100026: Flower_06
+    100028: Flower_07
+    100030: Flower_08
+    100032: Flower_09
+    100034: Flowers_001
+    100036: //RootNode
+    400000: Flower_01
+    400002: Flower_010
+    400004: Flower_011
+    400006: Flower_012
+    400008: Flower_013
+    400010: Flower_014
+    400012: Flower_015
+    400014: Flower_016
+    400016: Flower_017
+    400018: Flower_02
+    400020: Flower_03
+    400022: Flower_04
+    400024: Flower_05
+    400026: Flower_06
+    400028: Flower_07
+    400030: Flower_08
+    400032: Flower_09
+    400034: Flowers_001
+    400036: //RootNode
+    2300000: Flower_01
+    2300002: Flower_010
+    2300004: Flower_011
+    2300006: Flower_012
+    2300008: Flower_013
+    2300010: Flower_014
+    2300012: Flower_015
+    2300014: Flower_016
+    2300016: Flower_017
+    2300018: Flower_02
+    2300020: Flower_03
+    2300022: Flower_04
+    2300024: Flower_05
+    2300026: Flower_06
+    2300028: Flower_07
+    2300030: Flower_08
+    2300032: Flower_09
+    3300000: Flower_01
+    3300002: Flower_010
+    3300004: Flower_011
+    3300006: Flower_012
+    3300008: Flower_013
+    3300010: Flower_014
+    3300012: Flower_015
+    3300014: Flower_016
+    3300016: Flower_017
+    3300018: Flower_02
+    3300020: Flower_03
+    3300022: Flower_04
+    3300024: Flower_05
+    3300026: Flower_06
+    3300028: Flower_07
+    3300030: Flower_08
+    3300032: Flower_09
+    4300000: Flower_01
+    4300002: Flower_02
+    4300004: Flower_03
+    4300006: Flower_04
+    4300008: Flower_05
+    4300010: Flower_06
+    4300012: Flower_07
+    4300014: Flower_08
+    4300016: Flower_09
+    4300018: Flower_010
+    4300020: Flower_011
+    4300022: Flower_012
+    4300024: Flower_013
+    4300026: Flower_014
+    4300028: Flower_015
+    4300030: Flower_016
+    4300032: Flower_017
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00499999989
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
