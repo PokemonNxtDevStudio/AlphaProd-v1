@@ -44,7 +44,7 @@ namespace NXT.Controllers
             Type t5= Type.GetType("Ember");
             currentMoveBehaviors.Add(4, (MoveBehavior)this.gameObject.AddComponent(t5));
 
-            Cursor.lockState = CursorLockMode.Locked;
+           
         }
 
 
@@ -56,9 +56,9 @@ namespace NXT.Controllers
         {
 
 
-            
+            Cursor.lockState = CursorLockMode.Locked;
 
-            Cursor.visible = true;
+            Cursor.visible = false;
             if (Input.GetKeyDown(KeyCode.Alpha1))
                 CastMove(0);
             if (Input.GetKeyDown(KeyCode.Alpha2))
