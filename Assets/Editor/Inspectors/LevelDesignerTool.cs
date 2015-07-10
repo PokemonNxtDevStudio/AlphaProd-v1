@@ -1,15 +1,13 @@
 ﻿using UnityEngine;
-#if UNITY_EDITOR
+
 using UnityEditor;
-#endif
+
 using System.Collections;
 using System.Collections.Generic;
 
-#if UNITY_EDITOR
+
 public class LevelDesignerTool : EditorWindow
 {
-    private static List<Object> prefabs =  new List<Object>();
-
     public enum TabAtm
     {
         None,
@@ -17,68 +15,51 @@ public class LevelDesignerTool : EditorWindow
         Selection,
         Active
     }
-    private Object go = new Object();
 
+    private static List<Object> prefabs = new List<Object>();
+    private Object go = new Object();
     private static TabAtm _tab = LevelDesignerTool.TabAtm.SetUP;
     private Texture2D curAssetTexture;
-
-    private Rect pos1 = new Rect(10, 60, 500, 200);
-
     private static Object curObject = null;
-
-
-    private static GameObject ParentOfAssets = null;
-
+    private static GameObject ParentOfAssets = null;   
+    
+    
     [MenuItem("NXT/Level Designer Tool %L")]
     public static void ShowWindow()
     {
         EditorWindow.GetWindow(typeof(LevelDesignerTool));
        // prefabs = new List<Object>() /*{ null,null,null,null,null,null,null,null,null}*/;
     }
-
- 
-
     void OnGUI()
     {
         Tabs();
-        //SetUpSection();
         SelectActive();
         Active();
+    }    
+    //[MenuItem("NXT/Spawn Asset #A")]
+    public static void SpawnItem(Vector3 pos)
+    {      
+        if (_tab == TabAtm.Active && curObject != null)
+        {                
+           // Debug.Log("Creating Item");
+            GameObject item = (GameObject)PrefabUtility.InstantiatePrefab(curObject);
+            
+            item.transform.position = pos;
+           // Debug.Log("Added Asset at :"+ pos);
 
-        
- 
-    }
-    [MenuItem("NXT/Spawn Asset #A")]
-    public static void SpawnItem()
-    {
-        if (_tab == TabAtm.Active)
-        {
-            if (curObject != null)
-            {
-                //Debug.Log("Cur Item not null");
-                
-                    Debug.Log("Creating Item");
-                    GameObject item = (GameObject)PrefabUtility.InstantiatePrefab(curObject);
-                    
-                    Ray ray = SceneView.currentDrawingSceneView.camera.ScreenPointToRay(Input.mousePosition);
-                    RaycastHit hit;
+            item.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
 
-                    if (Physics.Raycast(ray, out hit))
-                    {
-                        item.transform.position = hit.point;
-                        Debug.Log(hit.point);
-                    }
-                    if (ParentOfAssets != null)
-                        item.transform.parent = ParentOfAssets.transform;
-
-            }
+            if (ParentOfAssets != null)
+                item.transform.parent = ParentOfAssets.transform;   
+         
         }
         else
         {
             Debug.Log("Select Active Tab");
+            _tab = TabAtm.SetUP;
         }
     }
-
+    
     private void Tabs()
     {
         GUILayout.BeginHorizontal();
@@ -97,8 +78,7 @@ public class LevelDesignerTool : EditorWindow
         if (GUILayout.Button("Active", GUILayout.Height(50)))
         {
             _tab = TabAtm.Active;
-        }    
-        
+        }        
         
         GUILayout.EndHorizontal();
         GUILayout.BeginVertical();
@@ -109,6 +89,10 @@ public class LevelDesignerTool : EditorWindow
             if (GUILayout.Button("Add Item", GUILayout.Height(50)))
             {
                 prefabs.Add(go);
+            }
+            if (GUILayout.Button("Clean Assets", GUILayout.Height(30)))
+            {
+                prefabs.Clear();
             }
         }
     }
@@ -154,11 +138,8 @@ public class LevelDesignerTool : EditorWindow
                     }
                     
                 }
-            }
-           // GUILayout.EndArea(); 
+            }          
             GUILayout.EndVertical();
-
-
         }
     }
 
@@ -193,4 +174,3 @@ public class LevelDesignerTool : EditorWindow
     }
 
 }
-#endif
