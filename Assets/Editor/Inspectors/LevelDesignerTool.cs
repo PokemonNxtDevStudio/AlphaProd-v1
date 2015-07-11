@@ -21,9 +21,18 @@ public class LevelDesignerTool : EditorWindow
     private static TabAtm _tab = LevelDesignerTool.TabAtm.SetUP;
     private Texture2D curAssetTexture;
     private static Object curObject = null;
-    private static GameObject ParentOfAssets = null;   
-    
-    
+    private static GameObject ParentOfAssets = null;
+    private int childs = 0;
+
+    private static bool _x = false;
+    private static bool _y = false;
+    private static bool _z = false;
+    private static float _AX = 0;
+    private static float _AY = 0;
+    private static float _AZ = 0;
+
+    private float BoxSizes = 80;
+
     [MenuItem("NXT/Level Designer Tool %L")]
     public static void ShowWindow()
     {
@@ -46,8 +55,20 @@ public class LevelDesignerTool : EditorWindow
             
             item.transform.position = pos;
            // Debug.Log("Added Asset at :"+ pos);
+            if (_x)
+                _AX = Random.Range(0, 360);
+            else
+                _AX = 0;
+            if (_y)
+                _AY = Random.Range(0, 360);
+            else
+                _AY = 0;
+            if (_z)
+                _AZ = Random.Range(0, 360);
+            else
+                _AZ = 0;
 
-            item.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
+            item.transform.rotation = Quaternion.Euler(_AX, _AY, _AZ);
 
             if (ParentOfAssets != null)
                 item.transform.parent = ParentOfAssets.transform;   
@@ -108,8 +129,8 @@ public class LevelDesignerTool : EditorWindow
             {
                 for (int i = 0; i < prefabs.Count; i++)
                 {
-                    
-                    prefabs[i] = EditorGUILayout.ObjectField(prefabs[i], typeof(Object),false);
+
+                    prefabs[i] = EditorGUILayout.ObjectField(prefabs[i], typeof(Object), false);
                 }
             }
         }
@@ -127,8 +148,8 @@ public class LevelDesignerTool : EditorWindow
                 {
                     if(prefabs[i] != null)
                     {
-                        
-                        if(GUILayout.Button(AssetPreview.GetAssetPreview(prefabs[i]),GUILayout.Height(100)))
+
+                        if (GUILayout.Button(AssetPreview.GetAssetPreview(prefabs[i]), GUILayout.Height(BoxSizes)/*, GUILayout.Width(BoxSizes)*/))
                         {
                             curAssetTexture = AssetPreview.GetAssetPreview(prefabs[i]);
                             curObject = prefabs[i];
@@ -151,10 +172,21 @@ public class LevelDesignerTool : EditorWindow
             {
                 //GUILayout.Label("Parent Object to = " + curObject.name, "Box", GUILayout.Height(25), GUILayout.Width(300));
                 ParentOfAssets = (GameObject)EditorGUILayout.ObjectField("Parent Object to = ",ParentOfAssets, typeof(GameObject), true);
+
+                if (ParentOfAssets != null)
+                    childs = ParentOfAssets.transform.childCount;
+                else
+                    childs = 0;
+                GUILayout.Label("Childs :" + childs); 
                 GUILayout.Label("Current Asset To Spawn = " + curObject.name, "Box",GUILayout.Height(25),GUILayout.Width(300));
-               
+                GUILayout.BeginHorizontal();
+                GUILayout.Label("Random :", "box");
+                _x = GUILayout.Toggle(_x, "X", GUILayout.Width(50));
+                _y = GUILayout.Toggle(_y, "Y", GUILayout.Width(50));
+                _z = GUILayout.Toggle(_z, "Z", GUILayout.Width(50));
+                GUILayout.EndHorizontal();
                 GUILayout.Box(curAssetTexture,GUILayout.Height(150),GUILayout.Width(150));
-                if(Input.GetKeyDown(KeyCode.S) )
+                /*if(Input.GetKeyDown(KeyCode.S) )
                 {
                     Debug.Log("Creating Item");
                     GameObject item =(GameObject) PrefabUtility.InstantiatePrefab(curObject);
@@ -168,7 +200,7 @@ public class LevelDesignerTool : EditorWindow
                         item.transform.position = hit.point;                        
                     }
             
-                }
+                }*/
             }
         }
     }
