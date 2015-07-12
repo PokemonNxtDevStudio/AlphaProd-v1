@@ -49,7 +49,7 @@ public class MoveData : Entity
     /// </summary>
     public string DamageType { get; set; }
     public string MoveDamageTypeString;
-    public DeamageType MoveDemageType;
+    public Type MoveDemageType;
 
     private float cooldown;
 
@@ -79,7 +79,11 @@ public class MoveData : Entity
     public Sprite MoveUIIcon { get; set; }
     public Sprite MoveSpriteIcon;
     */
-    [SerializeField]
+
+	[SerializeField]
+	private int m_TM_ID;
+	public int TM { get { return m_TM_ID; } set { m_TM_ID = value; } }
+	[SerializeField]
     private float m_pp;
     public float PP { get { return m_pp; } set { m_pp = value; } }
   
@@ -96,10 +100,14 @@ public class MoveData : Entity
     public float MoveCooldown { get { return m_movecooldown; } set { m_movecooldown = value; } }
    
     [SerializeField]
-    private DeamageType m_movetype;
-    public DeamageType MoveType { get { return m_movetype; } set { m_movetype = value; } }
+	private MoveType m_movetype;
+    public MoveType MoveType { get { return m_movetype; } set { m_movetype = value; } }
    
-    [SerializeField]
+	[SerializeField]
+	private MoveCategory m_moveCategory;
+	public MoveCategory MoveCategory { get { return m_moveCategory; } set { m_moveCategory = value; } }
+
+	[SerializeField]
     private MoveEffect m_moveeffect;
     public MoveEffect MoveEffect { get { return m_moveeffect; } set { m_moveeffect = value; } }
 
@@ -111,7 +119,10 @@ public class MoveData : Entity
     private GameObject m_movevfxprefab = null;
     public GameObject MoveVFXPrefab { get { return m_movevfxprefab; } set { m_movevfxprefab = value; } }
 
-    public MoveData(int mId, string mName, float mPP, float mPower, float mCooldown, string mDescription, DeamageType mType, MoveEffect mEffect)
+
+	[SerializeField]
+	public int levelLearnt;
+    public MoveData(int mId, string mName, float mPP, float mPower, float mCooldown, string mDescription, Type mType, MoveEffect mEffect)
     {
         this.ID = mId;
         this.Name = mName;
@@ -119,7 +130,7 @@ public class MoveData : Entity
         this.Power = mPower;
         this.MoveCooldown = mCooldown;
         this.Description = mDescription;
-        this.MoveType = mType;
+        //this.MoveType = mType;
         this.MoveEffect = mEffect;
     }
     public MoveData(MoveData move)
@@ -130,7 +141,7 @@ public class MoveData : Entity
         this.Power = move.Power;
         this.MoveCooldown = move.MoveCooldown;
         this.Description = move.Description;
-        this.MoveType = move.MoveType;
+       // this.MoveType = move.MoveType;
         this.MoveEffect = move.MoveEffect;
     }
     public MoveData()
@@ -141,13 +152,24 @@ public class MoveData : Entity
         this.Power = 0;
         this.MoveCooldown = 0;
         this.Description = "";
-        this.MoveType = DeamageType.None;
+
         this.MoveEffect = MoveEffect.None;
     }
 
 }
 [System.Serializable]
-public enum DeamageType
+public enum MoveCategory
+{
+	None,
+	Physical,
+	Special,
+	Buff,
+	Debuff,
+	Passive
+
+}
+[System.Serializable]
+public enum MoveType
 {
     None,
     Normal,

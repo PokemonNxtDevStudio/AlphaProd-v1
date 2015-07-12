@@ -15,6 +15,8 @@ public class PokeAssetDatabase : ScriptableDatabase
     private List<Pokemon> m_PokemonsList = new List<Pokemon>();
     [HideInInspector]
      public List<Pokemon> PokemonsList { get { return m_PokemonsList; } set { m_PokemonsList = value; } }
+
+	public MoveData[] moveList = new MoveData[] { new MoveData() { ID = 0, Name = "None", MoveCooldown = 0.0f } };
     /* public Pokemon[] Pokemons;
 
      /// <summary>

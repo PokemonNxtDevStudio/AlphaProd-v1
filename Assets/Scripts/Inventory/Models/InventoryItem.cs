@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace NXT.Inventory
 {
-    public class InventoryItem : Entity
+    public class InventoryItem : MonoEntity
     {
        // [SerializeField]
         //private ItemType m_itemtype;
@@ -193,6 +193,7 @@ namespace NXT.Inventory
       GameObject dropObj = gameObject;
       if (rarity != null && rarity.dropObject != null)
       {
+      
           // Drop a specific item whenever this is dropped
           //rarity.dropObject.CreateCopy<GameObject>();
           dropObj = GameObject.Instantiate<GameObject>(rarity.dropObject);

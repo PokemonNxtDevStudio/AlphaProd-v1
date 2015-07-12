@@ -57,6 +57,7 @@ public class DatabaseMainEditor : EditorWindow
         pokemonEditor = new EditorWindowContainer("Pokemon Editor", this);
         itemEditor.requiresDatabase = true;
         pokemonEditor.childEditors.Add(new PokeEditor("Pokemon", "Pokemons", this));
+		pokemonEditor.childEditors.Add(new MoveEditor("Move", "Moves", this));
         editors.Add(pokemonEditor);
         
         settingsEditor = new DatabasePreferencesEditor("Preferences editor");
@@ -157,14 +158,15 @@ public class DatabaseMainEditor : EditorWindow
     }
     public void OnGUI()
     {
-        DrawToolbar();
-
+       
+		DrawToolbar();
         if (CheckDatabase() == false && editors[toolbarIndex].requiresDatabase)
         {
             //drawFooter();
             return;
         }
         editors[toolbarIndex].Draw();
+	
         //drawFooter();
     }
 

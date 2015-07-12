@@ -25,106 +25,22 @@ namespace TeamName.Editors
         public static PokeAssetDatabase selectedPokeDatabase { get; set; }
         //public static InventoryLangDatabase selectedLangDatabase { get; set; }
 
+		public static string[] moveNames
+		{
+			get
+			{
+				if (selectedPokeDatabase == null) return new string[0];
+				var propertiesArr = new string[selectedPokeDatabase.moveList.Length];
+				for (int i = 0; i < selectedPokeDatabase.moveList.Length; i++)
+					propertiesArr[i] = selectedPokeDatabase.moveList[i].Name;
+				
+				return propertiesArr;
+			}
+		}
 
 
-
-        #region Convenience stuff for UI elements
-
-        /*
-        public static string[] GetCraftingCategoriesStrings(bool forceCurrentDatabase)
-        {
-            var db = selectedDatabase;
-            if (forceCurrentDatabase)
-                db = GetItemDatabase(true, false);
-
-            var craftingCategories = new string[db.craftingCategories.Length];
-            for (int i = 0; i < db.craftingCategories.Length; i++)
-                craftingCategories[i] = db.craftingCategories[i].name;
-
-            return craftingCategories;
-        }
-        */
-
-        /*
-        public static string[] propertiesStrings
-        {
-            get
-            {
-                if (selectedDatabase == null) return new string[0];
-                var propertiesArr = new string[selectedDatabase.properties.Length];
-                for (int i = 0; i < selectedDatabase.properties.Length; i++)
-                    propertiesArr[i] = selectedDatabase.properties[i].key;
-
-                return propertiesArr;
-            }
-        }
-         * */
-
-        /*
-        public static string[] raritiesStrings
-        {
-            get
-            {
-                if (selectedDatabase == null) return new string[0];
-                var rarities = new string[selectedDatabase.itemRaritys.Length];
-                for (int i = 0; i < selectedDatabase.itemRaritys.Length; i++)
-                    rarities[i] = selectedDatabase.itemRaritys[i].name;
-
-                return rarities;
-            }
-        }
-
-        public static UnityEngine.Color[] raritiesColors
-        {
-            get
-            {
-                if (selectedDatabase == null) return new Color[0];
-                var colors = new UnityEngine.Color[selectedDatabase.itemRaritys.Length];
-                for (int i = 0; i < selectedDatabase.itemRaritys.Length; i++)
-                    colors[i] = selectedDatabase.itemRaritys[i].color;
-
-                return colors;
-            }
-        }
-        public static string[] itemCategoriesStrings
-        {
-            get
-            {
-                if (selectedDatabase == null) return new string[0];
-                var categories = new string[selectedDatabase.itemCategories.Length];
-                for (int i = 0; i < selectedDatabase.itemCategories.Length; i++)
-                    categories[i] = selectedDatabase.itemCategories[i].name;
-
-                return categories;
-            }
-        }
-
-        public static string[] equipTypesStrings
-        {
-            get
-            {
-                if (selectedDatabase == null) return new string[0];
-                var equipTypes = new string[selectedDatabase.equipTypes.Length];
-                for (int i = 0; i < selectedDatabase.equipTypes.Length; i++)
-                    equipTypes[i] = selectedDatabase.equipTypes[i].name;
-
-                return equipTypes;
-            }
-        }
-
-        public static string[] GetEquipTypesStrings(bool forceCurrentScene)
-        {
-            var db = GetItemDatabase(forceCurrentScene, false);
-            var equipTypes = new string[db.equipTypes.Length];
-            for (int i = 0; i < db.equipTypes.Length; i++)
-                equipTypes[i] = db.equipTypes[i].name;
-
-            return equipTypes;
-        }
-
-        */
-        #endregion
-
+    
+        
 
 
 
