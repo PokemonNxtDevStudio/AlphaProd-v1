@@ -131,7 +131,19 @@ namespace TeamName.Editors.Database
                 EditItem(item);
             EditorUtility.SetDirty(EditorUtils.selectedDatabase);
         }
-
+		public virtual void AddPokeItem(T item, bool editOnceAdded = true)
+		{
+			// Strange construction I know..
+			// Bypass read-only problem on scriptable object.
+			var tempList = new List<T>(crudList.ToArray());
+			tempList.Add(item);
+			crudList = tempList;
+			window.Repaint();
+			
+			if (editOnceAdded)
+				EditItem(item);
+			EditorUtility.SetDirty(EditorUtils.selectedPokeDatabase);
+		}
         public virtual void RemoveItem(int index)
         {
             if (selectedItem != null && selectedItem.Equals(crudList[index]))
@@ -140,7 +152,7 @@ namespace TeamName.Editors.Database
             // Strange construction I know..
             // Bypass read-only problem on scriptable object.
             var tempList = new List<T>(crudList.ToArray());
-            //tempList.RemoveAt(index);
+            tempList.RemoveAt(index);
             crudList = tempList;
 
             window.Repaint();

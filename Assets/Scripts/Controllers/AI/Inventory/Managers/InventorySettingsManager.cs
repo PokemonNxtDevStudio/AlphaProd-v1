@@ -7,5 +7,6 @@ namespace NXT.Inventory
     public class InventorySettingsManager : MonoBehaviour
     {
         public ItemAssetDatabase itemDatabase;
+
     }
 }

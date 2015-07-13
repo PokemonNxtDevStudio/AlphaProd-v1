@@ -34,6 +34,7 @@ public class NXTUtilitys : Editor
     [MenuItem("NXT/Tools/SetToGoundLevel %g")]
     public static void SetToGoundLevel()
     {
+
         Transform[] trans = Selection.transforms;
         
         foreach(Transform myTransforms in trans)

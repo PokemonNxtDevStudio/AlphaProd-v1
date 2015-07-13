@@ -25,8 +25,8 @@ namespace TeamName.Editors.Database
 
         protected override List<Pokemon> crudList
         {
-            get { return new List<Pokemon>(EditorUtils.selectedPokeDatabase.PokemonsList); }
-            set { EditorUtils.selectedPokeDatabase.PokemonsList = value; }
+			get { return new List<Pokemon>(EditorUtils.selectedPokeDatabase.PokemonsList); }
+			set { EditorUtils.selectedPokeDatabase.PokemonsList = value; }
         }
 
         public Editor itemEditorInspector;
@@ -96,7 +96,7 @@ namespace TeamName.Editors.Database
                 if (string.IsNullOrEmpty(AssetDatabase.GetAssetPath(obj)))
                     UnityEngine.Object.DestroyImmediate(obj);
 
-                AddItem(comp, true);
+				AddPokeItem(comp, true);
                 thisWindow.Close();
             });
             picker.Show();
@@ -192,7 +192,7 @@ namespace TeamName.Editors.Database
 
             itemEditorInspector.OnInspectorGUI();
 
-            string newName = "Item_" + (string.IsNullOrEmpty(item.Name) ? string.Empty : item.Name.ToLower().Replace(" ", "_")) + "_#" + item.ID + "_" + EditorUtils.selectedDatabase.name + "_PFB";
+            string newName = "Item_" + (string.IsNullOrEmpty(item.Name) ? string.Empty : item.Name.ToLower().Replace(" ", "_")) + "_#" + item.ID + "_" + EditorUtils.selectedPokeDatabase.name + "_PFB";
             if (AssetDatabase.GetAssetPath(item).EndsWith(newName + ".prefab") == false)
             {
                 AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(item), newName);
@@ -226,7 +226,7 @@ namespace TeamName.Editors.Database
             }
 
             GUI.changed = true;
-            EditorUtility.SetDirty(EditorUtils.selectedDatabase);
+            EditorUtility.SetDirty(EditorUtils.selectedPokeDatabase);
         }
     }
 }

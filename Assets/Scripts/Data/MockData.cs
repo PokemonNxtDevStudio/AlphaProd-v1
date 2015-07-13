@@ -40,23 +40,23 @@ public class MockData : ScriptableObject
     //private MoveAssetDatabase moveAssetDatabase;
     private Sprite[] pokemonIcons;
     private Sprite[] moveIcons;
-    private DeamageType normal = DeamageType.None;
-    private DeamageType fire = DeamageType.Fire;
- //   private DeamageType water = DeamageType.Water;
-    private DeamageType ground = DeamageType.Ground;
+	private MoveType normal = MoveType.None;
+	private MoveType fire = MoveType.Fire;
+ //   private MoveType water = MoveType.Water;
+	private MoveType ground = MoveType.Ground;
  
-    private DeamageType grass = DeamageType.Grass;
-    private DeamageType electic = DeamageType.Electricity;
-    private DeamageType bug = DeamageType.Bug;
- //   private DeamageType dark = DeamageType.Dark;
- //   private DeamageType ghost = DeamageType.Ghost;
- //   private DeamageType ice = DeamageType.Ice;
- //   private DeamageType fighting = DeamageType.Fighting;
-//    private DeamageType steel = DeamageType.Steel;
-    private DeamageType poison = DeamageType.Poison;
-    private DeamageType flying = DeamageType.Flying;
-    private DeamageType psychic = DeamageType.Psychic;
-    private DeamageType water = DeamageType.Water;
+	private MoveType grass = MoveType.Grass;
+	private MoveType electic = MoveType.Electricity;
+	private MoveType bug = MoveType.Bug;
+ //   private MoveType dark = MoveType.Dark;
+ //   private MoveType ghost = MoveType.Ghost;
+ //   private MoveType ice = MoveType.Ice;
+ //   private MoveType fighting = MoveType.Fighting;
+//    private MoveType steel = MoveType.Steel;
+	private MoveType poison = MoveType.Poison;
+	private MoveType flying = MoveType.Flying;
+	private MoveType psychic = MoveType.Psychic;
+	private MoveType water = MoveType.Water;
 
     private MoveEffect none = MoveEffect.None;
     private MoveEffect burn = MoveEffect.Burn;
@@ -740,10 +740,10 @@ public class MockData : ScriptableObject
         //m_moveAssetDatabase = moveAssetDatabase;
         AssetDatabase.SaveAssets();
     }
-    private void AddMove(int Id, string Name, float PP, float Power, float Cooldown, string Description, DeamageType Type, MoveEffect Effect)
+	private void AddMove(int Id, string Name, float PP, float Power, float Cooldown, string Description, MoveType MoveType, MoveEffect Effect)
     {
-        MoveData move = new MoveData(Id, Name, PP, Power, Cooldown, Description, Type, Effect);
-        moveData.Add(move);
+//        MoveData move = new MoveData(Id, Name, PP, Power, Cooldown, Description, MoveType, Effect);
+  //      moveData.Add(move);
     }
     public void ItemMockData(ItemAssetDatabase itemAssetDatabase)
     {
@@ -795,7 +795,7 @@ public class MockData : ScriptableObject
     }
     private void AddItem(int id,string name,Sprite icon,float buy,float sell,int stacksupto,string description)
     {
-        //InventoryItem item = new InventoryItem(id, name, icon, type, buy, sell, stacksupto, description);
+        //InventoryItem item = new InventoryItem(id, name, icon, MoveType, buy, sell, stacksupto, description);
         //items.Add(item);
     }
 

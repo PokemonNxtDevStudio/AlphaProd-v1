@@ -23,9 +23,9 @@ public enum MotorState
 
 	
 		private bool Grounded = true;
-		public Camera camera;
+		public Camera mainCamera;
 		private float m_speed;
-		private Rigidbody rigidbody;
+		private Rigidbody mRigidbody;
 
         protected virtual float JumpSpeed {
             // From the jump height and gravity we deduce the upwards speed 
@@ -36,8 +36,8 @@ public enum MotorState
         public virtual void Start()
         {
             m_speed = baseSpeed;
-            camera = Camera.main;
-			rigidbody = GetComponent<Rigidbody>();
+            mainCamera = Camera.main;
+		mRigidbody = GetComponent<Rigidbody>();
         }
 
         void Update()
@@ -50,7 +50,7 @@ public enum MotorState
             }
 			
 			if (!Grounded) {
-				Grounded = rigidbody.velocity.y == 0;
+			Grounded = mRigidbody.velocity.y == 0;
 				if(Grounded) AnimatorCtrl.SetBool(Animator.StringToHash("Jump"), false);
 			}
 
@@ -66,17 +66,17 @@ public enum MotorState
         }
         public void FaceCamera()
         {
-            Vector3 facingAngle = camera.transform.eulerAngles;
-            Vector3 facePos = camera.transform.position;
+		Vector3 facingAngle = mainCamera.transform.eulerAngles;
+		Vector3 facePos = mainCamera.transform.position;
             //smoothing + optiomiation
             //Olday way, doesnt resolve rotations on 2/4 quadrant, need use Quaternions
             //transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, Vector3.up * facingAngle.y, 7 * Time.deltaTime);
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(camera.transform.eulerAngles.y * Vector3.up), Time.deltaTime * 7.0f);
+		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(mainCamera.transform.eulerAngles.y * Vector3.up), Time.deltaTime * 7.0f);
 
 
 			
-            camera.transform.eulerAngles = new Vector3(facingAngle.x, facingAngle.y, facingAngle.z);
-            camera.transform.position = new Vector3(facePos.x, facePos.y, facePos.z); 
+		mainCamera.transform.eulerAngles = new Vector3(facingAngle.x, facingAngle.y, facingAngle.z);
+		mainCamera.transform.position = new Vector3(facePos.x, facePos.y, facePos.z); 
         }
         public virtual void Interpolate(Vector3 newPos,Vector3 rot)
         {
@@ -100,7 +100,7 @@ public enum MotorState
                 Vector3 targetVelocity = transform.TransformDirection(InputDirection);
                 targetVelocity *= baseSpeed;
 
-                Vector3 velocity = GetComponent<Rigidbody>().velocity;
+			Vector3 velocity = mRigidbody.velocity;
                 Vector3 velocityChange = (targetVelocity - velocity);
                 velocityChange.x = Mathf.Clamp(velocityChange.x, -MaxVelocityChange, MaxVelocityChange);
                 velocityChange.z = Mathf.Clamp(velocityChange.z, -MaxVelocityChange, MaxVelocityChange);
@@ -108,13 +108,13 @@ public enum MotorState
                 
                 //We do not apply force when not required
                // if(velocityChange.magnitude > 0.1f)
-                    GetComponent<Rigidbody>().AddForce(velocityChange, ForceMode.VelocityChange);
+			mRigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
 
                 if(CanJump && Grounded && Input.GetKey(KeyCode.Space)) {
 					Grounded = false;
 				
 					AnimatorCtrl.SetBool(Animator.StringToHash("Jump"), true);
-					rigidbody.velocity = new Vector3(velocity.x, JumpSpeed, velocity.z);
+				mRigidbody.velocity = new Vector3(velocity.x, JumpSpeed, velocity.z);
                 }
 //			Grounded
                 //Stay on the ground bitch

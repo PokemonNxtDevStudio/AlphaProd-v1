@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System;
 
 [Serializable]
-public class Pokemon : Entity
+public class Pokemon : MonoEntity
 {
     /*
     //public float Id { get; set; }
@@ -125,7 +125,7 @@ public class Pokemon : Entity
     public bool isPlayer { get { return m_isPlayer; } set { m_isPlayer = value; } }
 
     [SerializeField]
-    private List<MoveData> m_moves = new List<MoveData>();
+    private List<MoveData> m_moves = new List<MoveData>(2);
     public List<MoveData> Moves { get { return m_moves; } set { m_moves = value; } }
 
     [SerializeField]

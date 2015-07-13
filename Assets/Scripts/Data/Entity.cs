@@ -6,7 +6,7 @@ using TeamName.Inventory.Models;
 using TeamName.Inventory;
 
 [Serializable]
-public class Entity:MonoBehaviour
+public class Entity
 {
 
    
