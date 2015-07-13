@@ -89,6 +89,7 @@ public enum MotorState
         {
             baseSpeed = m_speed;
         }
+
         public void IncreaseSpeedByFactor(float factor,float max)
         {
             baseSpeed *= factor;

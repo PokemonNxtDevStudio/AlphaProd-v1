@@ -29,6 +29,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
 			wanderTarget = new GameObject ();
 			wanderTarget.transform.parent = transform.parent;
 			wanderTarget.name = gameObject.name + " Target";
+//			WanderAStar test = WanderAStar
+//				test.OnEnd
 		}
 		
 		public override void OnStart()
@@ -40,12 +42,12 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
 			aiPath.target = Target();
 			Debug.Log ("new target is!:" + aiPath.target);
 		}
-		
+
 		// There is no success or fail state with wander - the agent will just keep wandering
 		public override TaskStatus OnUpdate()
 		{
 			aiPath.target = Target();
-			
+			Debug.Log ("IM RUNNING!");
 			//		transform.position = Vector3.MoveTowards(transform.position, target.Value.position, motor.baseSpeed * Time.deltaTime);
 			motor.Move (( transform.worldToLocalMatrix.MultiplyVector(transform.forward)));
 			return TaskStatus.Running;
@@ -53,8 +55,9 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
 		
 		public override void OnEnd()
 		{
+			motor.Move (Vector3.zero);
 			// Disable the nav mesh
-			aiPath.enabled = false;
+//			aiPath.enabled = false;
 		}
 		
 		// Return targetPosition if targetTransform is null
