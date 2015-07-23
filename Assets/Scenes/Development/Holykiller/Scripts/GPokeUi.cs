@@ -43,10 +43,7 @@ public class GPokeUi : MonoBehaviour
         }
         else
         {
-            //gameObject.SetActive(true);
-            m_hp.text = "Hp: " + poke.CurrentHealth.ToString();
-            m_pp.text = "PP: " + poke.currentPP.ToString();
-            m_sprite.sprite = poke.Icon;
+  
         }
     }
 }

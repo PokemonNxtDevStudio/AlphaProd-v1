@@ -89,6 +89,7 @@ public class PokeParty
             {
                 Debug.Log("Pokemon with id :" + id + " Is Null");
             }
+            /*
             poke.ID = NxtUiManager.instance.PokemonDB.GetByIDInList(id).ID;
             poke.Name = NxtUiManager.instance.PokemonDB.GetByIDInList(id).Name;
             poke.PP = NxtUiManager.instance.PokemonDB.GetByIDInList(id).PP;
@@ -98,7 +99,7 @@ public class PokeParty
             poke.PokemonPrefab = NxtUiManager.instance.PokemonDB.GetByIDInList(id).PokemonPrefab;
             poke.Moves = NxtUiManager.instance.PokemonDB.GetByIDInList(id).Moves;
             poke.LearnMovesLevels = NxtUiManager.instance.PokemonDB.GetByIDInList(id).LearnMovesLevels;
-
+            */
             AddToPokePT(poke);
         }       
     }    
@@ -225,6 +226,7 @@ public class PokeParty
     }
     public bool AddPokemonByID(int id)
     {
+        /*
         if (!CanAddPokemon())
             return false;
         Pokemon poke = new Pokemon();
@@ -249,7 +251,8 @@ public class PokeParty
         if (selectedIndex == -1)
             GetPokeSlot(slot.index); //Select by default if no pokemon is selectedIndex
 
-        return true;
+     
+         */   return true;
     }
     public void UiUpdate()
     {

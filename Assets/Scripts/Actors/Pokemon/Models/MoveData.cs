@@ -120,7 +120,17 @@ public class MoveData : Entity
     public GameObject MoveVFXPrefab { get { return m_movevfxprefab; } set { m_movevfxprefab = value; } }
 
 
-	[SerializeField]
+    #region CastDetails
+    
+    //Todo: implement in editor
+    private float minCastDistance;
+
+    public float MinCastDistance { get { return minCastDistance; } set { minCastDistance = value; } }
+    private float maxCastDistance;
+    public float MaxCastDistance { get { return MaxCastDistance; } set { MaxCastDistance = value; } }
+    #endregion
+
+    [SerializeField]
 	public int levelLearnt;
     public MoveData(int mId, string mName, float mPP, float mPower, float mCooldown, string mDescription, Type mType, MoveEffect mEffect)
     {

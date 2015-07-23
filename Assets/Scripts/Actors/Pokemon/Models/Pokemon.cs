@@ -4,6 +4,68 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System;
 
+
+[Serializable]
+public class PokeData
+{
+    [SerializeField]
+    private int m_level = 5;
+    public int level { get { return m_level; } set { m_level = value; } }
+
+    [SerializeField]
+    private float m_exp = 0;
+    public float exp { get { return m_exp; } set { m_exp = value; } }
+
+    [SerializeField]
+    private float m_pp = 30;
+    public float PP { get { return m_pp; } set { m_pp = value; } }
+
+    [SerializeField]
+    private float m_health = 10;
+    public float Health { get { return m_health; } set { m_health = value; } }
+
+    [SerializeField]
+    private float m_attack = 10;
+    public float Attack { get { return m_attack; } set { m_attack = value; } }
+
+    [SerializeField]
+    private float m_defence = 10;
+    public float defence { get { return m_defence; } set { m_defence = value; } }
+
+    [SerializeField]
+    private float m_demage = 0;
+    public float damage { get { return m_demage; } set { m_demage = value; } }
+
+    [SerializeField]
+    private float m_speed = 10;
+    public float speed { get { return m_speed; } set { m_speed = value; } }
+
+    [SerializeField]
+    private float m_currenthealth = 10;
+    public float CurrentHealth { get { return m_currenthealth; } set { m_currenthealth = value; } }
+
+    [SerializeField]
+    private float m_currentexp = 0;
+    public float currentEXP { get { return m_currentexp; } set { m_currentexp = value; } }
+
+    [SerializeField]
+    private float m_currentpp = 30;
+    public float currentPP { get { return m_currentpp; } set { m_currentpp = value; } }
+
+
+    [SerializeField]
+    private PokemonType m_type1;
+    public PokemonType Type1 { get { return m_type1; } set { m_type1 = value; } }
+
+    [SerializeField]
+    private PokemonType m_type2;
+    public PokemonType Type2 { get { return m_type2; } set { m_type2 = value; } }
+
+
+    [SerializeField]
+    private List<MoveData> m_moves = new List<MoveData>(100);
+    public List<MoveData> Moves { get { return m_moves; } set { m_moves = value; } }
+}
 [Serializable]
 public class Pokemon : MonoEntity
 {
@@ -60,58 +122,10 @@ public class Pokemon : MonoEntity
     * */
    // private int m_pokedexnumber = 0;
    // public int PokedexNumber { get { return m_pokedexnumber; } set { m_pokedexnumber = value; } }
-    [SerializeField]
-    private int m_level = 5;
-    public int level { get { return m_level; } set { m_level = value; } }
 
-    [SerializeField]
-    private float m_exp = 0;
-    public float exp { get { return m_exp; } set { m_exp = value; } }
 
-    [SerializeField]
-    private float m_pp = 30;
-    public float PP { get { return m_pp; } set { m_pp = value; } }
 
-    [SerializeField]
-    private float m_health = 10;
-    public float Health { get { return m_health; } set { m_health = value; } }
-
-    [SerializeField]
-    private float m_attack = 10;
-    public float Attack{get{return m_attack;}set{m_attack = value;}}
-
-    [SerializeField]
-    private float m_defence = 10;
-    public float defence { get { return m_defence; } set { m_defence = value; } }
-
-    [SerializeField]
-    private float m_demage = 0;
-    public float damage { get { return m_demage; } set { m_demage = value; } }
-
-    [SerializeField]
-    private float m_speed = 10;
-    public float speed { get { return m_speed; } set { m_speed = value; } }
-
-    [SerializeField]
-    private float m_currenthealth = 10;
-    public float CurrentHealth { get { return m_currenthealth; } set { m_currenthealth = value; } }
-
-    [SerializeField]
-    private float m_currentexp = 0;
-    public float currentEXP { get { return m_currentexp; } set { m_currentexp = value; } }
-
-    [SerializeField]
-    private float m_currentpp = 30;
-    public float currentPP { get { return m_currentpp; } set { m_currentpp = value; } }
-
-    [SerializeField]
-    private PokemonType m_type1;
-    public PokemonType Type1 { get { return m_type1; } set { m_type1 = value; } }
-
-    [SerializeField]
-    private PokemonType m_type2;
-    public PokemonType Type2 { get { return m_type2; } set { m_type2 = value; } }
-
+ 
     [SerializeField]
     private GameObject m_pokemonprefab;
     public GameObject PokemonPrefab { get { return m_pokemonprefab; } set { m_pokemonprefab = value; } }
@@ -124,10 +138,11 @@ public class Pokemon : MonoEntity
     private bool m_isPlayer = false;
     public bool isPlayer { get { return m_isPlayer; } set { m_isPlayer = value; } }
 
-    [SerializeField]
-    private List<MoveData> m_moves = new List<MoveData>(2);
-    public List<MoveData> Moves { get { return m_moves; } set { m_moves = value; } }
 
+
+    [SerializeField]
+    private PokeData data = new PokeData();
+    public PokeData pokeData { get { return data; } set { data = value; } }
     [SerializeField]
     private List<int> m_learnmovelevel;
     public List<int> LearnMovesLevels { get { return m_learnmovelevel; } set { m_learnmovelevel = value; } }
@@ -140,12 +155,13 @@ public class Pokemon : MonoEntity
     private PokemonPokeball m_pokeball = PokemonPokeball.None;
     public PokemonPokeball Pokeball { get { return m_pokeball; } set { m_pokeball = value; } }
 
+    /*
     public Pokemon()
     {
         this.ID = 0;
         this.Name = "";
         // m_pokedexnumber = PokedexNum;
-        this.PP = 0;
+  
         this.Icon = null;
         this.Type1 = PokemonType.None;
         this.Type2 = PokemonType.None;
@@ -153,12 +169,12 @@ public class Pokemon : MonoEntity
        // this.m_moves = null;
        // this.m_learnmovelevel = learnMovesAtLevel;
     }
-    public Pokemon(int id,string name/*,int PokedexNum*/,float PP,Sprite Icon,PokemonType type1,PokemonType type2,GameObject PokePrefab,List<MoveData> moves,List<int> learnMovesAtLevel)
+    public Pokemon,float PP,Sprite Icon,PokemonType type1,PokemonType type2,GameObject PokePrefab,List<MoveData> moves,List<int> learnMovesAtLevel)
     {
         this.ID = id;
         this.Name = name;
        // m_pokedexnumber = PokedexNum;
-        this.PP = PP;
+  
         this.Icon = Icon;
         this.Type1 = type1;
         this.Type2 = type2;
@@ -171,7 +187,7 @@ public class Pokemon : MonoEntity
     {
         this.ID = poke.ID;
         this.Name = poke.Name;
-        this.PP = poke.PP;
+
         this.Icon = poke.Icon;
         this.Type1 = poke.Type1;
         this.Type2 = poke.Type2;
@@ -179,7 +195,7 @@ public class Pokemon : MonoEntity
         this.Moves = poke.Moves;
         this.LearnMovesLevels = poke.LearnMovesLevels;
     }
-    
+    */
     
 }
 [Serializable]

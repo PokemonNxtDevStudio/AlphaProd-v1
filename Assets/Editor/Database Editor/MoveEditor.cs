@@ -71,6 +71,7 @@ namespace TeamName.Editors.Database
 			
 			EditorGUILayout.LabelField("The name of the Move, is displayed in the tooltip in UI elements.", DatabaseEditorStyles.labelStyle);
 			item.Name = EditorGUILayout.TextField("Move name", item.Name);
+         //   item.levelLearnt = EditorGUILayout.IntField("Level learnt", item.levelLearnt);
 			item.TM = EditorGUILayout.IntField("TM #", item.TM);
 			item.PP = EditorGUILayout.FloatField("PP Cost", item.PP);
 			item.Power = EditorGUILayout.FloatField("Attack Power", item.Power);

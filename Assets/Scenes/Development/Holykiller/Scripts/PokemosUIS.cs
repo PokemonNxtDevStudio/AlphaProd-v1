@@ -135,6 +135,7 @@ public class PokemosUIS : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     public void ShowThisPokemonInfo()
     {
+        /*
         //AddToCheck if its on the pokept window
         if (poke != null)
         {
@@ -228,6 +229,6 @@ public class PokemosUIS : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         {
             Debug.Log("None Existing Pokemon");
         }
-
+        */
     }
 }

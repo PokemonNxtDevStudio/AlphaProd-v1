@@ -25,7 +25,7 @@ public class PokemonEditor : Editor {
 	protected SerializedProperty m_speed;
 	protected SerializedProperty m_type1;
 	protected SerializedProperty m_type2;
-
+    protected SerializedProperty pokeData;
 
 	private UnityEditorInternal.ReorderableList propertiesList { get; set; }
 	public void OnEnable()
@@ -33,7 +33,8 @@ public class PokemonEditor : Editor {
 		ID= serializedObject.FindProperty("m_id");
 		Name = serializedObject.FindProperty("m_name");
 		Description = serializedObject.FindProperty("m_description");
-		movesList = serializedObject.FindProperty("m_moves");
+
+        /*
 		m_level  = serializedObject.FindProperty("m_level");
 		m_pp  = serializedObject.FindProperty("m_pp");
 		m_health  = serializedObject.FindProperty("m_health");
@@ -43,12 +44,14 @@ public class PokemonEditor : Editor {
 		m_speed  = serializedObject.FindProperty("m_speed");
 		m_type1 = serializedObject.FindProperty("m_type1");
 		m_type2 = serializedObject.FindProperty("m_type2");
-		
-
+         */
+       
+        pokeData = serializedObject.FindProperty("data");
+        movesList = serializedObject.FindProperty("m_moves");
 		var t = (Pokemon)target;
 
-		
-		propertiesList = new UnityEditorInternal.ReorderableList(serializedObject, movesList, true, true, true, true);
+
+        propertiesList = new UnityEditorInternal.ReorderableList(serializedObject, pokeData.FindPropertyRelative("m_moves"), true, true, true, true);
 		propertiesList.drawHeaderCallback += rect => GUI.Label(rect, "Move List");
 		propertiesList.drawElementCallback += (rect, index, active, focused) =>
 		{
@@ -59,7 +62,7 @@ public class PokemonEditor : Editor {
 			popupRect.width /= 2;
 			popupRect.width -= 5; // Some spacing
 			
-			var i = t.Moves[index];
+			var i = t.pokeData.Moves[index];
 			
 			// Variables
 			i.ID = EditorGUI.Popup(popupRect,i.ID , EditorUtils.moveNames);
@@ -80,6 +83,9 @@ public class PokemonEditor : Editor {
 				if (db.moveList.Length > 0)
 				{
 					i.Name= db.moveList[i.ID].Name;
+                    i.TM = db.moveList[i.ID].TM;
+                  //  i.ID = db.moveList[i.ID].ID;
+                   // i.levelLearnt = db.moveList[i.ID].ID;
 					//i.showInUI = db.properties[i.ID].showInUI;
 					//i.uiColor = db.properties[i.ID].uiColor;
 				}
@@ -91,9 +97,9 @@ public class PokemonEditor : Editor {
 		};
 		propertiesList.onAddCallback += (list) =>
 		{
-			var l = new List<MoveData>(t.Moves);
+            var l = new List<MoveData>(t.pokeData.Moves);
 			l.Add(new MoveData());
-			t.Moves = l;
+            t.pokeData.Moves = l;
 			
 			GUI.changed = true; // To save..
 			EditorUtility.SetDirty(target);
@@ -114,6 +120,17 @@ public class PokemonEditor : Editor {
 	{
 		OnCustomInspectorGUI();
 	}
+    void UpdateMoves()
+    {
+        var tar = (Pokemon)target;
+        List<MoveData> moveData = tar.pokeData.Moves;
+
+        foreach (MoveData move in moveData)
+        {
+            //move.
+        }
+
+    }
 	protected void OnCustomInspectorGUI()
 	{
 		serializedObject.Update();
@@ -133,18 +150,13 @@ public class PokemonEditor : Editor {
 
 		GUILayout.Label("Stats", DatabaseEditorStyles.titleStyle);
 		EditorGUILayout.BeginVertical();
-		EditorGUILayout.PropertyField(m_level);
-		EditorGUILayout.PropertyField(m_pp);
-		EditorGUILayout.PropertyField(m_health);
-		EditorGUILayout.PropertyField(m_attack);
-		EditorGUILayout.PropertyField(m_defence);
-		EditorGUILayout.PropertyField(m_speed);
-		EditorGUILayout.PropertyField(m_type1);
-		EditorGUILayout.PropertyField(m_type2);
-		EditorGUILayout.PropertyField(movesList);
+        EditorGUILayout.PropertyField(pokeData,true);
 		EditorGUILayout.EndVertical();
 		#region Moves
-		
+        //if (GUILayout.Button("Update Moves"))
+       // {
+     ///     //  myScript.BuildObject();
+///}
 		GUILayout.Label("Moves Organizer", DatabaseEditorStyles.titleStyle);
 		GUILayout.Label("You can create Moves in the move editor ");
 		

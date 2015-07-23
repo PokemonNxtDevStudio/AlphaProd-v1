@@ -658,8 +658,8 @@ public class MockData : ScriptableObject
     private void AddPokemon(int id, string name, float PP, Sprite Icon, PokemonType type1, PokemonType type2, string PokePrefabName, List<MoveData> moves,List<int> levelforMoves)
     {       
         GameObject pokeprefab = (GameObject)Resources.Load(m_pokemonsPath + PokePrefabName);
-        Pokemon poke = new Pokemon(id, name, PP, Icon, type1, type2, pokeprefab, moves,levelforMoves);
-        pokeData.Add(poke);       
+      //  Pokemon poke = new Pokemon(id, name, PP, Icon, type1, type2, pokeprefab, moves,levelforMoves);
+        //pokeData.Add(poke);       
     }
     public void MoveMockData(MoveAssetDatabase moveAssetDatabase)
     {

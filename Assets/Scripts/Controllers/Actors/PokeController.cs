@@ -77,9 +77,9 @@ namespace NXT.Controllers
         }
         public void UsePP(int PP)
         {
-            m_Pokemon.currentPP -= PP;
-            if (m_Pokemon.currentPP < 0)
-                m_Pokemon.PP = 0;
+           // m_Pokemon.currentPP -= PP;
+///if (m_Pokemon.currentPP < 0)
+            //    m_Pokemon.PP = 0;
         }
 
         public virtual void OnDeath()
