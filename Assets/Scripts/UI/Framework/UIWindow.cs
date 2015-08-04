@@ -4,23 +4,18 @@ using System.Collections.Generic;
 
 
 
-[RequireComponent(typeof(Canvas))]
-[RequireComponent(typeof(CanvasGroup))]
 
-enum WindowType
-{
-    BottomPanel,
-    Inventory,
-    Menu,
-    PokeParty
-}
+
 
 enum FadeType
 {
     None,
-    FadeIn,
-    FadeOut
+     In,
+    Out
 }
+
+[RequireComponent(typeof(Canvas))]
+[RequireComponent(typeof(CanvasGroup))]
 public class UIWindow :MonoBehaviour
    {
 
@@ -158,20 +153,106 @@ public class UIWindow :MonoBehaviour
             }
             else
             {
-                this.contentHolder.gameObject.SetActive(true)// = true;
+                this.contentHolder.gameObject.SetActive(true);// = true;
                 //TODO FADE IN
             }
             this.isShowing = true;
         }
-
         private FadeType animationCurrentMethod = FadeType.None;
         private UICoroutine mFadeCoroutine;
         
-
-    public void FadeIn(float duration)
+             public void FadeIn(float duration)
         {
-           
+            if (!this.contentHolder.gameObject.activeSelf)
+                return;
+
+            if (this.animationCurrentMethod != FadeType.Out && this.mFadeCoroutine != null)
+                this.mFadeCoroutine.Stop();
+
+            // Start the new animation
+            if (this.animationCurrentMethod != FadeType.Out)
+                this.mFadeCoroutine = new UICoroutine(this, this.FadeAnimation(FadeType.Out, duration));
         }
+
+             private IEnumerator FadeAnimation(FadeType method, float FadeDuration)
+             {
+                 if (this.canvasGroup == null)
+                     yield break;
+
+                 // Check if we are trying to fade in and the window is already shown
+                 if (method == FadeType.In && this.canvasGroup.alpha == 1f)
+                     yield break;
+                 else if (method == FadeType.Out && this.canvasGroup.alpha == 0f)
+                     yield break;
+
+                 // Define that animation is in progress
+                 this.animationCurrentMethod = method;
+
+                 // Get the timestamp
+                 float startTime = Time.time;
+
+                 // Determine Fade in or Fade out
+                 if (method == FadeType.In)
+                 {
+                     // Calculate the time we need to fade in from the current alpha
+                     float internalDuration = (FadeDuration - (FadeDuration * this.canvasGroup.alpha));
+
+                     // Update the start time
+                     startTime -= (FadeDuration - internalDuration);
+
+                     // Fade In
+                     while (Time.time < (startTime + internalDuration))
+                     {
+                         float RemainingTime = (startTime + FadeDuration) - Time.time;
+                         float ElapsedTime = FadeDuration - RemainingTime;
+
+                         // Update the alpha by the percentage of the time elapsed
+                         this.canvasGroup.alpha = (ElapsedTime / FadeDuration);
+
+                         yield return 0;
+                     }
+
+                     // Make sure it's 1
+                     this.canvasGroup.alpha = 1f;
+/*
+                     if (this.onShowComplete != null)
+                         this.onShowComplete();*/
+                 }
+                 else if (method == FadeType.Out)
+                 {
+                     // Calculate the time we need to fade in from the current alpha
+                     float internalDuration = (FadeDuration * this.canvasGroup.alpha);
+
+                     // Update the start time
+                     startTime -= (FadeDuration - internalDuration);
+
+                     // Fade Out
+                     while (Time.time < (startTime + internalDuration))
+                     {
+                         float RemainingTime = (startTime + FadeDuration) - Time.time;
+
+                         // Update the alpha by the percentage of the remaing time
+                         this.canvasGroup.alpha = (RemainingTime / FadeDuration);
+
+                         yield return 0;
+                     }
+
+                     // Make sure it's 0
+                     this.canvasGroup.alpha = 0f;
+/*
+                     if (this.onHideComplete != null)
+                         this.onHideComplete();
+*/
+                     this.contentHolder.gameObject.SetActive(false);
+                 }
+
+                 // No longer animating
+                 this.animationCurrentMethod = FadeType.None;
+             }
+}
+    
+
+   
 
     public class UICoroutine : IEnumerator
     {
@@ -194,5 +275,5 @@ public class UIWindow :MonoBehaviour
         public void Reset() { enumerator.Reset(); }
         public void Stop() { stop = true; }
     }
-   }
+   
 

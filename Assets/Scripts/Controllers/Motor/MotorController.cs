@@ -49,10 +49,7 @@ public enum MotorState
                 FaceCamera();
             }
 			
-			if (!Grounded) {
-			Grounded = mRigidbody.velocity.y == 0;
-				if(Grounded) AnimatorCtrl.SetBool(Animator.StringToHash("Jump"), false);
-			}
+			
 
 		
             if (motorState == MotorState.Input)
@@ -110,15 +107,17 @@ public enum MotorState
                // if(velocityChange.magnitude > 0.1f)
 			mRigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
 
-                if(CanJump && Grounded && Input.GetKey(KeyCode.Space)) {
-					Grounded = false;
+            mRigidbody.AddForce(new Vector3(0, -Gravity * GetComponent<Rigidbody>().mass, 0));
+            if (CanJump && isGrounded() && Input.GetKeyDown(KeyCode.Space))
+            {
+					
 				
-					AnimatorCtrl.SetBool(Animator.StringToHash("Jump"), true);
-				mRigidbody.velocity = new Vector3(velocity.x, JumpSpeed, velocity.z);
+					AnimatorCtrl.Trigger(Animator.StringToHash("Jump"));
+				mRigidbody.velocity  =  new Vector3(velocity.x, JumpSpeed, velocity.z);
                 }
 //			Grounded
                 //Stay on the ground bitch
-				//                rigidbody.AddForce(new Vector3(0, -Gravity * GetComponent<Rigidbody>().mass, 0));
+				//               
             
             }
             //@You can uncomment the following two lines and comment the content of the UpdateAnimator method in Ctrl/Handlers/Net/CharacterNetCtrlHandler.cs
@@ -128,13 +127,19 @@ public enum MotorState
 			//animator update
 			if (AnimatorCtrl == null)
 				return;
-			if(Grounded) {
+			if(isGrounded()) {
 				AnimatorCtrl.SetFloat("DirX", InputDirection.x);
 				AnimatorCtrl.SetFloat("DirY", InputDirection.z);
 			} else {
 				AnimatorCtrl.SetFloat("DirX", 0);
 				AnimatorCtrl.SetFloat("DirY", 0);
 			}
+        }
+
+
+        public bool isGrounded()
+        {
+            return Physics.Raycast(transform.position, -Vector3.up, GetComponent<CapsuleCollider>().bounds.extents.y + 0.2f);
         }
 
         //public virtual void Jump

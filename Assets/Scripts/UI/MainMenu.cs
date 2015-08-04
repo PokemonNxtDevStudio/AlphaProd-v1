@@ -26,8 +26,8 @@ public class MainMenu : MonoBehaviour
     private string loginPassword; 
     private string registerUsername; // Use this username when registering an account
     private string registerEmail; // Use this email when registering an account
-    private string registerEmailConfirm;
     private string registerPassword; // Use this password when registering an account
+    private string registerEmailConfirm;
     private string registerPasswordConfirm;
 
     public GameObject loginScreen;
