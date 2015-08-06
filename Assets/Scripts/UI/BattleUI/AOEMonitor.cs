@@ -14,7 +14,9 @@ namespace NXT
         private GameObject cachedPrefab;
         void Start()
         {
-
+            /////////
+            if (m_trainer != null)
+                m_trainer = null;
 
             cachedPrefab = (GameObject)Instantiate(UIAOEPrefab, transform.position, Quaternion.Euler(90, 0, 0));
             cachedPrefab.transform.parent = this.gameObject.transform;
@@ -23,6 +25,7 @@ namespace NXT
             //TODO: Register to trainer gameObject
             EventHandler.RegisterEvent(this.gameObject, EventAOE.TRIGGER_ON, TriggerOn);
             EventHandler.RegisterEvent<Vector3>(this.gameObject, EventAOE.EXECUTE, Excecute);
+         
         }
 
         void SetTrainer(GameObject trainer)

@@ -12,8 +12,8 @@ public class SceneLoading : MonoBehaviour
     //public GameObject LoadingPrefab;
     public string scene;
     public bool showLoadingScreen;
-    public delegate void OnSceneLoadFinish();
-    public event OnSceneLoadFinish onSceneLoadFinish;
+    //public delegate void OnSceneLoadFinish();
+//    public event OnSceneLoadFinish onSceneLoadFinish;
     [SerializeField]
     private float loadValue;
     public Image progressBar;
@@ -21,9 +21,12 @@ public class SceneLoading : MonoBehaviour
     [SerializeField]
     private Text Amount;
 
+  
+
     void Start()
     {
         Amount.transform.parent.gameObject.SetActive(false);
+        
     }
    // void OnMouseDown()
    //{

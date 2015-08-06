@@ -9,10 +9,10 @@ namespace NXT.Inventory
     {
        // [SerializeField]
         //private ItemType m_itemtype;
-
+        /*
         [SerializeField]
         private String m_Description;
-        public String Description { get { return m_Description; } set { m_Description = value; } }
+        public String Description { get { return m_Description; } set { m_Description = value; } }*/
 
         //public ItemType ItemType { get { return m_itemtype; } set { m_itemtype = value; } }
 

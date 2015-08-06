@@ -8,7 +8,7 @@ public class CameraTransitionController : MonoBehaviour {
 	[SerializeField] private Transform target;
 
 
-	private int currentTarget=0;
+//	private int currentTarget=0;
 	private Tweener tween;
 	// Use this for initialization
 	void Start () {
@@ -33,7 +33,7 @@ public class CameraTransitionController : MonoBehaviour {
 		if (__noAnim) {
 			transform.localPosition = new Vector3(0,offsetY,0);
 		} else {
-			Vector3 localPos = transform.localPosition;
+//			Vector3 localPos = transform.localPosition;
 			tween = HOTween.To (gameObject.transform, .5f, new TweenParms ().Prop ( "localPosition", new Vector3 ( 0, offsetY, 0 )).Ease(ease).Delay(__delay));
 		}
 	}

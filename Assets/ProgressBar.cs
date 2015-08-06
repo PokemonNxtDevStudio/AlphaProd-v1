@@ -7,7 +7,7 @@ public class ProgressBar : MonoBehaviour {
 
     private Text progressLabel;
     private Image progressBar;
-    public int maxValue;
+    public float maxValue;
 
     public float targetValue;
     public float currentValue;
@@ -25,9 +25,9 @@ public class ProgressBar : MonoBehaviour {
         isLabel = (progressLabel = GetComponentInChildren<Text>());
 	}
 
-    void setMaxValue(float maxValue)
+    void setMaxValue(float mxValue)
     {
-        maxValue = maxValue;
+        maxValue = mxValue;
     }
 	// Update is called once per frame
 	void Update () {

@@ -42,7 +42,7 @@ public class HInventory : MonoBehaviour
     private int _keyItemsInventorySize = 10;
     public int KeyItemsInvSize { get { return _keyItemsInventorySize; } set { _keyItemsInventorySize = value; } }
 
-    private bool m_spaceFree = true;
+//    private bool m_spaceFree = true;
     private bool m_ItemAdded = false;
 
     private float m_Money = 100000;
@@ -299,7 +299,7 @@ public class HInventory : MonoBehaviour
             }
         if (allitems == 0)
         {
-            m_spaceFree = false;
+           // m_spaceFree = false;
         }
         
     }

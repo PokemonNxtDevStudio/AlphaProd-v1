@@ -86,7 +86,7 @@ public class AssetDatabaseEditor
       //  MockData.instance. mockdata = new MockData();
         string path = "Assets/Resources/Database/";
         // New asset name
-        string assetName1 = "MovesAssetDatabase.asset";
+//        string assetName1 = "MovesAssetDatabase.asset";
         //MoveAssetDatabase asset1 = ScriptableObject.CreateInstance("MoveAssetDatabase") as MoveAssetDatabase;  //scriptable object
         //mockdata.MoveMockData(asset1);
        // AssetDatabase.CreateAsset(asset1, AssetDatabase.GenerateUniqueAssetPath(path + assetName1));

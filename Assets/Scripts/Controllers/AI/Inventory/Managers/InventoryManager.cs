@@ -26,9 +26,9 @@ namespace NXT
         /// Collections such as the Inventory are used to loot items.
         /// When an item is picked up the item will be moved to the inventory. You can create multiple Inventories and limit types per inventory.
         /// </summary>
-        private static List<CollectionLookup<ItemCollectionBase>> lootToCollections;
+        private static List<CollectionLookup<ItemCollectionBase>> lootToCollections = new List<CollectionLookup<ItemCollectionBase>>();
        // private static List<InventoryCollectionLookup<CharacterUI>> equipToCollections;
-        private static List<ItemCollectionBase> bankCollections;
+        private static List<ItemCollectionBase> bankCollections = new List<ItemCollectionBase>();
 
         #endregion
     

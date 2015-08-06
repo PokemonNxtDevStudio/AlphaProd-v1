@@ -44,6 +44,8 @@ public class LoginControl : MonoBehaviour
    // private GameObject loginButton;
 
     private int MaxAccountsLimit = 5;
+
+    
     void Awake()
     {        
         LoadFromPcLocalAccounts();//Loads Existing Local Accounts
@@ -84,6 +86,7 @@ public class LoginControl : MonoBehaviour
         if (locals.Accounts.Count > MaxAccountsLimit)
         {
             Debug.Log("Cant Add More Accounts the limit is " + MaxAccountsLimit);
+            ErrorsManager.instance.SpawnError(ErrorType.AccountsAtMaxLimit);
             return;
         }
         bool exist = false;
@@ -93,6 +96,7 @@ public class LoginControl : MonoBehaviour
             if (locals.Accounts[i] == CreateAccountInput.text)
             {
                 Debug.Log("Account Cant be used ,it already exists");
+                ErrorsManager.instance.SpawnError(ErrorType.CantUseThatAccount);
                 exist = true;
                 return;
             }
@@ -139,7 +143,8 @@ public class LoginControl : MonoBehaviour
             if (locals.Passwords[index] == passwordin)
             {
                 //Correct Password
-                Debug.Log("Account and Password match");
+                //Debug.Log("Account and Password match");
+
                 curAccount = namein;
                 //TODO Add Load Character Selection Screen***************************************************************
                 sceneLoader.LoadSceneAsync();
@@ -147,14 +152,16 @@ public class LoginControl : MonoBehaviour
             else
             {
                 //Wrong Password
-                Debug.Log("Incorrect Password");
+//                Debug.Log("Incorrect Password");
+                ErrorsManager.instance.SpawnError(ErrorType.IncorrectPassword);
             }
             
         }
         else
         {
             //Didnt find Account
-            Debug.Log("That Account is non-existent");
+           // Debug.Log("That Account is non-existent");
+            ErrorsManager.instance.SpawnError(ErrorType.NonexistentAccount);
         }
         
     }
@@ -168,8 +175,7 @@ public class LoginControl : MonoBehaviour
         FileStream file = File.Create(Application.persistentDataPath + "/"  + "TrainersAccs.dat");
         LocalAccounts data = new LocalAccounts();
 
-       // data.Accounts = accountsLocals;//Set the new instance lists to the current lists
-       // data.Passwords = passwordsLocals;
+
         data = locals;
         bf.Serialize(file, data);
         file.Close();
@@ -199,7 +205,8 @@ public class LoginControl : MonoBehaviour
         }
         else
         {
-            Debug.Log("There no existing Local Accounts");
+           // Debug.Log("There no existing Local Accounts");
+            ErrorsManager.instance.SpawnError(ErrorType.NonexistingLocalAccounts);
         }
         
     }
@@ -212,10 +219,12 @@ public class LoginControl : MonoBehaviour
         if (File.Exists(Application.persistentDataPath + "/" + "TrainersAccs.dat"))
         {
             File.Delete(Application.persistentDataPath + "/" + "TrainersAccs.dat");
+            ErrorsManager.instance.SpawnError( ErrorType.AllAcountsDeleted);
         }
         else
         {
-            Debug.Log("There are existing Accounts");
+            //Debug.Log("There are no existing Accounts");
+            ErrorsManager.instance.SpawnError( ErrorType.NonexistingLocalAccounts);
         }
     }
     

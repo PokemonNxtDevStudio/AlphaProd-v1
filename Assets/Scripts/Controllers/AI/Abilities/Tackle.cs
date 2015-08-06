@@ -95,7 +95,7 @@ public class Tackle : MoveBehavior
         motorController.SetState(MotorState.AI);
         GetComponent<Animator>().CrossFade(Animator.StringToHash("Quick Attack Run"), 0.1f, 0, 0);
         m_camera.ActivateBlur();
-        float factor = 1.1f;
+//        float factor = 1.1f;
        
 
         while (isWaitingSecondaryAction)

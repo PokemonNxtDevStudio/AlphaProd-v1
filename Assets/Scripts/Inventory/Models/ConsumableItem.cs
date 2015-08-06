@@ -18,9 +18,9 @@ public class ConsumableItem : InventoryItem
 
 
     public override void Use(Object obj)
-{
+    {
 
-    Pokemon myPokemon = (Pokemon)obj;
+//     Pokemon myPokemon = (Pokemon)obj;
  	 base.Use(obj);
-} 
+    } 
 }

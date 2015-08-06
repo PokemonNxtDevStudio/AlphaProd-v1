@@ -46,7 +46,8 @@ public class CreateNewPokeEditor : EditorWindow
         var window = EditorWindow.GetWindow<CreateNewPokeEditor>(true, "Create a new Pokemon", true);
         window.minSize = new Vector2(400, 500);
         window.maxSize = new Vector2(400, 500);
-        window.title = windowTitle;
+        window.titleContent.text = windowTitle;
+        //window.title = windowTitle;
         window.callback = callback;
         window.forceFocus = false;
 

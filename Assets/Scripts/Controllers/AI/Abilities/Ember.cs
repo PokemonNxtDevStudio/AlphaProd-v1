@@ -11,12 +11,12 @@ public class Ember : MoveBehavior
 
     private GameObject EmberFBX;//TODO MOVEDATA
     private string path = "Prefabs/Effects/Pokemon_Moves/Fire/Ember_v2";  //TODO MOVEDATA
-    private PokeController pcontrol;
+//    private PokeController pcontrol;
     private bool canSpawn = true;
-    private float cooldown = .5f;
-    private float counter = 0;
+//    private float cooldown = .5f;
+//    private float counter = 0;
     private float rotateAngle;
-    private float speed = 10;
+//    private float speed = 10;
     private Transform mouthAnchor;
     public override void Start()
     {
@@ -26,15 +26,15 @@ public class Ember : MoveBehavior
         if (!mouthAnchor)
             Debug.Log("Please add mouthanchor");            
         ///EmberFBX = Resources.Load(path) as GameObject;
-        pcontrol = gameObject.GetComponent<PokeController>();
+//        pcontrol = gameObject.GetComponent<PokeController>();
         
     }
 
     public override void UseMove()
     {
 
-        Vector3 facingAngle = Camera.main.transform.eulerAngles;
-        Vector3 facePos = Camera.main.transform.position;
+//        Vector3 facingAngle = Camera.main.transform.eulerAngles;
+        //Vector3 facePos = Camera.main.transform.position;
         //smoothing + optiomiation
         //Olday way, doesnt resolve rotations on 2/4 quadrant, need use Quaternions
         //transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, Vector3.up * facingAngle.y, 7 * Time.deltaTime);

@@ -10,7 +10,7 @@ namespace NXT.Controllers {
     public class BaseAnimatorController: BaseController {        
 
         public Animator Animator;
-        private Dictionary<string, int> m_StateNamesHash;
+        private Dictionary<string, int> m_StateNamesHash = new Dictionary<string,int>();
         public float moveSpeed;
         public Vector3 moveDir;
         public Transform target;
@@ -78,7 +78,7 @@ namespace NXT.Controllers {
 
             if (string.IsNullOrEmpty(destinationState) || nameHash == Animator.StringToHash(destinationState))
                 return false;
-            AnimatorStateInfo animatorStateInfo1 = this.Animator.GetCurrentAnimatorStateInfo(layer);
+//            AnimatorStateInfo animatorStateInfo1 = this.Animator.GetCurrentAnimatorStateInfo(layer);
 
             float f = (float)(transitionDuration / Animator.GetCurrentAnimatorStateInfo(layer).length);
             if (float.IsInfinity(f))

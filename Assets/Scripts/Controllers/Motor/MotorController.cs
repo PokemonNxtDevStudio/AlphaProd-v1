@@ -22,7 +22,7 @@ public enum MotorState
 		public bool CanJump;
 
 	
-		private bool Grounded = true;
+		//private bool Grounded = true;
 		public Camera mainCamera;
 		private float m_speed;
 		private Rigidbody mRigidbody;

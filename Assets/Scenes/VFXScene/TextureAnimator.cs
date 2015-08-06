@@ -12,7 +12,7 @@ public class TextureAnimator : MonoBehaviour
     private Renderer _myRenderer;
     private int _lastIndex = -1;
 
-    private bool canPlay = false;
+//    private bool canPlay = false;
     private int atm = 0;
     private int total;
 
@@ -41,7 +41,7 @@ public class TextureAnimator : MonoBehaviour
     {
         if(atm == total)
         {
-            canPlay = false;
+           // canPlay = false;
             atm = 0;
             return;
         }
