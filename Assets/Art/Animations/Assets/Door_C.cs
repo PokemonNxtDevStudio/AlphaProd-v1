@@ -22,16 +22,22 @@ public class Door_C : MonoBehaviour
         {
             //Debug.Log("Player enter");
             anim.SetBool("Open", true);
+            Invoke("CloseDoors", 5f);
         }
 
     }
-    void OnTriggerExit(Collider other)
+   /* void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
         {
            // Debug.Log("Player Exit");
             anim.SetBool("Open", false);
         }
+    }*/
+
+    void CloseDoors()
+    {
+        anim.SetBool("Open", false);
     }
     
 

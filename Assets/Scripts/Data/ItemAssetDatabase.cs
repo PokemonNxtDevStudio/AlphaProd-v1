@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System;
 #if UNITY_EDITOR
 using UnityEditor;
+#endif
 using TeamName.Inventory.Models;
 using NXT.Inventory;
-#endif
+
 [Serializable]
 public class ItemAssetDatabase : ScriptableObject
 {
