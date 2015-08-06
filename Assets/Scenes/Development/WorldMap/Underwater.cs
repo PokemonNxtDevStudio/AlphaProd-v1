@@ -23,7 +23,10 @@ public class Underwater : MonoBehaviour
 		savedfogEnableFlag = RenderSettings.fog;
 		savedFogColor = RenderSettings.fogColor;
 		savedFogdensty = RenderSettings.fogDensity;
-		savedSkyboxMaterial = RenderSettings.skybox;
+		//savedSkyboxMaterial = RenderSettings.skybox;
+        //RenderSettings.
+        RenderSettings.fog = false;
+        
 		
 		
 	
@@ -36,9 +39,10 @@ public class Underwater : MonoBehaviour
 		{
             
 			RenderSettings.fog = true;
+            //RenderSettings.fogMode = FogMode.ExponentialSquared;
 			RenderSettings.fogColor = fogColor;
 			RenderSettings.fogDensity = maxfogdensity;
-			RenderSettings.skybox = null;
+			//RenderSettings.skybox = null;
 			isUnderWater = true;
 			
 			
@@ -49,7 +53,8 @@ public class Underwater : MonoBehaviour
 			RenderSettings.fog = savedfogEnableFlag;
 			RenderSettings.fogColor = savedFogColor;
 			RenderSettings.fogDensity = savedFogdensty;
-			RenderSettings.skybox = savedSkyboxMaterial;
+			//RenderSettings.skybox = savedSkyboxMaterial;
+            RenderSettings.fog = false;
 				
 			isUnderWater = false;
 			
