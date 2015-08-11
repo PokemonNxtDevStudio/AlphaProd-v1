@@ -12,17 +12,12 @@ public class PokeStoring : MonoBehaviour
     private int curPage;
     
 
-    
-	void Start () 
+    void Start()
     {
-        
-	}
-	
+        if(curPage > 0)
+            curPage = 0;
+    }
 
-	void Update () 
-    {
-	
-	}
 
     private void OnTriggerEnter(Collider other)
     {

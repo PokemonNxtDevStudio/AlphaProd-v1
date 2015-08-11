@@ -102,7 +102,8 @@ public abstract class ItemPickerBase<T> : EditorWindow where T : class
         objects = objectsToPickFrom;
         selectionIndex = 0;
         focusOnInput = true;
-        window.title = windowTitle;
+        window.titleContent.text = windowTitle;
+        //window.title = windowTitle;
         window.minSize = minSizeVec;
 
         window.Show();

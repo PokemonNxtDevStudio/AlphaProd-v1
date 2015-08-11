@@ -122,13 +122,13 @@ public class PokemonEditor : Editor {
 	}
     void UpdateMoves()
     {
-        var tar = (Pokemon)target;
-        List<MoveData> moveData = tar.pokeData.Moves;
-
+        //var tar = (Pokemon)target;
+        //List<MoveData> moveData = tar.pokeData.Moves;
+        /*
         foreach (MoveData move in moveData)
         {
             //move.
-        }
+        }*/
 
     }
 	protected void OnCustomInspectorGUI()

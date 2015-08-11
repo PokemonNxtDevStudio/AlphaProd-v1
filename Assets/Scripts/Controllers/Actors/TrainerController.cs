@@ -6,7 +6,7 @@ using NXT.PhysX;
 public class TrainerController : MonoBehaviour
 {
 	private PokeParty pokeParty; 
-	private int pokeSlot;
+	private int pokeSlot = 0;
 	private GameObject activePokemon;
 	private TrainerAI trainerAI;
 	public CameraTransitionController cameraController;

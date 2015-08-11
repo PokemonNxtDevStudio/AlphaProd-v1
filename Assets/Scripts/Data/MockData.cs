@@ -22,7 +22,7 @@ public class MockData : ScriptableObject
     private Sprite[] pokeballIcons;
     //private ItemType general = ItemType.GeneralItem;
     //private ItemType pokeball = ItemType.Pokeball;
-    private string m_pokemonsPath = "Prefabs/Characters/Pokemon/";
+//    private string m_pokemonsPath = "Prefabs/Characters/Pokemon/";
 
     private PokemonType Typegrass = PokemonType.Grass;
     private PokemonType TypePoison = PokemonType.Poison;
@@ -657,7 +657,7 @@ public class MockData : ScriptableObject
 
     private void AddPokemon(int id, string name, float PP, Sprite Icon, PokemonType type1, PokemonType type2, string PokePrefabName, List<MoveData> moves,List<int> levelforMoves)
     {       
-        GameObject pokeprefab = (GameObject)Resources.Load(m_pokemonsPath + PokePrefabName);
+        //GameObject pokeprefab = (GameObject)Resources.Load(m_pokemonsPath + PokePrefabName);
       //  Pokemon poke = new Pokemon(id, name, PP, Icon, type1, type2, pokeprefab, moves,levelforMoves);
         //pokeData.Add(poke);       
     }

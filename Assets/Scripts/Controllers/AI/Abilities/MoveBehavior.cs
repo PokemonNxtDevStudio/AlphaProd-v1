@@ -14,11 +14,14 @@ namespace NXT{
        public Animator animController;
        public virtual void Start()
        {
+           if(m_MoveData == null)
+          m_MoveData = new MoveData();
           EventHandler.RegisterEvent(this.gameObject, "RightClick", new Action(StopMove));
           animController = GetComponent<Animator>();
        }
        public MoveBehavior SetMoveData(MoveData moveData)
        {
+           
            this.m_MoveData = moveData;
            return this;
        }

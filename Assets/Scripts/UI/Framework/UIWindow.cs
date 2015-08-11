@@ -88,7 +88,7 @@ public class UIWindow :MonoBehaviour
        const int FrontOrder = 99;
        const int BackOrder = -99;
 
-       bool isShowing;
+       bool isShowing = false;
        public bool IsVisible
        {
           get { return ( this.gameObject.activeInHierarchy && this.canvasGroup.alpha!=1);}
@@ -104,6 +104,10 @@ public class UIWindow :MonoBehaviour
            {
                mWindows.Add(this.windowID,this);
            }
+           if(isShowing)
+           isShowing = false;
+           if (sortOrder > 0)
+               sortOrder = 0;
        }
        void Start()
        {

@@ -4,7 +4,7 @@ using System.Collections;
 public class LinearProjectile : Projectile
 {
     public delegate void CollisionCallback(GameObject __obj);
-    public event CollisionCallback collided;
+//    public event CollisionCallback collided;
 
     private Rigidbody rb;
     private Vector3 direction;

@@ -34,8 +34,8 @@ namespace Pathfinding
 			window.position = new Rect (Screen.currentResolution.width/2 - 300,Mathf.Max (5,Screen.currentResolution.height/3 - 150), 600, 400);
 			//window.position = new Rect ( 
 			//window.ShowUtility ();
-
-			window.title = "New Version of the A* Pathfinding Project";
+            window.titleContent.text = "New Version of the A* Pathfinding Project";
+			//window.title = "New Version of the A* Pathfinding Project";
 			return window;
 		}
 
