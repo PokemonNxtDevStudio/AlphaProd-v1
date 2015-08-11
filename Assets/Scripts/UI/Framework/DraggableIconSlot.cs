@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-public class DraggableIconSlow : IconSlot, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DraggableIconSlot : IconSlot, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
 
     public bool dragOnSurfaces = true;

@@ -13,19 +13,57 @@ enum FadeType
      In,
     Out
 }
-
+/// <summary>
+///  TODO:
+///   1)Fade in and out panels based on IDS
+///   
+///   2) Ids are mapped to enums types
+/// 
+///   3) Test this script by toggling different panels on and off
+///  
+///   4) set panels interactable = false when they fade out
+///  
+///   5) Use leantween if you can 
+/// 
+/// </summary>
 [RequireComponent(typeof(Canvas))]
 [RequireComponent(typeof(CanvasGroup))]
+
 public class UIWindow :MonoBehaviour
    {
+        
 
+    //events
          public delegate void OnShowBegin();
          public delegate void OnShowComplete();
          public delegate void OnHideBegin();
          public delegate void OnHideComplete();
 
+         public delegate void GenericEvent();
+         /*
+          * public class Someotherclass
+          * {
+          *     UIwindow.getType(Bottompanel).OnShowComplete  = new(someotherMethod);  //connecting this button to  function 1-1 mapping  //registering the button to method
+          *     
+          * 
+          * 
+          * public someotherMethod(String text)
+          * {
+          * 
+          * }
+          *   public ShowComplete()
+          *   {
+          *   
+          *  // Show Complete gets triggered when UIwindow "pushes the button" 
+          *
+          *   }
+          * }
+          * 
+          * 
+          */
 
-       /// <summary>
+
+         /// <summary>
        /// Each UIWindow is a group or subset of UI elements
        /// </summary>
  
@@ -70,10 +108,10 @@ public class UIWindow :MonoBehaviour
        void Start()
        {
 
-           if(canvasGroup==null)
+   
            canvasGroup = GetComponent<CanvasGroup>();
-           if(canvas == null)
            canvas = GetComponent<Canvas>();
+
            sortOrder = canvas.sortingLayerID;
 
            HandleStartingState();
@@ -140,6 +178,11 @@ public class UIWindow :MonoBehaviour
 
 
        
+    /// <summary>
+    /// Use LeanTween to fade in panels
+    /// </summary>
+    /// <param name="instant"></param>
+    /// <param name="bringToFront"></param>
         public void Show(bool instant = false,bool bringToFront = false)
         {
             if(!this.enabled || !gameObject.activeSelf)

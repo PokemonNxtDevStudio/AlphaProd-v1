@@ -25,8 +25,8 @@ public class TrainerController : MonoBehaviour
 		TrainerInputHandler.UI += OnUI;
 	}
 
-	private void OnCommand(KeyCode __command){
-		switch (__command) {
+	private void OnCommand(KeyCode command){
+		switch (command) {
 			case KeyCode.Alpha1:
 				UseSkill(0);
 				break;
@@ -45,8 +45,8 @@ public class TrainerController : MonoBehaviour
 		}
 	}
 	
-	void OnUI(KeyCode __ui) {
-		switch (__ui) {
+	void OnUI(KeyCode ui) {
+		switch (ui) {
 			case KeyCode.R:
 				TogglePokemon();
 				break;
