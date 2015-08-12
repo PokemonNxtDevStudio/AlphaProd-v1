@@ -59,15 +59,15 @@ namespace NXT.Controllers
             Cursor.lockState = CursorLockMode.Locked;
 
             Cursor.visible = false;
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            if (cInput.GetKeyDown("Move1"))
                 CastMove(0);
-            if (Input.GetKeyDown(KeyCode.Alpha2))
+            if (cInput.GetKeyDown("Move2"))
                 CastMove(1);
-            if (Input.GetKeyDown(KeyCode.Alpha3))
+            if (cInput.GetKeyDown("Move3"))
                 CastMove(2);
-            if (Input.GetKeyDown(KeyCode.Alpha4))
+            if (cInput.GetKeyDown("Move4"))
                 CastMove(3);
-            if (Input.GetKeyDown(KeyCode.Alpha5))
+            if (cInput.GetKeyDown("Move5"))
                 CastMove(4);
 
             if (Input.GetMouseButtonDown(1))

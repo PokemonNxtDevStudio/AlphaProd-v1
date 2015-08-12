@@ -25,6 +25,7 @@ public class KeyDefenition : MonoBehaviour {
         cInput.SetKey("Move2", Keys.Alpha2);
         cInput.SetKey("Move3", Keys.Alpha3);
         cInput.SetKey("Move4", Keys.Alpha4);
+        cInput.SetKey("Move5", Keys.Alpha5);
 
         cInput.SetKey("Bag", Keys.Tab, Keys.I);
         cInput.SetKey("Map", Keys.M);
@@ -37,5 +38,6 @@ public class KeyDefenition : MonoBehaviour {
 
         cInput.SetAxis("Horizontal", "Left", "Right");
         cInput.SetAxis("Vertical", "Backwards", "Forward");
+
     }
 }

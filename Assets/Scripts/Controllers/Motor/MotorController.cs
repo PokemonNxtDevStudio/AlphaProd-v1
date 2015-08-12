@@ -9,7 +9,7 @@ public enum MotorState
     Input,
     AI
 }
-    public class MotorController :MonoBehaviour
+    public class MotorController : MonoBehaviour
     {
 
         public MotorState motorState = MotorState.Input;
@@ -45,16 +45,18 @@ public enum MotorState
 			if (moveOverrde)
 				return;
             //obj.UpdatePosition(transform.position);
-			if (Input.GetAxis("Vertical") >= 1)  {
-                FaceCamera();
-            }
+            //if (Input.GetAxis("Vertical") >= 1)  {
+            //    FaceCamera();
+            //}
+
+            FaceCamera();
 			
 			
 
 		
             if (motorState == MotorState.Input)
             {
-               	Move(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
+               	Move(new Vector3(cInput.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
             }
         }
         public void SetState(MotorState ms)
@@ -112,9 +114,10 @@ public enum MotorState
             {
 					
 				
-					AnimatorCtrl.Trigger(Animator.StringToHash("Jump"));
+				AnimatorCtrl.Trigger(Animator.StringToHash("Jump"));
 				mRigidbody.velocity  =  new Vector3(velocity.x, JumpSpeed, velocity.z);
-                }
+            }
+
 //			Grounded
                 //Stay on the ground bitch
 				//               
