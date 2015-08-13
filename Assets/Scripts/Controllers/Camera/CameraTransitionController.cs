@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Holoville.HOTween;
+//using Holoville.HOTween;
 
 public class CameraTransitionController : MonoBehaviour {
-	[SerializeField] private EaseType ease;
+	//[SerializeField] private EaseType ease;
 	[SerializeField] private float offsetY;
 	[SerializeField] private Transform target;
 
 
 //	private int currentTarget=0;
-	private Tweener tween;
+	//private Tweener tween;
 	// Use this for initialization
 	void Start () {
 //		if (m_cameraTargets.Length > 0)
@@ -27,14 +27,14 @@ public class CameraTransitionController : MonoBehaviour {
 
 	public void SetTarget(Transform __target, float __delay = 0, bool __noAnim = false){
 		transform.parent = __target;
-		if (tween != null)
-			tween.Kill ();
-		tween = null;
+		//if (tween != null)
+		//	tween.Kill ();
+		//tween = null;
 		if (__noAnim) {
 			transform.localPosition = new Vector3(0,offsetY,0);
 		} else {
 //			Vector3 localPos = transform.localPosition;
-			tween = HOTween.To (gameObject.transform, .5f, new TweenParms ().Prop ( "localPosition", new Vector3 ( 0, offsetY, 0 )).Ease(ease).Delay(__delay));
+			//tween = HOTween.To (gameObject.transform, .5f, new TweenParms ().Prop ( "localPosition", new Vector3 ( 0, offsetY, 0 )).Ease(ease).Delay(__delay));
 		}
 	}
 }

@@ -11,7 +11,8 @@ public class MoveSlot : IconSlot
     public ProgressBar cooldown; //using radial spin
 
 
-    private MoveData moveData;
+    private MoveData moveData = null;
+
     // Use this for initialization
     void Start()
     {

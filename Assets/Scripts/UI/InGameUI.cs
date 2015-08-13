@@ -13,7 +13,7 @@ public class InGameUI : UIWindow
     {
         if (cInput.GetKeyDown("Use"))
         {
-            Debug.Log("Showing ui");
+            ActiveWindow(Transition.Out, TransitionType.Zoom);
         }
 	}
 }
