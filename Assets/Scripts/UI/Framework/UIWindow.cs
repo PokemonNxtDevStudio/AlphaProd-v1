@@ -2,10 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 
-
-
-
-
 public enum Transition
 {
     Toggle,
@@ -18,28 +14,14 @@ public enum TransitionType
     Instant,
     Fade,
     Zoom,
-    SlideLeft,
-    SlideRight,
-    SlideTop,
-    SlideBottom,
-    HingeLeft,
-    HingeRight,
-    HingeTop,
-    HingeBottom
 }
 
 /// <summary>
 ///  TODO:
-///   1)Fade in and out panels based on IDS
-///   
-///   2) Ids are mapped to enums types
 /// 
 ///   3) Test this script by toggling different panels on and off
 ///  
 ///   4) set panels interactable = false when they fade out
-///  
-///   5) Use leantween if you can 
-/// 
 /// </summary>
 [RequireComponent(typeof(Canvas))]
 [RequireComponent(typeof(CanvasGroup))]
@@ -87,6 +69,7 @@ public class UIWindow : MonoBehaviour
 
     public WindowType windowType = WindowType.UndefinedUI;
     public Transform contentHolder;
+    bool canTransition = true;
 
     int windowID { get { return (int)windowType; } }
 
@@ -130,8 +113,6 @@ public class UIWindow : MonoBehaviour
 
     void Start()
     {
-
-   
         canvasGroup = GetComponent<CanvasGroup>();
         canvas = GetComponent<Canvas>();
 
@@ -199,6 +180,8 @@ public class UIWindow : MonoBehaviour
         this.canvas.sortingLayerID = FrontOrder;
     }
 
+    bool temp = true;
+
     /// <summary>
     /// Activate or de-active a window
     /// </summary>
@@ -209,235 +192,122 @@ public class UIWindow : MonoBehaviour
     {
         if (contentHolder != null)
         {
-            switch (transition)
+            if (canTransition)
             {
-                case Transition.Toggle: // Toggling the window
-                    switch (transitionType)
-                    {
-                        case TransitionType.Instant:
-                            if (contentHolder.gameObject.activeSelf)
-                            {
-                                TransitionInstantOut();
-                            }
-                            else if (!contentHolder.gameObject.activeSelf)
-                            {
+                switch (transition)
+                {
+                    case Transition.Toggle: // Toggling the window
+                        switch (transitionType)
+                        {
+                            case TransitionType.Instant:
+                                if (contentHolder.gameObject.activeSelf)
+                                {
+                                    TransitionInstantOut();
+                                }
+                                else if (!contentHolder.gameObject.activeSelf)
+                                {
+                                    TransitionInstantIn();
+                                }
+                                break;
+                            case TransitionType.Fade:
+
+                                if (contentHolder.gameObject.activeSelf)
+                                {
+                                    temp = false;
+                                    StartCoroutine(TransitionFadeOut(speed));
+                                }
+                                else if (!contentHolder.gameObject.activeSelf)
+                                {
+                                    temp = true;
+                                    StartCoroutine(TransitionFadeIn(speed));
+                                }
+                                break;
+                            case TransitionType.Zoom:
+                                if (contentHolder.gameObject.activeSelf)
+                                {
+                                    temp = false;
+                                    StartCoroutine(TransitionZoomOut(speed));
+                                }
+                                else if (!contentHolder.gameObject.activeSelf)
+                                {
+                                    temp = true;
+                                    StartCoroutine(TransitionZoomIn(speed));
+                                }
+                                break;
+                        }
+                        break;
+                    case Transition.In: // Making the window go in
+                        switch (transitionType)
+                        {
+                            case TransitionType.Instant:
                                 TransitionInstantIn();
-                            }
-                            break;
-                        case TransitionType.Fade:
-
-                            break;
-                        case TransitionType.Zoom:
-
-                            break;
-                        case TransitionType.SlideLeft:
-
-                            break;
-                        case TransitionType.SlideRight:
-
-                            break;
-                        case TransitionType.SlideTop:
-
-                            break;
-                        case TransitionType.SlideBottom:
-
-                            break;
-                        case TransitionType.HingeLeft:
-
-                            break;
-                        case TransitionType.HingeRight:
-
-                            break;
-                        case TransitionType.HingeTop:
-
-                            break;
-                        case TransitionType.HingeBottom:
-
-                            break;
-                    }
-                    break;
-                case Transition.In: // Making the window go in
-                    switch (transitionType)
-                    {
-                        case TransitionType.Instant:
-                            TransitionInstantIn();
-                            break;
-                        case TransitionType.Fade:
-                            TransitionFadeIn(speed);
-                            break;
-                        case TransitionType.Zoom:
-                            TransitionZoomIn(speed);
-                            break;
-                        case TransitionType.SlideLeft:
-                            TransitionSlideIn(TransitionDirection.Left, speed);
-                            break;
-                        case TransitionType.SlideRight:
-                            TransitionSlideIn(TransitionDirection.Right, speed);
-                            break;
-                        case TransitionType.SlideTop:
-                            TransitionSlideIn(TransitionDirection.Top, speed);
-                            break;
-                        case TransitionType.SlideBottom:
-                            TransitionSlideIn(TransitionDirection.Bottom, speed);
-                            break;
-                        case TransitionType.HingeLeft:
-                            TransitionHingeIn(TransitionDirection.Left, speed);
-                            break;
-                        case TransitionType.HingeRight:
-                            TransitionHingeIn(TransitionDirection.Right, speed);
-                            break;
-                        case TransitionType.HingeTop:
-                            TransitionHingeIn(TransitionDirection.Top, speed);
-                            break;
-                        case TransitionType.HingeBottom:
-                            TransitionHingeIn(TransitionDirection.Bottom, speed);
-                            break;
-                    }
-                    break;
-                case Transition.Out: // Making the window go out
-                    switch (transitionType)
-                    {
-                        case TransitionType.Instant:
-                            TransitionInstantOut();
-                            break;
-                        case TransitionType.Fade:
-                            TransitionFadeOut(speed);
-                            break;
-                        case TransitionType.Zoom:
-                            TransitionZoomOut(speed);
-                            break;
-                        case TransitionType.SlideLeft:
-                            TransitionSlideOut(TransitionDirection.Left, speed);
-                            break;
-                        case TransitionType.SlideRight:
-                            TransitionSlideOut(TransitionDirection.Right, speed);
-                            break;
-                        case TransitionType.SlideTop:
-                            TransitionSlideOut(TransitionDirection.Top, speed);
-                            break;
-                        case TransitionType.SlideBottom:
-                            TransitionSlideOut(TransitionDirection.Bottom, speed);
-                            break;
-                        case TransitionType.HingeLeft:
-                            TransitionHingeOut(TransitionDirection.Left, speed);
-                            break;
-                        case TransitionType.HingeRight:
-                            TransitionHingeOut(TransitionDirection.Right, speed);
-                            break;
-                        case TransitionType.HingeTop:
-                            TransitionHingeOut(TransitionDirection.Top, speed);
-                            break;
-                        case TransitionType.HingeBottom:
-                            TransitionHingeOut(TransitionDirection.Bottom, speed);
-                            break;
-                    }
-                    break;
+                                break;
+                            case TransitionType.Fade:
+                                StartCoroutine(TransitionFadeIn(speed));
+                                break;
+                            case TransitionType.Zoom:
+                                StartCoroutine(TransitionZoomIn(speed));
+                                break;
+                        }
+                        break;
+                    case Transition.Out: // Making the window go out
+                        switch (transitionType)
+                        {
+                            case TransitionType.Instant:
+                                TransitionInstantOut();
+                                break;
+                            case TransitionType.Fade:
+                                StartCoroutine(TransitionFadeOut(speed));
+                                break;
+                            case TransitionType.Zoom:
+                                StartCoroutine(TransitionZoomOut(speed));
+                                break;
+                        }
+                        break;
+                }
             }
         }
     }
-    enum TransitionDirection
-    {
-        Left,
-        Right,
-        Top,
-        Bottom
-    }
+
     void TransitionInstantIn()
     {
         contentHolder.gameObject.SetActive(true);
-    }
-    void TransitionFadeIn(float speed)
-    {
-        LeanTween.alpha(contentHolder.GetComponent<RectTransform>(), 1.0f, speed);
-
-    }
-    void TransitionZoomIn(float speed)
-    {
-        LeanTween.scale(contentHolder.GetComponent<RectTransform>(), new Vector3(1.0f, 1.0f), speed);
-    }  
-    void TransitionSlideIn(TransitionDirection transitionDirection, float speed)
-    {
-        switch (transitionDirection)
-        {
-            case TransitionDirection.Left:
-
-                break;
-            case TransitionDirection.Right:
-
-                break;
-            case TransitionDirection.Top:
-
-                break;
-            case TransitionDirection.Bottom:
-
-                break;
-        }
-    }
-    void TransitionHingeIn(TransitionDirection transitionDirection, float speed)
-    {
-        switch (transitionDirection)
-        {
-            case TransitionDirection.Left:
-
-                break;
-            case TransitionDirection.Right:
-
-                break;
-            case TransitionDirection.Top:
-
-                break;
-            case TransitionDirection.Bottom:
-
-                break;
-        }
     }
     void TransitionInstantOut()
     {
         contentHolder.gameObject.SetActive(false);
     }
-    void TransitionFadeOut(float speed)
+    IEnumerator TransitionFadeIn(float speed)
     {
+        canTransition = false;
+        contentHolder.gameObject.SetActive(true);
+        LeanTween.alpha(contentHolder.GetComponent<RectTransform>(), 1.0f, speed);
+        yield return new WaitForSeconds(speed);
+        canTransition = true;
+    }
+    IEnumerator TransitionFadeOut(float speed)
+    {
+        canTransition = false;
         LeanTween.alpha(contentHolder.GetComponent<RectTransform>(), 0.0f, speed);
+        yield return new WaitForSeconds(speed);
+        contentHolder.gameObject.SetActive(false);
+        canTransition = true;
     }
-    void TransitionZoomOut(float speed)
+    IEnumerator TransitionZoomIn(float speed)
     {
-        LeanTween.scale(contentHolder.GetComponent<RectTransform>(), new Vector3(0.05f, 0.05f), speed);
-    }
-    void TransitionSlideOut(TransitionDirection transitionDirection, float speed)
+        canTransition = false;
+        contentHolder.gameObject.SetActive(true);
+        LeanTween.scale(contentHolder.GetComponent<RectTransform>(), new Vector3(1.0f, 1.0f), speed);
+        yield return new WaitForSeconds(speed);
+        canTransition = true;
+    }     
+    IEnumerator TransitionZoomOut(float speed)
     {
-        switch (transitionDirection)
-        {
-            case TransitionDirection.Left:
-
-                break;
-            case TransitionDirection.Right:
-
-                break;
-            case TransitionDirection.Top:
-
-                break;
-            case TransitionDirection.Bottom:
-
-                break;
-        }
-    }
-    void TransitionHingeOut(TransitionDirection transitionDirection, float speed)
-    {
-        switch (transitionDirection)
-        {
-            case TransitionDirection.Left:
-
-                break;
-            case TransitionDirection.Right:
-
-                break;
-            case TransitionDirection.Top:
-
-                break;
-            case TransitionDirection.Bottom:
-
-                break;
-        }
+        canTransition = false;
+        LeanTween.scale(contentHolder.GetComponent<RectTransform>(), new Vector3(0.01f, 0.01f), speed);
+        yield return new WaitForSeconds(speed);
+        contentHolder.gameObject.SetActive(false);
+        canTransition = true;
     }
 
 #region old 
