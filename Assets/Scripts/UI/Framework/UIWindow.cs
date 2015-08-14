@@ -25,7 +25,6 @@ public enum TransitionType
 /// </summary>
 [RequireComponent(typeof(Canvas))]
 [RequireComponent(typeof(CanvasGroup))]
-
 public class UIWindow : MonoBehaviour
 {
         
@@ -68,7 +67,8 @@ public class UIWindow : MonoBehaviour
     private static Dictionary<int,UIWindow> mWindows = new Dictionary<int,UIWindow> ();
 
     public WindowType windowType = WindowType.UndefinedUI;
-    public Transform contentHolder;
+    public GameObject contentHolder;
+    public CanvasGroup canvasGroup;
     bool canTransition = true;
 
     int windowID { get { return (int)windowType; } }
@@ -79,8 +79,7 @@ public class UIWindow : MonoBehaviour
         
     public bool fadeEnabled = true;
     public bool startHidden = true;
-    public bool hideOnLostFocus = false;
-    private CanvasGroup canvasGroup;
+    public bool hideOnLostFocus = false;   
     private Canvas canvas;
     private int sortOrder;
         
@@ -113,12 +112,12 @@ public class UIWindow : MonoBehaviour
 
     void Start()
     {
-        canvasGroup = GetComponent<CanvasGroup>();
+        //canvasGroup = contentHolder.GetComponent<CanvasGroup>();
         canvas = GetComponent<Canvas>();
 
         sortOrder = canvas.sortingLayerID;
 
-        HandleStartingState();
+        //HandleStartingState();
     }
 
     void HandleStartingState()
@@ -180,8 +179,6 @@ public class UIWindow : MonoBehaviour
         this.canvas.sortingLayerID = FrontOrder;
     }
 
-    bool temp = true;
-
     /// <summary>
     /// Activate or de-active a window
     /// </summary>
@@ -200,37 +197,33 @@ public class UIWindow : MonoBehaviour
                         switch (transitionType)
                         {
                             case TransitionType.Instant:
-                                if (contentHolder.gameObject.activeSelf)
+                                if (contentHolder.activeSelf)
                                 {
                                     TransitionInstantOut();
                                 }
-                                else if (!contentHolder.gameObject.activeSelf)
+                                else if (!contentHolder.activeSelf)
                                 {
                                     TransitionInstantIn();
                                 }
                                 break;
                             case TransitionType.Fade:
 
-                                if (contentHolder.gameObject.activeSelf)
+                                if (contentHolder.activeSelf)
                                 {
-                                    temp = false;
                                     StartCoroutine(TransitionFadeOut(speed));
                                 }
-                                else if (!contentHolder.gameObject.activeSelf)
+                                else if (!contentHolder.activeSelf)
                                 {
-                                    temp = true;
                                     StartCoroutine(TransitionFadeIn(speed));
                                 }
                                 break;
                             case TransitionType.Zoom:
-                                if (contentHolder.gameObject.activeSelf)
+                                if (contentHolder.activeSelf)
                                 {
-                                    temp = false;
                                     StartCoroutine(TransitionZoomOut(speed));
                                 }
-                                else if (!contentHolder.gameObject.activeSelf)
+                                else if (!contentHolder.activeSelf)
                                 {
-                                    temp = true;
                                     StartCoroutine(TransitionZoomIn(speed));
                                 }
                                 break;
@@ -269,45 +262,53 @@ public class UIWindow : MonoBehaviour
         }
     }
 
-    void TransitionInstantIn()
+    void TransitionInstantIn() // Instantly transition in
     {
-        contentHolder.gameObject.SetActive(true);
+        contentHolder.SetActive(true);
     }
-    void TransitionInstantOut()
+    void TransitionInstantOut() // Instantly transition out
     {
-        contentHolder.gameObject.SetActive(false);
+        contentHolder.SetActive(false);
     }
-    IEnumerator TransitionFadeIn(float speed)
+    IEnumerator TransitionFadeIn(float speed) // Fade transition in
     {
         canTransition = false;
-        contentHolder.gameObject.SetActive(true);
-        LeanTween.alpha(contentHolder.GetComponent<RectTransform>(), 1.0f, speed);
+        contentHolder.SetActive(true);
+        LeanTween.value(contentHolder, SetAlpha, 0.0f, 1.0f, speed);
         yield return new WaitForSeconds(speed);
+        canvasGroup.interactable = true;
         canTransition = true;
     }
-    IEnumerator TransitionFadeOut(float speed)
+    IEnumerator TransitionFadeOut(float speed) // Fade transition out
     {
         canTransition = false;
-        LeanTween.alpha(contentHolder.GetComponent<RectTransform>(), 0.0f, speed);
+        canvasGroup.interactable = false;
+        LeanTween.value(contentHolder, SetAlpha, 1.0f, 0.0f, speed);
         yield return new WaitForSeconds(speed);
-        contentHolder.gameObject.SetActive(false);
+        contentHolder.SetActive(false);
         canTransition = true;
     }
-    IEnumerator TransitionZoomIn(float speed)
+    IEnumerator TransitionZoomIn(float speed) // Zoom transition in
     {
         canTransition = false;
-        contentHolder.gameObject.SetActive(true);
+        contentHolder.SetActive(true);
         LeanTween.scale(contentHolder.GetComponent<RectTransform>(), new Vector3(1.0f, 1.0f), speed);
         yield return new WaitForSeconds(speed);
+        canvasGroup.interactable = true;
         canTransition = true;
     }     
-    IEnumerator TransitionZoomOut(float speed)
+    IEnumerator TransitionZoomOut(float speed) // Zoom transition out
     {
         canTransition = false;
+        canvasGroup.interactable = false;
         LeanTween.scale(contentHolder.GetComponent<RectTransform>(), new Vector3(0.01f, 0.01f), speed);
         yield return new WaitForSeconds(speed);
-        contentHolder.gameObject.SetActive(false);
+        contentHolder.SetActive(false);
         canTransition = true;
+    }
+    void SetAlpha(float val) // Change the alpha for fading
+    {
+        canvasGroup.alpha = val;
     }
 
 #region old 
