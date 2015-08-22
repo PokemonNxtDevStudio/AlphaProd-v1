@@ -10,7 +10,7 @@ public class MoveSlot : IconSlot
 
     public ProgressBar cooldown; //using radial spin
 
-
+    public bool isDraggable;
     private MoveData moveData = null;
 
     // Use this for initialization
