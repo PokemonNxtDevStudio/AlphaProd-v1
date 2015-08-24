@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-
-
 
 /// <summary>
 /// - Bind this class to a target pokemon
@@ -13,7 +12,7 @@ using System.Collections.Generic;
 /// 2) Create battle panel using images
 /// 3) Either Inherit UIWindow or have it as seperate component
 /// 4) Have a test script that assigns all the values explicity //Create a test class to take inputs and cause damage or whatever to show on screen
-/// Explecit = direct reference and calls (non event)
+/// Explicit = direct reference and calls (non event)
 /// 5) Bind HP/PP/XP bars to pokemon
 /// 6) Bind icon to image
 /// 7) Add poke title
@@ -26,13 +25,16 @@ using System.Collections.Generic;
 public class BattlePanel : MonoBehaviour
 {
 
-
     public List<MoveSlot> moveSlots;
 
     public Pokemon target;
 
-    public ProgressBar hp;
-    public ProgressBar pp;
+    public Image icon;
+    public Image hpBar;
+    public Text hpText;
+    public Image ppBar;
+    public Text ppText;
+    public Image expBar;
     //Lvl1
     //Exp Bar
     //Pokemon Image
@@ -40,10 +42,10 @@ public class BattlePanel : MonoBehaviour
 
 
     private Trainer trainer;
-    // Use this for initialization
+
     void Start()
     {
-
+        
     }
     
     public void Init()
@@ -55,22 +57,78 @@ public class BattlePanel : MonoBehaviour
         this.target = target;
     }
     
-    void SetIcon()
+    /// <summary>
+    /// Update Icon
+    /// </summary>
+    /// <param name="sprite"></param>
+    public void SetIcon(Sprite sprite)
+    {
+        icon.sprite = sprite;
+    }
+
+    public void SetMoves(MoveData moveData) // TODO Set move icon based on which move it is
     {
 
     }
 
-    void SetProgressBars()
-
+    public void SetItems() // Set items the same as moves ^^
+    {
 
     }
 
+    /// <summary>
+    /// Update HP and change the bar's color based on health percentage
+    /// </summary>
+    /// <param name="newHP"></param>
+    /// <param name="maxHP"></param>
+    public void UpdateHP(float currentHP, float maxHP)
+    {
+        float dec = currentHP / maxHP;
+        Debug.Log(dec);
+        hpBar.fillAmount = dec;
+        hpText.text = currentHP + "/" + maxHP;
+        if (dec > 0.5f) // Green
+        {
+            hpBar.color = Color.green;
+        }
+        else if (dec <= 0.5f && dec > 0.2f) // Yellow
+        {
+            hpBar.color = Color.yellow;
+        }
+        else if (dec <= 0.2f) // Red
+        {
+            hpBar.color = Color.red;
+        }
+    }
+
+    /// <summary>
+    /// Update PP
+    /// </summary>
+    /// <param name="currentPP"></param>
+    /// <param name="maxPP"></param>
+    public void UpdatePP(float currentPP, float maxPP)
+    {
+        float dec = currentPP / maxPP;
+        ppBar.fillAmount = dec;
+        ppText.text = currentPP + "/" + maxPP;
+    }
+
+    /// <summary>
+    /// Update Exp
+    /// </summary>
+    /// <param name="currentExp"></param>
+    /// <param name="maxExp"></param>
+    public void UpdateEXP(float currentExp, float maxExp)
+    {
+        float dec = currentExp / maxExp;
+        expBar.fillAmount = dec;
+    }
 
     void OnMoveCast(int slotID)
     {
-        //ToDO for loop to slotID in moveslots and cast useMOve
+        //TODO for loop to slotID in moveslots and cast useMove
     }
-    // Update is called once per frame
+
     void Update()
     {
        // if(target!=null)
