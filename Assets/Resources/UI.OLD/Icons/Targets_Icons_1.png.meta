@@ -1,0 +1,231 @@
+fileFormatVersion: 2
+guid: f16509c3b58fc7c4590710253e68e93d
+timeCreated: 1432782370
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Targets_Icons_1_0
+    21300002: Targets_Icons_1_1
+    21300004: Targets_Icons_1_2
+    21300006: Targets_Icons_1_3
+    21300008: Targets_Icons_1_4
+    21300010: Targets_Icons_1_5
+    21300012: Targets_Icons_1_6
+    21300014: Targets_Icons_1_7
+    21300016: Targets_Icons_1_8
+    21300018: Targets_Icons_1_9
+    21300020: Targets_Icons_1_10
+    21300022: Targets_Icons_1_11
+    21300024: Targets_Icons_1_12
+    21300026: Targets_Icons_1_13
+    21300028: Targets_Icons_1_14
+    21300030: Targets_Icons_1_15
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Targets_Icons_1_0
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 755
+        width: 226
+        height: 228
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Targets_Icons_1_1
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 756
+        width: 223
+        height: 223
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Targets_Icons_1_2
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 753
+        width: 222
+        height: 226
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Targets_Icons_1_3
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 752
+        width: 224
+        height: 227
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Targets_Icons_1_4
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 533
+        width: 229
+        height: 220
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Targets_Icons_1_5
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 529
+        width: 222
+        height: 223
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Targets_Icons_1_6
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 546
+        width: 214
+        height: 191
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Targets_Icons_1_7
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 546
+        width: 217
+        height: 206
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Targets_Icons_1_8
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 310
+        width: 219
+        height: 218
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Targets_Icons_1_9
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 314
+        width: 215
+        height: 213
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Targets_Icons_1_10
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 310
+        width: 229
+        height: 225
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Targets_Icons_1_11
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 313
+        width: 216
+        height: 215
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Targets_Icons_1_12
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 88
+        width: 222
+        height: 220
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Targets_Icons_1_13
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 88
+        width: 224
+        height: 224
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Targets_Icons_1_14
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 88
+        width: 220
+        height: 222
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Targets_Icons_1_15
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 89
+        width: 222
+        height: 221
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
