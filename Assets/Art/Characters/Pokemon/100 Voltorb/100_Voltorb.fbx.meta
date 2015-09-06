@@ -61,7 +61,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       loopTime: 1
-      loopBlend: 0
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -233,7 +233,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 1.20000005
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

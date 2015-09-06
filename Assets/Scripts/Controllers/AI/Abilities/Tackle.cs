@@ -23,12 +23,15 @@ public class Tackle : MoveBehavior
     private MotorController motorController;
     private CameraController m_camera;
     private bool isCheckingCollision = false;
+
+    private MotorState lastState;
     public override void Start()
     {
 
         base.Start();
         m_camera = Camera.main.GetComponent<CameraController>();
         motorController = GetComponent<MotorController>();
+        lastState = motorController.motorState;
     }
 
     public override void UseMove()
@@ -52,7 +55,8 @@ public class Tackle : MoveBehavior
     protected override void StopMove()
     {
         StopCoroutine(QuickAttackCo());
-        motorController.SetState(MotorState.Input);
+        
+        motorController.SetState(lastState);
     }
 
     void initializeMove()
@@ -84,17 +88,23 @@ public class Tackle : MoveBehavior
         Debug.Log("TriggerSecondary");
        
         motorController.RestoreBaseSpeed();
+        if(lastState == MotorState.Input)
         m_camera.DeactivateBlur();
+
         GetComponent<Animator>().CrossFade(Animator.StringToHash("Quick Attack"), 1f, 0, 0);
         isCheckingCollision = true;
-        motorController.SetState(MotorState.Input);
+       
+        motorController.SetState(lastState);
     }
     IEnumerator QuickAttackCo()
     {
         isWaitingSecondaryAction = true;
-        motorController.SetState(MotorState.AI);
+        if (motorController.motorState == MotorState.Input)
+            m_camera.ActivateBlur();
+       // lastState = motorController.motorState;
+        motorController.SetState(MotorState.None);
         GetComponent<Animator>().CrossFade(Animator.StringToHash("Quick Attack Run"), 0.1f, 0, 0);
-        m_camera.ActivateBlur();
+        
 //        float factor = 1.1f;
        
 

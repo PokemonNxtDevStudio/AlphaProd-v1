@@ -1122,7 +1122,7 @@ public class cInput : MonoBehaviour {
 		}
 
 		// if we got this far then the string didn't match and there's a problem
-		Debug.LogError("Couldn't find an axis match for " + axisName + ". Is it possible you typed it wrong?");
+		//Debug.LogError("Couldn't find an axis match for " + axisName + ". Is it possible you typed it wrong?");
 		return 0;
 	}
 
